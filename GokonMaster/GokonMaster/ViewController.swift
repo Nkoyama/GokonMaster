@@ -16,6 +16,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // ボタンの装飾
+        let rgba = UIColor(red: 255/255, green: 128/255, blue: 168/255, alpha: 1.0) // ボタン背景色設定
+        gokonStartBtn.backgroundColor = rgba                                               // 背景色
+        gokonStartBtn.layer.borderWidth = 0.5                                              // 枠線の幅
+        gokonStartBtn.layer.borderColor = UIColor.black.cgColor                            // 枠線の色
+        gokonStartBtn.layer.cornerRadius = 5.0                                             // 角丸のサイズ
     }
     
     override func didReceiveMemoryWarning() {
