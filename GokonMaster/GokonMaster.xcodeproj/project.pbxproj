@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4363E96522794A420080B2D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E96422794A420080B2D3 /* AppDelegate.swift */; };
+		4363E96722794A420080B2D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E96622794A420080B2D3 /* ViewController.swift */; };
+		4363E96A22794A430080B2D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4363E96822794A430080B2D3 /* Main.storyboard */; };
+		4363E96C22794A480080B2D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4363E96B22794A480080B2D3 /* Assets.xcassets */; };
+		4363E96F22794A480080B2D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4363E96D22794A480080B2D3 /* LaunchScreen.storyboard */; };
+		4363E97A22794A480080B2D3 /* GokonMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E97922794A480080B2D3 /* GokonMasterTests.swift */; };
+		4363E98522794A480080B2D3 /* GokonMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E98422794A480080B2D3 /* GokonMasterUITests.swift */; };
+		4363E993227967A50080B2D3 /* gokon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4363E992227967A50080B2D3 /* gokon_logo.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4363E97622794A480080B2D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4363E95922794A420080B2D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4363E96022794A420080B2D3;
+			remoteInfo = GokonMaster;
+		};
+		4363E98122794A480080B2D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4363E95922794A420080B2D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4363E96022794A420080B2D3;
+			remoteInfo = GokonMaster;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4363E96122794A420080B2D3 /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4363E96422794A420080B2D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4363E96622794A420080B2D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4363E96922794A430080B2D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4363E96B22794A480080B2D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4363E96E22794A480080B2D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4363E97022794A480080B2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4363E97522794A480080B2D3 /* GokonMasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GokonMasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4363E97922794A480080B2D3 /* GokonMasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GokonMasterTests.swift; sourceTree = "<group>"; };
+		4363E97B22794A480080B2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4363E98022794A480080B2D3 /* GokonMasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GokonMasterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4363E98422794A480080B2D3 /* GokonMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GokonMasterUITests.swift; sourceTree = "<group>"; };
+		4363E98622794A480080B2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4363E992227967A50080B2D3 /* gokon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gokon_logo.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4363E95E22794A420080B2D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4363E97222794A480080B2D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4363E97D22794A480080B2D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4363E95822794A420080B2D3 = {
+			isa = PBXGroup;
+			children = (
+				4363E96322794A420080B2D3 /* GokonMaster */,
+				4363E97822794A480080B2D3 /* GokonMasterTests */,
+				4363E98322794A480080B2D3 /* GokonMasterUITests */,
+				4363E96222794A420080B2D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4363E96222794A420080B2D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4363E96122794A420080B2D3 /* GokonMaster.app */,
+				4363E97522794A480080B2D3 /* GokonMasterTests.xctest */,
+				4363E98022794A480080B2D3 /* GokonMasterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4363E96322794A420080B2D3 /* GokonMaster */ = {
+			isa = PBXGroup;
+			children = (
+				4363E994227967B80080B2D3 /* images */,
+				4363E96422794A420080B2D3 /* AppDelegate.swift */,
+				4363E96622794A420080B2D3 /* ViewController.swift */,
+				4363E96822794A430080B2D3 /* Main.storyboard */,
+				4363E96B22794A480080B2D3 /* Assets.xcassets */,
+				4363E96D22794A480080B2D3 /* LaunchScreen.storyboard */,
+				4363E97022794A480080B2D3 /* Info.plist */,
+			);
+			path = GokonMaster;
+			sourceTree = "<group>";
+		};
+		4363E97822794A480080B2D3 /* GokonMasterTests */ = {
+			isa = PBXGroup;
+			children = (
+				4363E97922794A480080B2D3 /* GokonMasterTests.swift */,
+				4363E97B22794A480080B2D3 /* Info.plist */,
+			);
+			path = GokonMasterTests;
+			sourceTree = "<group>";
+		};
+		4363E98322794A480080B2D3 /* GokonMasterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4363E98422794A480080B2D3 /* GokonMasterUITests.swift */,
+				4363E98622794A480080B2D3 /* Info.plist */,
+			);
+			path = GokonMasterUITests;
+			sourceTree = "<group>";
+		};
+		4363E994227967B80080B2D3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				4363E992227967A50080B2D3 /* gokon_logo.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4363E96022794A420080B2D3 /* GokonMaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4363E98922794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMaster" */;
+			buildPhases = (
+				4363E95D22794A420080B2D3 /* Sources */,
+				4363E95E22794A420080B2D3 /* Frameworks */,
+				4363E95F22794A420080B2D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GokonMaster;
+			productName = GokonMaster;
+			productReference = 4363E96122794A420080B2D3 /* GokonMaster.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4363E97422794A480080B2D3 /* GokonMasterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4363E98C22794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMasterTests" */;
+			buildPhases = (
+				4363E97122794A480080B2D3 /* Sources */,
+				4363E97222794A480080B2D3 /* Frameworks */,
+				4363E97322794A480080B2D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4363E97722794A480080B2D3 /* PBXTargetDependency */,
+			);
+			name = GokonMasterTests;
+			productName = GokonMasterTests;
+			productReference = 4363E97522794A480080B2D3 /* GokonMasterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4363E97F22794A480080B2D3 /* GokonMasterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4363E98F22794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMasterUITests" */;
+			buildPhases = (
+				4363E97C22794A480080B2D3 /* Sources */,
+				4363E97D22794A480080B2D3 /* Frameworks */,
+				4363E97E22794A480080B2D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4363E98222794A480080B2D3 /* PBXTargetDependency */,
+			);
+			name = GokonMasterUITests;
+			productName = GokonMasterUITests;
+			productReference = 4363E98022794A480080B2D3 /* GokonMasterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4363E95922794A420080B2D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Nozomi Koyama";
+				TargetAttributes = {
+					4363E96022794A420080B2D3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					4363E97422794A480080B2D3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 4363E96022794A420080B2D3;
+					};
+					4363E97F22794A480080B2D3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 4363E96022794A420080B2D3;
+					};
+				};
+			};
+			buildConfigurationList = 4363E95C22794A420080B2D3 /* Build configuration list for PBXProject "GokonMaster" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4363E95822794A420080B2D3;
+			productRefGroup = 4363E96222794A420080B2D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4363E96022794A420080B2D3 /* GokonMaster */,
+				4363E97422794A480080B2D3 /* GokonMasterTests */,
+				4363E97F22794A480080B2D3 /* GokonMasterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4363E95F22794A420080B2D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4363E96F22794A480080B2D3 /* LaunchScreen.storyboard in Resources */,
+				4363E96C22794A480080B2D3 /* Assets.xcassets in Resources */,
+				4363E96A22794A430080B2D3 /* Main.storyboard in Resources */,
+				4363E993227967A50080B2D3 /* gokon_logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4363E97322794A480080B2D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4363E97E22794A480080B2D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4363E95D22794A420080B2D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4363E96722794A420080B2D3 /* ViewController.swift in Sources */,
+				4363E96522794A420080B2D3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4363E97122794A480080B2D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4363E97A22794A480080B2D3 /* GokonMasterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4363E97C22794A480080B2D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4363E98522794A480080B2D3 /* GokonMasterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4363E97722794A480080B2D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4363E96022794A420080B2D3 /* GokonMaster */;
+			targetProxy = 4363E97622794A480080B2D3 /* PBXContainerItemProxy */;
+		};
+		4363E98222794A480080B2D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4363E96022794A420080B2D3 /* GokonMaster */;
+			targetProxy = 4363E98122794A480080B2D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4363E96822794A430080B2D3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4363E96922794A430080B2D3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4363E96D22794A480080B2D3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4363E96E22794A480080B2D3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4363E98722794A480080B2D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4363E98822794A480080B2D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4363E98A22794A480080B2D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GokonMaster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMaster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4363E98B22794A480080B2D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GokonMaster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMaster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4363E98D22794A480080B2D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GokonMasterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMasterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GokonMaster.app/GokonMaster";
+			};
+			name = Debug;
+		};
+		4363E98E22794A480080B2D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GokonMasterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMasterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GokonMaster.app/GokonMaster";
+			};
+			name = Release;
+		};
+		4363E99022794A480080B2D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GokonMasterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMasterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GokonMaster;
+			};
+			name = Debug;
+		};
+		4363E99122794A480080B2D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GokonMasterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMasterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GokonMaster;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4363E95C22794A420080B2D3 /* Build configuration list for PBXProject "GokonMaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4363E98722794A480080B2D3 /* Debug */,
+				4363E98822794A480080B2D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4363E98922794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4363E98A22794A480080B2D3 /* Debug */,
+				4363E98B22794A480080B2D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4363E98C22794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMasterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4363E98D22794A480080B2D3 /* Debug */,
+				4363E98E22794A480080B2D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4363E98F22794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMasterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4363E99022794A480080B2D3 /* Debug */,
+				4363E99122794A480080B2D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4363E95922794A420080B2D3 /* Project object */;
+}
