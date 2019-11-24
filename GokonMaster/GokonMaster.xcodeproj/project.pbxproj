@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11610A61AE05D259CC51856A /* Pods_GokonMasterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CD1F1D64C5A56AA416DB29 /* Pods_GokonMasterTests.framework */; };
+		1287A1D77584D8339EF9FC6D /* Pods_GokonMaster_GokonMasterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A737244ED4BDEC469B6C46A8 /* Pods_GokonMaster_GokonMasterUITests.framework */; };
 		4363E96522794A420080B2D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E96422794A420080B2D3 /* AppDelegate.swift */; };
 		4363E96722794A420080B2D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E96622794A420080B2D3 /* ViewController.swift */; };
 		4363E96A22794A430080B2D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4363E96822794A430080B2D3 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 		4363E97A22794A480080B2D3 /* GokonMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E97922794A480080B2D3 /* GokonMasterTests.swift */; };
 		4363E98522794A480080B2D3 /* GokonMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E98422794A480080B2D3 /* GokonMasterUITests.swift */; };
 		4363E993227967A50080B2D3 /* gokon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4363E992227967A50080B2D3 /* gokon_logo.png */; };
+		43BE69CE235F02C0008719C9 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE69CD235F02C0008719C9 /* Participant.swift */; };
+		B09102851D45C7968F739DD9 /* Pods_GokonMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9D2D71D8F20DD72FD1FC3AA /* Pods_GokonMaster.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24CD1F1D64C5A56AA416DB29 /* Pods_GokonMasterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMasterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3689AFB3CA3864451056D726 /* Pods-GokonMaster-GokonMasterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster-GokonMasterUITests.release.xcconfig"; path = "Target Support Files/Pods-GokonMaster-GokonMasterUITests/Pods-GokonMaster-GokonMasterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4363E96122794A420080B2D3 /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4363E96422794A420080B2D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4363E96622794A420080B2D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		4363E98422794A480080B2D3 /* GokonMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GokonMasterUITests.swift; sourceTree = "<group>"; };
 		4363E98622794A480080B2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4363E992227967A50080B2D3 /* gokon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gokon_logo.png; sourceTree = "<group>"; };
+		43BE69CD235F02C0008719C9 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		44380AAFD1D2C7AD6E75323D /* Pods-GokonMasterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMasterTests.release.xcconfig"; path = "Target Support Files/Pods-GokonMasterTests/Pods-GokonMasterTests.release.xcconfig"; sourceTree = "<group>"; };
+		50F89ABA299D0E5D7DE148E3 /* Pods-GokonMaster-GokonMasterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster-GokonMasterUITests.debug.xcconfig"; path = "Target Support Files/Pods-GokonMaster-GokonMasterUITests/Pods-GokonMaster-GokonMasterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		88DA2608C1AAA2B5D4635C3D /* Pods-GokonMasterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMasterTests.debug.xcconfig"; path = "Target Support Files/Pods-GokonMasterTests/Pods-GokonMasterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A737244ED4BDEC469B6C46A8 /* Pods_GokonMaster_GokonMasterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMaster_GokonMasterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9D2D71D8F20DD72FD1FC3AA /* Pods_GokonMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFAD511E3A9F5F1B8DB4BA88 /* Pods-GokonMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.debug.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.debug.xcconfig"; sourceTree = "<group>"; };
+		FBD3EDDEEAD80ADBC5891C6E /* Pods-GokonMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.release.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09102851D45C7968F739DD9 /* Pods_GokonMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11610A61AE05D259CC51856A /* Pods_GokonMasterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1287A1D77584D8339EF9FC6D /* Pods_GokonMaster_GokonMasterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +100,8 @@
 				4363E97822794A480080B2D3 /* GokonMasterTests */,
 				4363E98322794A480080B2D3 /* GokonMasterUITests */,
 				4363E96222794A420080B2D3 /* Products */,
+				A98CFA3D9D7EAAF47E33DF1F /* Pods */,
+				5F2662FC0BB2FE14D2346050 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +125,7 @@
 				4363E96B22794A480080B2D3 /* Assets.xcassets */,
 				4363E96D22794A480080B2D3 /* LaunchScreen.storyboard */,
 				4363E97022794A480080B2D3 /* Info.plist */,
+				43BE69CD235F02C0008719C9 /* Participant.swift */,
 			);
 			path = GokonMaster;
 			sourceTree = "<group>";
@@ -136,6 +156,29 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		5F2662FC0BB2FE14D2346050 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9D2D71D8F20DD72FD1FC3AA /* Pods_GokonMaster.framework */,
+				A737244ED4BDEC469B6C46A8 /* Pods_GokonMaster_GokonMasterUITests.framework */,
+				24CD1F1D64C5A56AA416DB29 /* Pods_GokonMasterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A98CFA3D9D7EAAF47E33DF1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFAD511E3A9F5F1B8DB4BA88 /* Pods-GokonMaster.debug.xcconfig */,
+				FBD3EDDEEAD80ADBC5891C6E /* Pods-GokonMaster.release.xcconfig */,
+				50F89ABA299D0E5D7DE148E3 /* Pods-GokonMaster-GokonMasterUITests.debug.xcconfig */,
+				3689AFB3CA3864451056D726 /* Pods-GokonMaster-GokonMasterUITests.release.xcconfig */,
+				88DA2608C1AAA2B5D4635C3D /* Pods-GokonMasterTests.debug.xcconfig */,
+				44380AAFD1D2C7AD6E75323D /* Pods-GokonMasterTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4363E98922794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMaster" */;
 			buildPhases = (
+				F9E69226D94B14040A9B08BF /* [CP] Check Pods Manifest.lock */,
 				4363E95D22794A420080B2D3 /* Sources */,
 				4363E95E22794A420080B2D3 /* Frameworks */,
 				4363E95F22794A420080B2D3 /* Resources */,
+				5574C1BA72A9373CF504CED0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4363E98C22794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMasterTests" */;
 			buildPhases = (
+				A0C14BECE45ECA7CD53679CC /* [CP] Check Pods Manifest.lock */,
 				4363E97122794A480080B2D3 /* Sources */,
 				4363E97222794A480080B2D3 /* Frameworks */,
 				4363E97322794A480080B2D3 /* Resources */,
@@ -178,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4363E98F22794A480080B2D3 /* Build configuration list for PBXNativeTarget "GokonMasterUITests" */;
 			buildPhases = (
+				7B94BFAD5C38A9FC9521A9BF /* [CP] Check Pods Manifest.lock */,
 				4363E97C22794A480080B2D3 /* Sources */,
 				4363E97D22794A480080B2D3 /* Frameworks */,
 				4363E97E22794A480080B2D3 /* Resources */,
+				EAF023425E17F41F010F2F47 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,6 +311,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5574C1BA72A9373CF504CED0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GokonMaster/Pods-GokonMaster-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GokonMaster/Pods-GokonMaster-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GokonMaster/Pods-GokonMaster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B94BFAD5C38A9FC9521A9BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GokonMaster-GokonMasterUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0C14BECE45ECA7CD53679CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GokonMasterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAF023425E17F41F010F2F47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GokonMaster-GokonMasterUITests/Pods-GokonMaster-GokonMasterUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GokonMaster-GokonMasterUITests/Pods-GokonMaster-GokonMasterUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GokonMaster-GokonMasterUITests/Pods-GokonMaster-GokonMasterUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9E69226D94B14040A9B08BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GokonMaster-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4363E95D22794A420080B2D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -270,6 +421,7 @@
 			files = (
 				4363E96722794A420080B2D3 /* ViewController.swift in Sources */,
 				4363E96522794A420080B2D3 /* AppDelegate.swift in Sources */,
+				43BE69CE235F02C0008719C9 /* Participant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +594,7 @@
 		};
 		4363E98A22794A480080B2D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFAD511E3A9F5F1B8DB4BA88 /* Pods-GokonMaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -459,6 +612,7 @@
 		};
 		4363E98B22794A480080B2D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBD3EDDEEAD80ADBC5891C6E /* Pods-GokonMaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +630,7 @@
 		};
 		4363E98D22794A480080B2D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88DA2608C1AAA2B5D4635C3D /* Pods-GokonMasterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -496,6 +651,7 @@
 		};
 		4363E98E22794A480080B2D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44380AAFD1D2C7AD6E75323D /* Pods-GokonMasterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +672,7 @@
 		};
 		4363E99022794A480080B2D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50F89ABA299D0E5D7DE148E3 /* Pods-GokonMaster-GokonMasterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +692,7 @@
 		};
 		4363E99122794A480080B2D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3689AFB3CA3864451056D726 /* Pods-GokonMaster-GokonMasterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
