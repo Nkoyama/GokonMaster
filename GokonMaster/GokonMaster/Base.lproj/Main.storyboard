@@ -41,73 +41,58 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fBJ-aZ-a0T" kind="show" id="wxw-56-XVe"/>
+                                    <segue destination="fBJ-aZ-a0T" kind="show" identifier="setting1" animates="NO" id="S3d-Ds-RTj"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="glb-dv-sE5"/>
                     <connections>
                         <outlet property="gokonStartBtn" destination="d8c-3b-6Lu" id="H4p-B7-Ho7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="133.5832083958021"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="yfK-pg-1Se">
-            <objects>
-                <viewController id="wBY-Bh-wrX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="q01-Qj-dIa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="NlY-Se-pML"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2ab-LY-nud"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XcG-Iw-ajj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1583" y="134"/>
+            <point key="canvasLocation" x="-1305" y="-502"/>
         </scene>
         <!--setting_initial-->
         <scene sceneID="Nm0-mH-esj">
             <objects>
-                <viewController title="setting_initial" id="fBJ-aZ-a0T" customClass="ViewController" customModule="GokonMaster" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nKX-aJ-WaX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                <viewController title="setting_initial" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" id="fBJ-aZ-a0T" customClass="ViewController" customModule="GokonMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="nKX-aJ-WaX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合コンmaster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4D-F6-FAu">
-                                <rect key="frame" x="38" y="39" width="298" height="60"/>
+                                <rect key="frame" x="38" y="114" width="298" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="50"/>
                                 <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="最初に以下の設定をして下さい。" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIn-Ar-6Hf">
-                                <rect key="frame" x="38" y="129" width="298" height="30"/>
+                                <rect key="frame" x="38" y="207" width="298" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="参加人数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qui-7i-F9N">
-                                <rect key="frame" x="16" y="179" width="97" height="30"/>
+                                <rect key="frame" x="16" y="259" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="男：" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lbV-TL-9dR">
-                                <rect key="frame" x="38" y="220" width="35" height="26"/>
+                                <rect key="frame" x="38" y="301" width="35" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="17Z-1Y-QZi" userLabel="maleNumTF">
-                                <rect key="frame" x="74" y="221" width="30" height="24"/>
+                                <rect key="frame" x="74" y="302" width="30" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -118,19 +103,19 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5W-FQ-hKe">
-                                <rect key="frame" x="105" y="220" width="19" height="26"/>
+                                <rect key="frame" x="105" y="301" width="19" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="女：" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1oy-Jq-PsE">
-                                <rect key="frame" x="186" y="220" width="35" height="26"/>
+                                <rect key="frame" x="186" y="301" width="35" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="siW-hH-Lqe" userLabel="femaleNumTF">
-                                <rect key="frame" x="225" y="221" width="30" height="24"/>
+                                <rect key="frame" x="225" y="302" width="30" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -141,39 +126,39 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axZ-Ta-zgp">
-                                <rect key="frame" x="256" y="220" width="22" height="26"/>
+                                <rect key="frame" x="256" y="301" width="22" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="合計：" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9i-mC-2rv">
-                                <rect key="frame" x="38" y="254" width="53" height="26"/>
+                                <rect key="frame" x="38" y="336" width="53" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVe-hd-M7M">
-                                <rect key="frame" x="136" y="254" width="19" height="26"/>
+                                <rect key="frame" x="136" y="336" width="19" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptB-Nw-EAD">
-                                <rect key="frame" x="105" y="255" width="30" height="24"/>
+                                <rect key="frame" x="105" y="337" width="30" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="テーブルタイプ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gY-lK-EJp">
-                                <rect key="frame" x="16" y="329" width="130" height="30"/>
+                                <rect key="frame" x="16" y="414" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pAp-0H-52e">
-                                <rect key="frame" x="16" y="366" width="343" height="32"/>
+                                <rect key="frame" x="16" y="452" width="343" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="四角"/>
@@ -181,22 +166,36 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="It5-4f-m72">
-                                <rect key="frame" x="161" y="562" width="51" height="28"/>
+                                <rect key="frame" x="161" y="580" width="51" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="次へ">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
-                                <connections>
-                                    <segue destination="wBY-Bh-wrX" kind="show" identifier="goNextSetting" id="AXf-Cl-2Ok"/>
-                                </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uso-ft-WKk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="設定" leftItemsSupplementBackButton="YES" id="yR8-c1-7RZ">
+                                        <barButtonItem key="backBarButtonItem" title="戻る" id="kTD-Vh-nrT"/>
+                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="45J-be-Ubh">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="backTop" animates="NO" id="bGZ-CF-O9F"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dWn-Ox-Oic"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZxM-eT-nrq"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BG7-gu-RLZ"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="femaleNumTF" destination="siW-hH-Lqe" id="dKH-E1-M6s"/>
                         <outlet property="maleNumTF" destination="17Z-1Y-QZi" id="nxn-76-lBK"/>
@@ -206,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABk-AV-FKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="904.79999999999995" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-220" y="-502.39880059970017"/>
         </scene>
     </scenes>
 </document>
