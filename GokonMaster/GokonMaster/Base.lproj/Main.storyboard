@@ -41,7 +41,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fBJ-aZ-a0T" kind="modal" id="r4a-az-9N3"/>
+                                    <segue destination="fBJ-aZ-a0T" kind="show" id="wxw-56-XVe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,6 +55,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yfK-pg-1Se">
+            <objects>
+                <viewController id="wBY-Bh-wrX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q01-Qj-dIa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="NlY-Se-pML"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2ab-LY-nud"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcG-Iw-ajj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1583" y="134"/>
         </scene>
         <!--setting_initial-->
         <scene sceneID="Nm0-mH-esj">
@@ -150,14 +166,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="テーブルタイプ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gY-lK-EJp">
-                                <rect key="frame" x="16" y="310" width="130" height="30"/>
+                                <rect key="frame" x="16" y="329" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pAp-0H-52e">
-                                <rect key="frame" x="16" y="337" width="343" height="32"/>
+                                <rect key="frame" x="16" y="366" width="343" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="四角"/>
@@ -172,27 +188,19 @@
                                 <state key="normal" title="次へ">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="wBY-Bh-wrX" kind="show" identifier="goNextSetting" id="AXf-Cl-2Ok"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfM-Zk-XAs">
-                                <rect key="frame" x="54" y="388" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2nC-1i-w71">
-                                <rect key="frame" x="221" y="388" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dWn-Ox-Oic"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZxM-eT-nrq"/>
                     <connections>
                         <outlet property="femaleNumTF" destination="siW-hH-Lqe" id="dKH-E1-M6s"/>
                         <outlet property="maleNumTF" destination="17Z-1Y-QZi" id="nxn-76-lBK"/>
                         <outlet property="tabelTypeSelect" destination="pAp-0H-52e" id="F03-vf-kaT"/>
-                        <outlet property="table_circle" destination="2nC-1i-w71" id="Hku-ye-qdh"/>
-                        <outlet property="table_square" destination="TfM-Zk-XAs" id="Izn-Mq-J4W"/>
                         <outlet property="totalNum" destination="ptB-Nw-EAD" id="7ub-Ho-edZ"/>
                     </connections>
                 </viewController>

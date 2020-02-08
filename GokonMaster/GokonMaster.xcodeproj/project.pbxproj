@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11610A61AE05D259CC51856A /* Pods_GokonMasterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CD1F1D64C5A56AA416DB29 /* Pods_GokonMasterTests.framework */; };
 		1287A1D77584D8339EF9FC6D /* Pods_GokonMaster_GokonMasterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A737244ED4BDEC469B6C46A8 /* Pods_GokonMaster_GokonMasterUITests.framework */; };
-		4352FF2123E84A0600881960 /* TableCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4352FF2023E84A0600881960 /* TableCircle.swift */; };
 		4363E96522794A420080B2D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E96422794A420080B2D3 /* AppDelegate.swift */; };
 		4363E96722794A420080B2D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363E96622794A420080B2D3 /* ViewController.swift */; };
 		4363E96A22794A430080B2D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4363E96822794A430080B2D3 /* Main.storyboard */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		24CD1F1D64C5A56AA416DB29 /* Pods_GokonMasterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMasterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3689AFB3CA3864451056D726 /* Pods-GokonMaster-GokonMasterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster-GokonMasterUITests.release.xcconfig"; path = "Target Support Files/Pods-GokonMaster-GokonMasterUITests/Pods-GokonMaster-GokonMasterUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4352FF2023E84A0600881960 /* TableCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCircle.swift; sourceTree = "<group>"; };
 		4363E96122794A420080B2D3 /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4363E96422794A420080B2D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4363E96622794A420080B2D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				4363E96D22794A480080B2D3 /* LaunchScreen.storyboard */,
 				4363E97022794A480080B2D3 /* Info.plist */,
 				43BE69CD235F02C0008719C9 /* Participant.swift */,
-				4352FF2023E84A0600881960 /* TableCircle.swift */,
 			);
 			path = GokonMaster;
 			sourceTree = "<group>";
@@ -424,7 +421,6 @@
 			files = (
 				4363E96722794A420080B2D3 /* ViewController.swift in Sources */,
 				4363E96522794A420080B2D3 /* AppDelegate.swift in Sources */,
-				4352FF2123E84A0600881960 /* TableCircle.swift in Sources */,
 				43BE69CE235F02C0008719C9 /* Participant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -66,10 +66,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             //delegateを適用
             femaleNumTF.delegate = self
         }
-        
-//        let tableCircle = TableCircle(frame: self.view.bounds)
-//        self.view.addSubview(tableCircle)
-
     }
     
     // UIPickerViewの数
