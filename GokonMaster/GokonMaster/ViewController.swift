@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	// views
+	let button = UIButton()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.green
-    }
+		// background color
+		self.view.backgroundColor = UIColor.green
 
+		/* start button */
+		self.view.addSubview(self.button)
+		self.button.setTitle("Next", for: .normal)
+		self.button.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
+		
+	}
+	
+	// start button action
+	@objc func buttonDidTap(_ sender: UIButton) {
+	}
 }
