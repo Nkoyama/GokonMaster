@@ -1,7 +1,10 @@
-source 'https://github.com/NKoyama/GokonMaster.git'
-platform :ios, '13.0'
-use_frameworks!
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
 
 target 'GokonMaster' do
-    pod 'SnapKit', '~> 3.1.2'
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for GokonMaster
+  pod 'SnapKit', '>=3.2.0'
 end

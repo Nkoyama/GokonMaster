@@ -12,7 +12,7 @@
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
 		43C1D5932403CB76005A48AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C1D5922403CB76005A48AB /* Assets.xcassets */; };
 		43C1D5962403CB76005A48AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C1D5942403CB76005A48AB /* LaunchScreen.storyboard */; };
-		D6A397AEDAC816A404A405DC /* Pods_GokonMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0CA93B90D3FDEE53905A4F /* Pods_GokonMaster.framework */; };
+		C26845CDD84C30FF59770C5D /* Pods_GokonMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9478BB460482A08C8822A2C3 /* Pods_GokonMaster.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +23,8 @@
 		43C1D5922403CB76005A48AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43C1D5952403CB76005A48AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43C1D5972403CB76005A48AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A0CA93B90D3FDEE53905A4F /* Pods_GokonMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D09E09ABF2D98E333BAF89 /* Pods-GokonMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.debug.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.debug.xcconfig"; sourceTree = "<group>"; };
+		9478BB460482A08C8822A2C3 /* Pods_GokonMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CECF6018B55BB10ADD615A /* Pods-GokonMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.release.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6A397AEDAC816A404A405DC /* Pods_GokonMaster.framework in Frameworks */,
+				C26845CDD84C30FF59770C5D /* Pods_GokonMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +84,7 @@
 		92797175348ED726D450648A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A0CA93B90D3FDEE53905A4F /* Pods_GokonMaster.framework */,
+				9478BB460482A08C8822A2C3 /* Pods_GokonMaster.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 				43C1D5822403CB71005A48AB /* Sources */,
 				43C1D5832403CB71005A48AB /* Frameworks */,
 				43C1D5842403CB71005A48AB /* Resources */,
-				67D169D56C8116DDCBC0EEA2 /* [CP] Embed Pods Frameworks */,
+				B8B85358A4291EED31D428AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,7 +179,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		67D169D56C8116DDCBC0EEA2 /* [CP] Embed Pods Frameworks */ = {
+		B8B85358A4291EED31D428AF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
