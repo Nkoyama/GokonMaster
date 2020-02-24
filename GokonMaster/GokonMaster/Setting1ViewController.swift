@@ -1,7 +1,15 @@
+//
+//  Setting1ViewController.swift
+//  GokonMaster
+//
+//  Created by Nozomi Koyama on 2020/02/24.
+//  Copyright © 2020 Nozomi Koyama. All rights reserved.
+//
+
 import UIKit
 import SnapKit
 
-// ViewControllerを継承する
+/// 設定画面①
 class Setting1ViewController: ViewController {
 	
 	// MARK: Views
@@ -11,15 +19,7 @@ class Setting1ViewController: ViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// 背景色を変更
-		self.view.backgroundColor = UIColor.red
-		// ラベルの文字を変更
-		self.label.text = "みんなは何か書いた？"
-		// ボタンの文字を変更
-		self.button.setTitle("Back", for: .normal)
-	}
-	
-	@objc override func buttonDidTap(_ sender: UIButton) {
-		self.dismiss(animated: true, completion: nil)
+		// background color
+		self.view.backgroundColor = UIColor.white
 	}
 }

@@ -9,28 +9,32 @@
 import UIKit
 import SnapKit
 
+/// 初期画面
 class ViewController: UIViewController {
 
-	// views
-	let button = UIButton()
+	// MARK: Views
+	let startBtn = UIButton()
 	
+	// MARK: Life Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		// background color
 		self.view.backgroundColor = UIColor.green
 
-		/* start button */
-		self.view.addSubview(self.button)
-		self.button.setTitle("合コンスタート", for: .normal)
-		self.button.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
-		self.button.snp.makeConstraints { (make) in
+		// start button
+		self.view.addSubview(self.startBtn)
+		self.startBtn.setTitle("合コンスタート", for: .normal)
+		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
+		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview() // X軸中心を親Viewに合わせる
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100) //下から100ポイント上に配置
 		}
 	}
 	
-	// start button action
+	/// startBtn action
+	/// - Parameter sender:
+	/// - Authors: Nozomi Koyama
 	@objc func buttonDidTap(_ sender: UIButton) {
 		let setting1ViewController = Setting1ViewController()
 		self.present(setting1ViewController, animated: true, completion: nil)
