@@ -13,8 +13,9 @@ import SnapKit
 class Setting1ViewController: ViewController {
 	
 	// MARK: Views
-	let smallTitle = UILabel()
-	let settingMsg = UILabel()
+	let smallTitle = UILabel()	// title
+	let settingMsg = UILabel()	// setting message
+	let joinNum = UILabel()		// 参加人数
 	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -39,6 +40,15 @@ class Setting1ViewController: ViewController {
 		self.settingMsg.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+		}
+		
+		// 参加人数
+		self.joinNum.text = "参加人数"
+		self.joinNum.textColor = UIColor.purple
+		self.view.addSubview(joinNum)
+		self.joinNum.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
 		}
 	}
 }
