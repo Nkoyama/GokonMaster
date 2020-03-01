@@ -9,25 +9,52 @@
 import UIKit
 import SnapKit
 
+/// 初期画面
 class ViewController: UIViewController {
 
-	// views
-	let button = UIButton()
+	// MARK: Views
+	let startBtn = UIButton()
+	let titleLabel = UILabel()
 	
+	// MARK: Life Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		// background color
 		self.view.backgroundColor = UIColor.green
-
-		/* start button */
-		self.view.addSubview(self.button)
-		self.button.setTitle("Next", for: .normal)
-		self.button.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		
+		// title
+		titleLabel.numberOfLines = 2
+		titleLabel.text = "合コン\n    master"
+		titleLabel.textColor = UIColor.blue
+		titleLabel.font = UIFont.italicSystemFont(ofSize: 50.0)
+		self.view.addSubview(titleLabel)
+		self.titleLabel.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)	//上から250p
+		}
+
+		// start button
+		self.startBtn.setTitle(" 合コンスタート ", for: .normal)
+		self.startBtn.setTitleColor(UIColor.black, for: .normal)
+		self.startBtn.backgroundColor = UIColor.white
+		self.startBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.startBtn.layer.borderColor = UIColor.gray.cgColor	//枠線色
+		self.startBtn.layer.borderWidth = 2.0					//枠線太さ
+		self.startBtn.layer.cornerRadius = 2.0					//枠線丸み
+		self.view.addSubview(self.startBtn)
+		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
+		self.startBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)	//下から100p
+		}
 	}
 	
-	// start button action
+	/// startBtn action
+	/// - Parameter sender:
+	/// - Authors: Nozomi Koyama
 	@objc func buttonDidTap(_ sender: UIButton) {
+		let setting1ViewController = Setting1ViewController()
+		self.present(setting1ViewController, animated: true, completion: nil)
 	}
 }

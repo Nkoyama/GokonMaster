@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43477D472403E5A8001D37CE /* Setting1ViewController.swift */; };
 		43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D5892403CB72005A48AB /* AppDelegate.swift */; };
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43477D472403E5A8001D37CE /* Setting1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting1ViewController.swift; sourceTree = "<group>"; };
 		43C1D5862403CB72005A48AB /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C1D5892403CB72005A48AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +48,6 @@
 				78D09E09ABF2D98E333BAF89 /* Pods-GokonMaster.debug.xcconfig */,
 				A3CECF6018B55BB10ADD615A /* Pods-GokonMaster.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,6 +78,7 @@
 				43C1D5922403CB76005A48AB /* Assets.xcassets */,
 				43C1D5942403CB76005A48AB /* LaunchScreen.storyboard */,
 				43C1D5972403CB76005A48AB /* Info.plist */,
+				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
 			);
 			path = GokonMaster;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */,
+				43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */,
 				43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */,
 				43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */,
 			);
