@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 
 	// MARK: Views
 	let startBtn = UIButton()
+	let titleLabel = UILabel()
 	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -21,14 +22,25 @@ class ViewController: UIViewController {
 
 		// background color
 		self.view.backgroundColor = UIColor.green
+		
+		// title
+		titleLabel.numberOfLines = 2
+		titleLabel.text = "合コン\n    master"
+		titleLabel.textColor = UIColor.blue
+		titleLabel.font = UIFont.italicSystemFont(ofSize: 50.0)
+		self.view.addSubview(titleLabel)
+		self.titleLabel.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)	//上から250ポイント
+		}
 
 		// start button
-		self.view.addSubview(self.startBtn)
 		self.startBtn.setTitle("合コンスタート", for: .normal)
+		self.view.addSubview(self.startBtn)
 		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview() // X軸中心を親Viewに合わせる
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100) //下から100ポイント上に配置
+			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)	//下から100ポイント
 		}
 	}
 	
