@@ -31,16 +31,22 @@ class ViewController: UIViewController {
 		self.view.addSubview(titleLabel)
 		self.titleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)	//上から250ポイント
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)	//上から250p
 		}
 
 		// start button
-		self.startBtn.setTitle("合コンスタート", for: .normal)
+		self.startBtn.setTitle(" 合コンスタート ", for: .normal)
+		self.startBtn.setTitleColor(UIColor.black, for: .normal)
+		self.startBtn.backgroundColor = UIColor.white
+		self.startBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.startBtn.layer.borderColor = UIColor.gray.cgColor	//枠線色
+		self.startBtn.layer.borderWidth = 2.0					//枠線太さ
+		self.startBtn.layer.cornerRadius = 2.0					//枠線丸み
 		self.view.addSubview(self.startBtn)
 		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)	//下から100ポイント
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)	//下から100p
 		}
 	}
 	
