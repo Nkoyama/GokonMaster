@@ -13,9 +13,10 @@ import SnapKit
 class Setting1ViewController: ViewController {
 	
 	// MARK: Views
-	let smallTitle = UILabel()	// title
-	let settingMsg = UILabel()	// setting message
-	let joinNum = UILabel()		// 参加人数
+	let smallTitle = UILabel()		// title
+	let settingMsg = UILabel()		// setting message
+	let joinNumLabel = UILabel()	// 参加人数
+	let maleLabel = UILabel()		// 男
 	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -43,12 +44,21 @@ class Setting1ViewController: ViewController {
 		}
 		
 		// 参加人数
-		self.joinNum.text = "参加人数"
-		self.joinNum.textColor = UIColor.purple
-		self.view.addSubview(joinNum)
-		self.joinNum.snp.makeConstraints { (make) in
+		self.joinNumLabel.text = "参加人数"
+		self.joinNumLabel.textColor = UIColor.purple
+		self.view.addSubview(joinNumLabel)
+		self.joinNumLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+		}
+		
+		// 男
+		self.maleLabel.text = "男"
+		self.maleLabel.textColor = UIColor.black
+		self.view.addSubview(maleLabel)
+		self.maleLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 		}
 	}
 }
