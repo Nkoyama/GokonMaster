@@ -55,6 +55,7 @@ class ViewController: UIViewController {
 	/// - Authors: Nozomi Koyama
 	@objc func buttonDidTap(_ sender: UIButton) {
 		let setting1ViewController = Setting1ViewController()
-		self.present(setting1ViewController, animated: true, completion: nil)
+		setting1ViewController.modalPresentationStyle = .fullScreen
+		self.present(setting1ViewController, animated: true)
 	}
 }
