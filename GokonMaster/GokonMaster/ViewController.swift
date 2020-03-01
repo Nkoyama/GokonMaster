@@ -22,12 +22,12 @@ class ViewController: UIViewController {
 
 		// background color
 		self.view.backgroundColor = UIColor.green
-		
+
 		// title
-		titleLabel.numberOfLines = 2
-		titleLabel.text = "合コン\n    master"
-		titleLabel.textColor = UIColor.blue
-		titleLabel.font = UIFont.italicSystemFont(ofSize: 50.0)
+		self.titleLabel.numberOfLines = 2
+		self.titleLabel.text = "合コン\n    master"
+		self.titleLabel.textColor = UIColor.blue
+		self.titleLabel.font = UIFont.italicSystemFont(ofSize: 50.0)
 		self.view.addSubview(titleLabel)
 		self.titleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる

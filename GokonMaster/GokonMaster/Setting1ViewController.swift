@@ -13,12 +13,9 @@ import SnapKit
 class Setting1ViewController: ViewController {
 	
 	// MARK: Views
-	let label = UILabel()
 	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
-		super.viewDidLoad()
-		
 		// background color
 		self.view.backgroundColor = UIColor.white
 	}
