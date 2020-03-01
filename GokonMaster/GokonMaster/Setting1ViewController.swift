@@ -10,14 +10,17 @@ import UIKit
 import SnapKit
 
 /// 設定画面①
-class Setting1ViewController: ViewController {
+class Setting1ViewController: ViewController, UITextFieldDelegate {
 	
 	// MARK: Views
 	let smallTitle = UILabel()		// title
 	let settingMsg = UILabel()		// setting message
 	let joinNumLabel = UILabel()	// 参加人数
 	let maleLabel = UILabel()		// 男
-	
+	let maleNum = UITextField()		// 男参加人数
+	let femaleLabel = UILabel()		// 女
+	let femaleNum = UITextField()	// 女参加人数
+
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		// background color
@@ -53,12 +56,45 @@ class Setting1ViewController: ViewController {
 		}
 		
 		// 男
-		self.maleLabel.text = "男"
+		self.maleLabel.text = "男: "
 		self.maleLabel.textColor = UIColor.black
 		self.view.addSubview(maleLabel)
 		self.maleLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 		}
+		
+		// 男参加人数
+		self.maleNum.keyboardType = .numberPad
+		self.maleNum.borderStyle = .roundedRect
+		self.maleNum.returnKeyType = .done
+		self.maleNum.clearButtonMode = .always
+		self.view.addSubview(maleNum)
+		self.maleNum.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
+		}
+		self.maleNum.delegate = self
+
+		// 女
+		self.femaleLabel.text = "女: "
+		self.femaleLabel.textColor = UIColor.black
+		self.view.addSubview(femaleLabel)
+		self.femaleLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+		}
+		
+		// 女参加人数
+		self.femaleNum.keyboardType = .numberPad
+		self.femaleNum.borderStyle = .roundedRect
+		self.femaleNum.returnKeyType = .done
+		self.femaleNum.clearButtonMode = .always
+		self.view.addSubview(femaleNum)
+		self.femaleNum.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(220)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
+		}
+		self.femaleNum.delegate = self
 	}
 }
