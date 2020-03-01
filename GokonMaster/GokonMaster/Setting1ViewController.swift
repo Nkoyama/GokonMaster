@@ -14,6 +14,7 @@ class Setting1ViewController: ViewController {
 	
 	// MARK: Views
 	let smallTitle = UILabel()
+	let settingMsg = UILabel()
 	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -31,5 +32,13 @@ class Setting1ViewController: ViewController {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
 		}
 
+		// setting message
+		self.settingMsg.text = "最初に以下の設定をして下さい。"
+		self.settingMsg.textColor = UIColor.black
+		self.view.addSubview(settingMsg)
+		self.settingMsg.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+		}
 	}
 }
