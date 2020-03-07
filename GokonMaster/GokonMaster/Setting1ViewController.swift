@@ -136,6 +136,9 @@ class Setting1ViewController: ViewController, UITextFieldDelegate {
 		}
 	}
 	
+	/// nwztBtn action
+	/// - Parameter sender:
+	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		let setting2ViewController = Setting2ViewController()
 		setting2ViewController.modalPresentationStyle = .fullScreen
