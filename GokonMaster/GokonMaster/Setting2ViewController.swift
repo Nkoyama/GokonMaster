@@ -13,11 +13,12 @@ class Setting2ViewController: ViewController, UITextFieldDelegate{
 
 	// MARK: Views
 	let smallTitle = UILabel()		// title
+	let settingMsg = UILabel()		// setting message
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		// background color
-		self.view.backgroundColor = UIColor.black
+		self.view.backgroundColor = UIColor.white
 
 		// title
 		self.smallTitle.numberOfLines = 2
@@ -28,6 +29,15 @@ class Setting2ViewController: ViewController, UITextFieldDelegate{
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+		}
+
+		// setting message
+		self.settingMsg.text = "引き続き、以下の設定をして下さい。"
+		self.settingMsg.textColor = UIColor.black
+		self.view.addSubview(settingMsg)
+		self.settingMsg.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
 	}

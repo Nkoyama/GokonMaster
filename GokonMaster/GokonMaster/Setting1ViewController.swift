@@ -121,7 +121,7 @@ class Setting1ViewController: ViewController, UITextFieldDelegate {
 		}
 		
 		// next button
-		self.nextBtn.setTitle("次へ", for: .normal)
+		self.nextBtn.setTitle(" 次へ ", for: .normal)
 		self.nextBtn.setTitleColor(UIColor.black, for: .normal)
 		self.nextBtn.backgroundColor = UIColor.white
 		self.nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
