@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(70)
 		}
 	}
 	

@@ -53,7 +53,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
-		
+
 		// 参加人数
 		self.joinNumLabel.text = "参加人数"
 		self.joinNumLabel.textColor = UIColor.purple
@@ -62,7 +62,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
 		}
-		
+
 		// 男
 		self.maleLabel.text = "男: "
 		self.maleLabel.textColor = UIColor.black
@@ -71,7 +71,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 		}
-		
+
 		// 男参加人数
 		self.maleNumTF.keyboardType = .numberPad
 		self.maleNumTF.borderStyle = .roundedRect
@@ -90,7 +90,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(180)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 		}
-		
+
 		// 女参加人数
 		self.femaleNumTF.keyboardType = .numberPad
 		self.femaleNumTF.borderStyle = .roundedRect
@@ -100,7 +100,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
 		}
 		self.femaleNumTF.delegate = self
-		
+
 		// 合計人数
 		self.joinNumSumLabel.text = "合計人数: 0 人"
 		self.joinNumSumLabel.textColor = UIColor.black
@@ -118,7 +118,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(450)
 		}
-		
+
 		// テーブルタイプ選択
 		let options = ["四角", "丸"]
 		self.tableTypeSC = UISegmentedControl(items: options)
@@ -130,6 +130,11 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(480)
 		}
+
+		// テーブルタイプの（四角、丸）の描画
+		let screenWidth = self.view.bounds.width	//Screen Size Width
+		let tableTypeDraw = TableTypeDrawView(frame: CGRect(x: screenWidth/2-100, y: 570, width: 210, height: 100))
+		self.view.addSubview(tableTypeDraw)
 
 		// next button
 		self.nextBtn.setTitle(" 次へ ", for: .normal)
@@ -143,10 +148,10 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.nextBtn.addTarget(self, action: #selector(self.nextBtnDidTap(_:)), for: .touchUpInside)
 		self.nextBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(70)
 		}
 	}
-	
+
 	/// nextBtn action
 	/// - Parameter sender:
 	/// - Authors: Nozomi Koyama
@@ -155,8 +160,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		setting2ViewController.modalPresentationStyle = .fullScreen
 		self.present(setting2ViewController, animated: true)
 	}
-	
-	
+
 	/// TextField以外の部分をタッチした時の処理
 	/// - Parameters:
 	///   - touches: <#touches description#>
@@ -171,12 +175,12 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		do {
 			try maleNum = String2Int(str: self.maleNumTF.text!)
 		} catch {
-			maleNum  = 0
+			maleNum = 0
 		}
 		do {
 			try femaleNum = String2Int(str: self.femaleNumTF.text!)
 		} catch {
-			femaleNum  = 0
+			femaleNum = 0
 		}
 		joinNumSum = maleNum + femaleNum
 		self.joinNumSumLabel.text = "合計人数: " + String(joinNumSum) + " 人"
