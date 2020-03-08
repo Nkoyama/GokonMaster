@@ -13,16 +13,17 @@ import SnapKit
 class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
 	// MARK: Views
-	let smallTitle		= UILabel()		// title
-	let settingMsg		= UILabel()		// setting message
-	let joinNumLabel	= UILabel()		// 参加人数 label
-	let maleLabel		= UILabel()		// 男 label
-	let maleNumTF		= UITextField()	// 男参加人数
-	let femaleLabel		= UILabel()		// 女 label
-	let femaleNumTF		= UITextField()	// 女参加人数
-	let joinNumSumLabel	= UILabel()		// 合計人数 label
-	let tableTypeLabel	= UILabel()		// テーブルタイプ label
-	let nextBtn			= UIButton()	// 次へボタン
+	let smallTitle		= UILabel()				// title
+	let settingMsg		= UILabel()				// setting message
+	let joinNumLabel	= UILabel()				// 参加人数 label
+	let maleLabel		= UILabel()				// 男 label
+	let maleNumTF		= UITextField()			// 男参加人数
+	let femaleLabel		= UILabel()				// 女 label
+	let femaleNumTF		= UITextField()			// 女参加人数
+	let joinNumSumLabel	= UILabel()				// 合計人数 label
+	let tableTypeLabel	= UILabel()				// テーブルタイプ label
+	var tableTypeSC		= UISegmentedControl()	// テーブルタイプ選択 segmented control
+	let nextBtn			= UIButton()			// 次へボタン
 
 	public var maleNum = 0
 	public var femaleNum = 0
@@ -118,6 +119,18 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(450)
 		}
 		
+		// テーブルタイプ選択
+		let options = ["四角", "丸"]
+		self.tableTypeSC = UISegmentedControl(items: options)
+		self.view.addSubview(self.tableTypeSC)
+		self.tableTypeSC.selectedSegmentIndex = 0
+		self.tableTypeSC.addTarget(self, action: #selector(self.tableTypeChanged(_:)), for: .valueChanged)
+		self.tableTypeSC.snp.makeConstraints { (make) in
+			make.width.equalTo(250)
+			make.centerX.equalToSuperview()
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(480)
+		}
+
 		// next button
 		self.nextBtn.setTitle(" 次へ ", for: .normal)
 		self.nextBtn.setTitleColor(UIColor.black, for: .normal)
@@ -169,4 +182,8 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.joinNumSumLabel.text = "合計人数: " + String(joinNumSum) + " 人"
 	}
 
+	@objc func tableTypeChanged(_ sender: Any) {
+		let tableTypeIndex = self.tableTypeSC.selectedSegmentIndex
+		print(tableTypeIndex)
+	}
 }
