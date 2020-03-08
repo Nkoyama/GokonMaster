@@ -153,7 +153,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	}
 
 	/// nextBtn action
-	/// - Parameter sender:
+	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		let setting2ViewController = Setting2ViewController()
@@ -163,8 +163,8 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
 	/// TextField以外の部分をタッチした時の処理
 	/// - Parameters:
-	///   - touches: <#touches description#>
-	///   - event: <#event description#>
+	///   - touches: Set<UITouch>
+	///   - event: UIEvent
 	/// - Authors: Nozomi Koyama
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		// close keyboard

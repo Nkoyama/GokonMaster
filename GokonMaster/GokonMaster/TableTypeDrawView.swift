@@ -20,7 +20,7 @@ class TableTypeDrawView: UIView {
 	}
 
 	/// テーブルタイプ（四角、丸）の描画
-	/// - Parameter rect: <#rect description#>
+	/// - Parameter rect: CGRect
 	/// - Authors: Nozomi Koyama
 	override func draw(_ rect: CGRect) {
 		// 四角
