@@ -10,21 +10,23 @@ import UIKit
 import SnapKit
 
 /// 設定画面①
-class Setting1ViewController: ViewController, UITextFieldDelegate {
+class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
 	// MARK: Views
-	let smallTitle = UILabel()		// title
-	let settingMsg = UILabel()		// setting message
-	let joinNumLabel = UILabel()	// 参加人数 label
-	let maleLabel = UILabel()		// 男 label
-	let maleNum = UITextField()		// 男参加人数
-	let femaleLabel = UILabel()		// 女 label
-	let femaleNum = UITextField()	// 女参加人数
-	let joinNumSumLabel = UILabel()	// 合計人数 label
-	let tableTypeLabel = UILabel()	// テーブルタイプ label
-	let nextBtn = UIButton()		// 次へボタン
+	let smallTitle		= UILabel()		// title
+	let settingMsg		= UILabel()		// setting message
+	let joinNumLabel	= UILabel()		// 参加人数 label
+	let maleLabel		= UILabel()		// 男 label
+	let maleNumTF		= UITextField()	// 男参加人数
+	let femaleLabel		= UILabel()		// 女 label
+	let femaleNumTF		= UITextField()	// 女参加人数
+	let joinNumSumLabel	= UILabel()		// 合計人数 label
+	let tableTypeLabel	= UILabel()		// テーブルタイプ label
+	let nextBtn			= UIButton()	// 次へボタン
 
-	var joinNumSum = 0
+	public var maleNum = 0
+	public var femaleNum = 0
+	public var joinNumSum = 0
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -70,16 +72,14 @@ class Setting1ViewController: ViewController, UITextFieldDelegate {
 		}
 		
 		// 男参加人数
-		self.maleNum.keyboardType = .numberPad
-		self.maleNum.borderStyle = .roundedRect
-		self.maleNum.returnKeyType = .done
-		self.maleNum.clearButtonMode = .always
-		self.view.addSubview(maleNum)
-		self.maleNum.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+		self.maleNumTF.keyboardType = .numberPad
+		self.maleNumTF.borderStyle = .roundedRect
+		self.view.addSubview(maleNumTF)
+		self.maleNumTF.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(110)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
 		}
-		self.maleNum.delegate = self
+		self.maleNumTF.delegate = self
 
 		// 女
 		self.femaleLabel.text = "女: "
@@ -91,19 +91,17 @@ class Setting1ViewController: ViewController, UITextFieldDelegate {
 		}
 		
 		// 女参加人数
-		self.femaleNum.keyboardType = .numberPad
-		self.femaleNum.borderStyle = .roundedRect
-		self.femaleNum.returnKeyType = .done
-		self.femaleNum.clearButtonMode = .always
-		self.view.addSubview(femaleNum)
-		self.femaleNum.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(220)
+		self.femaleNumTF.keyboardType = .numberPad
+		self.femaleNumTF.borderStyle = .roundedRect
+		self.view.addSubview(femaleNumTF)
+		self.femaleNumTF.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(210)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
 		}
-		self.femaleNum.delegate = self
+		self.femaleNumTF.delegate = self
 		
 		// 合計人数
-		self.joinNumSumLabel.text = "合計人数: "
+		self.joinNumSumLabel.text = "合計人数: 0 人"
 		self.joinNumSumLabel.textColor = UIColor.black
 		self.view.addSubview(joinNumSumLabel)
 		self.joinNumSumLabel.snp.makeConstraints { (make) in
@@ -136,7 +134,7 @@ class Setting1ViewController: ViewController, UITextFieldDelegate {
 		}
 	}
 	
-	/// nwztBtn action
+	/// nextBtn action
 	/// - Parameter sender:
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
@@ -144,4 +142,31 @@ class Setting1ViewController: ViewController, UITextFieldDelegate {
 		setting2ViewController.modalPresentationStyle = .fullScreen
 		self.present(setting2ViewController, animated: true)
 	}
+	
+	
+	/// TextField以外の部分をタッチした時の処理
+	/// - Parameters:
+	///   - touches: <#touches description#>
+	///   - event: <#event description#>
+	/// - Authors: Nozomi Koyama
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		// close keyboard
+		self.maleNumTF.resignFirstResponder()
+		self.femaleNumTF.resignFirstResponder()
+
+		// get values
+		do {
+			try maleNum = String2Int(str: self.maleNumTF.text!)
+		} catch {
+			maleNum  = 0
+		}
+		do {
+			try femaleNum = String2Int(str: self.femaleNumTF.text!)
+		} catch {
+			femaleNum  = 0
+		}
+		joinNumSum = maleNum + femaleNum
+		self.joinNumSumLabel.text = "合計人数: " + String(joinNumSum) + " 人"
+	}
+
 }

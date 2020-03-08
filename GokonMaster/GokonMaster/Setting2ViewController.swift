@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class Setting2ViewController: ViewController, UITextFieldDelegate{
+class Setting2ViewController: UIViewController, UITextFieldDelegate{
 
 	// MARK: Views
 	let smallTitle = UILabel()		// title

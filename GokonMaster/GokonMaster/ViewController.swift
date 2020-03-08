@@ -13,8 +13,8 @@ import SnapKit
 class ViewController: UIViewController {
 
 	// MARK: Views
-	let startBtn = UIButton()
-	let titleLabel = UILabel()
+	let startBtn = UIButton()	// 合コンスタートボタン
+	let titleLabel = UILabel()	// title
 	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 		self.view.addSubview(titleLabel)
 		self.titleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)	//上から250p
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
 		// start button
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)	//下から100p
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
 		}
 	}
 	
