@@ -165,6 +165,10 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			let alert: UIAlertController = UIAlertController(title: "エラー", message: "女性の人数を設定してください。", preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
+		} else if(maleNum > 5 || femaleNum > 5) {
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "申し訳ございませんが、男性または女性が6人以上の合コンには対応しておりません。", preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
 		} else {
 			let setting2ViewController = Setting2ViewController()
 			setting2ViewController.modalPresentationStyle = .fullScreen
