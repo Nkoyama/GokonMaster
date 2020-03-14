@@ -63,6 +63,35 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4341CC0C241CF37400C86FB9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4341CC0A241CEAB700C86FB9 /* PublicValues.swift */,
+				43084D5D2414CA7500370070 /* CommonMethods.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4341CC0D241CF3B600C86FB9 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				43C1D58D2403CB72005A48AB /* ViewController.swift */,
+				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
+				43084D572413B22F00370070 /* Setting2ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4341CC0E241CF3E900C86FB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43084D5F2414E79300370070 /* TableTypeDrawView.swift */,
+				43084D61241CADE900370070 /* TableSquareDrawView.swift */,
+				4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		43C1D57D2403CB71005A48AB = {
 			isa = PBXGroup;
 			children = (
@@ -84,19 +113,14 @@
 		43C1D5882403CB72005A48AB /* GokonMaster */ = {
 			isa = PBXGroup;
 			children = (
+				4341CC0E241CF3E900C86FB9 /* Views */,
+				4341CC0D241CF3B600C86FB9 /* Scenes */,
+				4341CC0C241CF37400C86FB9 /* Common */,
 				43C1D5892403CB72005A48AB /* AppDelegate.swift */,
 				43C1D58B2403CB72005A48AB /* SceneDelegate.swift */,
-				43C1D58D2403CB72005A48AB /* ViewController.swift */,
 				43C1D5922403CB76005A48AB /* Assets.xcassets */,
 				43C1D5942403CB76005A48AB /* LaunchScreen.storyboard */,
 				43C1D5972403CB76005A48AB /* Info.plist */,
-				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
-				43084D5F2414E79300370070 /* TableTypeDrawView.swift */,
-				43084D61241CADE900370070 /* TableSquareDrawView.swift */,
-				4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */,
-				43084D5D2414CA7500370070 /* CommonMethods.swift */,
-				43084D572413B22F00370070 /* Setting2ViewController.swift */,
-				4341CC0A241CEAB700C86FB9 /* PublicValues.swift */,
 			);
 			path = GokonMaster;
 			sourceTree = "<group>";
