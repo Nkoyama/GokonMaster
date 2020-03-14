@@ -25,6 +25,7 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 	let seatBtnH	= UIButton()	// seat button H
 	let seatBtnI	= UIButton()	// seat button I
 	let seatBtnJ	= UIButton()	// seat button J
+	let finishBtn	= UIButton()	// 完了ボタン
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -233,6 +234,21 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: screenWidth/2-80, y: 450, width: 160, height: 160))
 			self.view.addSubview(tableCircleDraw)
 		}
+		
+		// finish button
+		self.finishBtn.setTitle(" 完了 ", for: .normal)
+		self.finishBtn.setTitleColor(UIColor.black, for: .normal)
+		self.finishBtn.backgroundColor = UIColor.green
+		self.finishBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.finishBtn.layer.borderColor = UIColor.clear.cgColor
+		self.finishBtn.layer.borderWidth = 2.0
+		self.finishBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.finishBtn)
+		self.finishBtn.addTarget(self, action: #selector(self.finishBtnDidTap(_:)), for: .touchUpInside)
+		self.finishBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(70)
+		}
 	}
 
 	/// backBtn action
@@ -325,6 +341,12 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 		case actionH = 8
 		case actionI = 9
 		case actionJ = 10
+	}
+
+	/// finishBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func finishBtnDidTap(_ sender: UIButton) {
 	}
 
 }

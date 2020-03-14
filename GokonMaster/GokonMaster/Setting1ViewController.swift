@@ -18,7 +18,7 @@ public var tableTypeIndex = 0
 class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
 	// MARK: Views
-	let returnBtn		= UIButton()			// return button
+	let backBtn			= UIButton()			// back button
 	let smallTitle		= UILabel()				// title
 	let settingMsg		= UILabel()				// setting message
 	let joinNumLabel	= UILabel()				// 参加人数 label
@@ -37,16 +37,16 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.backgroundColor = UIColor.white
 
 		// return button
-		self.returnBtn.setTitle(" 戻る ", for: .normal)
-		self.returnBtn.setTitleColor(UIColor.green, for: .normal)
-		self.returnBtn.backgroundColor = UIColor.clear
-		self.returnBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-		self.returnBtn.layer.borderColor = UIColor.clear.cgColor
-		self.returnBtn.layer.borderWidth = 2.0
-		self.returnBtn.layer.cornerRadius = 2.0
-		self.view.addSubview(self.returnBtn)
-		self.returnBtn.addTarget(self, action: #selector(self.returnBtnDidTap(_:)), for: .touchUpInside)
-		self.returnBtn.snp.makeConstraints { (make) in
+		self.backBtn.setTitle(" 戻る ", for: .normal)
+		self.backBtn.setTitleColor(UIColor.green, for: .normal)
+		self.backBtn.backgroundColor = UIColor.clear
+		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
+		self.backBtn.layer.borderColor = UIColor.clear.cgColor
+		self.backBtn.layer.borderWidth = 2.0
+		self.backBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.backBtn)
+		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
+		self.backBtn.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
 		}
@@ -156,9 +156,9 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		// next button
 		self.nextBtn.setTitle(" 次へ ", for: .normal)
 		self.nextBtn.setTitleColor(UIColor.black, for: .normal)
-		self.nextBtn.backgroundColor = UIColor.white
+		self.nextBtn.backgroundColor = UIColor.green
 		self.nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
-		self.nextBtn.layer.borderColor = UIColor.gray.cgColor
+		self.nextBtn.layer.borderColor = UIColor.clear.cgColor
 		self.nextBtn.layer.borderWidth = 2.0
 		self.nextBtn.layer.cornerRadius = 2.0
 		self.view.addSubview(self.nextBtn)
@@ -169,10 +169,10 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		}
 	}
 
-	/// returnBtn action
+	/// backBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
-	@objc func returnBtnDidTap(_ sender: UIButton) {
+	@objc func backBtnDidTap(_ sender: UIButton) {
 		// 現在の画面を破棄
 		self.dismiss(animated: true, completion: nil)
 	}
