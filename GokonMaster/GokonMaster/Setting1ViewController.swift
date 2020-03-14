@@ -28,6 +28,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	public var maleNum = 0
 	public var femaleNum = 0
 	public var joinNumSum = 0
+	public var tableTypeIndex = 0
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -156,10 +157,24 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
-		let setting2ViewController = Setting2ViewController()
-		setting2ViewController.modalPresentationStyle = .fullScreen
-		self.present(setting2ViewController, animated: true)
+		if(maleNum <= 0) {
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "男性の人数を設定してください。", preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else if(femaleNum <= 0) {
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "女性の人数を設定してください。", preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else {
+			let setting2ViewController = Setting2ViewController()
+			setting2ViewController.modalPresentationStyle = .fullScreen
+			self.present(setting2ViewController, animated: true)
+		}
 	}
+	// エラーメッセージ：OKボタン押下
+	let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+		(action: UIAlertAction!) -> Void in
+	})
 
 	/// TextField以外の部分をタッチした時の処理
 	/// - Parameters:
@@ -187,7 +202,6 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	}
 
 	@objc func tableTypeChanged(_ sender: Any) {
-		let tableTypeIndex = self.tableTypeSC.selectedSegmentIndex
-		print(tableTypeIndex)
+		tableTypeIndex = self.tableTypeSC.selectedSegmentIndex
 	}
 }

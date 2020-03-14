@@ -32,7 +32,7 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 		}
 
 		// setting message
-		self.settingMsg.text = "引き続き、以下の設定をして下さい。"
+		self.settingMsg.text = "席の配置を設定をして下さい。"
 		self.settingMsg.textColor = UIColor.black
 		self.view.addSubview(settingMsg)
 		self.settingMsg.snp.makeConstraints { (make) in
@@ -40,5 +40,9 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
+		let setting1ViewController = Setting1ViewController()
+		if(setting1ViewController.tableTypeIndex == 0){
+			
+		}
 	}
 }
