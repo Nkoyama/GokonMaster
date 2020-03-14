@@ -24,7 +24,7 @@ class TableTypeDrawView: UIView {
 	/// - Authors: Nozomi Koyama
 	override func draw(_ rect: CGRect) {
 		// 四角
-		let square = UIBezierPath(rect: CGRect(x: 0, y: 10, width:80, height: 80))
+		let square = UIBezierPath(rect: CGRect(x: 10, y: 10, width:60, height: 80))
 		UIColor.gray.setFill()
 		square.fill()
 		UIColor.gray.setStroke()
