@@ -56,11 +56,17 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
-		if(tableTypeIndex == 0){
-			// 四角テーブルの描画
+		// テーブル分岐
+		if(tableTypeIndex == 0) {
+			// 四角テーブル
 			let screenWidth = self.view.bounds.width
 			let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80, y: 350, width: 160, height: 400))
 			self.view.addSubview(tableSquareDraw)
+		} else if(tableTypeIndex == 1) {
+			// 丸テーブル
+			let screenWidth = self.view.bounds.width
+			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: screenWidth/2-80, y: 450, width: 160, height: 160))
+			self.view.addSubview(tableCircleDraw)
 		}
 	}
 
