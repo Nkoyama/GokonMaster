@@ -9,6 +9,11 @@
 import UIKit
 import SnapKit
 
+public var maleNum = 0
+public var femaleNum = 0
+public var joinNumSum = 0
+public var tableTypeIndex = 0
+
 /// 設定画面①
 class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
@@ -24,11 +29,6 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	let tableTypeLabel	= UILabel()				// テーブルタイプ label
 	var tableTypeSC		= UISegmentedControl()	// テーブルタイプ選択 segmented control
 	let nextBtn			= UIButton()			// 次へボタン
-
-	public var maleNum = 0
-	public var femaleNum = 0
-	public var joinNumSum = 0
-	public var tableTypeIndex = 0
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -207,5 +207,6 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
 	@objc func tableTypeChanged(_ sender: Any) {
 		tableTypeIndex = self.tableTypeSC.selectedSegmentIndex
+		print(tableTypeIndex)
 	}
 }

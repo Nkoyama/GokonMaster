@@ -40,8 +40,8 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
-		let setting1ViewController = Setting1ViewController()
-		if(setting1ViewController.tableTypeIndex == 0){
+		print(tableTypeIndex)
+		if(tableTypeIndex == 0){
 			// 四角テーブルの描画
 			let screenWidth = self.view.bounds.width
 			let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80, y: 350, width: 160, height: 400))
