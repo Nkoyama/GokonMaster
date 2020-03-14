@@ -113,8 +113,8 @@
 		43C1D5882403CB72005A48AB /* GokonMaster */ = {
 			isa = PBXGroup;
 			children = (
-				4341CC0E241CF3E900C86FB9 /* Views */,
 				4341CC0D241CF3B600C86FB9 /* Scenes */,
+				4341CC0E241CF3E900C86FB9 /* Views */,
 				4341CC0C241CF37400C86FB9 /* Common */,
 				43C1D5892403CB72005A48AB /* AppDelegate.swift */,
 				43C1D58B2403CB72005A48AB /* SceneDelegate.swift */,

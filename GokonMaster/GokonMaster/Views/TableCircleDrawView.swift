@@ -23,7 +23,7 @@ class TableCircleDrawView: UIView {
 	/// - Parameter rect: CGRect
 	/// - Authors: Nozomi Koyama
 	override func draw(_ rect: CGRect) {
-		let circle = UIBezierPath(ovalIn: CGRect(x: 5, y: 5, width:150, height: 150))
+		let circle = UIBezierPath(ovalIn: CGRect(x: 5, y: 5, width:190, height: 190))
 		UIColor.gray.setFill()
 		circle.fill()
 		UIColor.gray.setStroke()

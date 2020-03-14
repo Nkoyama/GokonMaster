@@ -79,7 +79,6 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 			let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80, y: 350, width: 160, height: seatNum*70))
 			self.view.addSubview(tableSquareDraw)
 			
-			/* いい感じにseat buttonを配置 */
 			// seat button A
 			if(seatAFlg) {
 				self.seatBtnA.backgroundColor = UIColor.blue
@@ -271,10 +270,30 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 		} else if(tableTypeIndex == 1) {
 			// 丸テーブル
 			let screenWidth = self.view.bounds.width
-			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: screenWidth/2-80, y: 450, width: 160, height: 160))
+			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: screenWidth/2-100, y: 450, width: 200, height: 200))
 			self.view.addSubview(tableCircleDraw)
+			
+			/* いい感じにseat buttonを配置 */
+			// seat button A
+			if(seatAFlg) {
+				self.seatBtnA.backgroundColor = UIColor.blue
+			} else {
+				self.seatBtnA.backgroundColor = UIColor.white
+			}
+			self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
+			self.seatBtnA.layer.borderWidth = 2.0
+			self.seatBtnA.layer.cornerRadius = 25.0
+			self.seatBtnA.tag = 1
+			self.view.addSubview(self.seatBtnA)
+			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+			self.seatBtnA.snp.makeConstraints { (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-25)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2+25)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(370)
+			}
 		}
-		
+
 		// finish button
 		self.finishBtn.setTitle(" 完了 ", for: .normal)
 		self.finishBtn.setTitleColor(UIColor.black, for: .normal)
