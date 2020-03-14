@@ -9,11 +9,6 @@
 import UIKit
 import SnapKit
 
-public var maleNum = 0
-public var femaleNum = 0
-public var joinNumSum = 0
-public var tableTypeIndex = 0
-
 /// 設定画面①
 class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
