@@ -407,6 +407,27 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func finishBtnDidTap(_ sender: UIButton) {
+		// 座席選択数カウント
+		var choiceSeatNum = 0
+		if(seatAFlg) {choiceSeatNum += 1}
+		if(seatBFlg) {choiceSeatNum += 1}
+		if(seatCFlg) {choiceSeatNum += 1}
+		if(seatDFlg) {choiceSeatNum += 1}
+		if(seatEFlg) {choiceSeatNum += 1}
+		if(seatFFlg) {choiceSeatNum += 1}
+		if(seatGFlg) {choiceSeatNum += 1}
+		if(seatHFlg) {choiceSeatNum += 1}
+		if(seatIFlg) {choiceSeatNum += 1}
+		if(seatJFlg) {choiceSeatNum += 1}
+		if(choiceSeatNum != joinNumSum) {
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "参加者数と選択された座席数が一致しません。\n登録された参加者数は"+String(joinNumSum)+"人です。", preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}
 	}
+	// エラーメッセージ：OKボタン押下
+	let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+		(action: UIAlertAction!) -> Void in
+	})
 
 }
