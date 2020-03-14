@@ -18,6 +18,7 @@ public var tableTypeIndex = 0
 class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
 	// MARK: Views
+	let returnBtn		= UIButton()			// return button
 	let smallTitle		= UILabel()				// title
 	let settingMsg		= UILabel()				// setting message
 	let joinNumLabel	= UILabel()				// 参加人数 label
@@ -34,6 +35,21 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
+
+		// return button
+		self.returnBtn.setTitle(" 戻る ", for: .normal)
+		self.returnBtn.setTitleColor(UIColor.green, for: .normal)
+		self.returnBtn.backgroundColor = UIColor.clear
+		self.returnBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
+		self.returnBtn.layer.borderColor = UIColor.clear.cgColor
+		self.returnBtn.layer.borderWidth = 2.0
+		self.returnBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.returnBtn)
+		self.returnBtn.addTarget(self, action: #selector(self.returnBtnDidTap(_:)), for: .touchUpInside)
+		self.returnBtn.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
+		}
 
 		// title
 		self.smallTitle.numberOfLines = 2
@@ -153,6 +169,14 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		}
 	}
 
+	/// returnBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func returnBtnDidTap(_ sender: UIButton) {
+		// 現在の画面を破棄
+		self.dismiss(animated: true, completion: nil)
+	}
+
 	/// nextBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
@@ -204,9 +228,11 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		joinNumSum = maleNum + femaleNum
 		self.joinNumSumLabel.text = "合計人数: " + String(joinNumSum) + " 人"
 	}
-
+	
+	/// テーブルタイプが変更された時に、tableTypeIndexを変更
+	/// - Parameter sender: Any
+	/// - Authors: Nozomi Koyama
 	@objc func tableTypeChanged(_ sender: Any) {
 		tableTypeIndex = self.tableTypeSC.selectedSegmentIndex
-		print(tableTypeIndex)
 	}
 }
