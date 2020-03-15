@@ -270,7 +270,7 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 		} else if(tableTypeIndex == 1) {
 			// 丸テーブル
 			let screenWidth = self.view.bounds.width
-			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: screenWidth/2-100, y: 450, width: 200, height: 200))
+			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: screenWidth/2-100, y: 420, width: 200, height: 200))
 			self.view.addSubview(tableCircleDraw)
 			
 			/* いい感じにseat buttonを配置 */
@@ -289,8 +289,8 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 			self.seatBtnA.snp.makeConstraints { (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-25)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2+25)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
-				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(370)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
 		}
 
