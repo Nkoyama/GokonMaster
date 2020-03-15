@@ -274,6 +274,8 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 			self.view.addSubview(tableCircleDraw)
 			
 			/* いい感じにseat buttonを配置 */
+			let eachAngle:CGFloat = CGFloat(360/joinNumSum)	// 座席を配置する間隔(角度)
+			print(eachAngle)
 			// seat button A
 			if(seatAFlg) {
 				self.seatBtnA.backgroundColor = UIColor.blue
@@ -291,6 +293,52 @@ class Setting2ViewController: UIViewController, UITextFieldDelegate{
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2+25)
 				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			}
+			
+			if(joinNumSum >= 2) {
+				// seat button B
+				if(seatBFlg) {
+					self.seatBtnB.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnB.backgroundColor = UIColor.white
+				}
+				self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnB.layer.borderWidth = 2.0
+				self.seatBtnB.layer.cornerRadius = 25.0
+				self.seatBtnB.tag = 2
+				self.view.addSubview(self.seatBtnB)
+				self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 100*cos(CGFloat.pi*(eachAngle+90)/180)
+				let centerY = 325 + 100*sin(CGFloat.pi*(eachAngle+90)/180)
+				self.seatBtnB.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+
+			if(joinNumSum >= 3) {
+				// seat button C
+				if(seatCFlg) {
+					self.seatBtnC.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnC.backgroundColor = UIColor.white
+				}
+				self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnC.layer.borderWidth = 2.0
+				self.seatBtnC.layer.cornerRadius = 25.0
+				self.seatBtnC.tag = 3
+				self.view.addSubview(self.seatBtnC)
+				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 100*cos(CGFloat.pi*(2*eachAngle+90)/180)
+				let centerY = 325 + 100*sin(CGFloat.pi*(2*eachAngle+90)/180)
+				self.seatBtnC.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
 			}
 		}
 
