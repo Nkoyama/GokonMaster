@@ -63,7 +63,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(settingMsg)
 		self.settingMsg.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
 		}
 
 		// 参加人数
@@ -189,9 +189,9 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		} else {
-			let setting2ViewController = Setting2ViewController()
-			setting2ViewController.modalPresentationStyle = .fullScreen
-			self.present(setting2ViewController, animated: true)
+			let memberRegisterViewController = MemberRegisterViewController()
+			memberRegisterViewController.modalPresentationStyle = .fullScreen
+			self.present(memberRegisterViewController, animated: true)
 		}
 	}
 	// エラーメッセージ：OKボタン押下

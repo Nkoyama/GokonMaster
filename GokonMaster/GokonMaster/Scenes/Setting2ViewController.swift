@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class Setting2ViewController: UIViewController, UITextFieldDelegate{
+class Setting2ViewController: UIViewController{
 
 	// MARK: Views
 	let backBtn		= UIButton()	// back button
