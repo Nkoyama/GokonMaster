@@ -51,6 +51,14 @@ public func clearSeatFlg() {
 }
 
 
+// 参加済み人数
+public var registeredNum = 0
+
+public func clearRegisteredNum() {
+	registeredNum = 0
+}
+
+
 /// すべてのpublic変数を初期化
 public func clearAllPublicValues() {
 	maleNum = 0

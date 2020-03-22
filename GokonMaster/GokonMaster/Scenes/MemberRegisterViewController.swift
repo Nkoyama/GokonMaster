@@ -14,6 +14,11 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 	// MARK: Views
 	let backBtn			= UIButton()			// back button
 	let smallTitle		= UILabel()				// title
+	let message1		= UILabel()				// message1
+	let message2		= UILabel()				// message2
+	let settingMsg		= UILabel()				// setting message
+	let nicknameLabel	= UILabel()				// nickname label
+	let nicknameTF		= UITextField()			// nickname
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -45,6 +50,51 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
 		}
+
+		// message1
+		self.message1.text = String(registeredNum+1) + "人目"
+		self.message1.textColor = UIColor.red
+		self.message1.font = self.message1.font.withSize(20)
+		self.view.addSubview(message1)
+		self.message1.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(218)
+		}
+		// message2
+		self.message2.text = "の情報を登録してください。"
+		self.message2.textColor = UIColor.black
+		self.view.addSubview(message2)
+		self.message2.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
+		}
+		// setting message
+		self.settingMsg.numberOfLines = 2
+		self.settingMsg.text = "※登録された連絡先は合コン終了後、\n  マッチした相手にのみ表示されます。"
+		self.settingMsg.textColor = UIColor.black
+		self.view.addSubview(settingMsg)
+		self.settingMsg.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
+		}
+
+		// nickname
+		self.nicknameLabel.text = "ニックネーム"
+		self.nicknameLabel.textColor = UIColor.purple
+		self.view.addSubview(nicknameLabel)
+		self.nicknameLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+		}
+		self.nicknameTF.borderStyle = .roundedRect
+		self.view.addSubview(nicknameTF)
+		self.nicknameTF.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(300)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
+		}
+		self.nicknameTF.delegate = self
+
 	}
 
 	/// backBtn action
