@@ -191,13 +191,11 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		} else {
 			let memberRegisterViewController = MemberRegisterViewController()
 			memberRegisterViewController.modalPresentationStyle = .fullScreen
+			initNicknameArray(joinNum: joinNumSum)
+			initSexIndexArray(joinNum: joinNumSum)
 			self.present(memberRegisterViewController, animated: true)
 		}
 	}
-	// エラーメッセージ：OKボタン押下
-	let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-		(action: UIAlertAction!) -> Void in
-	})
 
 	/// TextField以外の部分をタッチした時の処理
 	/// - Parameters:
@@ -223,7 +221,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		joinNumSum = maleNum + femaleNum
 		self.joinNumSumLabel.text = "合計人数: " + String(joinNumSum) + " 人"
 	}
-	
+
 	/// テーブルタイプが変更された時に、tableTypeIndexを変更
 	/// - Parameter sender: Any
 	/// - Authors: Nozomi Koyama

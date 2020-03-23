@@ -19,7 +19,12 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 	let settingMsg		= UILabel()				// setting message
 	let nicknameLabel	= UILabel()				// nickname label
 	let nicknameTF		= UITextField()			// nickname
+	let sexLabel		= UILabel()				// sex label
+	var sexSC			= UISegmentedControl()	// sex segmented control
+	let pinCodeLabel	= UILabel()				// PIN code label
+	let pinCodeTF		= UITextField()			// PIN code
 
+	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		// background color
@@ -90,11 +95,47 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(nicknameTF)
 		self.nicknameTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
-			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(300)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
 		}
 		self.nicknameTF.delegate = self
 
+		// 性別
+		self.sexLabel.text = "性別"
+		self.sexLabel.textColor = UIColor.purple
+		self.view.addSubview(sexLabel)
+		self.sexLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(400)
+		}
+		// 性別選択
+		let options = ["男", "女"]
+		self.sexSC = UISegmentedControl(items: options)
+		self.view.addSubview(self.sexSC)
+		self.sexSC.selectedSegmentIndex = 0
+		self.sexSC.addTarget(self, action: #selector(self.sexChanged(_:)), for: .valueChanged)
+		self.sexSC.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(395)
+		}
+
+		// PIN code
+		self.pinCodeLabel.text = "暗証番号(最大6桁)"
+		self.pinCodeLabel.textColor = UIColor.purple
+		self.view.addSubview(pinCodeLabel)
+		self.pinCodeLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(450)
+		}
+		self.pinCodeTF.keyboardType = .numberPad
+		self.pinCodeTF.borderStyle = .roundedRect
+		self.view.addSubview(pinCodeTF)
+		self.pinCodeTF.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(445)
+		}
+		self.pinCodeTF.delegate = self
 	}
 
 	/// backBtn action
@@ -105,4 +146,31 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.dismiss(animated: true, completion: nil)
 	}
 
+	/// 性別が変更された時に、sexIndexを変更
+	/// - Parameter sender: Any
+	/// - Authors: Nozomi Koyama
+	@objc func sexChanged(_ sender: Any) {
+		sexIndexArray[registeredNum] = self.sexSC.selectedSegmentIndex
+	}
+
+	/// TextField以外の部分をタッチした時の処理
+	/// - Parameters:
+	///   - touches: Set<UITouch>
+	///   - event: UIEvent
+	/// - Authors: Nozomi Koyama
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		// close keyboard
+		self.nicknameTF.resignFirstResponder()
+		self.pinCodeTF.resignFirstResponder()
+
+		// get values
+		nicknameArray[registeredNum] = self.nicknameTF.text!
+		if(self.pinCodeTF.text!.count<=6) {
+			pinCodeArray[registeredNum] = self.pinCodeTF.text!
+		} else {
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "暗証番号は6桁以下にしてください。", preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}
+	}
 }
