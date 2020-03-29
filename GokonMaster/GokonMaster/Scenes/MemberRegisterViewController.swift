@@ -12,19 +12,20 @@ import SnapKit
 class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 
 	// MARK: Views
-	let backBtn			= UIButton()			// back button
-	let smallTitle		= UILabel()				// title
-	let message1		= UILabel()				// message1
-	let message2		= UILabel()				// message2
-	let settingMsg		= UILabel()				// setting message
-	let nicknameLabel	= UILabel()				// nickname label
-	let nicknameTF		= UITextField()			// nickname
-	let sexLabel		= UILabel()				// sex label
-	var sexSC			= UISegmentedControl()	// sex segmented control
-	let pinCodeLabel	= UILabel()				// PIN code label
-	let pinCodeTF		= UITextField()			// PIN code
+	let backBtn				= UIButton()			// back button
+	let smallTitle			= UILabel()				// title
+	let message1			= UILabel()				// message1
+	let message2			= UILabel()				// message2
+	let settingMsg			= UILabel()				// setting message
+	let nicknameLabel		= UILabel()				// nickname label
+	let nicknameTF			= UITextField()			// nickname
+	let sexLabel			= UILabel()				// sex label
+	var sexSC				= UISegmentedControl()	// sex segmented control
+	let pinCodeLabel		= UILabel()				// PIN code label
+	let pinCodeTF			= UITextField()			// PIN code
+	let contactInfoLabel	= UILabel()				// contact information label
 
-	
+
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		// background color
@@ -131,11 +132,21 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.pinCodeTF.borderStyle = .roundedRect
 		self.view.addSubview(pinCodeTF)
 		self.pinCodeTF.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(200)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(445)
 		}
 		self.pinCodeTF.delegate = self
+
+		// contact information
+		self.contactInfoLabel.text = "連絡先"
+		self.contactInfoLabel.textColor = UIColor.purple
+		self.view.addSubview(contactInfoLabel)
+		self.contactInfoLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(500)
+		}
+
 	}
 
 	/// backBtn action
@@ -165,10 +176,10 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 
 		// get values
 		nicknameArray[registeredNum] = self.nicknameTF.text!
-		if(self.pinCodeTF.text!.count<=6) {
+		if(0<self.pinCodeTF.text!.count && self.pinCodeTF.text!.count<=6) {
 			pinCodeArray[registeredNum] = self.pinCodeTF.text!
 		} else {
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "暗証番号は6桁以下にしてください。", preferredStyle:  UIAlertController.Style.alert)
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "暗証番号は1桁以上6桁以下にしてください。", preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}

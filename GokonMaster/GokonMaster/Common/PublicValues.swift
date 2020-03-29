@@ -6,6 +6,8 @@
 //  Copyright © 2020 Nozomi Koyama. All rights reserved.
 //
 
+import UIKit
+
 public var maleNum = 0			// 男性参加人数
 public var femaleNum = 0		// 女性参加人数
 public var joinNumSum = 0		// 合計参加人数
