@@ -24,6 +24,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 	let pinCodeLabel		= UILabel()				// PIN code label
 	let pinCodeTF			= UITextField()			// PIN code
 	let contactInfoLabel	= UILabel()				// contact information label
+	let contactInfoScrollV	= UIScrollView()		// contact information scroll view
 
 
 	// MARK: Life Cycle
@@ -138,7 +139,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		}
 		self.pinCodeTF.delegate = self
 
-		// contact information
+		/* contact information */
 		self.contactInfoLabel.text = "連絡先"
 		self.contactInfoLabel.textColor = UIColor.purple
 		self.view.addSubview(contactInfoLabel)
@@ -146,7 +147,16 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(500)
 		}
-
+		// scroll view
+		self.view.addSubview(contactInfoScrollV)
+		self.contactInfoScrollV.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(550)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
+		}
+		let contactInfoView = createContactInfoListView()
+		self.contactInfoScrollV.addSubview(contactInfoView)
 	}
 
 	/// backBtn action
@@ -183,5 +193,56 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}
+	}
+	
+	/// 連絡先を入力するスクロール部分のViewを作成
+	/// - Authors: Nozomi Koyama
+	func createContactInfoListView() -> UIView {
+		// MARK: Views
+		let contactInfoListView = UIView()
+		let lineIdLabel			= UILabel()			// LINE ID label
+		let emailAddressLabel	= UILabel()			// e-mail address label
+		let phoneNumberLabel	= UILabel()			// phone number label
+		let instagramIdLabel	= UILabel()			// Instagram ID label
+
+		contactInfoListView.backgroundColor = UIColor.black
+
+		// LINE ID
+		lineIdLabel.text = "LINE ID"
+		lineIdLabel.textColor = UIColor.purple
+		contactInfoListView.addSubview(lineIdLabel)
+		lineIdLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
+		}
+
+		// e-mail address
+		emailAddressLabel.text = "e-mail address"
+		emailAddressLabel.textColor = UIColor.purple
+		contactInfoListView.addSubview(emailAddressLabel)
+		emailAddressLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(50)
+		}
+
+		// phone number
+		phoneNumberLabel.text = "phone number"
+		phoneNumberLabel.textColor = UIColor.purple
+		contactInfoListView.addSubview(phoneNumberLabel)
+		phoneNumberLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(90)
+		}
+
+		// Instagram ID
+		instagramIdLabel.text = "Instagram ID"
+		instagramIdLabel.textColor = UIColor.purple
+		contactInfoListView.addSubview(instagramIdLabel)
+		instagramIdLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(140)
+		}
+
+		return contactInfoListView
 	}
 }
