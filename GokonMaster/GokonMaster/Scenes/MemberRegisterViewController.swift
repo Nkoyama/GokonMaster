@@ -26,6 +26,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 	let contactInfoLabel	= UILabel()				// contact information label
 	let contactInfoMsg		= UILabel()				// contact information message
 	let contactInfoScrollV	= UIScrollView()		// contact information scroll view
+	let nextBtn				= UIButton()			// 次へボタン
 
 
 	// MARK: Life Cycle
@@ -165,18 +166,26 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(550)
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(80)
 		}
 		let contactInfoView = createContactInfoListView()
 		self.contactInfoScrollV.addSubview(contactInfoView)
-	}
+		
+		// next button
+		self.nextBtn.setTitle(" 次へ ", for: .normal)
+		self.nextBtn.setTitleColor(UIColor.black, for: .normal)
+		self.nextBtn.backgroundColor = UIColor.green
+		self.nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.nextBtn.layer.borderColor = UIColor.clear.cgColor
+		self.nextBtn.layer.borderWidth = 2.0
+		self.nextBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.nextBtn)
+		self.nextBtn.addTarget(self, action: #selector(self.nextBtnDidTap(_:)), for: .touchUpInside)
+		self.nextBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+		}
 
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
 	}
 
 	/// 性別が変更された時に、sexIndexを変更
@@ -195,16 +204,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		// close keyboard
 		self.nicknameTF.resignFirstResponder()
 		self.pinCodeTF.resignFirstResponder()
-
-		// get values
-		nicknameArray[registeredNum] = self.nicknameTF.text!
-		if(0<self.pinCodeTF.text!.count && self.pinCodeTF.text!.count<=6) {
-			pinCodeArray[registeredNum] = self.pinCodeTF.text!
-		} else {
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "暗証番号は1桁以上6桁以下にしてください。", preferredStyle:  UIAlertController.Style.alert)
-			alert.addAction(defaultAction)
-			present(alert, animated: true, completion: nil)
-		}
 	}
 	
 	/// 連絡先を入力するスクロール部分のViewを作成
@@ -347,5 +346,43 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		otherTF.delegate = self
 
 		return contactInfoListView
+	}
+
+	/// backBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func backBtnDidTap(_ sender: UIButton) {
+		// 現在の画面を破棄
+		self.dismiss(animated: true, completion: nil)
+	}
+	
+	/// nextBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func nextBtnDidTap(_ sender: UIButton) {
+		if(self.nicknameTF.text!.count<1){
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "ニックネームが未入力です。", preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}else if(self.pinCodeTF.text!.count<1 || self.pinCodeTF.text!.count>6){
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "暗証番号は1桁以上6桁以下にしてください。", preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}else{
+			// get values
+			nicknameArray[registeredNum] = self.nicknameTF.text!
+			pinCodeArray[registeredNum] = self.pinCodeTF.text!
+			
+			// registered number count up
+			registeredNum += 1;
+			
+			if(registeredNum == joinNumSum){
+				
+			}else{
+				let memberRegisterViewController = MemberRegisterViewController()
+				memberRegisterViewController.modalPresentationStyle = .fullScreen
+				self.present(memberRegisterViewController, animated: true)
+			}
+		}
 	}
 }

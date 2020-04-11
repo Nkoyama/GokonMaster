@@ -160,7 +160,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.nextBtn.addTarget(self, action: #selector(self.nextBtnDidTap(_:)), for: .touchUpInside)
 		self.nextBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(70)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
 		}
 	}
 
@@ -192,6 +192,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			let memberRegisterViewController = MemberRegisterViewController()
 			memberRegisterViewController.modalPresentationStyle = .fullScreen
 			initNicknameArray(joinNum: joinNumSum)
+			initPinCodeArray(joinNum: joinNumSum)
 			initSexIndexArray(joinNum: joinNumSum)
 			self.present(memberRegisterViewController, animated: true)
 		}
