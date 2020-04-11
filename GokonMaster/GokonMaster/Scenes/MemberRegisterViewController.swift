@@ -24,6 +24,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 	let pinCodeLabel		= UILabel()				// PIN code label
 	let pinCodeTF			= UITextField()			// PIN code
 	let contactInfoLabel	= UILabel()				// contact information label
+	let contactInfoMsg		= UILabel()				// contact information message
 	let contactInfoScrollV	= UIScrollView()		// contact information scroll view
 
 
@@ -147,12 +148,21 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(500)
 		}
+		// contact information message
+		self.contactInfoMsg.text = "(以下のうち、最低1つ登録してください。)"
+		self.contactInfoMsg.textColor = UIColor.black
+		self.view.addSubview(contactInfoMsg)
+		self.contactInfoMsg.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(520)
+		}
 		// scroll view
 		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
 		self.contactInfoScrollV.layer.borderWidth = 1.0
+		self.contactInfoScrollV.contentSize = CGSize(width: self.view.frame.width-100, height: 245)
 		self.view.addSubview(self.contactInfoScrollV)
 		self.contactInfoScrollV.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(550)
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
@@ -202,48 +212,139 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 	func createContactInfoListView() -> UIView {
 		// MARK: Views
 		let contactInfoListView = UIView()
+		contactInfoListView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-100, height: 245)
 		let lineIdLabel			= UILabel()			// LINE ID label
+		let lineIdTF			= UITextField()		// LINE ID
 		let emailAddressLabel	= UILabel()			// e-mail address label
+		let emailAddressTF		= UITextField()		// e-mail address
 		let phoneNumberLabel	= UILabel()			// phone number label
+		let phoneNumberTF		= UITextField()		// phone number
 		let instagramIdLabel	= UILabel()			// Instagram ID label
+		let instagramIdTF		= UITextField()		// Instagram ID
+		let twitterIdLabel		= UILabel()			// Twitter ID label
+		let twitterIdTF			= UITextField()		// twitter ID
+		let otherLabel			= UILabel()			// other label
+		let otherNameTF			= UITextField()		// other name
+		let otherTF				= UITextField()		// other
 
-		contactInfoListView.backgroundColor = UIColor.black
+		contactInfoListView.backgroundColor = UIColor.yellow
 
 		// LINE ID
 		lineIdLabel.text = "LINE ID"
 		lineIdLabel.textColor = UIColor.purple
 		contactInfoListView.addSubview(lineIdLabel)
 		lineIdLabel.snp.makeConstraints { (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
 		}
+		lineIdTF.keyboardType = .numberPad
+		lineIdTF.borderStyle = .roundedRect
+		contactInfoListView.addSubview(lineIdTF)
+		lineIdTF.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
+			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(5)
+		}
+		lineIdTF.delegate = self
 
 		// e-mail address
 		emailAddressLabel.text = "e-mail address"
 		emailAddressLabel.textColor = UIColor.purple
 		contactInfoListView.addSubview(emailAddressLabel)
 		emailAddressLabel.snp.makeConstraints { (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(50)
 		}
+		emailAddressTF.keyboardType = .numberPad
+		emailAddressTF.borderStyle = .roundedRect
+		contactInfoListView.addSubview(emailAddressTF)
+		emailAddressTF.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
+			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(45)
+		}
+		emailAddressTF.delegate = self
 
 		// phone number
 		phoneNumberLabel.text = "phone number"
 		phoneNumberLabel.textColor = UIColor.purple
 		contactInfoListView.addSubview(phoneNumberLabel)
 		phoneNumberLabel.snp.makeConstraints { (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(90)
 		}
+		phoneNumberTF.keyboardType = .numberPad
+		phoneNumberTF.borderStyle = .roundedRect
+		contactInfoListView.addSubview(phoneNumberTF)
+		phoneNumberTF.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
+			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(85)
+		}
+		phoneNumberTF.delegate = self
 
 		// Instagram ID
 		instagramIdLabel.text = "Instagram ID"
 		instagramIdLabel.textColor = UIColor.purple
 		contactInfoListView.addSubview(instagramIdLabel)
 		instagramIdLabel.snp.makeConstraints { (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(130)
 		}
+		instagramIdTF.keyboardType = .numberPad
+		instagramIdTF.borderStyle = .roundedRect
+		contactInfoListView.addSubview(instagramIdTF)
+		instagramIdTF.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
+			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(125)
+		}
+		instagramIdTF.delegate = self
+
+		// Twitter ID
+		twitterIdLabel.text = "Twitter ID"
+		twitterIdLabel.textColor = UIColor.purple
+		contactInfoListView.addSubview(twitterIdLabel)
+		twitterIdLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(170)
+		}
+		twitterIdTF.keyboardType = .numberPad
+		twitterIdTF.borderStyle = .roundedRect
+		contactInfoListView.addSubview(twitterIdTF)
+		twitterIdTF.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
+			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(165)
+		}
+		twitterIdTF.delegate = self
+
+		// other
+		otherLabel.text = "other(               )"
+		otherLabel.textColor = UIColor.purple
+		contactInfoListView.addSubview(otherLabel)
+		otherLabel.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(210)
+		}
+		otherNameTF.keyboardType = .numberPad
+		otherNameTF.borderStyle = .roundedRect
+		contactInfoListView.addSubview(otherNameTF)
+		otherNameTF.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(60)
+			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(120)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(205)
+		}
+		otherNameTF.delegate = self
+		otherTF.keyboardType = .numberPad
+		otherTF.borderStyle = .roundedRect
+		contactInfoListView.addSubview(otherTF)
+		otherTF.snp.makeConstraints { (make) in
+			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
+			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(205)
+		}
+		otherTF.delegate = self
 
 		return contactInfoListView
 	}
