@@ -148,7 +148,9 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(500)
 		}
 		// scroll view
-		self.view.addSubview(contactInfoScrollV)
+		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
+		self.contactInfoScrollV.layer.borderWidth = 1.0
+		self.view.addSubview(self.contactInfoScrollV)
 		self.contactInfoScrollV.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
@@ -240,7 +242,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		contactInfoListView.addSubview(instagramIdLabel)
 		instagramIdLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(20)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(140)
+			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(130)
 		}
 
 		return contactInfoListView
