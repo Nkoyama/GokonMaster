@@ -11,6 +11,7 @@
 		43084D5E2414CA7500370070 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43084D5D2414CA7500370070 /* CommonMethods.swift */; };
 		43084D602414E79300370070 /* TableTypeDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43084D5F2414E79300370070 /* TableTypeDrawView.swift */; };
 		43084D62241CADE900370070 /* TableSquareDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43084D61241CADE900370070 /* TableSquareDrawView.swift */; };
+		434021D52442ECF50023842F /* MemberRegisterFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */; };
 		4341CC09241CC6CA00C86FB9 /* TableCircleDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */; };
 		4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0A241CEAB700C86FB9 /* PublicValues.swift */; };
 		4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */; };
@@ -28,6 +29,7 @@
 		43084D5D2414CA7500370070 /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		43084D5F2414E79300370070 /* TableTypeDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTypeDrawView.swift; sourceTree = "<group>"; };
 		43084D61241CADE900370070 /* TableSquareDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSquareDrawView.swift; sourceTree = "<group>"; };
+		434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRegisterFinishViewController.swift; sourceTree = "<group>"; };
 		4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCircleDrawView.swift; sourceTree = "<group>"; };
 		4341CC0A241CEAB700C86FB9 /* PublicValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicValues.swift; sourceTree = "<group>"; };
 		4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRegisterViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
 				43084D572413B22F00370070 /* Setting2ViewController.swift */,
 				4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */,
+				434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				43084D5E2414CA7500370070 /* CommonMethods.swift in Sources */,
 				43084D602414E79300370070 /* TableTypeDrawView.swift in Sources */,
 				43084D582413B22F00370070 /* Setting2ViewController.swift in Sources */,
+				434021D52442ECF50023842F /* MemberRegisterFinishViewController.swift in Sources */,
 				43084D62241CADE900370070 /* TableSquareDrawView.swift in Sources */,
 				4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */,
 				43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */,

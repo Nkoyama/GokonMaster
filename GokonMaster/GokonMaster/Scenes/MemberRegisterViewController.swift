@@ -95,6 +95,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
 		}
+		self.nicknameTF.keyboardType = .asciiCapable
 		self.nicknameTF.borderStyle = .roundedRect
 		self.view.addSubview(nicknameTF)
 		self.nicknameTF.snp.makeConstraints { (make) in
@@ -170,7 +171,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		}
 		let contactInfoView = createContactInfoListView()
 		self.contactInfoScrollV.addSubview(contactInfoView)
-		
+
 		// next button
 		self.nextBtn.setTitle(" 次へ ", for: .normal)
 		self.nextBtn.setTitleColor(UIColor.black, for: .normal)
@@ -355,7 +356,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		// 現在の画面を破棄
 		self.dismiss(animated: true, completion: nil)
 	}
-	
+
 	/// nextBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
@@ -379,9 +380,9 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			if(registeredNum == joinNumSum){
 				
 			}else{
-				let memberRegisterViewController = MemberRegisterViewController()
-				memberRegisterViewController.modalPresentationStyle = .fullScreen
-				self.present(memberRegisterViewController, animated: true)
+				let memberRegisterFinViewController = MemberRegisterFinishViewController()
+				memberRegisterFinViewController.modalPresentationStyle = .fullScreen
+				self.present(memberRegisterFinViewController, animated: true)
 			}
 		}
 	}
