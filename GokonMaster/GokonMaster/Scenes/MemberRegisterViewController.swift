@@ -57,7 +57,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
 		}
 
 		// message1
@@ -67,7 +67,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(218)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(188)
 		}
 		// message2
 		self.message2.text = "の情報を登録してください。"
@@ -75,7 +75,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
 		}
 		// setting message
 		self.settingMsg.numberOfLines = 2
@@ -84,7 +84,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(settingMsg)
 		self.settingMsg.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
 		}
 
 		// nickname
@@ -93,14 +93,14 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(nicknameLabel)
 		self.nicknameLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
 		}
 		self.nicknameTF.borderStyle = .roundedRect
 		self.view.addSubview(nicknameTF)
 		self.nicknameTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(315)
 		}
 		self.nicknameTF.delegate = self
 
@@ -110,7 +110,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(sexLabel)
 		self.sexLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(400)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(370)
 		}
 		// 性別選択
 		let options = ["男", "女"]
@@ -120,7 +120,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.sexSC.addTarget(self, action: #selector(self.sexChanged(_:)), for: .valueChanged)
 		self.sexSC.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(395)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(365)
 		}
 
 		// PIN code
@@ -129,7 +129,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(pinCodeLabel)
 		self.pinCodeLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(450)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
 		}
 		self.pinCodeTF.keyboardType = .numberPad
 		self.pinCodeTF.borderStyle = .roundedRect
@@ -137,7 +137,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(200)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(445)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(415)
 		}
 		self.pinCodeTF.delegate = self
 
@@ -147,7 +147,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(contactInfoLabel)
 		self.contactInfoLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(500)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(470)
 		}
 		// contact information message
 		self.contactInfoMsg.text = "(以下のうち、最低1つ登録してください。)"
@@ -155,7 +155,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(contactInfoMsg)
 		self.contactInfoMsg.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(520)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(490)
 		}
 		// scroll view
 		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
@@ -165,7 +165,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.contactInfoScrollV.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(550)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(520)
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(80)
 		}
 		let contactInfoView = createContactInfoListView()

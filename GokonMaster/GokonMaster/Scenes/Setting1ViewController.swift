@@ -54,7 +54,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
 		}
 
 		// setting message
