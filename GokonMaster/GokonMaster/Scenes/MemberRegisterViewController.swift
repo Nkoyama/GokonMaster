@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
+class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate{
 
 	// MARK: Views
 	let backBtn				= UIButton()			// back button
@@ -162,6 +162,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
 		self.contactInfoScrollV.layer.borderWidth = 1.0
 		self.contactInfoScrollV.contentSize = CGSize(width: self.view.frame.width-100, height: 245)
+		self.contactInfoScrollV.delegate = self
 		self.view.addSubview(self.contactInfoScrollV)
 		self.contactInfoScrollV.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
@@ -171,6 +172,8 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		}
 		let contactInfoView = createContactInfoListView()
 		self.contactInfoScrollV.addSubview(contactInfoView)
+		// ドラッグ開始時にキーボードを閉じる
+		self.contactInfoScrollV.keyboardDismissMode = .onDrag
 
 		// next button
 		self.nextBtn.setTitle(" 次へ ", for: .normal)
@@ -194,17 +197,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 	/// - Authors: Nozomi Koyama
 	@objc func sexChanged(_ sender: Any) {
 		sexIndexArray[registeredNum] = self.sexSC.selectedSegmentIndex
-	}
-
-	/// TextField以外の部分をタッチした時の処理
-	/// - Parameters:
-	///   - touches: Set<UITouch>
-	///   - event: UIEvent
-	/// - Authors: Nozomi Koyama
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		// close keyboard
-		self.nicknameTF.resignFirstResponder()
-		self.pinCodeTF.resignFirstResponder()
 	}
 	
 	/// 連絡先を入力するスクロール部分のViewを作成
@@ -237,7 +229,8 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
 		}
-		lineIdTF.keyboardType = .numberPad
+		lineIdTF.keyboardType = .alphabet
+		lineIdTF.returnKeyType = .done
 		lineIdTF.borderStyle = .roundedRect
 		contactInfoListView.addSubview(lineIdTF)
 		lineIdTF.snp.makeConstraints { (make) in
@@ -245,7 +238,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(5)
 		}
-		lineIdTF.delegate = self
 
 		// e-mail address
 		emailAddressLabel.text = "e-mail address"
@@ -255,7 +247,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(50)
 		}
-		emailAddressTF.keyboardType = .numberPad
+		emailAddressTF.keyboardType = .emailAddress
 		emailAddressTF.borderStyle = .roundedRect
 		contactInfoListView.addSubview(emailAddressTF)
 		emailAddressTF.snp.makeConstraints { (make) in
@@ -263,7 +255,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(45)
 		}
-		emailAddressTF.delegate = self
 
 		// phone number
 		phoneNumberLabel.text = "phone number"
@@ -273,7 +264,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(90)
 		}
-		phoneNumberTF.keyboardType = .numberPad
+		phoneNumberTF.keyboardType = .phonePad
 		phoneNumberTF.borderStyle = .roundedRect
 		contactInfoListView.addSubview(phoneNumberTF)
 		phoneNumberTF.snp.makeConstraints { (make) in
@@ -281,7 +272,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(85)
 		}
-		phoneNumberTF.delegate = self
 
 		// Instagram ID
 		instagramIdLabel.text = "Instagram ID"
@@ -291,7 +281,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(130)
 		}
-		instagramIdTF.keyboardType = .numberPad
+		instagramIdTF.keyboardType = .alphabet
 		instagramIdTF.borderStyle = .roundedRect
 		contactInfoListView.addSubview(instagramIdTF)
 		instagramIdTF.snp.makeConstraints { (make) in
@@ -299,7 +289,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(125)
 		}
-		instagramIdTF.delegate = self
 
 		// Twitter ID
 		twitterIdLabel.text = "Twitter ID"
@@ -309,7 +298,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(170)
 		}
-		twitterIdTF.keyboardType = .numberPad
+		twitterIdTF.keyboardType = .alphabet
 		twitterIdTF.borderStyle = .roundedRect
 		contactInfoListView.addSubview(twitterIdTF)
 		twitterIdTF.snp.makeConstraints { (make) in
@@ -317,7 +306,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(165)
 		}
-		twitterIdTF.delegate = self
 
 		// other
 		otherLabel.text = "other(               )"
@@ -327,7 +315,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(210)
 		}
-		otherNameTF.keyboardType = .numberPad
+		otherNameTF.keyboardType = .default
 		otherNameTF.borderStyle = .roundedRect
 		contactInfoListView.addSubview(otherNameTF)
 		otherNameTF.snp.makeConstraints { (make) in
@@ -335,8 +323,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(120)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(205)
 		}
-		otherNameTF.delegate = self
-		otherTF.keyboardType = .numberPad
+		otherTF.keyboardType = .default
 		otherTF.borderStyle = .roundedRect
 		contactInfoListView.addSubview(otherTF)
 		otherTF.snp.makeConstraints { (make) in
@@ -344,7 +331,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.right).inset(10)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(205)
 		}
-		otherTF.delegate = self
 
 		return contactInfoListView
 	}
@@ -386,5 +372,26 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 				self.present(memberRegisterFinViewController, animated: true)
 			}
 		}
+	}
+
+	/// TextField以外の部分をタッチした時の処理
+	/// - Parameters:
+	///   - touches: Set<UITouch>
+	///   - event: UIEvent
+	/// - Authors: Nozomi Koyama
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		// close keyboard
+		self.nicknameTF.resignFirstResponder()
+		self.pinCodeTF.resignFirstResponder()
+	}
+
+	/// returnキーが押された時にキーボードを閉じる
+	/// - Parameter textField:
+	/// - Returns: (boolean)
+	/// - Authors: Nozomi Koyama
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		// キーボードを閉じる
+		textField.resignFirstResponder()
+		return true
 	}
 }
