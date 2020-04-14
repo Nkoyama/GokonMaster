@@ -372,8 +372,9 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate{
 		}else{
 			// get values
 			nicknameArray[registeredNum] = self.nicknameTF.text!
+			sexIndexArray[registeredNum] = self.sexSC.selectedSegmentIndex
 			pinCodeArray[registeredNum] = self.pinCodeTF.text!
-			
+
 			// registered number count up
 			registeredNum += 1;
 			

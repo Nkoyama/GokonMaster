@@ -15,14 +15,24 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate{
 	let smallTitle			= UILabel()				// title
 	let registeredNickname	= UILabel()				// registered nickname
 	let message1			= UILabel()				// message1
+	let nickname			= UILabel()				// nickname
+	let sex					= UILabel()				// sex
+	let pinCode				= UILabel()				// PIN code
+	let lineId				= UILabel()				// LINE ID
+	let emailAddress		= UILabel()				// e-mail address
+	let phoneNumber			= UILabel()				// phone number
+	let instagramId			= UILabel()				// Instagram ID
+	let twitterId			= UILabel()				// Twitter ID
+	let contactOtherName	= UILabel()				// contact information other name
+	let contactInfoOther	= UILabel()				// contact information other
 	let nextBtn				= UIButton()			// 次へボタン
 
-	
+
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
-		
+
 		// title
 		self.smallTitle.numberOfLines = 2
 		self.smallTitle.text = "合コン\n    master"
@@ -33,7 +43,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate{
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
 		}
-		
+
 		// registered nickname
 		self.registeredNickname.text = nicknameArray[registeredNum-1] + " さん"
 		self.registeredNickname.textColor = UIColor.red
@@ -41,17 +51,17 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate{
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
 		}
 
 		// message1
 		self.message1.numberOfLines = 2
-		self.message1.text = "あなたの情報が登録されました。\n次の方に渡してください。"
+		self.message1.text = "以下の情報が登録されました。\n次の方に渡してください。"
 		self.message1.textColor = UIColor.black
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
 		}
 
 		// next button

@@ -194,6 +194,14 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			initNicknameArray(joinNum: joinNumSum)
 			initPinCodeArray(joinNum: joinNumSum)
 			initSexIndexArray(joinNum: joinNumSum)
+			initPinCodeArray(joinNum: joinNumSum)
+			initLineIdArray(joinNum: joinNumSum)
+			initEmailAddressArray(joinNum: joinNumSum)
+			initPhoneNumberArray(joinNum: joinNumSum)
+			initInstagramIdArray(joinNum: joinNumSum)
+			initTwitterIdArray(joinNum: joinNumSum)
+			initContactInfoOtherNameArray(joinNum: joinNumSum)
+			initContactInfoOtherArray(joinNum: joinNumSum)
 			self.present(memberRegisterViewController, animated: true)
 		}
 	}

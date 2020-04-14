@@ -58,6 +58,83 @@ public func initPinCodeArray(joinNum : Int) {
 		pinCodeArray.append("")
 	}
 }
+// LINE ID
+public var lineIdArray : Array<String> = Array<String>()
+public func initLineIdArray(joinNum : Int) {
+	let len : Int = lineIdArray.count
+	for _ in 0..<len {
+		lineIdArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		lineIdArray.append("")
+	}
+}
+// e-mail address
+public var emailAddressArray : Array<String> = Array<String>()
+public func initEmailAddressArray(joinNum : Int) {
+	let len : Int = emailAddressArray.count
+	for _ in 0..<len {
+		emailAddressArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		emailAddressArray.append("")
+	}
+}
+// phone number
+public var phoneNumberArray : Array<String> = Array<String>()
+public func initPhoneNumberArray(joinNum : Int) {
+	let len : Int = phoneNumberArray.count
+	for _ in 0..<len {
+		phoneNumberArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		phoneNumberArray.append("")
+	}
+}
+// Instagram ID
+public var instagramIdArray : Array<String> = Array<String>()
+public func initInstagramIdArray(joinNum : Int) {
+	let len : Int = instagramIdArray.count
+	for _ in 0..<len {
+		instagramIdArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		instagramIdArray.append("")
+	}
+}
+// Twitter ID
+public var twitterIdArray : Array<String> = Array<String>()
+public func initTwitterIdArray(joinNum : Int) {
+	let len : Int = twitterIdArray.count
+	for _ in 0..<len {
+		twitterIdArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		twitterIdArray.append("")
+	}
+}
+// other contact information name
+public var contactInfoOtherNameArray : Array<String> = Array<String>()
+public func initContactInfoOtherNameArray(joinNum : Int) {
+	let len : Int = contactInfoOtherNameArray.count
+	for _ in 0..<len {
+		contactInfoOtherNameArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		contactInfoOtherNameArray.append("")
+	}
+}
+// other contact information
+public var contactInfoOtherArray : Array<String> = Array<String>()
+public func initContactInfoOtherArray(joinNum : Int) {
+	let len : Int = contactInfoOtherArray.count
+	for _ in 0..<len {
+		contactInfoOtherArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		contactInfoOtherArray.append("")
+	}
+}
 
 
 // 座席位置
