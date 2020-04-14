@@ -174,6 +174,8 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.contactInfoScrollV.addSubview(contactInfoView)
 		// ドラッグ開始時にキーボードを閉じる
 		self.contactInfoScrollV.keyboardDismissMode = .onDrag
+		// キーボードを下にドラッグした時にキーボードを閉じる
+		self.contactInfoScrollV.keyboardDismissMode = .interactive
 
 		// next button
 		self.nextBtn.setTitle(" 次へ ", for: .normal)
