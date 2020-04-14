@@ -385,6 +385,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		// close keyboard
 		self.nicknameTF.resignFirstResponder()
 		self.pinCodeTF.resignFirstResponder()
+		UIApplication.shared.keyWindow?.endEditing(true)	//iOS13.0以降のみ
 	}
 
 	/// returnキーが押された時にキーボードを閉じる
@@ -394,6 +395,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		// キーボードを閉じる
 		textField.resignFirstResponder()
+		UIApplication.shared.keyWindow?.endEditing(true)	//iOS13.0以降のみ
 		return true
 	}
 }
