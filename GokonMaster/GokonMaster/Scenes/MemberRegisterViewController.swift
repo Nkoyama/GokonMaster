@@ -401,22 +401,17 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+
 		// Notificationの発行
-		self.configureObserver()
-	}
-
-	/// notificationを設定
-	/// - Authors: Nozomi Koyama
-	func configureObserver() {
 		let notification = NotificationCenter.default
-
+		
 		notification.addObserver(
 			self,
 			selector: #selector(self.keyboardWillShow(notification:)),
-			name: UIResponder.keyboardWillShowNotification,
+			name: UIResponder.keyboardWillChangeFrameNotification,
 			object: nil
 		)
-
+		
 		notification.addObserver(
 			self,
 			selector: #selector(self.keyboardWillHide(notification:)),
