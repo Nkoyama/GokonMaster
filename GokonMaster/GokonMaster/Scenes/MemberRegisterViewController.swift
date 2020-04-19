@@ -398,4 +398,52 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		UIApplication.shared.keyWindow?.endEditing(true)	//iOS13.0以降のみ
 		return true
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		// Notificationの発行
+		self.configureObserver()
+	}
+
+	/// notificationを設定
+	/// - Authors: Nozomi Koyama
+	func configureObserver() {
+		let notification = NotificationCenter.default
+
+		notification.addObserver(
+			self,
+			selector: #selector(self.keyboardWillShow(notification:)),
+			name: UIResponder.keyboardWillShowNotification,
+			object: nil
+		)
+
+		notification.addObserver(
+			self,
+			selector: #selector(self.keyboardWillHide(notification:)),
+			name: UIResponder.keyboardWillHideNotification,
+			object: nil
+		)
+	}
+
+	/// notificationを削除
+	func removeObserver() {
+		NotificationCenter.default.removeObserver(self)
+	}
+
+	/// キーボードが現れた時にviewをずらす
+	@objc func keyboardWillShow(notification: Notification?) {
+		let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+		let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+		UIView.animate(withDuration: duration!) {
+			self.view.transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
+		}
+	}
+
+	/// キーボードが消えた時にviewを戻す
+	@objc func keyboardWillHide(notification: Notification?) {
+		let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
+		UIView.animate(withDuration: duration!) {
+			self.view.transform = CGAffineTransform.identity
+		}
+	}
 }
