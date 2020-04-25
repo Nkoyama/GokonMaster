@@ -28,6 +28,8 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	let contactInfoScrollV	= UIScrollView()		// contact information scroll view
 	let nextBtn				= UIButton()			// 次へボタン
 
+	let SCREEN_SIZE			= UIScreen.main.bounds.size
+
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -160,16 +162,15 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		}
 		// scroll view
 		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
+		self.contactInfoScrollV.backgroundColor = UIColor.yellow
 		self.contactInfoScrollV.layer.borderWidth = 1.0
 		self.contactInfoScrollV.contentSize = CGSize(width: self.view.frame.width-100, height: 245)
 		self.contactInfoScrollV.delegate = self
 		self.view.addSubview(self.contactInfoScrollV)
-		self.contactInfoScrollV.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(520)
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(80)
-		}
+		self.contactInfoScrollV.frame.origin.y		= 570
+		self.contactInfoScrollV.frame.origin.x		= 50
+		self.contactInfoScrollV.frame.size.height	= SCREEN_SIZE.height - 700
+		self.contactInfoScrollV.frame.size.width	= SCREEN_SIZE.width - 100
 		let contactInfoView = createContactInfoListView()
 		self.contactInfoScrollV.addSubview(contactInfoView)
 		// ドラッグ開始時にキーボードを閉じる
@@ -191,7 +192,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
 		}
-
 	}
 
 	/// 性別が変更された時に、sexIndexを変更
@@ -200,7 +200,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	@objc func sexChanged(_ sender: Any) {
 		sexIndexArray[registeredNum] = self.sexSC.selectedSegmentIndex
 	}
-	
+
 	/// 連絡先を入力するスクロール部分のViewを作成
 	/// - Authors: Nozomi Koyama
 	func createContactInfoListView() -> UIView {
@@ -220,8 +220,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		let otherLabel			= UILabel()			// other label
 		let otherNameTF			= UITextField()		// other name
 		let otherTF				= UITextField()		// other
-
-		contactInfoListView.backgroundColor = UIColor.yellow
 
 		// LINE ID
 		lineIdLabel.text = "LINE ID"
@@ -334,6 +332,17 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(205)
 		}
 
+		// 通知イベントUIKeyboardWillShowをオブザーバー登録
+		NotificationCenter.default.addObserver(self,
+							selector: #selector(self.keyboardWillShow(_:)),
+							name: UIResponder.keyboardWillChangeFrameNotification,
+							object: nil)
+		// 通知イベントUIKeyboardWillHideをオブザーバー登録
+		NotificationCenter.default.addObserver(self,
+							selector: #selector(self.keyboardWillHide(_:)),
+							name: UIResponder.keyboardWillHideNotification,
+							object: nil)
+
 		return contactInfoListView
 	}
 
@@ -386,6 +395,9 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.nicknameTF.resignFirstResponder()
 		self.pinCodeTF.resignFirstResponder()
 		UIApplication.shared.keyWindow?.endEditing(true)	//iOS13.0以降のみ
+		// 選択されているTextField名をクリア
+		initEditingTextFieldName()
+		initKeyboardHeight()
 	}
 
 	/// returnキーが押された時にキーボードを閉じる
@@ -396,49 +408,43 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		// キーボードを閉じる
 		textField.resignFirstResponder()
 		UIApplication.shared.keyWindow?.endEditing(true)	//iOS13.0以降のみ
+		// 選択されているTextField名をクリア
+		initEditingTextFieldName()
+		initKeyboardHeight()
 		return true
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-
-		// Notificationの発行
-		let notification = NotificationCenter.default
-		
-		notification.addObserver(
-			self,
-			selector: #selector(self.keyboardWillShow(notification:)),
-			name: UIResponder.keyboardWillChangeFrameNotification,
-			object: nil
-		)
-		
-		notification.addObserver(
-			self,
-			selector: #selector(self.keyboardWillHide(notification:)),
-			name: UIResponder.keyboardWillHideNotification,
-			object: nil
-		)
+	/// 選択中のtextfieldを設定
+	/// - Parameter textField:
+	/// - Returns: true
+	/// - Authors: Nozomi Koyama
+	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+		if(textField == self.nicknameTF || textField == self.pinCodeTF){
+			editingTextFieldName = "ignore"
+		}
+		return true
 	}
 
-	/// notificationを削除
-	func removeObserver() {
-		NotificationCenter.default.removeObserver(self)
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
 	}
 
 	/// キーボードが現れた時にviewをずらす
-	@objc func keyboardWillShow(notification: Notification?) {
-		let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-		let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-		UIView.animate(withDuration: duration!) {
-			self.view.transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
+	@objc func keyboardWillShow(_ notification: NSNotification) {
+		keyboardHeight = Double((notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.height)
+		// contactInfoScrollV内のTextFieldが選択された場合のみずらす
+		if(editingTextFieldName != "ignore"){
+			self.contactInfoScrollV.frame.origin.y = SCREEN_SIZE.height - CGFloat(keyboardHeight) - self.contactInfoScrollV.frame.height
 		}
 	}
 
 	/// キーボードが消えた時にviewを戻す
-	@objc func keyboardWillHide(notification: Notification?) {
-		let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
-		UIView.animate(withDuration: duration!) {
-			self.view.transform = CGAffineTransform.identity
+	@objc func keyboardWillHide(_ notification: NSNotification) {
+		if(editingTextFieldName != "ignore"){
+			self.contactInfoScrollV.frame.origin.y = 570
 		}
+		// 選択されているTextField名をクリア
+		initEditingTextFieldName()
+		initKeyboardHeight()
 	}
 }

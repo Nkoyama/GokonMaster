@@ -8,6 +8,18 @@
 
 import UIKit
 
+public var editingTextFieldName = ""	// 編集中のTextField名
+public func initEditingTextFieldName(){
+	editingTextFieldName = ""
+}
+
+
+public var keyboardHeight = 0.0
+public func initKeyboardHeight(){
+	keyboardHeight = 0.0
+}
+
+
 public var maleNum = 0			// 男性参加人数
 public var femaleNum = 0		// 女性参加人数
 public var joinNumSum = 0		// 合計参加人数
