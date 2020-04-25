@@ -29,6 +29,21 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	let nextBtn				= UIButton()			// 次へボタン
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
+	
+	// contactInfoScrollV内
+	let lineIdLabel			= UILabel()			// LINE ID label
+	let lineIdTF			= UITextField()		// LINE ID
+	let emailAddressLabel	= UILabel()			// e-mail address label
+	let emailAddressTF		= UITextField()		// e-mail address
+	let phoneNumberLabel	= UILabel()			// phone number label
+	let phoneNumberTF		= UITextField()		// phone number
+	let instagramIdLabel	= UILabel()			// Instagram ID label
+	let instagramIdTF		= UITextField()		// Instagram ID
+	let twitterIdLabel		= UILabel()			// Twitter ID label
+	let twitterIdTF			= UITextField()		// twitter ID
+	let otherLabel			= UILabel()			// other label
+	let otherNameTF			= UITextField()		// other name
+	let otherTF				= UITextField()		// other
 
 
 	// MARK: Life Cycle
@@ -207,19 +222,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		// MARK: Views
 		let contactInfoListView = UIView()
 		contactInfoListView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-100, height: 245)
-		let lineIdLabel			= UILabel()			// LINE ID label
-		let lineIdTF			= UITextField()		// LINE ID
-		let emailAddressLabel	= UILabel()			// e-mail address label
-		let emailAddressTF		= UITextField()		// e-mail address
-		let phoneNumberLabel	= UILabel()			// phone number label
-		let phoneNumberTF		= UITextField()		// phone number
-		let instagramIdLabel	= UILabel()			// Instagram ID label
-		let instagramIdTF		= UITextField()		// Instagram ID
-		let twitterIdLabel		= UILabel()			// Twitter ID label
-		let twitterIdTF			= UITextField()		// twitter ID
-		let otherLabel			= UILabel()			// other label
-		let otherNameTF			= UITextField()		// other name
-		let otherTF				= UITextField()		// other
 
 		// LINE ID
 		lineIdLabel.text = "LINE ID"
@@ -366,11 +368,26 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			let alert: UIAlertController = UIAlertController(title: "エラー", message: "暗証番号は1桁以上6桁以下にしてください。", preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
+		}else if(self.lineIdTF.text!.count<1
+			&& self.emailAddressTF.text!.count<1
+			&& self.phoneNumberTF.text!.count<1
+			&& self.instagramIdTF.text!.count<1
+			&& self.twitterIdTF.text!.count<1
+			&& self.otherTF.text!.count<1){
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "連絡先を1つ以上登録してください。", preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
 		}else{
 			// get values
-			nicknameArray[registeredNum] = self.nicknameTF.text!
-			sexIndexArray[registeredNum] = self.sexSC.selectedSegmentIndex
-			pinCodeArray[registeredNum] = self.pinCodeTF.text!
+			nicknameArray[registeredNum]				= self.nicknameTF.text!
+			pinCodeArray[registeredNum]					= self.pinCodeTF.text!
+			lineIdArray[registeredNum]					= self.lineIdTF.text!
+			emailAddressArray[registeredNum]			= self.emailAddressTF.text!
+			phoneNumberArray[registeredNum]				= self.phoneNumberTF.text!
+			instagramIdArray[registeredNum]				= self.instagramIdTF.text!
+			twitterIdArray[registeredNum]				= self.twitterIdTF.text!
+			contactInfoOtherNameArray[registeredNum]	= self.otherNameTF.text!
+			contactInfoOtherArray[registeredNum]		= self.otherTF.text!
 
 			// registered number count up
 			registeredNum += 1;
