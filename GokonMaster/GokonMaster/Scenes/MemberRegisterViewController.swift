@@ -374,7 +374,9 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			&& self.instagramIdTF.text!.count<1
 			&& self.twitterIdTF.text!.count<1
 			&& self.otherTF.text!.count<1){
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "連絡先を1つ以上登録してください。", preferredStyle:  UIAlertController.Style.alert)
+		}else if((self.otherNameTF.text!.count<1 && self.otherTF.text!.count>0)
+				|| (self.otherNameTF.text!.count>0 && self.otherTF.text!.count<1)){
+			let alert: UIAlertController = UIAlertController(title: "エラー", message: "otherの情報が不完全です。", preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}else{
