@@ -29,7 +29,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	let nextBtn				= UIButton()			// 次へボタン
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
-	
+
 	// contactInfoScrollV内
 	let lineIdLabel			= UILabel()			// LINE ID label
 	let lineIdTF			= UITextField()		// LINE ID
