@@ -515,7 +515,7 @@ class Setting2ViewController: UIViewController{
 		// 現在の画面を破棄
 		self.dismiss(animated: true, completion: nil)
 	}
-	
+
 	/// seatBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama

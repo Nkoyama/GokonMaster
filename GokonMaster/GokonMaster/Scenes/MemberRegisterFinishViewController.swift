@@ -17,8 +17,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let registeredNickname		= UILabel()			// registered nickname
 	let message1				= UILabel()			// message1
 	let contactInfoScrollV		= UIScrollView()	// contact information scroll view
+	let message2				= UILabel()			// message2
+	let seatBtnA				= UIButton()		// seat button A
+	let seatBtnB				= UIButton()		// seat button B
+	let seatBtnC				= UIButton()		// seat button C
+	let seatBtnD				= UIButton()		// seat button D
+	let seatBtnE				= UIButton()		// seat button E
+	let seatBtnF				= UIButton()		// seat button F
+	let seatBtnG				= UIButton()		// seat button G
+	let seatBtnH				= UIButton()		// seat button H
+	let seatBtnI				= UIButton()		// seat button I
+	let seatBtnJ				= UIButton()		// seat button J
 	let nextBtn					= UIButton()		// 次へボタン
-	
+
 	let SCREEN_SIZE				= UIScreen.main.bounds.size
 
 	// contactInfoScrollV内
@@ -108,6 +119,440 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.contactInfoScrollV.keyboardDismissMode = .onDrag
 		// キーボードを下にドラッグした時にキーボードを閉じる
 		self.contactInfoScrollV.keyboardDismissMode = .interactive
+
+		// setting message
+		self.message2.text = "あなたの現在の位置はどこですか？"
+		self.message2.textColor = UIColor.black
+		self.view.addSubview(message2)
+		self.message2.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(400)
+		}
+
+		// テーブル分岐
+		if(tableTypeIndex == 0) {
+			// square
+			var seatNum:Int = joinNumSum/2
+			if(maleNum>seatNum) {seatNum = maleNum}
+			if(femaleNum>seatNum) {seatNum = femaleNum}
+
+			// テーブル描写
+			let screenWidth:Int = Int(self.view.bounds.width)
+			let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80, y: Int(SCREEN_SIZE.height)-425, width: 160, height: seatNum*60))
+			self.view.addSubview(tableSquareDraw)
+
+			// seat button A
+			if(seatAFlg) {
+				self.seatBtnA.backgroundColor = UIColor.blue
+			} else {
+				self.seatBtnA.backgroundColor = UIColor.white
+			}
+			self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
+			self.seatBtnA.layer.borderWidth = 2.0
+			self.seatBtnA.layer.cornerRadius = 2.0
+			self.seatBtnA.tag = 1
+			self.view.addSubview(self.seatBtnA)
+			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+			self.seatBtnA.snp.makeConstraints { (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(380)
+				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
+			}
+			// seat button F
+			if(seatFFlg) {
+				self.seatBtnF.backgroundColor = UIColor.blue
+			} else {
+				self.seatBtnF.backgroundColor = UIColor.white
+			}
+			self.seatBtnF.layer.borderColor = UIColor.gray.cgColor
+			self.seatBtnF.layer.borderWidth = 2.0
+			self.seatBtnF.layer.cornerRadius = 2.0
+			self.seatBtnF.tag = 6
+			self.view.addSubview(self.seatBtnF)
+			self.seatBtnF.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+			self.seatBtnF.snp.makeConstraints { (make) in
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(380)
+				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
+			}
+			if(seatNum>=2) {
+				// seat button B
+				if(seatBFlg) {
+					self.seatBtnB.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnB.backgroundColor = UIColor.white
+				}
+				self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnB.layer.borderWidth = 2.0
+				self.seatBtnB.layer.cornerRadius = 2.0
+				self.seatBtnB.tag = 2
+				self.view.addSubview(self.seatBtnB)
+				self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnB.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(320)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
+				}
+				// seat button G
+				if(seatGFlg) {
+					self.seatBtnG.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnG.backgroundColor = UIColor.white
+				}
+				self.seatBtnG.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnG.layer.borderWidth = 2.0
+				self.seatBtnG.layer.cornerRadius = 2.0
+				self.seatBtnG.tag = 7
+				self.view.addSubview(self.seatBtnG)
+				self.seatBtnG.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnG.snp.makeConstraints { (make) in
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(320)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
+				}
+			}
+			if(seatNum>=3) {
+				// seat button C
+				if(seatCFlg) {
+					self.seatBtnC.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnC.backgroundColor = UIColor.white
+				}
+				self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnC.layer.borderWidth = 2.0
+				self.seatBtnC.layer.cornerRadius = 2.0
+				self.seatBtnC.tag = 3
+				self.view.addSubview(self.seatBtnC)
+				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnC.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(260)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
+				}
+				// seat button H
+				if(seatHFlg) {
+					self.seatBtnH.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnH.backgroundColor = UIColor.white
+				}
+				self.seatBtnH.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnH.layer.borderWidth = 2.0
+				self.seatBtnH.layer.cornerRadius = 2.0
+				self.seatBtnH.tag = 8
+				self.view.addSubview(self.seatBtnH)
+				self.seatBtnH.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnH.snp.makeConstraints { (make) in
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(260)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
+				}
+			}
+			if(seatNum>=4) {
+				// seat button D
+				if(seatDFlg) {
+					self.seatBtnD.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnD.backgroundColor = UIColor.white
+				}
+				self.seatBtnD.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnD.layer.borderWidth = 2.0
+				self.seatBtnD.layer.cornerRadius = 2.0
+				self.seatBtnD.tag = 4
+				self.view.addSubview(self.seatBtnD)
+				self.seatBtnD.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnD.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
+				}
+				// seat button I
+				if(seatIFlg) {
+					self.seatBtnI.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnI.backgroundColor = UIColor.white
+				}
+				self.seatBtnI.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnI.layer.borderWidth = 2.0
+				self.seatBtnI.layer.cornerRadius = 2.0
+				self.seatBtnI.tag = 9
+				self.view.addSubview(self.seatBtnI)
+				self.seatBtnI.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnI.snp.makeConstraints { (make) in
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
+				}
+			}
+			if(seatNum>=5) {
+				// seat button E
+				if(seatEFlg) {
+					self.seatBtnE.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnE.backgroundColor = UIColor.white
+				}
+				self.seatBtnE.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnE.layer.borderWidth = 2.0
+				self.seatBtnE.layer.cornerRadius = 2.0
+				self.seatBtnE.tag = 5
+				self.view.addSubview(self.seatBtnE)
+				self.seatBtnE.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnE.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(140)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
+				}
+				// seat button J
+				if(seatJFlg) {
+					self.seatBtnJ.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnJ.backgroundColor = UIColor.white
+				}
+				self.seatBtnJ.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnJ.layer.borderWidth = 2.0
+				self.seatBtnJ.layer.cornerRadius = 2.0
+				self.seatBtnJ.tag = 10
+				self.view.addSubview(self.seatBtnJ)
+				self.seatBtnJ.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				self.seatBtnJ.snp.makeConstraints { (make) in
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(140)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
+				}
+			}
+		} else if(tableTypeIndex == 1) {
+			// circle
+			let screenWidth = self.view.bounds.width
+			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: screenWidth/2-100, y: 420, width: 200, height: 200))
+			self.view.addSubview(tableCircleDraw)
+			
+			/* いい感じにseat buttonを配置 */
+			let eachAngle:CGFloat = CGFloat(360/joinNumSum)	// 座席を配置する間隔(角度)
+			print(eachAngle)
+			// seat button A
+			if(seatAFlg) {
+				self.seatBtnA.backgroundColor = UIColor.blue
+			} else {
+				self.seatBtnA.backgroundColor = UIColor.white
+			}
+			self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
+			self.seatBtnA.layer.borderWidth = 2.0
+			self.seatBtnA.layer.cornerRadius = 25.0
+			self.seatBtnA.tag = 1
+			self.view.addSubview(self.seatBtnA)
+			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+			self.seatBtnA.snp.makeConstraints { (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-25)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2+25)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			}
+			// seat button B
+			if(seatBFlg) {
+				self.seatBtnB.backgroundColor = UIColor.blue
+			} else {
+				self.seatBtnB.backgroundColor = UIColor.white
+			}
+			self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
+			self.seatBtnB.layer.borderWidth = 2.0
+			self.seatBtnB.layer.cornerRadius = 25.0
+			self.seatBtnB.tag = 2
+			self.view.addSubview(self.seatBtnB)
+			self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+			let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(eachAngle-90)/180)
+			let centerY = 480 + 150*sin(CGFloat.pi*(eachAngle-90)/180)
+			self.seatBtnB.snp.makeConstraints { (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+			}
+			// seat button C
+			if(joinNumSum >= 2) {
+				if(seatCFlg) {
+					self.seatBtnC.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnC.backgroundColor = UIColor.white
+				}
+				self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnC.layer.borderWidth = 2.0
+				self.seatBtnC.layer.cornerRadius = 25.0
+				self.seatBtnC.tag = 3
+				self.view.addSubview(self.seatBtnC)
+				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(2*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(2*eachAngle-90)/180)
+				self.seatBtnC.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+			// seat button D
+			if(joinNumSum >= 3) {
+				if(seatDFlg) {
+					self.seatBtnD.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnD.backgroundColor = UIColor.white
+				}
+				self.seatBtnD.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnD.layer.borderWidth = 2.0
+				self.seatBtnD.layer.cornerRadius = 25.0
+				self.seatBtnD.tag = 4
+				self.view.addSubview(self.seatBtnD)
+				self.seatBtnD.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(3*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(3*eachAngle-90)/180)
+				self.seatBtnD.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+			// seat button E
+			if(joinNumSum >= 4) {
+				if(seatEFlg) {
+					self.seatBtnE.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnE.backgroundColor = UIColor.white
+				}
+				self.seatBtnE.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnE.layer.borderWidth = 2.0
+				self.seatBtnE.layer.cornerRadius = 25.0
+				self.seatBtnE.tag = 5
+				self.view.addSubview(self.seatBtnE)
+				self.seatBtnE.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(4*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(4*eachAngle-90)/180)
+				self.seatBtnE.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+			// seat button F
+			if(joinNumSum >= 5) {
+				if(seatFFlg) {
+					self.seatBtnF.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnF.backgroundColor = UIColor.white
+				}
+				self.seatBtnF.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnF.layer.borderWidth = 2.0
+				self.seatBtnF.layer.cornerRadius = 25.0
+				self.seatBtnF.tag = 6
+				self.view.addSubview(self.seatBtnF)
+				self.seatBtnF.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(5*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(5*eachAngle-90)/180)
+				self.seatBtnF.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+			// seat button G
+			if(joinNumSum >= 6) {
+				if(seatGFlg) {
+					self.seatBtnG.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnG.backgroundColor = UIColor.white
+				}
+				self.seatBtnG.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnG.layer.borderWidth = 2.0
+				self.seatBtnG.layer.cornerRadius = 25.0
+				self.seatBtnG.tag = 7
+				self.view.addSubview(self.seatBtnG)
+				self.seatBtnG.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(6*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(6*eachAngle-90)/180)
+				self.seatBtnG.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+			// seat button H
+			if(joinNumSum >= 7) {
+				if(seatHFlg) {
+					self.seatBtnH.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnH.backgroundColor = UIColor.white
+				}
+				self.seatBtnH.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnH.layer.borderWidth = 2.0
+				self.seatBtnH.layer.cornerRadius = 25.0
+				self.seatBtnH.tag = 8
+				self.view.addSubview(self.seatBtnH)
+				self.seatBtnH.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(7*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(7*eachAngle-90)/180)
+				self.seatBtnH.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+			// seat button I
+			if(joinNumSum >= 8) {
+				if(seatIFlg) {
+					self.seatBtnI.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnI.backgroundColor = UIColor.white
+				}
+				self.seatBtnI.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnI.layer.borderWidth = 2.0
+				self.seatBtnI.layer.cornerRadius = 25.0
+				self.seatBtnI.tag = 9
+				self.view.addSubview(self.seatBtnI)
+				self.seatBtnI.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(8*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(8*eachAngle-90)/180)
+				self.seatBtnI.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+			// seat button J
+			if(joinNumSum >= 9) {
+				if(seatJFlg) {
+					self.seatBtnJ.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnJ.backgroundColor = UIColor.white
+				}
+				self.seatBtnJ.layer.borderColor = UIColor.gray.cgColor
+				self.seatBtnJ.layer.borderWidth = 2.0
+				self.seatBtnJ.layer.cornerRadius = 25.0
+				self.seatBtnJ.tag = 10
+				self.view.addSubview(self.seatBtnJ)
+				self.seatBtnJ.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
+				let centerX = screenWidth/2 + 150*cos(CGFloat.pi*(9*eachAngle-90)/180)
+				let centerY = 480 + 150*sin(CGFloat.pi*(9*eachAngle-90)/180)
+				self.seatBtnJ.snp.makeConstraints { (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
+					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
+				}
+			}
+		}
 
 		// next button
 		self.nextBtn.setTitle(" 次へ ", for: .normal)
@@ -297,6 +742,110 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		}
 
 		return contactInfoListView
+	}
+
+	/// seatBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func seatBtnDidTap(_ sender: Any) {
+		if let button = sender as? UIButton {
+			if let tag = actionTag(rawValue: button.tag) {
+				switch tag {
+					case .actionA:
+						if(!seatAFlg) {
+							self.seatBtnA.backgroundColor = UIColor.blue
+							seatAFlg = true
+						} else {
+							self.seatBtnA.backgroundColor = UIColor.white
+							seatAFlg = false
+					}
+					case .actionB:
+						if(!seatBFlg) {
+							self.seatBtnB.backgroundColor = UIColor.blue
+							seatBFlg = true
+						} else {
+							self.seatBtnB.backgroundColor = UIColor.white
+							seatBFlg = false
+					}
+					case .actionC:
+						if(!seatCFlg) {
+							self.seatBtnC.backgroundColor = UIColor.blue
+							seatCFlg = true
+						} else {
+							self.seatBtnC.backgroundColor = UIColor.white
+							seatCFlg = false
+					}
+					case .actionD:
+						if(!seatDFlg) {
+							self.seatBtnD.backgroundColor = UIColor.blue
+							seatDFlg = true
+						} else {
+							self.seatBtnD.backgroundColor = UIColor.white
+							seatEFlg = false
+					}
+					case .actionE:
+						if(!seatEFlg) {
+							self.seatBtnE.backgroundColor = UIColor.blue
+							seatEFlg = true
+						} else {
+							self.seatBtnE.backgroundColor = UIColor.white
+							seatEFlg = false
+					}
+					case .actionF:
+						if(!seatFFlg) {
+							self.seatBtnF.backgroundColor = UIColor.blue
+							seatFFlg = true
+						} else {
+							self.seatBtnF.backgroundColor = UIColor.white
+							seatFFlg = false
+					}
+					case .actionG:
+						if(!seatGFlg) {
+							self.seatBtnG.backgroundColor = UIColor.blue
+							seatGFlg = true
+						} else {
+							self.seatBtnG.backgroundColor = UIColor.white
+							seatGFlg = false
+					}
+					case .actionH:
+						if(!seatHFlg) {
+							self.seatBtnH.backgroundColor = UIColor.blue
+							seatHFlg = true
+						} else {
+							self.seatBtnH.backgroundColor = UIColor.white
+							seatHFlg = false
+					}
+					case .actionI:
+						if(!seatIFlg) {
+							self.seatBtnI.backgroundColor = UIColor.blue
+							seatIFlg = true
+						} else {
+							self.seatBtnI.backgroundColor = UIColor.white
+							seatIFlg = false
+					}
+					case .actionJ:
+						if(!seatJFlg) {
+							self.seatBtnJ.backgroundColor = UIColor.blue
+							seatJFlg = true
+						} else {
+							self.seatBtnJ.backgroundColor = UIColor.white
+							seatJFlg = false
+					}
+				}
+			}
+		}
+	}
+	enum actionTag: Int {
+		case actionA = 1
+		case actionB = 2
+		case actionC = 3
+		case actionD = 4
+		case actionE = 5
+		case actionF = 6
+		case actionG = 7
+		case actionH = 8
+		case actionI = 9
+		case actionJ = 10
 	}
 
 	/// backBtn action
