@@ -50,7 +50,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
-		
+
 		// return button
 		self.backBtn.setTitle(" 戻る ", for: .normal)
 		self.backBtn.setTitleColor(UIColor.green, for: .normal)
@@ -361,11 +361,15 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		if(self.nicknameTF.text!.count<1){
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "ニックネームが未入力です。", preferredStyle:  UIAlertController.Style.alert)
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+														message: "ニックネームが未入力です。",
+														preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}else if(self.pinCodeTF.text!.count<1 || self.pinCodeTF.text!.count>6){
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "暗証番号は1桁以上6桁以下にしてください。", preferredStyle:  UIAlertController.Style.alert)
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+														message: "暗証番号は1桁以上6桁以下にしてください。",
+														preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}else if(self.lineIdTF.text!.count<1
@@ -376,7 +380,9 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			&& self.otherTF.text!.count<1){
 		}else if((self.otherNameTF.text!.count<1 && self.otherTF.text!.count>0)
 				|| (self.otherNameTF.text!.count>0 && self.otherTF.text!.count<1)){
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "otherの情報が不完全です。", preferredStyle:  UIAlertController.Style.alert)
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+														message: "otherの情報が不完全です。",
+														preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}else{
@@ -391,9 +397,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			contactInfoOtherNameArray[registeredNum]	= self.otherNameTF.text!
 			contactInfoOtherArray[registeredNum]		= self.otherTF.text!
 
-			// registered number count up
-			registeredNum += 1;
-			
 			if(registeredNum == joinNumSum){
 				
 			}else{
