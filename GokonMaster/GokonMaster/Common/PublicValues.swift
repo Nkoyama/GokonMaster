@@ -148,6 +148,18 @@ public func initContactInfoOtherArray(joinNum : Int) {
 	}
 }
 
+// 座席位置
+public var seatPositionArray : Array<Int> = Array<Int>()
+public func initSeatPositionArray(joinNum : Int){
+	let len : Int = seatPositionArray.count
+	for _ in 0..<len {
+		seatPositionArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		seatPositionArray.append(-1)
+	}
+}
+
 
 // 座席位置
 public var seatAFlg = false

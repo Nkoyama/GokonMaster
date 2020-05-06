@@ -143,7 +143,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.view.addSubview(tableSquareDraw)
 
 			// seat button A
-			if(seatAFlg) {
+			if(seatPositionArray[registeredNum] == 1) {
 				self.seatBtnA.backgroundColor = UIColor.blue
 			} else {
 				self.seatBtnA.backgroundColor = UIColor.white
@@ -161,7 +161,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
 			}
 			// seat button F
-			if(seatFFlg) {
+			if(seatPositionArray[registeredNum] == 6) {
 				self.seatBtnF.backgroundColor = UIColor.blue
 			} else {
 				self.seatBtnF.backgroundColor = UIColor.white
@@ -180,7 +180,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=2) {
 				// seat button B
-				if(seatBFlg) {
+				if(seatPositionArray[registeredNum] == 2) {
 					self.seatBtnB.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnB.backgroundColor = UIColor.white
@@ -198,7 +198,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
 				}
 				// seat button G
-				if(seatGFlg) {
+				if(seatPositionArray[registeredNum] == 7) {
 					self.seatBtnG.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnG.backgroundColor = UIColor.white
@@ -218,7 +218,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=3) {
 				// seat button C
-				if(seatCFlg) {
+				if(seatPositionArray[registeredNum] == 3) {
 					self.seatBtnC.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnC.backgroundColor = UIColor.white
@@ -236,7 +236,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
 				}
 				// seat button H
-				if(seatHFlg) {
+				if(seatPositionArray[registeredNum] == 8) {
 					self.seatBtnH.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnH.backgroundColor = UIColor.white
@@ -256,7 +256,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=4) {
 				// seat button D
-				if(seatDFlg) {
+				if(seatPositionArray[registeredNum] == 4) {
 					self.seatBtnD.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnD.backgroundColor = UIColor.white
@@ -274,7 +274,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
 				}
 				// seat button I
-				if(seatIFlg) {
+				if(seatPositionArray[registeredNum] == 9) {
 					self.seatBtnI.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnI.backgroundColor = UIColor.white
@@ -294,7 +294,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=5) {
 				// seat button E
-				if(seatEFlg) {
+				if(seatPositionArray[registeredNum] == 5) {
 					self.seatBtnE.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnE.backgroundColor = UIColor.white
@@ -312,7 +312,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
 				}
 				// seat button J
-				if(seatJFlg) {
+				if(seatPositionArray[registeredNum] == 10) {
 					self.seatBtnJ.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnJ.backgroundColor = UIColor.white
@@ -335,7 +335,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			let screenWidth = SCREEN_SIZE.width
 			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: Int(screenWidth)/2-90, y: Int(SCREEN_SIZE.height)-370, width: 180, height: 180))
 			self.view.addSubview(tableCircleDraw)
-			
+
 			/* いい感じにseat buttonを配置 */
 			let eachAngle:CGFloat = CGFloat(360/(joinNumSum+1))	// 座席を配置する間隔(角度)
 
@@ -354,7 +354,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 
 			// seat button A
-			if(seatAFlg) {
+			if(seatPositionArray[registeredNum] == 1) {
 				self.seatBtnA.backgroundColor = UIColor.blue
 			} else {
 				self.seatBtnA.backgroundColor = UIColor.white
@@ -374,7 +374,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_a+25)
 			}
 			// seat button B
-			if(seatBFlg) {
+			if(seatPositionArray[registeredNum] == 2) {
 				self.seatBtnB.backgroundColor = UIColor.blue
 			} else {
 				self.seatBtnB.backgroundColor = UIColor.white
@@ -395,7 +395,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button C
 			if(joinNumSum >= 3) {
-				if(seatCFlg) {
+				if(seatPositionArray[registeredNum] == 3) {
 					self.seatBtnC.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnC.backgroundColor = UIColor.white
@@ -417,7 +417,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button D
 			if(joinNumSum >= 4) {
-				if(seatDFlg) {
+				if(seatPositionArray[registeredNum] == 4) {
 					self.seatBtnD.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnD.backgroundColor = UIColor.white
@@ -439,7 +439,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button E
 			if(joinNumSum >= 5) {
-				if(seatEFlg) {
+				if(seatPositionArray[registeredNum] == 5) {
 					self.seatBtnE.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnE.backgroundColor = UIColor.white
@@ -461,7 +461,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button F
 			if(joinNumSum >= 6) {
-				if(seatFFlg) {
+				if(seatPositionArray[registeredNum] == 6) {
 					self.seatBtnF.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnF.backgroundColor = UIColor.white
@@ -483,7 +483,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button G
 			if(joinNumSum >= 7) {
-				if(seatGFlg) {
+				if(seatPositionArray[registeredNum] == 7) {
 					self.seatBtnG.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnG.backgroundColor = UIColor.white
@@ -505,7 +505,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button H
 			if(joinNumSum >= 8) {
-				if(seatHFlg) {
+				if(seatPositionArray[registeredNum] == 8) {
 					self.seatBtnH.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnH.backgroundColor = UIColor.white
@@ -527,7 +527,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button I
 			if(joinNumSum >= 9) {
-				if(seatIFlg) {
+				if(seatPositionArray[registeredNum] == 9) {
 					self.seatBtnI.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnI.backgroundColor = UIColor.white
@@ -549,7 +549,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button J
 			if(joinNumSum >= 10) {
-				if(seatJFlg) {
+				if(seatPositionArray[registeredNum] == 10) {
 					self.seatBtnJ.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnJ.backgroundColor = UIColor.white
@@ -769,86 +769,117 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if let tag = actionTag(rawValue: button.tag) {
 				switch tag {
 					case .actionA:
-						if(!seatAFlg) {
-							self.seatBtnA.backgroundColor = UIColor.blue
-							seatAFlg = true
-						} else {
-							self.seatBtnA.backgroundColor = UIColor.white
-							seatAFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.blue
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionB:
-						if(!seatBFlg) {
-							self.seatBtnB.backgroundColor = UIColor.blue
-							seatBFlg = true
-						} else {
-							self.seatBtnB.backgroundColor = UIColor.white
-							seatBFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.blue
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionC:
-						if(!seatCFlg) {
-							self.seatBtnC.backgroundColor = UIColor.blue
-							seatCFlg = true
-						} else {
-							self.seatBtnC.backgroundColor = UIColor.white
-							seatCFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.blue
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionD:
-						if(!seatDFlg) {
-							self.seatBtnD.backgroundColor = UIColor.blue
-							seatDFlg = true
-						} else {
-							self.seatBtnD.backgroundColor = UIColor.white
-							seatEFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.blue
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionE:
-						if(!seatEFlg) {
-							self.seatBtnE.backgroundColor = UIColor.blue
-							seatEFlg = true
-						} else {
-							self.seatBtnE.backgroundColor = UIColor.white
-							seatEFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.blue
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionF:
-						if(!seatFFlg) {
-							self.seatBtnF.backgroundColor = UIColor.blue
-							seatFFlg = true
-						} else {
-							self.seatBtnF.backgroundColor = UIColor.white
-							seatFFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.blue
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionG:
-						if(!seatGFlg) {
-							self.seatBtnG.backgroundColor = UIColor.blue
-							seatGFlg = true
-						} else {
-							self.seatBtnG.backgroundColor = UIColor.white
-							seatGFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.blue
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionH:
-						if(!seatHFlg) {
-							self.seatBtnH.backgroundColor = UIColor.blue
-							seatHFlg = true
-						} else {
-							self.seatBtnH.backgroundColor = UIColor.white
-							seatHFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.blue
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionI:
-						if(!seatIFlg) {
-							self.seatBtnI.backgroundColor = UIColor.blue
-							seatIFlg = true
-						} else {
-							self.seatBtnI.backgroundColor = UIColor.white
-							seatIFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.blue
+						self.seatBtnJ.backgroundColor = UIColor.white
 					case .actionJ:
-						if(!seatJFlg) {
-							self.seatBtnJ.backgroundColor = UIColor.blue
-							seatJFlg = true
-						} else {
-							self.seatBtnJ.backgroundColor = UIColor.white
-							seatJFlg = false
-					}
+						self.seatBtnA.backgroundColor = UIColor.white
+						self.seatBtnB.backgroundColor = UIColor.white
+						self.seatBtnC.backgroundColor = UIColor.white
+						self.seatBtnD.backgroundColor = UIColor.white
+						self.seatBtnE.backgroundColor = UIColor.white
+						self.seatBtnF.backgroundColor = UIColor.white
+						self.seatBtnG.backgroundColor = UIColor.white
+						self.seatBtnH.backgroundColor = UIColor.white
+						self.seatBtnI.backgroundColor = UIColor.white
+						self.seatBtnJ.backgroundColor = UIColor.blue
 				}
+				seatPositionArray[registeredNum] = tag.rawValue
 			}
 		}
 	}
@@ -877,6 +908,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
+		if(seatPositionArray[registeredNum] < 0){
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+													 message: "現在の位置を設定してください。",
+													 preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}
 		if(registeredNum == joinNumSum){
 		}else{
 			let memberRegisterViewController = MemberRegisterViewController()

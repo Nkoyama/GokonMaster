@@ -202,6 +202,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			initTwitterIdArray(joinNum: joinNumSum)
 			initContactInfoOtherNameArray(joinNum: joinNumSum)
 			initContactInfoOtherArray(joinNum: joinNumSum)
+			initSeatPositionArray(joinNum: joinNumSum)
 			self.present(memberRegisterViewController, animated: true)
 		}
 	}
