@@ -14,6 +14,7 @@ class SettingFinishViewController: UIViewController {
 
 	// MARK: Views
 	let smallTitle		= UILabel()				// title
+	let message			= UILabel()				// message
 	let nextBtn			= UIButton()			// 次へボタン
 
 	// MARK: Life Cycle
@@ -30,6 +31,16 @@ class SettingFinishViewController: UIViewController {
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
+		}
+
+		// message
+		self.message.numberOfLines = 2
+		self.message.text = "全員の登録が完了しました。\nしばしご歓談ください。"
+		self.message.textColor = UIColor.black
+		self.view.addSubview(message)
+		self.message.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
 		}
 
 		// next button
