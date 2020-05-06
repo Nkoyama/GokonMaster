@@ -107,7 +107,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
 		self.contactInfoScrollV.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 		self.contactInfoScrollV.layer.borderWidth = 1.0
-		self.contactInfoScrollV.contentSize = CGSize(width: self.view.frame.width-100, height: 180)
+		self.contactInfoScrollV.contentSize = CGSize(width: SCREEN_SIZE.width-100, height: 180)
 		self.contactInfoScrollV.delegate = self
 		self.view.addSubview(self.contactInfoScrollV)
 		self.contactInfoScrollV.frame.origin.y		= 280
@@ -143,10 +143,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.view.addSubview(tableSquareDraw)
 
 			// seat button A
-			if(seatPositionArray[registeredNum] == 1) {
-				self.seatBtnA.backgroundColor = UIColor.blue
+			let memberIndexA = seatSelectedMemberIndex(seatTag: 1)
+			if(memberIndexA >= 0){
+				self.seatBtnA.setTitle(nicknameArray[memberIndexA], for: UIControl.State.normal)
+				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.seatBtnA.setTitleColor(UIColor.black, for: .normal)
+				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnA.isEnabled = false
 			} else {
-				self.seatBtnA.backgroundColor = UIColor.white
+				if(seatPositionArray[registeredNum] == 1) {
+					self.seatBtnA.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnA.backgroundColor = UIColor.white
+				}
 			}
 			self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnA.layer.borderWidth = 2.0
@@ -155,16 +164,25 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.view.addSubview(self.seatBtnA)
 			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			self.seatBtnA.snp.makeConstraints { (make) in
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
-				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
 				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(380)
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
 			}
 			// seat button F
-			if(seatPositionArray[registeredNum] == 6) {
-				self.seatBtnF.backgroundColor = UIColor.blue
+			let memberIndexF = seatSelectedMemberIndex(seatTag: 6)
+			if(memberIndexF >= 0) {
+				self.seatBtnF.setTitle(nicknameArray[memberIndexF], for: UIControl.State.normal)
+				self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.seatBtnF.setTitleColor(UIColor.black, for: .normal)
+				self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnF.isEnabled = false
 			} else {
-				self.seatBtnF.backgroundColor = UIColor.white
+				if(seatPositionArray[registeredNum] == 6) {
+					self.seatBtnF.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnF.backgroundColor = UIColor.white
+				}
 			}
 			self.seatBtnF.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnF.layer.borderWidth = 2.0
@@ -173,17 +191,26 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.view.addSubview(self.seatBtnF)
 			self.seatBtnF.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			self.seatBtnF.snp.makeConstraints { (make) in
-				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
 				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(380)
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
 			}
 			if(seatNum>=2) {
 				// seat button B
-				if(seatPositionArray[registeredNum] == 2) {
-					self.seatBtnB.backgroundColor = UIColor.blue
+				let memberIndexB = seatSelectedMemberIndex(seatTag: 2)
+				if(memberIndexB >= 0) {
+					self.seatBtnB.setTitle(nicknameArray[memberIndexB], for: .normal)
+					self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnB.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnB.isEnabled = false
 				} else {
-					self.seatBtnB.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 2) {
+						self.seatBtnB.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnB.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnB.layer.borderWidth = 2.0
@@ -192,16 +219,25 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnB)
 				self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnB.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(320)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
 				}
 				// seat button G
-				if(seatPositionArray[registeredNum] == 7) {
-					self.seatBtnG.backgroundColor = UIColor.blue
+				let memberIndexG = seatSelectedMemberIndex(seatTag: 7)
+				if(memberIndexG >= 0) {
+					self.seatBtnG.setTitle(nicknameArray[memberIndexG], for: .normal)
+					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnG.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnG.isEnabled = false
 				} else {
-					self.seatBtnG.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 7) {
+						self.seatBtnG.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnG.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnG.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnG.layer.borderWidth = 2.0
@@ -210,18 +246,27 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnG)
 				self.seatBtnG.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnG.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(320)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
 				}
 			}
 			if(seatNum>=3) {
 				// seat button C
-				if(seatPositionArray[registeredNum] == 3) {
-					self.seatBtnC.backgroundColor = UIColor.blue
+				let memberIndexC = seatSelectedMemberIndex(seatTag: 3)
+				if(memberIndexC >= 0) {
+					self.seatBtnC.setTitle(nicknameArray[memberIndexC], for: .normal)
+					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnC.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnC.isEnabled = false
 				} else {
-					self.seatBtnC.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 3) {
+						self.seatBtnC.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnC.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnC.layer.borderWidth = 2.0
@@ -230,16 +275,25 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnC)
 				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnC.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(260)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
 				}
 				// seat button H
-				if(seatPositionArray[registeredNum] == 8) {
-					self.seatBtnH.backgroundColor = UIColor.blue
+				let memberIndexH = seatSelectedMemberIndex(seatTag: 8)
+				if(memberIndexH >= 0) {
+					self.seatBtnH.setTitle(nicknameArray[memberIndexH], for: .normal)
+					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnH.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnH.isEnabled = false
 				} else {
-					self.seatBtnH.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 8) {
+						self.seatBtnH.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnH.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnH.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnH.layer.borderWidth = 2.0
@@ -248,18 +302,27 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnH)
 				self.seatBtnH.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnH.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(260)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
 				}
 			}
 			if(seatNum>=4) {
 				// seat button D
-				if(seatPositionArray[registeredNum] == 4) {
-					self.seatBtnD.backgroundColor = UIColor.blue
+				let memberIndexD = seatSelectedMemberIndex(seatTag: 4)
+				if(memberIndexD >= 0) {
+					self.seatBtnD.setTitle(nicknameArray[memberIndexD], for: .normal)
+					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnD.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnD.isEnabled = false
 				} else {
-					self.seatBtnD.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 4) {
+						self.seatBtnD.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnD.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnD.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnD.layer.borderWidth = 2.0
@@ -268,16 +331,25 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnD)
 				self.seatBtnD.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnD.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
 				}
 				// seat button I
-				if(seatPositionArray[registeredNum] == 9) {
-					self.seatBtnI.backgroundColor = UIColor.blue
+				let memberIndexI = seatSelectedMemberIndex(seatTag: 9)
+				if(memberIndexI >= 0) {
+					self.seatBtnI.setTitle(nicknameArray[memberIndexI], for: .normal)
+					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnI.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnI.isEnabled = false
 				} else {
-					self.seatBtnI.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 9) {
+						self.seatBtnI.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnI.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnI.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnI.layer.borderWidth = 2.0
@@ -286,18 +358,27 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnI)
 				self.seatBtnI.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnI.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
 				}
 			}
 			if(seatNum>=5) {
 				// seat button E
-				if(seatPositionArray[registeredNum] == 5) {
-					self.seatBtnE.backgroundColor = UIColor.blue
+				let memberIndexE = seatSelectedMemberIndex(seatTag: 5)
+				if(memberIndexE >= 0) {
+					self.seatBtnE.setTitle(nicknameArray[memberIndexE], for: .normal)
+					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnE.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnE.isEnabled = false
 				} else {
-					self.seatBtnE.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 5) {
+						self.seatBtnE.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnE.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnE.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnE.layer.borderWidth = 2.0
@@ -306,16 +387,25 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnE)
 				self.seatBtnE.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnE.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(60)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(140)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
 				}
 				// seat button J
-				if(seatPositionArray[registeredNum] == 10) {
-					self.seatBtnJ.backgroundColor = UIColor.blue
+				let memberIndexJ = seatSelectedMemberIndex(seatTag: 10)
+				if(memberIndexJ >= 0) {
+					self.seatBtnJ.setTitle(nicknameArray[memberIndexJ], for: .normal)
+					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnJ.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnJ.isEnabled = false
 				} else {
-					self.seatBtnJ.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 10) {
+						self.seatBtnJ.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnJ.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnJ.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnJ.layer.borderWidth = 2.0
@@ -324,8 +414,8 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.view.addSubview(self.seatBtnJ)
 				self.seatBtnJ.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnJ.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(60)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(140)
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
 				}
@@ -894,6 +984,17 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		case actionH = 8
 		case actionI = 9
 		case actionJ = 10
+	}
+
+	func seatSelectedMemberIndex(seatTag: Int) -> Int {
+		var selectedMemberIndex = -1
+		for index in 0..<seatPositionArray.count {
+			if(seatPositionArray[index] == seatTag){
+				selectedMemberIndex = index
+				return selectedMemberIndex
+			}
+		}
+		return selectedMemberIndex
 	}
 
 	/// backBtn action
