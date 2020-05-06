@@ -444,10 +444,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 
 			// seat button A
-			if(seatPositionArray[registeredNum] == 1) {
-				self.seatBtnA.backgroundColor = UIColor.blue
+			let memberIndexA = seatSelectedMemberIndex(seatTag: 1)
+			if(memberIndexA >= 0) {
+				self.seatBtnA.setTitle(String(nicknameArray[memberIndexA].prefix(3)), for: .normal)
+				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.seatBtnA.setTitleColor(UIColor.black, for: .normal)
+				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnA.isEnabled = false
 			} else {
-				self.seatBtnA.backgroundColor = UIColor.white
+				if(seatPositionArray[registeredNum] == 1) {
+					self.seatBtnA.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnA.backgroundColor = UIColor.white
+				}
 			}
 			self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnA.layer.borderWidth = 2.0
@@ -464,10 +473,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_a+25)
 			}
 			// seat button B
-			if(seatPositionArray[registeredNum] == 2) {
-				self.seatBtnB.backgroundColor = UIColor.blue
+			let memberIndexB = seatSelectedMemberIndex(seatTag: 2)
+			if(memberIndexB >= 0) {
+				self.seatBtnB.setTitle(String(nicknameArray[memberIndexB].prefix(3)), for: .normal)
+				self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.seatBtnB.setTitleColor(UIColor.black, for: .normal)
+				self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnB.isEnabled = false
 			} else {
-				self.seatBtnB.backgroundColor = UIColor.white
+				if(seatPositionArray[registeredNum] == 2) {
+					self.seatBtnB.backgroundColor = UIColor.blue
+				} else {
+					self.seatBtnB.backgroundColor = UIColor.white
+				}
 			}
 			self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnB.layer.borderWidth = 2.0
@@ -485,10 +503,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button C
 			if(joinNumSum >= 3) {
-				if(seatPositionArray[registeredNum] == 3) {
-					self.seatBtnC.backgroundColor = UIColor.blue
+				let memberIndexC = seatSelectedMemberIndex(seatTag: 3)
+				if(memberIndexC >= 0) {
+					self.seatBtnC.setTitle(String(nicknameArray[memberIndexC].prefix(3)), for: .normal)
+					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnC.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnC.isEnabled = false
 				} else {
-					self.seatBtnC.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 3) {
+						self.seatBtnC.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnC.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnC.layer.borderWidth = 2.0
@@ -507,10 +534,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button D
 			if(joinNumSum >= 4) {
-				if(seatPositionArray[registeredNum] == 4) {
-					self.seatBtnD.backgroundColor = UIColor.blue
+				let memberIndexD = seatSelectedMemberIndex(seatTag: 4)
+				if(memberIndexD >= 0) {
+					self.seatBtnD.setTitle(String(nicknameArray[memberIndexD].prefix(3)), for: .normal)
+					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnD.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnD.isEnabled = false
 				} else {
-					self.seatBtnD.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 4) {
+						self.seatBtnD.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnD.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnD.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnD.layer.borderWidth = 2.0
@@ -529,10 +565,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button E
 			if(joinNumSum >= 5) {
-				if(seatPositionArray[registeredNum] == 5) {
-					self.seatBtnE.backgroundColor = UIColor.blue
+				let memberIndexE = seatSelectedMemberIndex(seatTag: 5)
+				if(memberIndexE >= 0) {
+					self.seatBtnE.setTitle(String(nicknameArray[memberIndexE].prefix(3)), for: .normal)
+					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnE.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnE.isEnabled = false
 				} else {
-					self.seatBtnE.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 5) {
+						self.seatBtnE.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnE.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnE.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnE.layer.borderWidth = 2.0
@@ -551,10 +596,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button F
 			if(joinNumSum >= 6) {
-				if(seatPositionArray[registeredNum] == 6) {
-					self.seatBtnF.backgroundColor = UIColor.blue
+				let memberIndexF = seatSelectedMemberIndex(seatTag: 6)
+				if(memberIndexF >= 0) {
+					self.seatBtnF.setTitle(String(nicknameArray[memberIndexF].prefix(3)), for: .normal)
+					self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnF.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnF.isEnabled = false
 				} else {
-					self.seatBtnF.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 6) {
+						self.seatBtnF.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnF.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnF.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnF.layer.borderWidth = 2.0
@@ -573,10 +627,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button G
 			if(joinNumSum >= 7) {
-				if(seatPositionArray[registeredNum] == 7) {
-					self.seatBtnG.backgroundColor = UIColor.blue
+				let memberIndexG = seatSelectedMemberIndex(seatTag: 7)
+				if(memberIndexG >= 0) {
+					self.seatBtnG.setTitle(String(nicknameArray[memberIndexG].prefix(3)), for: .normal)
+					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnG.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnG.isEnabled = false
 				} else {
-					self.seatBtnG.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 7) {
+						self.seatBtnG.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnG.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnG.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnG.layer.borderWidth = 2.0
@@ -595,10 +658,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button H
 			if(joinNumSum >= 8) {
-				if(seatPositionArray[registeredNum] == 8) {
-					self.seatBtnH.backgroundColor = UIColor.blue
+				let memberIndexH = seatSelectedMemberIndex(seatTag: 8)
+				if(memberIndexH >= 0) {
+					self.seatBtnH.setTitle(String(nicknameArray[memberIndexH].prefix(3)), for: .normal)
+					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnH.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnH.isEnabled = false
 				} else {
-					self.seatBtnH.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 8) {
+						self.seatBtnH.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnH.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnH.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnH.layer.borderWidth = 2.0
@@ -617,10 +689,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button I
 			if(joinNumSum >= 9) {
-				if(seatPositionArray[registeredNum] == 9) {
-					self.seatBtnI.backgroundColor = UIColor.blue
+				let memberIndexI = seatSelectedMemberIndex(seatTag: 9)
+				if(memberIndexI >= 0) {
+					self.seatBtnI.setTitle(String(nicknameArray[memberIndexI].prefix(3)), for: .normal)
+					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnI.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnI.isEnabled = false
 				} else {
-					self.seatBtnI.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 9) {
+						self.seatBtnI.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnI.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnI.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnI.layer.borderWidth = 2.0
@@ -639,10 +720,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button J
 			if(joinNumSum >= 10) {
-				if(seatPositionArray[registeredNum] == 10) {
-					self.seatBtnJ.backgroundColor = UIColor.blue
+				let memberIndexJ = seatSelectedMemberIndex(seatTag: 10)
+				if(memberIndexJ >= 0) {
+					self.seatBtnJ.setTitle(String(nicknameArray[memberIndexJ].prefix(3)), for: .normal)
+					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
+					self.seatBtnJ.setTitleColor(UIColor.black, for: .normal)
+					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnJ.isEnabled = false
 				} else {
-					self.seatBtnJ.backgroundColor = UIColor.white
+					if(seatPositionArray[registeredNum] == 10) {
+						self.seatBtnJ.backgroundColor = UIColor.blue
+					} else {
+						self.seatBtnJ.backgroundColor = UIColor.white
+					}
 				}
 				self.seatBtnJ.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnJ.layer.borderWidth = 2.0
