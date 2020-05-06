@@ -445,8 +445,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 
 			// seat button A
 			let memberIndexA = seatSelectedMemberIndex(seatTag: 1)
+			var prefixNumA = 2
 			if(memberIndexA >= 0) {
-				self.seatBtnA.setTitle(String(nicknameArray[memberIndexA].prefix(3)), for: .normal)
+				if(nicknameArray[memberIndexA].isNotJapanese) {
+					prefixNumA = 5
+				}
+				self.seatBtnA.setTitle(String(nicknameArray[memberIndexA].prefix(prefixNumA)), for: .normal)
 				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnA.setTitleColor(UIColor.black, for: .normal)
 				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -474,8 +478,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button B
 			let memberIndexB = seatSelectedMemberIndex(seatTag: 2)
+			var prefixNumB = 2
 			if(memberIndexB >= 0) {
-				self.seatBtnB.setTitle(String(nicknameArray[memberIndexB].prefix(3)), for: .normal)
+				if(nicknameArray[memberIndexB].isNotJapanese) {
+					prefixNumB = 5
+				}
+				self.seatBtnB.setTitle(String(nicknameArray[memberIndexB].prefix(prefixNumB)), for: .normal)
 				self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnB.setTitleColor(UIColor.black, for: .normal)
 				self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -504,8 +512,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button C
 			if(joinNumSum >= 3) {
 				let memberIndexC = seatSelectedMemberIndex(seatTag: 3)
+				var prefixNumC = 2
 				if(memberIndexC >= 0) {
-					self.seatBtnC.setTitle(String(nicknameArray[memberIndexC].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexC].isNotJapanese) {
+						prefixNumC = 5
+					}
+					self.seatBtnC.setTitle(String(nicknameArray[memberIndexC].prefix(prefixNumC)), for: .normal)
 					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnC.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -535,8 +547,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button D
 			if(joinNumSum >= 4) {
 				let memberIndexD = seatSelectedMemberIndex(seatTag: 4)
+				var prefixNumD = 2
 				if(memberIndexD >= 0) {
-					self.seatBtnD.setTitle(String(nicknameArray[memberIndexD].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexD].isNotJapanese) {
+						prefixNumD = 5
+					}
+					self.seatBtnD.setTitle(String(nicknameArray[memberIndexD].prefix(prefixNumD)), for: .normal)
 					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnD.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -566,8 +582,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button E
 			if(joinNumSum >= 5) {
 				let memberIndexE = seatSelectedMemberIndex(seatTag: 5)
+				var prefixNumE = 2
 				if(memberIndexE >= 0) {
-					self.seatBtnE.setTitle(String(nicknameArray[memberIndexE].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexE].isNotJapanese) {
+						prefixNumE = 5
+					}
+					self.seatBtnE.setTitle(String(nicknameArray[memberIndexE].prefix(prefixNumE)), for: .normal)
 					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnE.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -597,8 +617,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button F
 			if(joinNumSum >= 6) {
 				let memberIndexF = seatSelectedMemberIndex(seatTag: 6)
+				var prefixNumF = 2
 				if(memberIndexF >= 0) {
-					self.seatBtnF.setTitle(String(nicknameArray[memberIndexF].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexF].isNotJapanese) {
+						prefixNumF = 5
+					}
+					self.seatBtnF.setTitle(String(nicknameArray[memberIndexF].prefix(prefixNumF)), for: .normal)
 					self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnF.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -628,8 +652,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button G
 			if(joinNumSum >= 7) {
 				let memberIndexG = seatSelectedMemberIndex(seatTag: 7)
+				var prefixNumG = 2
 				if(memberIndexG >= 0) {
-					self.seatBtnG.setTitle(String(nicknameArray[memberIndexG].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexG].isNotJapanese) {
+						prefixNumG = 5
+					}
+					self.seatBtnG.setTitle(String(nicknameArray[memberIndexG].prefix(prefixNumG)), for: .normal)
 					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnG.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -659,8 +687,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button H
 			if(joinNumSum >= 8) {
 				let memberIndexH = seatSelectedMemberIndex(seatTag: 8)
+				var prefixNumH = 2
 				if(memberIndexH >= 0) {
-					self.seatBtnH.setTitle(String(nicknameArray[memberIndexH].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexH].isNotJapanese) {
+						prefixNumH = 5
+					}
+					self.seatBtnH.setTitle(String(nicknameArray[memberIndexH].prefix(prefixNumH)), for: .normal)
 					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnH.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -690,8 +722,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button I
 			if(joinNumSum >= 9) {
 				let memberIndexI = seatSelectedMemberIndex(seatTag: 9)
+				var prefixNumI = 2
 				if(memberIndexI >= 0) {
-					self.seatBtnI.setTitle(String(nicknameArray[memberIndexI].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexI].isNotJapanese) {
+						prefixNumI = 5
+					}
+					self.seatBtnI.setTitle(String(nicknameArray[memberIndexI].prefix(prefixNumI)), for: .normal)
 					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnI.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -721,8 +757,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button J
 			if(joinNumSum >= 10) {
 				let memberIndexJ = seatSelectedMemberIndex(seatTag: 10)
+				var prefixNumJ = 2
 				if(memberIndexJ >= 0) {
-					self.seatBtnJ.setTitle(String(nicknameArray[memberIndexJ].prefix(3)), for: .normal)
+					if(nicknameArray[memberIndexJ].isNotJapanese) {
+						prefixNumJ = 5
+					}
+					self.seatBtnJ.setTitle(String(nicknameArray[memberIndexJ].prefix(prefixNumJ)), for: .normal)
 					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnJ.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
