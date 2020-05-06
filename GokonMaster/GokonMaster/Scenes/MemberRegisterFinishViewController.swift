@@ -586,7 +586,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
 		}
 	}
-	
+
 	/// 登録された連絡先を表示するスクロール部分のViewを作成
 	/// - Authors: Nozomi Koyama
 	func createContactInfoListView() -> UIView {
@@ -915,14 +915,16 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}
+		// registered number count up
+		registeredNum += 1;
 		if(registeredNum == joinNumSum){
+			let settingFinishViewController = SettingFinishViewController()
+			settingFinishViewController.modalPresentationStyle = .fullScreen
+			self.present(settingFinishViewController, animated: true)
 		}else{
 			let memberRegisterViewController = MemberRegisterViewController()
 			memberRegisterViewController.modalPresentationStyle = .fullScreen
 			self.present(memberRegisterViewController, animated: true)
 		}
-
-		// registered number count up
-		registeredNum += 1;
 	}
 }
