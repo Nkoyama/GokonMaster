@@ -52,6 +52,18 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let contactInfoOtherName	= UILabel()			// contact information other name
 	let contactInfoOther		= UILabel()			// contact information other
 
+	// テーブル選択状況
+	let memberIndexA = seatSelectedMemberIndex(seatTag: 1)
+	let memberIndexB = seatSelectedMemberIndex(seatTag: 2)
+	let memberIndexC = seatSelectedMemberIndex(seatTag: 3)
+	let memberIndexD = seatSelectedMemberIndex(seatTag: 4)
+	let memberIndexE = seatSelectedMemberIndex(seatTag: 5)
+	let memberIndexF = seatSelectedMemberIndex(seatTag: 6)
+	let memberIndexG = seatSelectedMemberIndex(seatTag: 7)
+	let memberIndexH = seatSelectedMemberIndex(seatTag: 8)
+	let memberIndexI = seatSelectedMemberIndex(seatTag: 9)
+	let memberIndexJ = seatSelectedMemberIndex(seatTag: 10)
+
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -143,7 +155,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.view.addSubview(tableSquareDraw)
 
 			// seat button A
-			let memberIndexA = seatSelectedMemberIndex(seatTag: 1)
 			if(memberIndexA >= 0){
 				self.seatBtnA.setTitle(nicknameArray[memberIndexA], for: UIControl.State.normal)
 				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -170,7 +181,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
 			}
 			// seat button F
-			let memberIndexF = seatSelectedMemberIndex(seatTag: 6)
 			if(memberIndexF >= 0) {
 				self.seatBtnF.setTitle(nicknameArray[memberIndexF], for: UIControl.State.normal)
 				self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -198,7 +208,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=2) {
 				// seat button B
-				let memberIndexB = seatSelectedMemberIndex(seatTag: 2)
 				if(memberIndexB >= 0) {
 					self.seatBtnB.setTitle(nicknameArray[memberIndexB], for: .normal)
 					self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -225,7 +234,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
 				}
 				// seat button G
-				let memberIndexG = seatSelectedMemberIndex(seatTag: 7)
 				if(memberIndexG >= 0) {
 					self.seatBtnG.setTitle(nicknameArray[memberIndexG], for: .normal)
 					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -254,7 +262,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=3) {
 				// seat button C
-				let memberIndexC = seatSelectedMemberIndex(seatTag: 3)
 				if(memberIndexC >= 0) {
 					self.seatBtnC.setTitle(nicknameArray[memberIndexC], for: .normal)
 					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -281,7 +288,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
 				}
 				// seat button H
-				let memberIndexH = seatSelectedMemberIndex(seatTag: 8)
 				if(memberIndexH >= 0) {
 					self.seatBtnH.setTitle(nicknameArray[memberIndexH], for: .normal)
 					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -310,7 +316,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=4) {
 				// seat button D
-				let memberIndexD = seatSelectedMemberIndex(seatTag: 4)
 				if(memberIndexD >= 0) {
 					self.seatBtnD.setTitle(nicknameArray[memberIndexD], for: .normal)
 					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -337,7 +342,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
 				}
 				// seat button I
-				let memberIndexI = seatSelectedMemberIndex(seatTag: 9)
 				if(memberIndexI >= 0) {
 					self.seatBtnI.setTitle(nicknameArray[memberIndexI], for: .normal)
 					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -366,7 +370,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			if(seatNum>=5) {
 				// seat button E
-				let memberIndexE = seatSelectedMemberIndex(seatTag: 5)
 				if(memberIndexE >= 0) {
 					self.seatBtnE.setTitle(nicknameArray[memberIndexE], for: .normal)
 					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -393,7 +396,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
 				}
 				// seat button J
-				let memberIndexJ = seatSelectedMemberIndex(seatTag: 10)
 				if(memberIndexJ >= 0) {
 					self.seatBtnJ.setTitle(nicknameArray[memberIndexJ], for: .normal)
 					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -444,7 +446,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 
 			// seat button A
-			let memberIndexA = seatSelectedMemberIndex(seatTag: 1)
 			var prefixNumA = 2
 			if(memberIndexA >= 0) {
 				if(nicknameArray[memberIndexA].isNotJapanese) {
@@ -477,7 +478,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_a+25)
 			}
 			// seat button B
-			let memberIndexB = seatSelectedMemberIndex(seatTag: 2)
 			var prefixNumB = 2
 			if(memberIndexB >= 0) {
 				if(nicknameArray[memberIndexB].isNotJapanese) {
@@ -511,7 +511,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button C
 			if(joinNumSum >= 3) {
-				let memberIndexC = seatSelectedMemberIndex(seatTag: 3)
 				var prefixNumC = 2
 				if(memberIndexC >= 0) {
 					if(nicknameArray[memberIndexC].isNotJapanese) {
@@ -546,7 +545,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button D
 			if(joinNumSum >= 4) {
-				let memberIndexD = seatSelectedMemberIndex(seatTag: 4)
 				var prefixNumD = 2
 				if(memberIndexD >= 0) {
 					if(nicknameArray[memberIndexD].isNotJapanese) {
@@ -581,7 +579,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button E
 			if(joinNumSum >= 5) {
-				let memberIndexE = seatSelectedMemberIndex(seatTag: 5)
 				var prefixNumE = 2
 				if(memberIndexE >= 0) {
 					if(nicknameArray[memberIndexE].isNotJapanese) {
@@ -616,7 +613,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button F
 			if(joinNumSum >= 6) {
-				let memberIndexF = seatSelectedMemberIndex(seatTag: 6)
 				var prefixNumF = 2
 				if(memberIndexF >= 0) {
 					if(nicknameArray[memberIndexF].isNotJapanese) {
@@ -651,7 +647,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button G
 			if(joinNumSum >= 7) {
-				let memberIndexG = seatSelectedMemberIndex(seatTag: 7)
 				var prefixNumG = 2
 				if(memberIndexG >= 0) {
 					if(nicknameArray[memberIndexG].isNotJapanese) {
@@ -686,7 +681,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button H
 			if(joinNumSum >= 8) {
-				let memberIndexH = seatSelectedMemberIndex(seatTag: 8)
 				var prefixNumH = 2
 				if(memberIndexH >= 0) {
 					if(nicknameArray[memberIndexH].isNotJapanese) {
@@ -721,7 +715,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button I
 			if(joinNumSum >= 9) {
-				let memberIndexI = seatSelectedMemberIndex(seatTag: 9)
 				var prefixNumI = 2
 				if(memberIndexI >= 0) {
 					if(nicknameArray[memberIndexI].isNotJapanese) {
@@ -756,7 +749,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button J
 			if(joinNumSum >= 10) {
-				let memberIndexJ = seatSelectedMemberIndex(seatTag: 10)
 				var prefixNumJ = 2
 				if(memberIndexJ >= 0) {
 					if(nicknameArray[memberIndexJ].isNotJapanese) {
@@ -990,113 +982,293 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				switch tag {
 					case .actionA:
 						self.seatBtnA.backgroundColor = UIColor.blue
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionB:
-						self.seatBtnA.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
 						self.seatBtnB.backgroundColor = UIColor.blue
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionC:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
 						self.seatBtnC.backgroundColor = UIColor.blue
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionD:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
 						self.seatBtnD.backgroundColor = UIColor.blue
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionE:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
 						self.seatBtnE.backgroundColor = UIColor.blue
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionF:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
 						self.seatBtnF.backgroundColor = UIColor.blue
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionG:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
 						self.seatBtnG.backgroundColor = UIColor.blue
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionH:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
 						self.seatBtnH.backgroundColor = UIColor.blue
-						self.seatBtnI.backgroundColor = UIColor.white
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionI:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
 						self.seatBtnI.backgroundColor = UIColor.blue
-						self.seatBtnJ.backgroundColor = UIColor.white
+						if(memberIndexJ < 0) {
+							self.seatBtnJ.backgroundColor = UIColor.white
+						}
 					case .actionJ:
-						self.seatBtnA.backgroundColor = UIColor.white
-						self.seatBtnB.backgroundColor = UIColor.white
-						self.seatBtnC.backgroundColor = UIColor.white
-						self.seatBtnD.backgroundColor = UIColor.white
-						self.seatBtnE.backgroundColor = UIColor.white
-						self.seatBtnF.backgroundColor = UIColor.white
-						self.seatBtnG.backgroundColor = UIColor.white
-						self.seatBtnH.backgroundColor = UIColor.white
-						self.seatBtnI.backgroundColor = UIColor.white
+						if(memberIndexA < 0) {
+							self.seatBtnA.backgroundColor = UIColor.white
+						}
+						if(memberIndexB < 0) {
+							self.seatBtnB.backgroundColor = UIColor.white
+						}
+						if(memberIndexC < 0) {
+							self.seatBtnC.backgroundColor = UIColor.white
+						}
+						if(memberIndexD < 0) {
+							self.seatBtnD.backgroundColor = UIColor.white
+						}
+						if(memberIndexE < 0) {
+							self.seatBtnE.backgroundColor = UIColor.white
+						}
+						if(memberIndexF < 0) {
+							self.seatBtnF.backgroundColor = UIColor.white
+						}
+						if(memberIndexG < 0) {
+							self.seatBtnG.backgroundColor = UIColor.white
+						}
+						if(memberIndexH < 0) {
+							self.seatBtnH.backgroundColor = UIColor.white
+						}
+						if(memberIndexI < 0) {
+							self.seatBtnI.backgroundColor = UIColor.white
+						}
 						self.seatBtnJ.backgroundColor = UIColor.blue
 				}
 				seatPositionArray[registeredNum] = tag.rawValue
@@ -1114,17 +1286,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		case actionH = 8
 		case actionI = 9
 		case actionJ = 10
-	}
-
-	func seatSelectedMemberIndex(seatTag: Int) -> Int {
-		var selectedMemberIndex = -1
-		for index in 0..<seatPositionArray.count {
-			if(seatPositionArray[index] == seatTag){
-				selectedMemberIndex = index
-				return selectedMemberIndex
-			}
-		}
-		return selectedMemberIndex
 	}
 
 	/// backBtn action
