@@ -12,7 +12,6 @@ import SnapKit
 class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate{
 
 	// MARK: Views
-	let backBtn				= UIButton()			// back button
 	let smallTitle			= UILabel()				// title
 	let message1			= UILabel()				// message1
 	let message2			= UILabel()				// message2
@@ -50,21 +49,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
-
-		// return button
-		self.backBtn.setTitle(" 戻る ", for: .normal)
-		self.backBtn.setTitleColor(UIColor.green, for: .normal)
-		self.backBtn.backgroundColor = UIColor.clear
-		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-		self.backBtn.layer.borderColor = UIColor.clear.cgColor
-		self.backBtn.layer.borderWidth = 2.0
-		self.backBtn.layer.cornerRadius = 2.0
-		self.view.addSubview(self.backBtn)
-		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
-		self.backBtn.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-		}
 
 		// title
 		self.smallTitle.numberOfLines = 2
@@ -346,14 +330,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 							object: nil)
 
 		return contactInfoListView
-	}
-
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
 	}
 
 	/// nextBtn action
