@@ -391,23 +391,28 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			present(alert, animated: true, completion: nil)
 		}else{
 			// get values
-			nicknameArray[registeredNum]				= self.nicknameTF.text!
-			pinCodeArray[registeredNum]					= self.pinCodeTF.text!
-			lineIdArray[registeredNum]					= self.lineIdTF.text!
-			emailAddressArray[registeredNum]			= self.emailAddressTF.text!
-			phoneNumberArray[registeredNum]				= self.phoneNumberTF.text!
-			instagramIdArray[registeredNum]				= self.instagramIdTF.text!
-			twitterIdArray[registeredNum]				= self.twitterIdTF.text!
-			contactInfoOtherNameArray[registeredNum]	= self.otherNameTF.text!
-			contactInfoOtherArray[registeredNum]		= self.otherTF.text!
+			memberData[registeredNum].nickname		= self.nicknameTF.text!
+			memberData[registeredNum].pinCode		= self.pinCodeTF.text!
+			memberData[registeredNum].lineId		= self.lineIdTF.text!
+			memberData[registeredNum].emailAddress	= self.emailAddressTF.text!
+			memberData[registeredNum].phoneNumber	= self.phoneNumberTF.text!
+			memberData[registeredNum].instagramId	= self.instagramIdTF.text!
+			memberData[registeredNum].twitterId		= self.twitterIdTF.text!
+			memberData[registeredNum].otherName		= self.otherNameTF.text!
+			memberData[registeredNum].other			= self.otherTF.text!
+//			nicknameArray[registeredNum]				= self.nicknameTF.text!
+//			pinCodeArray[registeredNum]					= self.pinCodeTF.text!
+//			lineIdArray[registeredNum]					= self.lineIdTF.text!
+//			emailAddressArray[registeredNum]			= self.emailAddressTF.text!
+//			phoneNumberArray[registeredNum]				= self.phoneNumberTF.text!
+//			instagramIdArray[registeredNum]				= self.instagramIdTF.text!
+//			twitterIdArray[registeredNum]				= self.twitterIdTF.text!
+//			contactInfoOtherNameArray[registeredNum]	= self.otherNameTF.text!
+//			contactInfoOtherArray[registeredNum]		= self.otherTF.text!
 
-			if(registeredNum == joinNumSum){
-				
-			}else{
-				let memberRegisterFinViewController = MemberRegisterFinishViewController()
-				memberRegisterFinViewController.modalPresentationStyle = .fullScreen
-				self.present(memberRegisterFinViewController, animated: true)
-			}
+			let memberRegisterFinViewController = MemberRegisterFinishViewController()
+			memberRegisterFinViewController.modalPresentationStyle = .fullScreen
+			self.present(memberRegisterFinViewController, animated: true)
 		}
 	}
 

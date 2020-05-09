@@ -37,6 +37,34 @@ public func initTableTypeIndex() {
 }
 
 /* 参加者データ */
+public var memberData:[(nickname:String,
+						sexIndex:Int,
+						pinCode:String,
+						lineId:String,
+						emailAddress:String,
+						phoneNumber:String,
+						instagramId:String,
+						twitterId:String,
+						otherName:String,
+						other:String)] = []
+public func initMemberData() {
+	for _ in memberData {
+		memberData.removeLast()
+	}
+	for _ in 1...joinNumSum {
+		memberData.append((nickname:"",
+						   sexIndex:-1,
+						   pinCode:"",
+						   lineId:"",
+						   emailAddress:"",
+						   phoneNumber:"",
+						   instagramId:"",
+						   twitterId:"",
+						   otherName:"",
+						   other:""))
+	}
+}
+
 // nickname
 public var nicknameArray : Array<String> = Array<String>()
 public func initNicknameArray(joinNum : Int) {
@@ -161,31 +189,6 @@ public func initSeatPositionArray(joinNum : Int){
 }
 
 
-// 座席位置
-public var seatAFlg = false
-public var seatBFlg = false
-public var seatCFlg = false
-public var seatDFlg = false
-public var seatEFlg = false
-public var seatFFlg = false
-public var seatGFlg = false
-public var seatHFlg = false
-public var seatIFlg = false
-public var seatJFlg = false
-public func initSeatFlg() {
-	seatAFlg = false
-	seatBFlg = false
-	seatCFlg = false
-	seatDFlg = false
-	seatEFlg = false
-	seatFFlg = false
-	seatGFlg = false
-	seatHFlg = false
-	seatIFlg = false
-	seatJFlg = false
-}
-
-
 // 登録済み人数
 public var registeredNum = 0
 public func initRegisteredNum() {
@@ -200,17 +203,6 @@ public func initAllPublicValues() {
 	joinNumSum = 0
 
 	tableTypeIndex = 0
-
-	seatAFlg = false
-	seatBFlg = false
-	seatCFlg = false
-	seatDFlg = false
-	seatEFlg = false
-	seatFFlg = false
-	seatGFlg = false
-	seatHFlg = false
-	seatIFlg = false
-	seatJFlg = false
 }
 
 
