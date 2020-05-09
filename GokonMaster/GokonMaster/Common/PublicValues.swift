@@ -56,7 +56,7 @@ public func initSexIndexArray(joinNum : Int) {
 		sexIndexArray.removeLast()
 	}
 	for _ in 1...joinNum {
-		sexIndexArray.append(0)
+		sexIndexArray.append(-1)
 	}
 }
 // PIN code

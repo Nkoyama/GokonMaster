@@ -337,12 +337,15 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		// 男女の人数をカウント
+		if(sexIndexArray[registeredNum] != 1) {
+			sexIndexArray[registeredNum] = 0
+		}
 		var maleSelectedCount = 0
 		var femaleSelectedCount = 0
 		for sexIndex in sexIndexArray {
 			if(sexIndex == 0) {
 				maleSelectedCount += 1
-			} else {
+			} else if(sexIndex == 1) {
 				femaleSelectedCount += 1
 			}
 		}
