@@ -336,6 +336,31 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
+		// 男女の人数をカウント
+		var maleSelectedCount = 0
+		var femaleSelectedCount = 0
+		for sexIndex in sexIndexArray {
+			if(sexIndex == 0) {
+				maleSelectedCount += 1
+			} else {
+				femaleSelectedCount += 1
+			}
+		}
+		// 参加人数を超えていた場合にエラーメッセージ表示
+		if(maleSelectedCount>maleNum) {
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+													 message: "男性は全員登録済みです。",
+													 preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else if(femaleSelectedCount>femaleNum) {
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+													 message: "女性は全員登録済みです。",
+													 preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}
+
 		if(self.nicknameTF.text!.count<1){
 			let alert: UIAlertController = UIAlertController(title: "エラー",
 														message: "ニックネームが未入力です。",

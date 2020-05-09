@@ -1307,8 +1307,9 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}
+
 		// registered number count up
-		registeredNum += 1;
+		registeredNum += 1
 		if(registeredNum == joinNumSum){
 			let settingFinishViewController = SettingFinishViewController()
 			settingFinishViewController.modalPresentationStyle = .fullScreen
