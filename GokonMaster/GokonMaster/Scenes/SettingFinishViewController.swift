@@ -21,7 +21,7 @@ class SettingFinishViewController: UIViewController {
 	let femaleMember	= UILabel()				// female member
 	let nextBtn			= UIButton()			// 次へボタン
 
-	let SCREEN_SIZE				= UIScreen.main.bounds.size
+	let SCREEN_SIZE		= UIScreen.main.bounds.size
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {

@@ -88,11 +88,21 @@ public func initRegisteredNum() {
 
 /// すべてのpublic変数を初期化
 public func initAllPublicValues() {
+	editingTextFieldName = ""
+	keyboardHeight = 0.0
+
 	maleNum = 0
 	femaleNum = 0
 	joinNumSum = 0
 
 	tableTypeIndex = 0
+
+	initMemberData()
+
+	let len : Int = seatPositionArray.count
+	for _ in 0..<len {
+		seatPositionArray.removeLast()
+	}
 }
 
 
