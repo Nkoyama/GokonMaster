@@ -13,8 +13,8 @@ import SnapKit
 class ViewController: UIViewController {
 
 	// MARK: Views
-	let startBtn = UIButton()
-	let titleLabel = UILabel()
+	let startBtn = UIButton()	// 合コンスタートボタン
+	let titleLabel = UILabel()	// title
 	
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -22,16 +22,16 @@ class ViewController: UIViewController {
 
 		// background color
 		self.view.backgroundColor = UIColor.green
-		
+
 		// title
-		titleLabel.numberOfLines = 2
-		titleLabel.text = "合コン\n    master"
-		titleLabel.textColor = UIColor.blue
-		titleLabel.font = UIFont.italicSystemFont(ofSize: 50.0)
+		self.titleLabel.numberOfLines = 2
+		self.titleLabel.text = "合コン\n    master"
+		self.titleLabel.textColor = UIColor.blue
+		self.titleLabel.font = UIFont.italicSystemFont(ofSize: 50.0)
 		self.view.addSubview(titleLabel)
 		self.titleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)	//上から250p
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
 		// start button
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)	//下から100p
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
 		}
 	}
 	
@@ -55,6 +55,7 @@ class ViewController: UIViewController {
 	/// - Authors: Nozomi Koyama
 	@objc func buttonDidTap(_ sender: UIButton) {
 		let setting1ViewController = Setting1ViewController()
-		self.present(setting1ViewController, animated: true, completion: nil)
+		setting1ViewController.modalPresentationStyle = .fullScreen
+		self.present(setting1ViewController, animated: true)
 	}
 }
