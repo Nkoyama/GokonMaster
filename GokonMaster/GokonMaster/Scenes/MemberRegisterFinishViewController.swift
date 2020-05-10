@@ -97,7 +97,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		}
 
 		// registered nickname
-		self.registeredNickname.text = nicknameArray[registeredNum] + " さん"
+		self.registeredNickname.text = memberData[registeredNum].nickname + " さん"
 		self.registeredNickname.textColor = UIColor.red
 		self.registeredNickname.font = self.registeredNickname.font.withSize(20)
 		self.view.addSubview(registeredNickname)
@@ -156,7 +156,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 
 			// seat button A
 			if(memberIndexA >= 0){
-				self.seatBtnA.setTitle(nicknameArray[memberIndexA], for: UIControl.State.normal)
+				self.seatBtnA.setTitle(memberData[memberIndexA].nickname, for: UIControl.State.normal)
 				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnA.setTitleColor(UIColor.black, for: .normal)
 				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -182,7 +182,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			}
 			// seat button F
 			if(memberIndexF >= 0) {
-				self.seatBtnF.setTitle(nicknameArray[memberIndexF], for: UIControl.State.normal)
+				self.seatBtnF.setTitle(memberData[memberIndexF].nickname, for: UIControl.State.normal)
 				self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnF.setTitleColor(UIColor.black, for: .normal)
 				self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -209,7 +209,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(seatNum>=2) {
 				// seat button B
 				if(memberIndexB >= 0) {
-					self.seatBtnB.setTitle(nicknameArray[memberIndexB], for: .normal)
+					self.seatBtnB.setTitle(memberData[memberIndexB].nickname, for: .normal)
 					self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnB.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -235,7 +235,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				}
 				// seat button G
 				if(memberIndexG >= 0) {
-					self.seatBtnG.setTitle(nicknameArray[memberIndexG], for: .normal)
+					self.seatBtnG.setTitle(memberData[memberIndexG].nickname, for: .normal)
 					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnG.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -263,7 +263,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(seatNum>=3) {
 				// seat button C
 				if(memberIndexC >= 0) {
-					self.seatBtnC.setTitle(nicknameArray[memberIndexC], for: .normal)
+					self.seatBtnC.setTitle(memberData[memberIndexC].nickname, for: .normal)
 					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnC.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -289,7 +289,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				}
 				// seat button H
 				if(memberIndexH >= 0) {
-					self.seatBtnH.setTitle(nicknameArray[memberIndexH], for: .normal)
+					self.seatBtnH.setTitle(memberData[memberIndexH].nickname, for: .normal)
 					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnH.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -317,7 +317,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(seatNum>=4) {
 				// seat button D
 				if(memberIndexD >= 0) {
-					self.seatBtnD.setTitle(nicknameArray[memberIndexD], for: .normal)
+					self.seatBtnD.setTitle(memberData[memberIndexD].nickname, for: .normal)
 					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnD.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -343,7 +343,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				}
 				// seat button I
 				if(memberIndexI >= 0) {
-					self.seatBtnI.setTitle(nicknameArray[memberIndexI], for: .normal)
+					self.seatBtnI.setTitle(memberData[memberIndexI].nickname, for: .normal)
 					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnI.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -371,7 +371,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(seatNum>=5) {
 				// seat button E
 				if(memberIndexE >= 0) {
-					self.seatBtnE.setTitle(nicknameArray[memberIndexE], for: .normal)
+					self.seatBtnE.setTitle(memberData[memberIndexE].nickname, for: .normal)
 					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnE.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -397,7 +397,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				}
 				// seat button J
 				if(memberIndexJ >= 0) {
-					self.seatBtnJ.setTitle(nicknameArray[memberIndexJ], for: .normal)
+					self.seatBtnJ.setTitle(memberData[memberIndexJ].nickname, for: .normal)
 					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnJ.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -448,10 +448,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button A
 			var prefixNumA = 2
 			if(memberIndexA >= 0) {
-				if(nicknameArray[memberIndexA].isNotJapanese) {
+				if(memberData[memberIndexA].nickname.isNotJapanese) {
 					prefixNumA = 5
 				}
-				self.seatBtnA.setTitle(String(nicknameArray[memberIndexA].prefix(prefixNumA)), for: .normal)
+				self.seatBtnA.setTitle(String(memberData[memberIndexA].nickname.prefix(prefixNumA)),
+									   for: .normal)
 				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnA.setTitleColor(UIColor.black, for: .normal)
 				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -480,10 +481,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button B
 			var prefixNumB = 2
 			if(memberIndexB >= 0) {
-				if(nicknameArray[memberIndexB].isNotJapanese) {
+				if(memberData[memberIndexB].nickname.isNotJapanese) {
 					prefixNumB = 5
 				}
-				self.seatBtnB.setTitle(String(nicknameArray[memberIndexB].prefix(prefixNumB)), for: .normal)
+				self.seatBtnB.setTitle(String(memberData[memberIndexB].nickname.prefix(prefixNumB)),
+									   for: .normal)
 				self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnB.setTitleColor(UIColor.black, for: .normal)
 				self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -513,10 +515,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 3) {
 				var prefixNumC = 2
 				if(memberIndexC >= 0) {
-					if(nicknameArray[memberIndexC].isNotJapanese) {
+					if(memberData[memberIndexC].nickname.isNotJapanese) {
 						prefixNumC = 5
 					}
-					self.seatBtnC.setTitle(String(nicknameArray[memberIndexC].prefix(prefixNumC)), for: .normal)
+					self.seatBtnC.setTitle(String(memberData[memberIndexC].nickname.prefix(prefixNumC)),
+										   for: .normal)
 					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnC.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -547,10 +550,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 4) {
 				var prefixNumD = 2
 				if(memberIndexD >= 0) {
-					if(nicknameArray[memberIndexD].isNotJapanese) {
+					if(memberData[memberIndexD].nickname.isNotJapanese) {
 						prefixNumD = 5
 					}
-					self.seatBtnD.setTitle(String(nicknameArray[memberIndexD].prefix(prefixNumD)), for: .normal)
+					self.seatBtnD.setTitle(String(memberData[memberIndexD].nickname.prefix(prefixNumD)),
+										   for: .normal)
 					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnD.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -581,10 +585,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 5) {
 				var prefixNumE = 2
 				if(memberIndexE >= 0) {
-					if(nicknameArray[memberIndexE].isNotJapanese) {
+					if(memberData[memberIndexE].nickname.isNotJapanese) {
 						prefixNumE = 5
 					}
-					self.seatBtnE.setTitle(String(nicknameArray[memberIndexE].prefix(prefixNumE)), for: .normal)
+					self.seatBtnE.setTitle(String(memberData[memberIndexE].nickname.prefix(prefixNumE)),
+										   for: .normal)
 					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnE.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -615,10 +620,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 6) {
 				var prefixNumF = 2
 				if(memberIndexF >= 0) {
-					if(nicknameArray[memberIndexF].isNotJapanese) {
+					if(memberData[memberIndexF].nickname.isNotJapanese) {
 						prefixNumF = 5
 					}
-					self.seatBtnF.setTitle(String(nicknameArray[memberIndexF].prefix(prefixNumF)), for: .normal)
+					self.seatBtnF.setTitle(String(memberData[memberIndexF].nickname.prefix(prefixNumF)),
+										   for: .normal)
 					self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnF.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -649,10 +655,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 7) {
 				var prefixNumG = 2
 				if(memberIndexG >= 0) {
-					if(nicknameArray[memberIndexG].isNotJapanese) {
+					if(memberData[memberIndexG].nickname.isNotJapanese) {
 						prefixNumG = 5
 					}
-					self.seatBtnG.setTitle(String(nicknameArray[memberIndexG].prefix(prefixNumG)), for: .normal)
+					self.seatBtnG.setTitle(String(memberData[memberIndexG].nickname.prefix(prefixNumG)),
+										   for: .normal)
 					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnG.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -683,10 +690,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 8) {
 				var prefixNumH = 2
 				if(memberIndexH >= 0) {
-					if(nicknameArray[memberIndexH].isNotJapanese) {
+					if(memberData[memberIndexH].nickname.isNotJapanese) {
 						prefixNumH = 5
 					}
-					self.seatBtnH.setTitle(String(nicknameArray[memberIndexH].prefix(prefixNumH)), for: .normal)
+					self.seatBtnH.setTitle(String(memberData[memberIndexH].nickname.prefix(prefixNumH)),
+										   for: .normal)
 					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnH.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -717,10 +725,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 9) {
 				var prefixNumI = 2
 				if(memberIndexI >= 0) {
-					if(nicknameArray[memberIndexI].isNotJapanese) {
+					if(memberData[memberIndexI].nickname.isNotJapanese) {
 						prefixNumI = 5
 					}
-					self.seatBtnI.setTitle(String(nicknameArray[memberIndexI].prefix(prefixNumI)), for: .normal)
+					self.seatBtnI.setTitle(String(memberData[memberIndexI].nickname.prefix(prefixNumI)),
+										   for: .normal)
 					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnI.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -751,10 +760,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 10) {
 				var prefixNumJ = 2
 				if(memberIndexJ >= 0) {
-					if(nicknameArray[memberIndexJ].isNotJapanese) {
+					if(memberData[memberIndexJ].nickname.isNotJapanese) {
 						prefixNumJ = 5
 					}
-					self.seatBtnJ.setTitle(String(nicknameArray[memberIndexJ].prefix(prefixNumJ)), for: .normal)
+					self.seatBtnJ.setTitle(String(memberData[memberIndexJ].nickname.prefix(prefixNumJ)),
+										   for: .normal)
 					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnJ.setTitleColor(UIColor.black, for: .normal)
 					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
@@ -814,7 +824,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
 		}
-		if(sexIndexArray[registeredNum] == 1){
+		if(memberData[registeredNum].sexIndex == 1){
 			self.sex.text = "女"
 		}else{
 			self.sex.text = "男"
@@ -834,7 +844,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(30)
 		}
-		self.pinCode.text = String(pinCodeArray[registeredNum])
+		self.pinCode.text = String(memberData[registeredNum].pinCode)
 		self.pinCode.textColor = UIColor.black
 		contactInfoListView.addSubview(pinCode)
 		self.pinCode.snp.makeConstraints{ (make) in
@@ -850,11 +860,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(50)
 		}
-		if(lineIdArray[registeredNum] == ""){
+		if(memberData[registeredNum].lineId == ""){
 			self.lineId.text = "未登録"
 			self.lineId.textColor = UIColor.lightGray
 		}else{
-			self.lineId.text = lineIdArray[registeredNum]
+			self.lineId.text = memberData[registeredNum].lineId
 			self.lineId.textColor = UIColor.black
 		}
 		contactInfoListView.addSubview(lineId)
@@ -871,11 +881,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(70)
 		}
-		if(emailAddressArray[registeredNum] == ""){
+		if(memberData[registeredNum].emailAddress == ""){
 			self.emailAddress.text = "未登録"
 			self.emailAddress.textColor = UIColor.lightGray
 		}else{
-			self.emailAddress.text = emailAddressArray[registeredNum]
+			self.emailAddress.text = memberData[registeredNum].emailAddress
 			self.emailAddress.textColor = UIColor.black
 		}
 		contactInfoListView.addSubview(emailAddress)
@@ -892,11 +902,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(90)
 		}
-		if(phoneNumberArray[registeredNum] == ""){
+		if(memberData[registeredNum].phoneNumber == ""){
 			self.phoneNumber.text = "未登録"
 			self.phoneNumber.textColor = UIColor.lightGray
 		}else{
-			self.phoneNumber.text = phoneNumberArray[registeredNum]
+			self.phoneNumber.text = memberData[registeredNum].phoneNumber
 			self.phoneNumber.textColor = UIColor.black
 		}
 		contactInfoListView.addSubview(phoneNumber)
@@ -913,11 +923,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(110)
 		}
-		if(instagramIdArray[registeredNum] == ""){
+		if(memberData[registeredNum].instagramId == ""){
 			self.instagramId.text = "未登録"
 			self.instagramId.textColor = UIColor.lightGray
 		}else{
-			self.instagramId.text = instagramIdArray[registeredNum]
+			self.instagramId.text = memberData[registeredNum].instagramId
 			self.instagramId.textColor = UIColor.black
 		}
 		contactInfoListView.addSubview(instagramId)
@@ -934,11 +944,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
 			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(130)
 		}
-		if(twitterIdArray[registeredNum] == ""){
+		if(memberData[registeredNum].twitterId == ""){
 			self.twitterId.text = "未登録"
 			self.twitterId.textColor = UIColor.lightGray
 		}else{
-			self.twitterId.text = twitterIdArray[registeredNum]
+			self.twitterId.text = memberData[registeredNum].twitterId
 			self.twitterId.textColor = UIColor.black
 		}
 		contactInfoListView.addSubview(twitterId)
@@ -948,15 +958,15 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		}
 
 		// other
-		if(contactInfoOtherNameArray[registeredNum] == ""){
+		if(memberData[registeredNum].otherName == ""){
 			self.contactInfoOtherName.text = "other : "
 			self.contactInfoOtherName.textColor = UIColor.lightGray
 			self.contactInfoOther.text = "未登録"
 			self.contactInfoOther.textColor = UIColor.lightGray
 		}else{
-			self.contactInfoOtherName.text = contactInfoOtherNameArray[registeredNum] + " : "
+			self.contactInfoOtherName.text = memberData[registeredNum].otherName + " : "
 			self.contactInfoOtherName.textColor = UIColor.black
-			self.contactInfoOther.text = contactInfoOtherArray[registeredNum]
+			self.contactInfoOther.text = memberData[registeredNum].other
 			self.contactInfoOther.textColor = UIColor.black
 		}
 		contactInfoListView.addSubview(contactInfoOtherName)

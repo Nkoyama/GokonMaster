@@ -197,7 +197,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	/// - Parameter sender: Any
 	/// - Authors: Nozomi Koyama
 	@objc func sexChanged(_ sender: Any) {
-		sexIndexArray[registeredNum] = self.sexSC.selectedSegmentIndex
+		memberData[registeredNum].sexIndex = self.sexSC.selectedSegmentIndex
 	}
 
 	/// 連絡先を入力するスクロール部分のViewを作成
@@ -337,15 +337,15 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		// 男女の人数をカウント
-		if(sexIndexArray[registeredNum] != 1) {
-			sexIndexArray[registeredNum] = 0
+		if(memberData[registeredNum].sexIndex != 1) {
+			memberData[registeredNum].sexIndex = 0
 		}
 		var maleSelectedCount = 0
 		var femaleSelectedCount = 0
-		for sexIndex in sexIndexArray {
-			if(sexIndex == 0) {
+		for oneMemberData in memberData {
+			if(oneMemberData.sexIndex == 0) {
 				maleSelectedCount += 1
-			} else if(sexIndex == 1) {
+			} else if(oneMemberData.sexIndex == 1) {
 				femaleSelectedCount += 1
 			}
 		}
@@ -400,15 +400,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			memberData[registeredNum].twitterId		= self.twitterIdTF.text!
 			memberData[registeredNum].otherName		= self.otherNameTF.text!
 			memberData[registeredNum].other			= self.otherTF.text!
-//			nicknameArray[registeredNum]				= self.nicknameTF.text!
-//			pinCodeArray[registeredNum]					= self.pinCodeTF.text!
-//			lineIdArray[registeredNum]					= self.lineIdTF.text!
-//			emailAddressArray[registeredNum]			= self.emailAddressTF.text!
-//			phoneNumberArray[registeredNum]				= self.phoneNumberTF.text!
-//			instagramIdArray[registeredNum]				= self.instagramIdTF.text!
-//			twitterIdArray[registeredNum]				= self.twitterIdTF.text!
-//			contactInfoOtherNameArray[registeredNum]	= self.otherNameTF.text!
-//			contactInfoOtherArray[registeredNum]		= self.otherTF.text!
 
 			let memberRegisterFinViewController = MemberRegisterFinishViewController()
 			memberRegisterFinViewController.modalPresentationStyle = .fullScreen
