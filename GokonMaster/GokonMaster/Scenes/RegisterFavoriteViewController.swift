@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class RegisterFavoriteViewController: UIViewController {
+class RegisterFavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
 	// MARK: Views
 	let backBtn				= UIButton()	// back button
@@ -85,10 +85,15 @@ class RegisterFavoriteViewController: UIViewController {
 		/* select favorite */
 		// 行の間隔を計算
 		let lineWidth = (SCREEN_SIZE.height - 500) / 5
+
+
 		// 女の場合
 		if(memberData[registeredNum].sexIndex == 1) {
 			for i in 1...maleNum {
-				let lankLabel	= UILabel()		// 順位 label
+				let lankLabel		= UILabel()			// 順位 label
+				var selectMalePV	= UIPickerView()	// select male picker view
+
+				// 順位 label
 				lankLabel.text = String(i) + "位"
 				lankLabel.textColor = UIColor.black
 				lankLabel.textAlignment = NSTextAlignment.center
@@ -97,8 +102,16 @@ class RegisterFavoriteViewController: UIViewController {
 				lankLabel.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(310+Int(lineWidth)*(i-1))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(310+Int(lineWidth)*(i-1))
 				}
+
+				// select male picker view
+				let selectMalePV_startY = 310 + Int(lineWidth)*(i-1) - Int(lineWidth/2-5)
+				let selectMalePV_width = SCREEN_SIZE.width - 140
+				selectMalePV.frame = CGRect(x: 120, y: CGFloat(selectMalePV_startY), width: selectMalePV_width, height: lineWidth-10)
+				selectMalePV.delegate = self
+				selectMalePV.dataSource = self
+				self.view.addSubview(selectMalePV)
 			}
 		// 男の場合
 		} else {
