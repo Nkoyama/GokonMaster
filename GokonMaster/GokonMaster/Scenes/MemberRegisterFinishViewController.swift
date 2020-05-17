@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate{
+class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
 	// MARK: Views
 	let backBtn					= UIButton()		// back button
