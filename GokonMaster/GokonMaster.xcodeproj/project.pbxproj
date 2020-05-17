@@ -12,6 +12,7 @@
 		43084D62241CADE900370070 /* TableSquareDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43084D61241CADE900370070 /* TableSquareDrawView.swift */; };
 		4337E50E24627383006235BD /* SettingFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E50D24627383006235BD /* SettingFinishViewController.swift */; };
 		4337E5102462CC2E006235BD /* DefineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E50F2462CC2E006235BD /* DefineExtension.swift */; };
+		4337E51424680697006235BD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E51324680697006235BD /* MenuViewController.swift */; };
 		434021D52442ECF50023842F /* MemberRegisterFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */; };
 		4341CC09241CC6CA00C86FB9 /* TableCircleDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */; };
 		4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0A241CEAB700C86FB9 /* PublicValues.swift */; };
@@ -31,6 +32,7 @@
 		43084D61241CADE900370070 /* TableSquareDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSquareDrawView.swift; sourceTree = "<group>"; };
 		4337E50D24627383006235BD /* SettingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFinishViewController.swift; sourceTree = "<group>"; };
 		4337E50F2462CC2E006235BD /* DefineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineExtension.swift; sourceTree = "<group>"; };
+		4337E51324680697006235BD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRegisterFinishViewController.swift; sourceTree = "<group>"; };
 		4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCircleDrawView.swift; sourceTree = "<group>"; };
 		4341CC0A241CEAB700C86FB9 /* PublicValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicValues.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				4337E50D24627383006235BD /* SettingFinishViewController.swift */,
 				4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */,
 				434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */,
+				4337E51324680697006235BD /* MenuViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */,
 				43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */,
 				4341CC09241CC6CA00C86FB9 /* TableCircleDrawView.swift in Sources */,
+				4337E51424680697006235BD /* MenuViewController.swift in Sources */,
 				43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */,
 				4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */,
 				4337E5102462CC2E006235BD /* DefineExtension.swift in Sources */,

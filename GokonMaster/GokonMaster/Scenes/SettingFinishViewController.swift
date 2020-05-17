@@ -121,6 +121,9 @@ class SettingFinishViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
+		let menuViewController = MenuViewController()
+		menuViewController.modalPresentationStyle = .fullScreen
+		self.present(menuViewController, animated: true)
 	}
 
 }
