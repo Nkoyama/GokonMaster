@@ -18,6 +18,8 @@ class RegisterFavoriteViewController: UIViewController {
 	let dearName			= UILabel()
 	let message				= UILabel()
 
+	let SCREEN_SIZE			= UIScreen.main.bounds.size
+
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -81,6 +83,8 @@ class RegisterFavoriteViewController: UIViewController {
 		}
 
 		/* select favorite */
+		// 行の間隔を計算
+		let lineWidth = (SCREEN_SIZE.height - 500) / 5
 		// 女の場合
 		if(memberData[registeredNum].sexIndex == 1) {
 			for i in 1...maleNum {
@@ -93,7 +97,7 @@ class RegisterFavoriteViewController: UIViewController {
 				lankLabel.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+70*i)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(310+Int(lineWidth)*(i-1))
 				}
 			}
 		// 男の場合
@@ -108,7 +112,7 @@ class RegisterFavoriteViewController: UIViewController {
 				lankLabel.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270+70*i)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300+Int(lineWidth)*(i-1))
 				}
 			}
 		}
