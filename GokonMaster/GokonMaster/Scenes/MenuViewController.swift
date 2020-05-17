@@ -42,6 +42,7 @@ class MenuViewController: UIViewController {
 		self.changeSeatBtn.layer.borderWidth = 2.0
 		self.changeSeatBtn.layer.cornerRadius = 2.0
 		self.view.addSubview(changeSeatBtn)
+		self.changeSeatBtn.addTarget(self, action: #selector(self.changeSeatBtnDidTap(_:)), for: .touchUpInside)
 		self.changeSeatBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
@@ -62,5 +63,14 @@ class MenuViewController: UIViewController {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(400)
 		}
+	}
+	
+	/// changeSeatBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func changeSeatBtnDidTap(_ sender: UIButton) {
+		let registerFavoriteViewController = RegisterFavoriteViewController()
+		registerFavoriteViewController.modalPresentationStyle = .fullScreen
+		self.present(registerFavoriteViewController, animated: true)
 	}
 }
