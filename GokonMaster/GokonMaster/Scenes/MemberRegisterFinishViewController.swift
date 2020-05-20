@@ -816,6 +816,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		let contactInfoListView = UIView()
 		contactInfoListView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-100, height: 180)
 
+		// MARK: Life Cycle
 		// sex
 		self.sexLabel.text = "性別 : "
 		self.sexLabel.textColor = UIColor.black
