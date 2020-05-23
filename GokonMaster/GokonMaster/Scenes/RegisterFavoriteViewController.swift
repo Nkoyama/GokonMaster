@@ -16,11 +16,11 @@ class RegisterFavoriteViewController: UIViewController {
 	let secondTitle			= UILabel()		// secondary title
 	let dearName			= UILabel()
 	let message				= UILabel()
-	let lankLabel_1			= UILabel()		// 1位 label
-	let lankLabel_2			= UILabel()		// 2位 label
-	let lankLabel_3			= UILabel()		// 3位 label
-	let lankLabel_4			= UILabel()		// 4位 label
-	let lankLabel_5			= UILabel()		// 5位 label
+	let rankLabel_1			= UILabel()		// 1位 label
+	let rankLabel_2			= UILabel()		// 2位 label
+	let rankLabel_3			= UILabel()		// 3位 label
+	let rankLabel_4			= UILabel()		// 4位 label
+	let rankLabel_5			= UILabel()		// 5位 label
 	let nameBtn_1			= UIButton()	// 1位 ボタン
 	let nameBtn_2			= UIButton()	// 2位 ボタン
 	let nameBtn_3			= UIButton()	// 3位 ボタン
@@ -101,12 +101,12 @@ class RegisterFavoriteViewController: UIViewController {
 		// 女の場合
 		if(memberData[registeredNum].sexIndex == 1) {
 			// 1位
-			self.lankLabel_1.text = "1位"
-			self.lankLabel_1.textColor = UIColor.black
-			self.lankLabel_1.textAlignment = NSTextAlignment.center
-			self.lankLabel_1.font = self.lankLabel_1.font.withSize(35.0)
-			self.view.addSubview(self.lankLabel_1)
-			self.lankLabel_1.snp.makeConstraints{ (make) in
+			self.rankLabel_1.text = "1位"
+			self.rankLabel_1.textColor = UIColor.black
+			self.rankLabel_1.textAlignment = NSTextAlignment.center
+			self.rankLabel_1.font = self.rankLabel_1.font.withSize(35.0)
+			self.view.addSubview(self.rankLabel_1)
+			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
@@ -119,8 +119,9 @@ class RegisterFavoriteViewController: UIViewController {
 			self.nameBtn_1.layer.borderWidth = 1.0
 			self.nameBtn_1.layer.cornerRadius = 1.0
 			self.nameBtn_1.addTarget(self,
-								action: #selector(self.chooseFavorite(_:)),
-								for: .touchUpInside)
+									 action: #selector(self.chooseFavorite(_:)),
+									 for: .touchUpInside)
+			self.nameBtn_1.tag = 1
 			self.view.addSubview(self.nameBtn_1)
 			self.nameBtn_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
@@ -130,12 +131,12 @@ class RegisterFavoriteViewController: UIViewController {
 
 			// 2位
 			if(maleNum>=2) {
-				self.lankLabel_2.text = "2位"
-				self.lankLabel_2.textColor = UIColor.black
-				self.lankLabel_2.textAlignment = NSTextAlignment.center
-				self.lankLabel_2.font = self.lankLabel_2.font.withSize(32.0)
-				self.view.addSubview(self.lankLabel_2)
-				self.lankLabel_2.snp.makeConstraints{ (make) in
+				self.rankLabel_2.text = "2位"
+				self.rankLabel_2.textColor = UIColor.black
+				self.rankLabel_2.textAlignment = NSTextAlignment.center
+				self.rankLabel_2.font = self.rankLabel_2.font.withSize(32.0)
+				self.view.addSubview(self.rankLabel_2)
+				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
@@ -148,8 +149,9 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_2.layer.borderWidth = 1.0
 				self.nameBtn_2.layer.cornerRadius = 1.0
 				self.nameBtn_2.addTarget(self,
-								  action: #selector(self.chooseFavorite(_:)),
-								  for: .touchUpInside)
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.nameBtn_2.tag = 2
 				self.view.addSubview(self.nameBtn_2)
 				self.nameBtn_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
@@ -160,12 +162,12 @@ class RegisterFavoriteViewController: UIViewController {
 
 			// 3位
 			if(maleNum>=3) {
-				self.lankLabel_3.text = "3位"
-				self.lankLabel_3.textColor = UIColor.black
-				self.lankLabel_3.textAlignment = NSTextAlignment.center
-				self.lankLabel_3.font = self.lankLabel_3.font.withSize(30.0)
-				self.view.addSubview(self.lankLabel_3)
-				self.lankLabel_3.snp.makeConstraints{ (make) in
+				self.rankLabel_3.text = "3位"
+				self.rankLabel_3.textColor = UIColor.black
+				self.rankLabel_3.textAlignment = NSTextAlignment.center
+				self.rankLabel_3.font = self.rankLabel_3.font.withSize(30.0)
+				self.view.addSubview(self.rankLabel_3)
+				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
@@ -178,8 +180,9 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_3.layer.borderWidth = 1.0
 				self.nameBtn_3.layer.cornerRadius = 1.0
 				self.nameBtn_3.addTarget(self,
-									action: #selector(self.chooseFavorite(_:)),
-									for: .touchUpInside)
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.nameBtn_3.tag = 3
 				self.view.addSubview(self.nameBtn_3)
 				self.nameBtn_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
@@ -190,12 +193,12 @@ class RegisterFavoriteViewController: UIViewController {
 
 			// 4位
 			if(maleNum>=4) {
-				self.lankLabel_4.text = "4位"
-				self.lankLabel_4.textColor = UIColor.black
-				self.lankLabel_4.textAlignment = NSTextAlignment.center
-				self.lankLabel_4.font = self.lankLabel_4.font.withSize(25.0)
-				self.view.addSubview(self.lankLabel_4)
-				self.lankLabel_4.snp.makeConstraints{ (make) in
+				self.rankLabel_4.text = "4位"
+				self.rankLabel_4.textColor = UIColor.black
+				self.rankLabel_4.textAlignment = NSTextAlignment.center
+				self.rankLabel_4.font = self.rankLabel_4.font.withSize(25.0)
+				self.view.addSubview(self.rankLabel_4)
+				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
@@ -210,6 +213,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_4.addTarget(self,
 										 action: #selector(self.chooseFavorite(_:)),
 										 for: .touchUpInside)
+				self.nameBtn_4.tag = 4
 				self.view.addSubview(self.nameBtn_4)
 				self.nameBtn_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
@@ -220,12 +224,12 @@ class RegisterFavoriteViewController: UIViewController {
 
 			// 5位
 			if(maleNum>=5) {
-				self.lankLabel_5.text = "5位"
-				self.lankLabel_5.textColor = UIColor.black
-				self.lankLabel_5.textAlignment = NSTextAlignment.center
-				self.lankLabel_5.font = self.lankLabel_5.font.withSize(25.0)
-				self.view.addSubview(self.lankLabel_5)
-				self.lankLabel_5.snp.makeConstraints{ (make) in
+				self.rankLabel_5.text = "5位"
+				self.rankLabel_5.textColor = UIColor.black
+				self.rankLabel_5.textAlignment = NSTextAlignment.center
+				self.rankLabel_5.font = self.rankLabel_5.font.withSize(25.0)
+				self.view.addSubview(self.rankLabel_5)
+				self.rankLabel_5.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
@@ -240,6 +244,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_5.addTarget(self,
 										 action: #selector(self.chooseFavorite(_:)),
 										 for: .touchUpInside)
+				self.nameBtn_5.tag = 5
 				self.view.addSubview(self.nameBtn_5)
 				self.nameBtn_5.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
@@ -251,13 +256,13 @@ class RegisterFavoriteViewController: UIViewController {
 		// 男の場合
 		} else {
 			for i in 1...femaleNum {
-				let lankLabel	= UILabel()		// 順位 label
-				lankLabel.text = String(i) + "位"
-				lankLabel.textColor = UIColor.black
-				lankLabel.textAlignment = NSTextAlignment.center
-				lankLabel.font = lankLabel.font.withSize(40.0 - 5.0*CGFloat(i))
-				self.view.addSubview(lankLabel)
-				lankLabel.snp.makeConstraints{ (make) in
+				let rankLabel	= UILabel()		// 順位 label
+				rankLabel.text = String(i) + "位"
+				rankLabel.textColor = UIColor.black
+				rankLabel.textAlignment = NSTextAlignment.center
+				rankLabel.font = rankLabel.font.withSize(40.0 - 5.0*CGFloat(i))
+				self.view.addSubview(rankLabel)
+				rankLabel.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300+Int(lineWidth)*(i-1))
@@ -277,8 +282,26 @@ class RegisterFavoriteViewController: UIViewController {
 	/// chooseFavoriteBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
-	@objc func chooseFavorite(_ sender: UIButton) {
+	@objc func chooseFavorite(_ sender: Any) {
 		let chooseFavoritePopup = ChooseFavoritePopup()
+
+		if let button = sender as? UIButton {
+			switch button.tag {
+				case 1:
+					chooseFavoritePopup.rank = 1
+				case 2:
+					chooseFavoritePopup.rank = 2
+				case 3:
+					chooseFavoritePopup.rank = 3
+				case 4:
+					chooseFavoritePopup.rank = 4
+				case 5:
+					chooseFavoritePopup.rank = 5
+				default:
+					chooseFavoritePopup.rank = 0
+			}
+		}
+
 		view.addSubview(chooseFavoritePopup.view)
 	}
 }
