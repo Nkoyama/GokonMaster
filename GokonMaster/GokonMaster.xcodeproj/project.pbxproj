@@ -14,6 +14,7 @@
 		4337E5102462CC2E006235BD /* DefineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E50F2462CC2E006235BD /* DefineExtension.swift */; };
 		4337E51424680697006235BD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E51324680697006235BD /* MenuViewController.swift */; };
 		4337E51624712F45006235BD /* RegisterFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E51524712F45006235BD /* RegisterFavoriteViewController.swift */; };
+		4337E5182478DA4D006235BD /* ChooseFavoritePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E5172478DA4D006235BD /* ChooseFavoritePopup.swift */; };
 		434021D52442ECF50023842F /* MemberRegisterFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */; };
 		4341CC09241CC6CA00C86FB9 /* TableCircleDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */; };
 		4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0A241CEAB700C86FB9 /* PublicValues.swift */; };
@@ -35,6 +36,7 @@
 		4337E50F2462CC2E006235BD /* DefineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineExtension.swift; sourceTree = "<group>"; };
 		4337E51324680697006235BD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4337E51524712F45006235BD /* RegisterFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFavoriteViewController.swift; sourceTree = "<group>"; };
+		4337E5172478DA4D006235BD /* ChooseFavoritePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFavoritePopup.swift; sourceTree = "<group>"; };
 		434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRegisterFinishViewController.swift; sourceTree = "<group>"; };
 		4341CC08241CC6CA00C86FB9 /* TableCircleDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCircleDrawView.swift; sourceTree = "<group>"; };
 		4341CC0A241CEAB700C86FB9 /* PublicValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicValues.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */,
 				4337E51324680697006235BD /* MenuViewController.swift */,
 				4337E51524712F45006235BD /* RegisterFavoriteViewController.swift */,
+				4337E5172478DA4D006235BD /* ChooseFavoritePopup.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				4337E5102462CC2E006235BD /* DefineExtension.swift in Sources */,
 				43084D5E2414CA7500370070 /* CommonMethods.swift in Sources */,
 				4337E51624712F45006235BD /* RegisterFavoriteViewController.swift in Sources */,
+				4337E5182478DA4D006235BD /* ChooseFavoritePopup.swift in Sources */,
 				43084D602414E79300370070 /* TableTypeDrawView.swift in Sources */,
 				434021D52442ECF50023842F /* MemberRegisterFinishViewController.swift in Sources */,
 				43084D62241CADE900370070 /* TableSquareDrawView.swift in Sources */,
