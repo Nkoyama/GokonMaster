@@ -16,6 +16,16 @@ class RegisterFavoriteViewController: UIViewController {
 	let secondTitle			= UILabel()		// secondary title
 	let dearName			= UILabel()
 	let message				= UILabel()
+	let lankLabel_1			= UILabel()		// 1位 label
+	let lankLabel_2			= UILabel()		// 2位 label
+	let lankLabel_3			= UILabel()		// 3位 label
+	let lankLabel_4			= UILabel()		// 4位 label
+	let lankLabel_5			= UILabel()		// 5位 label
+	let nameBtn_1			= UIButton()	// 1位 ボタン
+	let nameBtn_2			= UIButton()	// 2位 ボタン
+	let nameBtn_3			= UIButton()	// 3位 ボタン
+	let nameBtn_4			= UIButton()	// 4位 ボタン
+	let nameBtn_5			= UIButton()	// 5位 ボタン
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
 
@@ -90,8 +100,154 @@ class RegisterFavoriteViewController: UIViewController {
 
 		// 女の場合
 		if(memberData[registeredNum].sexIndex == 1) {
-			for i in 1...maleNum {
+			// 1位
+			self.lankLabel_1.text = "1位"
+			self.lankLabel_1.textColor = UIColor.black
+			self.lankLabel_1.textAlignment = NSTextAlignment.center
+			self.lankLabel_1.font = self.lankLabel_1.font.withSize(35.0)
+			self.view.addSubview(self.lankLabel_1)
+			self.lankLabel_1.snp.makeConstraints{ (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
+
+			self.nameBtn_1.setTitle("未選択", for: .normal)
+			self.nameBtn_1.setTitleColor(UIColor.white, for: .normal)
+			self.nameBtn_1.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+			self.nameBtn_1.layer.borderColor = UIColor.gray.cgColor
+			self.nameBtn_1.layer.borderWidth = 1.0
+			self.nameBtn_1.layer.cornerRadius = 1.0
+			self.nameBtn_1.addTarget(self,
+								action: #selector(self.chooseFavorite(_:)),
+								for: .touchUpInside)
+			self.view.addSubview(self.nameBtn_1)
+			self.nameBtn_1.snp.makeConstraints{ (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			}
+
+			// 2位
+			if(maleNum>=2) {
+				self.lankLabel_2.text = "2位"
+				self.lankLabel_2.textColor = UIColor.black
+				self.lankLabel_2.textAlignment = NSTextAlignment.center
+				self.lankLabel_2.font = self.lankLabel_2.font.withSize(32.0)
+				self.view.addSubview(self.lankLabel_2)
+				self.lankLabel_2.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+				}
+
+				self.nameBtn_2.setTitle("未選択", for: .normal)
+				self.nameBtn_2.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_2.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_2.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_2.layer.borderWidth = 1.0
+				self.nameBtn_2.layer.cornerRadius = 1.0
+				self.nameBtn_2.addTarget(self,
+								  action: #selector(self.chooseFavorite(_:)),
+								  for: .touchUpInside)
+				self.view.addSubview(self.nameBtn_2)
+				self.nameBtn_2.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+				}
+			}
+
+			// 3位
+			if(maleNum>=3) {
+				self.lankLabel_3.text = "3位"
+				self.lankLabel_3.textColor = UIColor.black
+				self.lankLabel_3.textAlignment = NSTextAlignment.center
+				self.lankLabel_3.font = self.lankLabel_3.font.withSize(30.0)
+				self.view.addSubview(self.lankLabel_3)
+				self.lankLabel_3.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
+				}
+
+				self.nameBtn_3.setTitle("未選択", for: .normal)
+				self.nameBtn_3.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_3.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_3.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_3.layer.borderWidth = 1.0
+				self.nameBtn_3.layer.cornerRadius = 1.0
+				self.nameBtn_3.addTarget(self,
+									action: #selector(self.chooseFavorite(_:)),
+									for: .touchUpInside)
+				self.view.addSubview(self.nameBtn_3)
+				self.nameBtn_3.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth*2))
+				}
+			}
+
+			// 4位
+			if(maleNum>=4) {
+				self.lankLabel_4.text = "4位"
+				self.lankLabel_4.textColor = UIColor.black
+				self.lankLabel_4.textAlignment = NSTextAlignment.center
+				self.lankLabel_4.font = self.lankLabel_4.font.withSize(25.0)
+				self.view.addSubview(self.lankLabel_4)
+				self.lankLabel_4.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+				}
+
+				self.nameBtn_4.setTitle("未選択", for: .normal)
+				self.nameBtn_4.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_4.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_4.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_4.layer.borderWidth = 1.0
+				self.nameBtn_4.layer.cornerRadius = 1.0
+				self.nameBtn_4.addTarget(self,
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.view.addSubview(self.nameBtn_4)
+				self.nameBtn_4.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+				}
+			}
+
+			// 5位
+			if(maleNum>=5) {
+				self.lankLabel_5.text = "5位"
+				self.lankLabel_5.textColor = UIColor.black
+				self.lankLabel_5.textAlignment = NSTextAlignment.center
+				self.lankLabel_5.font = self.lankLabel_5.font.withSize(25.0)
+				self.view.addSubview(self.lankLabel_5)
+				self.lankLabel_5.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
+				}
+
+				self.nameBtn_5.setTitle("未選択", for: .normal)
+				self.nameBtn_5.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_5.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_5.layer.borderWidth = 1.0
+				self.nameBtn_5.layer.cornerRadius = 1.0
+				self.nameBtn_5.addTarget(self,
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.view.addSubview(self.nameBtn_5)
+				self.nameBtn_5.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
+				}
+			}
+
 		// 男の場合
 		} else {
 			for i in 1...femaleNum {
@@ -116,5 +272,13 @@ class RegisterFavoriteViewController: UIViewController {
 	@objc func backBtnDidTap(_ sender: UIButton) {
 		// 現在の画面を破棄
 		self.dismiss(animated: true, completion: nil)
+	}
+
+	/// chooseFavoriteBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func chooseFavorite(_ sender: UIButton) {
+		let chooseFavoritePopup = ChooseFavoritePopup()
+		view.addSubview(chooseFavoritePopup.view)
 	}
 }
