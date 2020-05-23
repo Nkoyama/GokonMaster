@@ -37,35 +37,36 @@ public func initTableTypeIndex() {
 }
 
 /* 参加者データ */
-public var memberData:[(nickname:String,
-						sexIndex:Int,
-						pinCode:String,
-						lineId:String,
-						emailAddress:String,
-						phoneNumber:String,
-						instagramId:String,
-						twitterId:String,
-						otherName:String,
-						other:String)] = []
+public var memberData:[(nickname:		String,
+						sexIndex:		Int,
+						pinCode:		String,
+						lineId:			String,
+						emailAddress:	String,
+						phoneNumber:	String,
+						instagramId:	String,
+						twitterId:		String,
+						otherName:		String,
+						other:			String)] = []
 public func initMemberData() {
 	for _ in memberData {
 		memberData.removeLast()
 	}
 	for _ in 1...joinNumSum {
-		memberData.append((nickname:"",
-						   sexIndex:-1,
-						   pinCode:"",
-						   lineId:"",
-						   emailAddress:"",
-						   phoneNumber:"",
-						   instagramId:"",
-						   twitterId:"",
-						   otherName:"",
-						   other:""))
+		memberData.append((nickname:		"",
+						   sexIndex:		-1,
+						   pinCode:			"",
+						   lineId:			"",
+						   emailAddress:	"",
+						   phoneNumber:		"",
+						   instagramId:		"",
+						   twitterId:		"",
+						   otherName:		"",
+						   other:			""))
 	}
 }
 
 
+/* 名前リスト */
 public var maleNameArray = [String]()
 public var femaleNameArray = [String]()
 public func initNameArrays() {
@@ -106,6 +107,26 @@ public func initSeatPositionArray(joinNum : Int){
 public var registeredNum = 0
 public func initRegisteredNum() {
 	registeredNum = 0
+}
+
+
+// お気に入りリスト
+public var favoriteArray:[(	first:	Int,
+							second:	Int,
+							third:	Int,
+							fourth:	Int,
+							fifth:	Int)] = []
+public func initFavoriteArray(joinNum : Int) {
+	for _ in favoriteArray {
+		favoriteArray.removeLast()
+	}
+	for _ in 1...joinNum {
+		favoriteArray.append((first:	-1,
+							  second:	-1,
+							  third:	-1,
+							  fourth:	-1,
+							  fifth:	-1))
+	}
 }
 
 
