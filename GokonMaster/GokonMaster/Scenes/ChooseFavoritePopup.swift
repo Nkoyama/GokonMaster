@@ -13,7 +13,6 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 	// MARK: Views
 	let rankLabel			= UILabel()
 	let finishBtn			= UIButton()
-//	let favoriteChoiceTV	= UITableView()
 
 	var rank: Int				= Int()
 	var sexIndex: Int			= Int()
@@ -53,9 +52,19 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 	/// - Parameter sender:
 	/// - Authors: Nozomi Koyama
 	@objc func removePopup(_ sender: Any){
+		// 元画面の再描画
+		let parentVC = presentingViewController
+		parentVC?.viewDidLoad()
+		// 現在の画面削除
 		self.dismiss(animated: false, completion: nil)
 	}
-
+	
+	/// お気に入り選択ポップアップ画面
+	/// - Parameters:
+	///   - width: 画面幅
+	///   - height: 画面高さ
+	/// - Returns: UIView
+	/// - Authors: Nozomi Koyama
 	func createFavoritePopupView(width: CGFloat, height: CGFloat) -> UIView {
 		let chooseFavoriteView = UIView()
 		
@@ -102,12 +111,12 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 		return chooseFavoriteView
 	}
 
-	// セルの行数設定
+	/// セルの行数設定
 	func tableView(_ favoriteChoiceTV: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return choiceList.count
 	}
 
-	// セルの値設定
+	/// セルの値設定
 	func tableView(_ favoriteChoiceTV: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = UITableViewCell()
 		cell.textLabel?.text = choiceList[indexPath.row]
@@ -128,18 +137,18 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 		return cell
 	}
 
-	// セル選択時のアクション
+	/// セル選択時のアクション
 	func tableView(_ favoriteChoiceTV: UITableView, didSelectRowAt indexPath: IndexPath) {
 		switch rank {
-			case 0:
-				favoriteArray[registeredNum].first = indexPath.row
 			case 1:
-				favoriteArray[registeredNum].second = indexPath.row
+				favoriteArray[registeredNum].first = indexPath.row
 			case 2:
-				favoriteArray[registeredNum].third = indexPath.row
+				favoriteArray[registeredNum].second = indexPath.row
 			case 3:
-				favoriteArray[registeredNum].fourth = indexPath.row
+				favoriteArray[registeredNum].third = indexPath.row
 			case 4:
+				favoriteArray[registeredNum].fourth = indexPath.row
+			case 5:
 				favoriteArray[registeredNum].fifth = indexPath.row
 			default:
 				print("error")

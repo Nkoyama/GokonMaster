@@ -112,7 +112,12 @@ class RegisterFavoriteViewController: UIViewController {
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
 
-			self.nameBtn_1.setTitle("未選択", for: .normal)
+			if(favoriteArray[registeredNum].first != -1) {
+				self.nameBtn_1.setTitle(maleNameArray[favoriteArray[registeredNum].first],
+										for: .normal)
+			} else {
+				self.nameBtn_1.setTitle("未選択", for: .normal)
+			}
 			self.nameBtn_1.setTitleColor(UIColor.white, for: .normal)
 			self.nameBtn_1.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 			self.nameBtn_1.layer.borderColor = UIColor.gray.cgColor
@@ -142,7 +147,12 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
 				}
 
-				self.nameBtn_2.setTitle("未選択", for: .normal)
+				if(favoriteArray[registeredNum].second != -1) {
+					self.nameBtn_2.setTitle(maleNameArray[favoriteArray[registeredNum].second],
+											for: .normal)
+				} else {
+					self.nameBtn_2.setTitle("未選択", for: .normal)
+				}
 				self.nameBtn_2.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_2.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_2.layer.borderColor = UIColor.gray.cgColor
@@ -173,7 +183,12 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
 				}
 
-				self.nameBtn_3.setTitle("未選択", for: .normal)
+				if(favoriteArray[registeredNum].third != -1) {
+					self.nameBtn_3.setTitle(maleNameArray[favoriteArray[registeredNum].third],
+											for: .normal)
+				} else {
+					self.nameBtn_3.setTitle("未選択", for: .normal)
+				}
 				self.nameBtn_3.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_3.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_3.layer.borderColor = UIColor.gray.cgColor
@@ -204,7 +219,12 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
 				}
 
-				self.nameBtn_4.setTitle("未選択", for: .normal)
+				if(favoriteArray[registeredNum].fourth != -1) {
+					self.nameBtn_4.setTitle(maleNameArray[favoriteArray[registeredNum].fourth],
+											for: .normal)
+				} else {
+					self.nameBtn_4.setTitle("未選択", for: .normal)
+				}
 				self.nameBtn_4.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_4.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_4.layer.borderColor = UIColor.gray.cgColor
@@ -235,7 +255,12 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
 				}
 
-				self.nameBtn_5.setTitle("未選択", for: .normal)
+				if(favoriteArray[registeredNum].fifth != -1) {
+					self.nameBtn_5.setTitle(maleNameArray[favoriteArray[registeredNum].fifth],
+											for: .normal)
+				} else {
+					self.nameBtn_5.setTitle("未選択", for: .normal)
+				}
 				self.nameBtn_5.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_5.layer.borderColor = UIColor.gray.cgColor
