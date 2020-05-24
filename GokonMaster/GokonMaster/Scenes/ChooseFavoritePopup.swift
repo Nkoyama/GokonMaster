@@ -79,6 +79,7 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 																	  width: width-20,
 																	  height: height-120))
 		favoriteChoiceTV.register(UITableViewCell.self, forCellReuseIdentifier: "data")
+		favoriteChoiceTV.rowHeight = (height-120)/5
 		chooseFavoriteView.addSubview(favoriteChoiceTV)
 		favoriteChoiceTV.delegate = self
 		favoriteChoiceTV.dataSource = self
