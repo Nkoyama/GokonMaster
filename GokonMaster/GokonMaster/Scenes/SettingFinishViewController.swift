@@ -121,9 +121,19 @@ class SettingFinishViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
-		let menuViewController = MenuViewController()
-		menuViewController.modalPresentationStyle = .fullScreen
-		self.present(menuViewController, animated: true)
+		// メンバーの名前リスト
+		let setNameList = setNameArray()
+		if(setNameList) {
+			let menuViewController = MenuViewController()
+			menuViewController.modalPresentationStyle = .fullScreen
+			self.present(menuViewController, animated: true)
+		} else {
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+														message: "メンバー一覧の保存に失敗しました。",
+														preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}
 	}
 
 }

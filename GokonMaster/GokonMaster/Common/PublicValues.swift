@@ -69,14 +69,15 @@ public func initMemberData() {
 /* 名前リスト */
 public var maleNameArray = [String]()
 public var femaleNameArray = [String]()
-public func initNameArrays() {
+public func initNameArray() {
 	maleNameArray = [String]()
 	femaleNameArray = [String]()
 }
 /// memberDataから性別ごとの名前リストを作成
 /// - Returns: succeed(true) or fail(false)
 /// - Authors: Nozomi Koyama
-public func setNameArrays() -> Bool {
+public func setNameArray() -> Bool {
+	initNameArray()
 	for oneMemberData in memberData {
 		if(oneMemberData.sexIndex == 0) {
 			maleNameArray.append(oneMemberData.nickname)

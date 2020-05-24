@@ -301,9 +301,9 @@ class RegisterFavoriteViewController: UIViewController {
 					chooseFavoritePopup.rank = 0
 			}
 		}
+		chooseFavoritePopup.sexIndex = memberData[registeredNum].sexIndex
 
 		chooseFavoritePopup.modalPresentationStyle = .overCurrentContext
 		self.present(chooseFavoritePopup, animated: false)
-//		view.addSubview(chooseFavoritePopup.view)
 	}
 }
