@@ -143,11 +143,16 @@ public func initAllPublicValues() {
 	tableTypeIndex = 0
 
 	initMemberData()
+	initNameArray()
 
 	let len : Int = seatPositionArray.count
 	for _ in 0..<len {
 		seatPositionArray.removeLast()
 	}
+	
+	initRegisteredNum()
+	
+	initFavoriteArray(joinNum: 0)
 }
 
 

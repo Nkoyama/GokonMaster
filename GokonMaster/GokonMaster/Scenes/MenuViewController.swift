@@ -70,6 +70,7 @@ class MenuViewController: UIViewController {
 	/// - Authors: Nozomi Koyama
 	@objc func changeSeatBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
+		initFavoriteArray(joinNum: joinNumSum)
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.modalPresentationStyle = .fullScreen

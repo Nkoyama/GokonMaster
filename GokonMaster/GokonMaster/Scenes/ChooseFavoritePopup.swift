@@ -111,11 +111,38 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 	func tableView(_ favoriteChoiceTV: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = UITableViewCell()
 		cell.textLabel?.text = choiceList[indexPath.row]
+
+		if (indexPath.row == favoriteArray[registeredNum].first ||
+			indexPath.row == favoriteArray[registeredNum].second ||
+			indexPath.row == favoriteArray[registeredNum].third ||
+			indexPath.row == favoriteArray[registeredNum].fourth ||
+			indexPath.row == favoriteArray[registeredNum].fifth ){
+			// すでに選択済みの場合、セルを選択不可にする
+			cell.selectionStyle = .none
+			cell.backgroundColor = .gray
+		} else {
+			// セルの選択を許可
+			cell.selectionStyle = .default
+		}
+		
 		return cell
 	}
 
 	// セル選択時のアクション
-	func tableView(favoriteChoiceTV: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		print(choiceList[indexPath.row])
+	func tableView(_ favoriteChoiceTV: UITableView, didSelectRowAt indexPath: IndexPath) {
+		switch rank {
+			case 0:
+				favoriteArray[registeredNum].first = indexPath.row
+			case 1:
+				favoriteArray[registeredNum].second = indexPath.row
+			case 2:
+				favoriteArray[registeredNum].third = indexPath.row
+			case 3:
+				favoriteArray[registeredNum].fourth = indexPath.row
+			case 4:
+				favoriteArray[registeredNum].fifth = indexPath.row
+			default:
+				print("error")
+		}
 	}
 }
