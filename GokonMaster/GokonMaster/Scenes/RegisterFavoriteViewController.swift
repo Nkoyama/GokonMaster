@@ -302,6 +302,8 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 		}
 
-		view.addSubview(chooseFavoritePopup.view)
+		chooseFavoritePopup.modalPresentationStyle = .overCurrentContext
+		self.present(chooseFavoritePopup, animated: false)
+//		view.addSubview(chooseFavoritePopup.view)
 	}
 }

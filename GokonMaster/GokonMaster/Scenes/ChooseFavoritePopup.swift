@@ -12,6 +12,7 @@ import SnapKit
 class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate {
 	// MARK: Views
 	let rankLabel		= UILabel()
+	let finishBtn		= UIButton()
 
 	var rank: Int		= 0
 	let SCREEN_SIZE		= UIScreen.main.bounds.size
@@ -21,6 +22,11 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		self.view.backgroundColor = UIColor(red: 150/255,
+											green: 150/255,
+											blue: 150/255,
+											alpha: 0.6)
+
 		// 画面のどこかがタップされたらポップアップを消す
 		let tapGesture = UITapGestureRecognizer(target: self,
 												action: #selector(removePopup(_:)))
@@ -28,11 +34,6 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate {
 		// デリゲートをセット
 		tapGesture.delegate = self
 		self.view.addGestureRecognizer(tapGesture)
-
-		self.view.backgroundColor = UIColor(red: 150/255,
-											green: 150/255,
-											blue: 150/255,
-											alpha: 0.6)
 
 		let popupWidth	= SCREEN_SIZE.width * 2/3
 		let popupHeight	= SCREEN_SIZE.height / 2
@@ -49,7 +50,7 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate {
 	/// ポップアップを消す
 	/// - Parameter sender:
 	/// - Authors: Nozomi Koyama
-	@objc func removePopup(_ sendar: UITapGestureRecognizer){
+	@objc func removePopup(_ sender: Any){
 		print("remove popup")
 		self.dismiss(animated: true, completion: nil)
 		self.view.removeFromSuperview()
@@ -70,6 +71,21 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate {
 		self.rankLabel.snp.makeConstraints{ (make) in
 			make.left.equalTo(chooseFavoriteView.safeAreaLayoutGuide.snp.left).inset(10)
 			make.top.equalTo(chooseFavoriteView.safeAreaLayoutGuide.snp.top).inset(10)
+		}
+		
+		// 完了ボタン
+		self.finishBtn.setTitle("完了", for: .normal)
+		self.finishBtn.setTitleColor(UIColor.black, for: .normal)
+		self.finishBtn.backgroundColor = UIColor.green
+		self.finishBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.finishBtn.layer.borderColor = UIColor.clear.cgColor
+		self.finishBtn.layer.borderWidth = 2.0
+		self.finishBtn.layer.cornerRadius = 2.0
+		chooseFavoriteView.addSubview(self.finishBtn)
+		self.finishBtn.addTarget(self, action: #selector(removePopup(_:)), for: .touchUpInside)
+		self.finishBtn.snp.makeConstraints{ (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(chooseFavoriteView.safeAreaLayoutGuide.snp.bottom).inset(30)
 		}
 
 		return chooseFavoriteView
