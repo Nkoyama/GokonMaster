@@ -121,11 +121,10 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 		let cell = UITableViewCell()
 		cell.textLabel?.text = choiceList[indexPath.row]
 
-		if (indexPath.row == favoriteArray[registeredNum].first ||
+		if(indexPath.row == favoriteArray[registeredNum].first ||
 			indexPath.row == favoriteArray[registeredNum].second ||
 			indexPath.row == favoriteArray[registeredNum].third ||
-			indexPath.row == favoriteArray[registeredNum].fourth ||
-			indexPath.row == favoriteArray[registeredNum].fifth ){
+			indexPath.row == favoriteArray[registeredNum].fourth) {
 			// すでに選択済みの場合、セルを選択不可にする
 			cell.selectionStyle = .none
 			cell.backgroundColor = .gray
@@ -133,20 +132,19 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 			// セルの選択を許可
 			cell.selectionStyle = .default
 		}
-		
+
 		return cell
 	}
 
 	/// セル選択時のアクション
 	func tableView(_ favoriteChoiceTV: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if (indexPath.row == favoriteArray[registeredNum].first ||
+		if(indexPath.row == favoriteArray[registeredNum].first ||
 			indexPath.row == favoriteArray[registeredNum].second ||
 			indexPath.row == favoriteArray[registeredNum].third ||
-			indexPath.row == favoriteArray[registeredNum].fourth ||
-			indexPath.row == favoriteArray[registeredNum].fifth ){
+			indexPath.row == favoriteArray[registeredNum].fourth) {
 			let alert: UIAlertController = UIAlertController(title: "エラー",
-														message: "この方は既に他の順位で選択済みです。",
-														preferredStyle: UIAlertController.Style.alert)
+													message: "この方は既に他の順位で選択済みです。",
+													preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		} else {
@@ -159,8 +157,6 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 					favoriteArray[registeredNum].third = indexPath.row
 				case 4:
 					favoriteArray[registeredNum].fourth = indexPath.row
-				case 5:
-					favoriteArray[registeredNum].fifth = indexPath.row
 				default:
 					print("error")
 			}

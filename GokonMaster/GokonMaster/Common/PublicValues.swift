@@ -115,8 +115,7 @@ public func initRegisteredNum() {
 public var favoriteArray:[(	first:	Int,
 							second:	Int,
 							third:	Int,
-							fourth:	Int,
-							fifth:	Int)] = []
+							fourth:	Int)] = []
 public func initFavoriteArray(joinNum : Int) {
 	for _ in favoriteArray {
 		favoriteArray.removeLast()
@@ -125,8 +124,7 @@ public func initFavoriteArray(joinNum : Int) {
 		favoriteArray.append((first:	-1,
 							  second:	-1,
 							  third:	-1,
-							  fourth:	-1,
-							  fifth:	-1))
+							  fourth:	-1))
 	}
 }
 

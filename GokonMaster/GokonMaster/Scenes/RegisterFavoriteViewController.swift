@@ -20,12 +20,11 @@ class RegisterFavoriteViewController: UIViewController {
 	let rankLabel_2			= UILabel()		// 2位 label
 	let rankLabel_3			= UILabel()		// 3位 label
 	let rankLabel_4			= UILabel()		// 4位 label
-	let rankLabel_5			= UILabel()		// 5位 label
 	let nameBtn_1			= UIButton()	// 1位 ボタン
 	let nameBtn_2			= UIButton()	// 2位 ボタン
 	let nameBtn_3			= UIButton()	// 3位 ボタン
 	let nameBtn_4			= UIButton()	// 4位 ボタン
-	let nameBtn_5			= UIButton()	// 5位 ボタン
+	let decideBtn			= UIButton()	// 決定 ボタン
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
 
@@ -140,7 +139,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 
 			// 2位
-			if(maleNum>=2) {
+			if(maleNum>=3) {
 				self.rankLabel_2.text = "2位"
 				self.rankLabel_2.textColor = UIColor.black
 				self.rankLabel_2.textAlignment = NSTextAlignment.center
@@ -181,7 +180,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 
 			// 3位
-			if(maleNum>=3) {
+			if(maleNum>=4) {
 				self.rankLabel_3.text = "3位"
 				self.rankLabel_3.textColor = UIColor.black
 				self.rankLabel_3.textAlignment = NSTextAlignment.center
@@ -222,7 +221,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 
 			// 4位
-			if(maleNum>=4) {
+			if(maleNum>=5) {
 				self.rankLabel_4.text = "4位"
 				self.rankLabel_4.textColor = UIColor.black
 				self.rankLabel_4.textAlignment = NSTextAlignment.center
@@ -259,47 +258,6 @@ class RegisterFavoriteViewController: UIViewController {
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
-				}
-			}
-
-			// 5位
-			if(maleNum>=5) {
-				self.rankLabel_5.text = "5位"
-				self.rankLabel_5.textColor = UIColor.black
-				self.rankLabel_5.textAlignment = NSTextAlignment.center
-				self.rankLabel_5.font = self.rankLabel_5.font.withSize(25.0)
-				self.rankLabel_5.adjustsFontSizeToFitWidth = true
-				self.view.addSubview(self.rankLabel_5)
-				self.rankLabel_5.snp.makeConstraints{ (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
-				}
-
-				if(favoriteArray[registeredNum].fifth != -1) {
-					self.nameBtn_5.setTitle(maleNameArray[favoriteArray[registeredNum].fifth],
-											for: .normal)
-				} else {
-					self.nameBtn_5.setTitle("未選択", for: .normal)
-				}
-				self.nameBtn_5.titleLabel?.adjustsFontSizeToFitWidth = true
-				self.nameBtn_5.setTitleColor(UIColor.white, for: .normal)
-				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255,
-															  green: 78/255,
-															  blue: 134/255,
-															  alpha: 1)
-				self.nameBtn_5.layer.borderColor = UIColor.gray.cgColor
-				self.nameBtn_5.layer.borderWidth = 1.0
-				self.nameBtn_5.layer.cornerRadius = 1.0
-				self.nameBtn_5.addTarget(self,
-										 action: #selector(self.chooseFavorite(_:)),
-										 for: .touchUpInside)
-				self.nameBtn_5.tag = 5
-				self.view.addSubview(self.nameBtn_5)
-				self.nameBtn_5.snp.makeConstraints{ (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
 				}
 			}
 
@@ -345,7 +303,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 			
 			// 2位
-			if(femaleNum>=2) {
+			if(femaleNum>=3) {
 				self.rankLabel_2.text = "2位"
 				self.rankLabel_2.textColor = UIColor.black
 				self.rankLabel_2.textAlignment = NSTextAlignment.center
@@ -386,7 +344,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 			
 			// 3位
-			if(femaleNum>=3) {
+			if(femaleNum>=4) {
 				self.rankLabel_3.text = "3位"
 				self.rankLabel_3.textColor = UIColor.black
 				self.rankLabel_3.textAlignment = NSTextAlignment.center
@@ -427,7 +385,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 			
 			// 4位
-			if(femaleNum>=4) {
+			if(femaleNum>=5) {
 				self.rankLabel_4.text = "4位"
 				self.rankLabel_4.textColor = UIColor.black
 				self.rankLabel_4.textAlignment = NSTextAlignment.center
@@ -466,47 +424,23 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
 				}
 			}
-			
-			// 5位
-			if(femaleNum>=5) {
-				self.rankLabel_5.text = "5位"
-				self.rankLabel_5.textColor = UIColor.black
-				self.rankLabel_5.textAlignment = NSTextAlignment.center
-				self.rankLabel_5.font = self.rankLabel_5.font.withSize(25.0)
-				self.rankLabel_5.adjustsFontSizeToFitWidth = true
-				self.view.addSubview(self.rankLabel_5)
-				self.rankLabel_5.snp.makeConstraints{ (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
-				}
-				
-				if(favoriteArray[registeredNum].fifth != -1) {
-					self.nameBtn_5.setTitle(femaleNameArray[favoriteArray[registeredNum].fifth],
-											for: .normal)
-				} else {
-					self.nameBtn_5.setTitle("未選択", for: .normal)
-				}
-				self.nameBtn_5.titleLabel?.adjustsFontSizeToFitWidth = true
-				self.nameBtn_5.setTitleColor(UIColor.white, for: .normal)
-				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255,
-															  green: 78/255,
-															  blue: 134/255,
-															  alpha: 1)
-				self.nameBtn_5.layer.borderColor = UIColor.gray.cgColor
-				self.nameBtn_5.layer.borderWidth = 1.0
-				self.nameBtn_5.layer.cornerRadius = 1.0
-				self.nameBtn_5.addTarget(self,
-										 action: #selector(self.chooseFavorite(_:)),
-										 for: .touchUpInside)
-				self.nameBtn_5.tag = 5
-				self.view.addSubview(self.nameBtn_5)
-				self.nameBtn_5.snp.makeConstraints{ (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
-				}
-			}
+		}
+
+		// decide button
+		self.decideBtn.setTitle(" 決定 ", for: .normal)
+		self.decideBtn.setTitleColor(UIColor.black, for: .normal)
+		self.decideBtn.backgroundColor = UIColor.green
+		self.decideBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.decideBtn.layer.borderColor = UIColor.clear.cgColor
+		self.decideBtn.layer.borderWidth = 2.0
+		self.decideBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.decideBtn)
+		self.decideBtn.addTarget(self,
+								 action: #selector(self.decideBtnDidTap(_:)),
+								 for: .touchUpInside)
+		self.decideBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
 		}
 	}
 
@@ -534,8 +468,6 @@ class RegisterFavoriteViewController: UIViewController {
 					chooseFavoritePopup.rank = 3
 				case 4:
 					chooseFavoritePopup.rank = 4
-				case 5:
-					chooseFavoritePopup.rank = 5
 				default:
 					chooseFavoritePopup.rank = 0
 			}
@@ -544,5 +476,89 @@ class RegisterFavoriteViewController: UIViewController {
 
 		chooseFavoritePopup.modalPresentationStyle = .overCurrentContext
 		self.present(chooseFavoritePopup, animated: false)
+	}
+
+	/// decideBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func decideBtnDidTap(_ sender: UIButton) {
+		var choiceComplete	= false
+		if(memberData[registeredNum].sexIndex == 0) {
+			if(favoriteArray[registeredNum].first < 0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "1位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else if(femaleNum>=3 && favoriteArray[registeredNum].second<0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "2位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else if(femaleNum>=4 && favoriteArray[registeredNum].third<0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "3位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else if(femaleNum>=5 && favoriteArray[registeredNum].fourth<0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "4位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else {
+				choiceComplete = true
+			}
+		} else if(memberData[registeredNum].sexIndex == 1) {
+			if(favoriteArray[registeredNum].first < 0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "1位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else if(maleNum>=3 && favoriteArray[registeredNum].second<0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "2位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else if(maleNum>=4 && favoriteArray[registeredNum].third<0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "3位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else if(maleNum>=5 && favoriteArray[registeredNum].fourth<0) {
+				let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "4位が設定されていません。",
+													preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(defaultAction)
+				present(alert, animated: true, completion: nil)
+			} else {
+				choiceComplete = true
+			}
+		} else {
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+													message: "予期せぬエラーが発生しました。",
+													preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}
+		
+		// registered number count up
+		if(choiceComplete) {
+			registeredNum += 1
+			if(registeredNum == joinNumSum) {
+				let settingFinishViewController = SettingFinishViewController()
+				settingFinishViewController.modalPresentationStyle = .fullScreen
+				self.present(settingFinishViewController, animated: true)
+			} else {
+				let memberRegisterViewController = MemberRegisterViewController()
+				memberRegisterViewController.modalPresentationStyle = .fullScreen
+				self.present(memberRegisterViewController, animated: true)
+			}
+		}
 	}
 }
