@@ -105,6 +105,7 @@ class RegisterFavoriteViewController: UIViewController {
 			self.rankLabel_1.textColor = UIColor.black
 			self.rankLabel_1.textAlignment = NSTextAlignment.center
 			self.rankLabel_1.font = self.rankLabel_1.font.withSize(35.0)
+			self.rankLabel_1.adjustsFontSizeToFitWidth = true
 			self.view.addSubview(self.rankLabel_1)
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
@@ -118,6 +119,7 @@ class RegisterFavoriteViewController: UIViewController {
 			} else {
 				self.nameBtn_1.setTitle("未選択", for: .normal)
 			}
+			self.nameBtn_1.titleLabel?.adjustsFontSizeToFitWidth = true
 			self.nameBtn_1.setTitleColor(UIColor.white, for: .normal)
 			self.nameBtn_1.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 			self.nameBtn_1.layer.borderColor = UIColor.gray.cgColor
@@ -140,6 +142,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_2.textColor = UIColor.black
 				self.rankLabel_2.textAlignment = NSTextAlignment.center
 				self.rankLabel_2.font = self.rankLabel_2.font.withSize(32.0)
+				self.rankLabel_2.adjustsFontSizeToFitWidth = true
 				self.view.addSubview(self.rankLabel_2)
 				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
@@ -153,6 +156,7 @@ class RegisterFavoriteViewController: UIViewController {
 				} else {
 					self.nameBtn_2.setTitle("未選択", for: .normal)
 				}
+				self.nameBtn_2.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_2.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_2.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_2.layer.borderColor = UIColor.gray.cgColor
@@ -176,6 +180,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_3.textColor = UIColor.black
 				self.rankLabel_3.textAlignment = NSTextAlignment.center
 				self.rankLabel_3.font = self.rankLabel_3.font.withSize(30.0)
+				self.rankLabel_3.adjustsFontSizeToFitWidth = true
 				self.view.addSubview(self.rankLabel_3)
 				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
@@ -189,6 +194,7 @@ class RegisterFavoriteViewController: UIViewController {
 				} else {
 					self.nameBtn_3.setTitle("未選択", for: .normal)
 				}
+				self.nameBtn_3.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_3.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_3.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_3.layer.borderColor = UIColor.gray.cgColor
@@ -212,6 +218,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_4.textColor = UIColor.black
 				self.rankLabel_4.textAlignment = NSTextAlignment.center
 				self.rankLabel_4.font = self.rankLabel_4.font.withSize(25.0)
+				self.rankLabel_4.adjustsFontSizeToFitWidth = true
 				self.view.addSubview(self.rankLabel_4)
 				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
@@ -225,6 +232,7 @@ class RegisterFavoriteViewController: UIViewController {
 				} else {
 					self.nameBtn_4.setTitle("未選択", for: .normal)
 				}
+				self.nameBtn_4.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_4.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_4.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_4.layer.borderColor = UIColor.gray.cgColor
@@ -248,6 +256,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_5.textColor = UIColor.black
 				self.rankLabel_5.textAlignment = NSTextAlignment.center
 				self.rankLabel_5.font = self.rankLabel_5.font.withSize(25.0)
+				self.rankLabel_5.adjustsFontSizeToFitWidth = true
 				self.view.addSubview(self.rankLabel_5)
 				self.rankLabel_5.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
@@ -261,6 +270,7 @@ class RegisterFavoriteViewController: UIViewController {
 				} else {
 					self.nameBtn_5.setTitle("未選択", for: .normal)
 				}
+				self.nameBtn_5.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_5.setTitleColor(UIColor.white, for: .normal)
 				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
 				self.nameBtn_5.layer.borderColor = UIColor.gray.cgColor

@@ -139,19 +139,31 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 
 	/// セル選択時のアクション
 	func tableView(_ favoriteChoiceTV: UITableView, didSelectRowAt indexPath: IndexPath) {
-		switch rank {
-			case 1:
-				favoriteArray[registeredNum].first = indexPath.row
-			case 2:
-				favoriteArray[registeredNum].second = indexPath.row
-			case 3:
-				favoriteArray[registeredNum].third = indexPath.row
-			case 4:
-				favoriteArray[registeredNum].fourth = indexPath.row
-			case 5:
-				favoriteArray[registeredNum].fifth = indexPath.row
-			default:
-				print("error")
+		if (indexPath.row == favoriteArray[registeredNum].first ||
+			indexPath.row == favoriteArray[registeredNum].second ||
+			indexPath.row == favoriteArray[registeredNum].third ||
+			indexPath.row == favoriteArray[registeredNum].fourth ||
+			indexPath.row == favoriteArray[registeredNum].fifth ){
+			let alert: UIAlertController = UIAlertController(title: "エラー",
+														message: "この方は既に他の順位で選択済みです。",
+														preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else {
+			switch rank {
+				case 1:
+					favoriteArray[registeredNum].first = indexPath.row
+				case 2:
+					favoriteArray[registeredNum].second = indexPath.row
+				case 3:
+					favoriteArray[registeredNum].third = indexPath.row
+				case 4:
+					favoriteArray[registeredNum].fourth = indexPath.row
+				case 5:
+					favoriteArray[registeredNum].fifth = indexPath.row
+				default:
+					print("error")
+			}
 		}
 	}
 }
