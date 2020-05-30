@@ -121,7 +121,10 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 			self.nameBtn_1.titleLabel?.adjustsFontSizeToFitWidth = true
 			self.nameBtn_1.setTitleColor(UIColor.white, for: .normal)
-			self.nameBtn_1.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+			self.nameBtn_1.backgroundColor = UIColor.init(red: 99/255,
+														  green: 78/255,
+														  blue: 134/255,
+														  alpha: 1)
 			self.nameBtn_1.layer.borderColor = UIColor.gray.cgColor
 			self.nameBtn_1.layer.borderWidth = 1.0
 			self.nameBtn_1.layer.cornerRadius = 1.0
@@ -158,7 +161,10 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 				self.nameBtn_2.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_2.setTitleColor(UIColor.white, for: .normal)
-				self.nameBtn_2.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_2.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
 				self.nameBtn_2.layer.borderColor = UIColor.gray.cgColor
 				self.nameBtn_2.layer.borderWidth = 1.0
 				self.nameBtn_2.layer.cornerRadius = 1.0
@@ -196,7 +202,10 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 				self.nameBtn_3.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_3.setTitleColor(UIColor.white, for: .normal)
-				self.nameBtn_3.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_3.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
 				self.nameBtn_3.layer.borderColor = UIColor.gray.cgColor
 				self.nameBtn_3.layer.borderWidth = 1.0
 				self.nameBtn_3.layer.cornerRadius = 1.0
@@ -234,7 +243,10 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 				self.nameBtn_4.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_4.setTitleColor(UIColor.white, for: .normal)
-				self.nameBtn_4.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_4.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
 				self.nameBtn_4.layer.borderColor = UIColor.gray.cgColor
 				self.nameBtn_4.layer.borderWidth = 1.0
 				self.nameBtn_4.layer.cornerRadius = 1.0
@@ -272,7 +284,10 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 				self.nameBtn_5.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.nameBtn_5.setTitleColor(UIColor.white, for: .normal)
-				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255, green: 78/255, blue: 134/255, alpha: 1)
+				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
 				self.nameBtn_5.layer.borderColor = UIColor.gray.cgColor
 				self.nameBtn_5.layer.borderWidth = 1.0
 				self.nameBtn_5.layer.cornerRadius = 1.0
@@ -290,17 +305,206 @@ class RegisterFavoriteViewController: UIViewController {
 
 		// 男の場合
 		} else {
-			for i in 1...femaleNum {
-				let rankLabel	= UILabel()		// 順位 label
-				rankLabel.text = String(i) + "位"
-				rankLabel.textColor = UIColor.black
-				rankLabel.textAlignment = NSTextAlignment.center
-				rankLabel.font = rankLabel.font.withSize(40.0 - 5.0*CGFloat(i))
-				self.view.addSubview(rankLabel)
-				rankLabel.snp.makeConstraints{ (make) in
+			// 1位
+			self.rankLabel_1.text = "1位"
+			self.rankLabel_1.textColor = UIColor.black
+			self.rankLabel_1.textAlignment = NSTextAlignment.center
+			self.rankLabel_1.font = self.rankLabel_1.font.withSize(35.0)
+			self.rankLabel_1.adjustsFontSizeToFitWidth = true
+			self.view.addSubview(self.rankLabel_1)
+			self.rankLabel_1.snp.makeConstraints{ (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			}
+			
+			if(favoriteArray[registeredNum].first != -1) {
+				self.nameBtn_1.setTitle(femaleNameArray[favoriteArray[registeredNum].first],
+										for: .normal)
+			} else {
+				self.nameBtn_1.setTitle("未選択", for: .normal)
+			}
+			self.nameBtn_1.titleLabel?.adjustsFontSizeToFitWidth = true
+			self.nameBtn_1.setTitleColor(UIColor.white, for: .normal)
+			self.nameBtn_1.backgroundColor = UIColor.init(red: 99/255,
+														  green: 78/255,
+														  blue: 134/255,
+														  alpha: 1)
+			self.nameBtn_1.layer.borderColor = UIColor.gray.cgColor
+			self.nameBtn_1.layer.borderWidth = 1.0
+			self.nameBtn_1.layer.cornerRadius = 1.0
+			self.nameBtn_1.addTarget(self,
+									 action: #selector(self.chooseFavorite(_:)),
+									 for: .touchUpInside)
+			self.nameBtn_1.tag = 1
+			self.view.addSubview(self.nameBtn_1)
+			self.nameBtn_1.snp.makeConstraints{ (make) in
+				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			}
+			
+			// 2位
+			if(femaleNum>=2) {
+				self.rankLabel_2.text = "2位"
+				self.rankLabel_2.textColor = UIColor.black
+				self.rankLabel_2.textAlignment = NSTextAlignment.center
+				self.rankLabel_2.font = self.rankLabel_2.font.withSize(32.0)
+				self.rankLabel_2.adjustsFontSizeToFitWidth = true
+				self.view.addSubview(self.rankLabel_2)
+				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300+Int(lineWidth)*(i-1))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+				}
+				
+				if(favoriteArray[registeredNum].second != -1) {
+					self.nameBtn_2.setTitle(femaleNameArray[favoriteArray[registeredNum].second],
+											for: .normal)
+				} else {
+					self.nameBtn_2.setTitle("未選択", for: .normal)
+				}
+				self.nameBtn_2.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.nameBtn_2.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_2.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
+				self.nameBtn_2.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_2.layer.borderWidth = 1.0
+				self.nameBtn_2.layer.cornerRadius = 1.0
+				self.nameBtn_2.addTarget(self,
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.nameBtn_2.tag = 2
+				self.view.addSubview(self.nameBtn_2)
+				self.nameBtn_2.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+				}
+			}
+			
+			// 3位
+			if(femaleNum>=3) {
+				self.rankLabel_3.text = "3位"
+				self.rankLabel_3.textColor = UIColor.black
+				self.rankLabel_3.textAlignment = NSTextAlignment.center
+				self.rankLabel_3.font = self.rankLabel_3.font.withSize(30.0)
+				self.rankLabel_3.adjustsFontSizeToFitWidth = true
+				self.view.addSubview(self.rankLabel_3)
+				self.rankLabel_3.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
+				}
+				
+				if(favoriteArray[registeredNum].third != -1) {
+					self.nameBtn_3.setTitle(femaleNameArray[favoriteArray[registeredNum].third],
+											for: .normal)
+				} else {
+					self.nameBtn_3.setTitle("未選択", for: .normal)
+				}
+				self.nameBtn_3.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.nameBtn_3.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_3.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
+				self.nameBtn_3.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_3.layer.borderWidth = 1.0
+				self.nameBtn_3.layer.cornerRadius = 1.0
+				self.nameBtn_3.addTarget(self,
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.nameBtn_3.tag = 3
+				self.view.addSubview(self.nameBtn_3)
+				self.nameBtn_3.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth*2))
+				}
+			}
+			
+			// 4位
+			if(femaleNum>=4) {
+				self.rankLabel_4.text = "4位"
+				self.rankLabel_4.textColor = UIColor.black
+				self.rankLabel_4.textAlignment = NSTextAlignment.center
+				self.rankLabel_4.font = self.rankLabel_4.font.withSize(25.0)
+				self.rankLabel_4.adjustsFontSizeToFitWidth = true
+				self.view.addSubview(self.rankLabel_4)
+				self.rankLabel_4.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+				}
+				
+				if(favoriteArray[registeredNum].fourth != -1) {
+					self.nameBtn_4.setTitle(femaleNameArray[favoriteArray[registeredNum].fourth],
+											for: .normal)
+				} else {
+					self.nameBtn_4.setTitle("未選択", for: .normal)
+				}
+				self.nameBtn_4.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.nameBtn_4.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_4.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
+				self.nameBtn_4.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_4.layer.borderWidth = 1.0
+				self.nameBtn_4.layer.cornerRadius = 1.0
+				self.nameBtn_4.addTarget(self,
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.nameBtn_4.tag = 4
+				self.view.addSubview(self.nameBtn_4)
+				self.nameBtn_4.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+				}
+			}
+			
+			// 5位
+			if(femaleNum>=5) {
+				self.rankLabel_5.text = "5位"
+				self.rankLabel_5.textColor = UIColor.black
+				self.rankLabel_5.textAlignment = NSTextAlignment.center
+				self.rankLabel_5.font = self.rankLabel_5.font.withSize(25.0)
+				self.rankLabel_5.adjustsFontSizeToFitWidth = true
+				self.view.addSubview(self.rankLabel_5)
+				self.rankLabel_5.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
+				}
+				
+				if(favoriteArray[registeredNum].fifth != -1) {
+					self.nameBtn_5.setTitle(femaleNameArray[favoriteArray[registeredNum].fifth],
+											for: .normal)
+				} else {
+					self.nameBtn_5.setTitle("未選択", for: .normal)
+				}
+				self.nameBtn_5.titleLabel?.adjustsFontSizeToFitWidth = true
+				self.nameBtn_5.setTitleColor(UIColor.white, for: .normal)
+				self.nameBtn_5.backgroundColor = UIColor.init(red: 99/255,
+															  green: 78/255,
+															  blue: 134/255,
+															  alpha: 1)
+				self.nameBtn_5.layer.borderColor = UIColor.gray.cgColor
+				self.nameBtn_5.layer.borderWidth = 1.0
+				self.nameBtn_5.layer.cornerRadius = 1.0
+				self.nameBtn_5.addTarget(self,
+										 action: #selector(self.chooseFavorite(_:)),
+										 for: .touchUpInside)
+				self.nameBtn_5.tag = 5
+				self.view.addSubview(self.nameBtn_5)
+				self.nameBtn_5.snp.makeConstraints{ (make) in
+					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
+					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*4)
 				}
 			}
 		}
