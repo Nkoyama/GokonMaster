@@ -20,6 +20,7 @@
 		4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0A241CEAB700C86FB9 /* PublicValues.swift */; };
 		4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */; };
 		43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43477D472403E5A8001D37CE /* Setting1ViewController.swift */; };
+		439E5C30248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C2F248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift */; };
 		43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D5892403CB72005A48AB /* AppDelegate.swift */; };
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		4341CC0A241CEAB700C86FB9 /* PublicValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicValues.swift; sourceTree = "<group>"; };
 		4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRegisterViewController.swift; sourceTree = "<group>"; };
 		43477D472403E5A8001D37CE /* Setting1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting1ViewController.swift; sourceTree = "<group>"; };
+		439E5C2F248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFavoriteFinishViewController.swift; sourceTree = "<group>"; };
 		43C1D5862403CB72005A48AB /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C1D5892403CB72005A48AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				4337E51324680697006235BD /* MenuViewController.swift */,
 				4337E51524712F45006235BD /* RegisterFavoriteViewController.swift */,
 				4337E5172478DA4D006235BD /* ChooseFavoritePopup.swift */,
+				439E5C2F248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				43084D602414E79300370070 /* TableTypeDrawView.swift in Sources */,
 				434021D52442ECF50023842F /* MemberRegisterFinishViewController.swift in Sources */,
 				43084D62241CADE900370070 /* TableSquareDrawView.swift in Sources */,
+				439E5C30248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift in Sources */,
 				4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */,
 				4337E50E24627383006235BD /* SettingFinishViewController.swift in Sources */,
 				43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */,

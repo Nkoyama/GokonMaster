@@ -549,16 +549,9 @@ class RegisterFavoriteViewController: UIViewController {
 		
 		// registered number count up
 		if(choiceComplete) {
-			registeredNum += 1
-			if(registeredNum == joinNumSum) {
-				let settingFinishViewController = SettingFinishViewController()
-				settingFinishViewController.modalPresentationStyle = .fullScreen
-				self.present(settingFinishViewController, animated: true)
-			} else {
-				let memberRegisterViewController = MemberRegisterViewController()
-				memberRegisterViewController.modalPresentationStyle = .fullScreen
-				self.present(memberRegisterViewController, animated: true)
-			}
+			let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
+			registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
+			self.present(registerFavoriteFinishViewController, animated: true)
 		}
 	}
 }
