@@ -211,7 +211,11 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		}
 
 		// OK button
-		self.okBtn.setTitle(" OK ", for: .normal)
+		if( registeredNum+1 == joinNumSum ) {
+			self.okBtn.setTitle(" 席替え ", for: .normal)
+		} else {
+			self.okBtn.setTitle(" OK ", for: .normal)
+		}
 		self.okBtn.setTitleColor(UIColor.black, for: .normal)
 		self.okBtn.backgroundColor = UIColor.green
 		self.okBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
@@ -240,5 +244,12 @@ class RegisterFavoriteFinishViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func okBtnDidTap(_ sender: UIButton) {
+		registeredNum += 1
+		if(registeredNum == joinNumSum) {
+		} else {
+			let registerFavoriteViewController = RegisterFavoriteViewController()
+			registerFavoriteViewController.modalPresentationStyle = .fullScreen
+			self.present(registerFavoriteViewController, animated: true)
+		}
 	}
 }
