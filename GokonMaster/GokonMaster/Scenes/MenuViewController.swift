@@ -64,7 +64,7 @@ class MenuViewController: UIViewController {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(400)
 		}
 	}
-	
+
 	/// changeSeatBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama

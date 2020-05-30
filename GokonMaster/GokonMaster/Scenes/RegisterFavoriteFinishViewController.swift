@@ -24,8 +24,8 @@ class RegisterFavoriteFinishViewController: UIViewController {
 	let favoriteName_2	= UILabel()			// お気に入り 2位
 	let favoriteName_3	= UILabel()			// お気に入り 3位
 	let favoriteName_4	= UILabel()			// お気に入り 4位
-	let nextName		= UILabel()			// next name
 	let message2		= UILabel()			// message2
+	let okBtn			= UIButton()		// OK button
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -195,6 +195,37 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
 			}
 		}
+
+		// message2
+		if( registeredNum+1 == joinNumSum ) {
+			self.message2.text = "全員の気に入った方の登録が完了しました。"
+		} else {
+			self.message2.text = "OKボタンを押して " + memberData[registeredNum+1].nickname + " さんに渡してください。"
+		}
+		self.message2.lineBreakMode = .byWordWrapping
+		self.message2.textColor = UIColor.black
+		self.view.addSubview(message2)
+		self.message2.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
+		}
+
+		// OK button
+		self.okBtn.setTitle(" OK ", for: .normal)
+		self.okBtn.setTitleColor(UIColor.black, for: .normal)
+		self.okBtn.backgroundColor = UIColor.green
+		self.okBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.okBtn.layer.borderColor = UIColor.clear.cgColor
+		self.okBtn.layer.borderWidth = 2.0
+		self.okBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.okBtn)
+		self.okBtn.addTarget(self,
+							 action: #selector(self.okBtnDidTap(_:)),
+							 for: .touchUpInside)
+		self.okBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+		}
 	}
 
 	/// backBtn action
@@ -203,5 +234,11 @@ class RegisterFavoriteFinishViewController: UIViewController {
 	@objc func backBtnDidTap(_ sender: UIButton) {
 		// 現在の画面を破棄
 		self.dismiss(animated: true, completion: nil)
+	}
+
+	/// okBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func okBtnDidTap(_ sender: UIButton) {
 	}
 }
