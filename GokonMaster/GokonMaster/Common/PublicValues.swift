@@ -154,7 +154,40 @@ public func initAllPublicValues() {
 }
 
 
-// エラーメッセージ：OKボタン押下
-public let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-	(action: UIAlertAction!) -> Void in
+public var alertResult = -1
+public func initAlertResult() {
+	alertResult = -1
+}
+
+// alert message：OKボタン押下
+public let defaultAction = UIAlertAction(title: "OK",
+										 style: .default,
+										 handler:{
+											(action: UIAlertAction!) -> Void in
+											alertResult = 1
+})
+
+// alert message：Cancelボタン押下
+public let cancelAction = UIAlertAction(title: "Cancel",
+										style: .destructive,
+										handler:{
+											(action: UIAlertAction!) -> Void in
+											alertResult = 0
+											return;
+})
+
+// alert message：Yesボタン押下
+public let yesAction = UIAlertAction(title: "Yes",
+									 style: .default,
+									 handler:{
+										(action: UIAlertAction!) -> Void in
+										alertResult = 2
+})
+
+// alert message：Noボタン押下
+public let noAction = UIAlertAction(title: "No",
+									style: .default,
+									handler:{
+										(action: UIAlertAction!) -> Void in
+										alertResult = 3
 })

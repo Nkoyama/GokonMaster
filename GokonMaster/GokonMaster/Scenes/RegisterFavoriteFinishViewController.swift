@@ -91,10 +91,14 @@ class RegisterFavoriteFinishViewController: UIViewController {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
 		}
-		if(memberData[registeredNum].sexIndex == 0) {
-			self.favoriteName_1.text = femaleNameArray[favoriteArray[registeredNum].first]
-		} else if(memberData[registeredNum].sexIndex == 1) {
-			self.favoriteName_1.text = maleNameArray[favoriteArray[registeredNum].first]
+		if(favoriteArray[registeredNum].first < 0){
+			self.favoriteName_1.text = "未登録"
+		} else {
+			if(memberData[registeredNum].sexIndex == 0) {
+				self.favoriteName_1.text = femaleNameArray[favoriteArray[registeredNum].first]
+			} else if(memberData[registeredNum].sexIndex == 1) {
+				self.favoriteName_1.text = maleNameArray[favoriteArray[registeredNum].first]
+			}
 		}
 		self.favoriteName_1.textColor = UIColor.black
 		self.favoriteName_1.font = self.favoriteName_1.font.withSize(25.0)
@@ -120,10 +124,14 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(340)
 			}
-			if(memberData[registeredNum].sexIndex == 0) {
-				self.favoriteName_2.text = femaleNameArray[favoriteArray[registeredNum].second]
-			} else if(memberData[registeredNum].sexIndex == 1) {
-				self.favoriteName_2.text = maleNameArray[favoriteArray[registeredNum].second]
+			if(favoriteArray[registeredNum].second < 0){
+				self.favoriteName_2.text = "未登録"
+			} else {
+				if(memberData[registeredNum].sexIndex == 0) {
+					self.favoriteName_2.text = femaleNameArray[favoriteArray[registeredNum].second]
+				} else if(memberData[registeredNum].sexIndex == 1) {
+					self.favoriteName_2.text = maleNameArray[favoriteArray[registeredNum].second]
+				}
 			}
 			self.favoriteName_2.textColor = UIColor.black
 			self.favoriteName_2.font = self.favoriteName_2.font.withSize(25.0)
@@ -150,10 +158,14 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(380)
 			}
-			if(memberData[registeredNum].sexIndex == 0) {
-				self.favoriteName_3.text = femaleNameArray[favoriteArray[registeredNum].third]
-			} else if(memberData[registeredNum].sexIndex == 1) {
-				self.favoriteName_3.text = maleNameArray[favoriteArray[registeredNum].third]
+			if(favoriteArray[registeredNum].third < 0){
+				self.favoriteName_3.text = "未登録"
+			} else {
+				if(memberData[registeredNum].sexIndex == 0) {
+					self.favoriteName_3.text = femaleNameArray[favoriteArray[registeredNum].third]
+				} else if(memberData[registeredNum].sexIndex == 1) {
+					self.favoriteName_3.text = maleNameArray[favoriteArray[registeredNum].third]
+				}
 			}
 			self.favoriteName_3.textColor = UIColor.black
 			self.favoriteName_3.font = self.favoriteName_3.font.withSize(25.0)
@@ -180,10 +192,14 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
 			}
-			if(memberData[registeredNum].sexIndex == 0) {
-				self.favoriteName_4.text = femaleNameArray[favoriteArray[registeredNum].fourth]
-			} else if(memberData[registeredNum].sexIndex == 1) {
-				self.favoriteName_4.text = maleNameArray[favoriteArray[registeredNum].fourth]
+			if(favoriteArray[registeredNum].fourth < 0){
+				self.favoriteName_4.text = "未登録"
+			} else {
+				if(memberData[registeredNum].sexIndex == 0) {
+					self.favoriteName_4.text = femaleNameArray[favoriteArray[registeredNum].fourth]
+				} else if(memberData[registeredNum].sexIndex == 1) {
+					self.favoriteName_4.text = maleNameArray[favoriteArray[registeredNum].fourth]
+				}
 			}
 			self.favoriteName_4.textColor = UIColor.black
 			self.favoriteName_4.font = self.favoriteName_4.font.withSize(25.0)
@@ -244,6 +260,7 @@ class RegisterFavoriteFinishViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func okBtnDidTap(_ sender: UIButton) {
+		// registered number count up
 		registeredNum += 1
 		if(registeredNum == joinNumSum) {
 		} else {

@@ -483,71 +483,67 @@ class RegisterFavoriteViewController: UIViewController {
 	/// - Authors: Nozomi Koyama
 	@objc func decideBtnDidTap(_ sender: UIButton) {
 		var choiceComplete	= false
-		if(memberData[registeredNum].sexIndex == 0) {
-			if(favoriteArray[registeredNum].first < 0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "1位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else if(femaleNum>=3 && favoriteArray[registeredNum].second<0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "2位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else if(femaleNum>=4 && favoriteArray[registeredNum].third<0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "3位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else if(femaleNum>=5 && favoriteArray[registeredNum].fourth<0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "4位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else {
-				choiceComplete = true
-			}
-		} else if(memberData[registeredNum].sexIndex == 1) {
-			if(favoriteArray[registeredNum].first < 0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "1位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else if(maleNum>=3 && favoriteArray[registeredNum].second<0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "2位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else if(maleNum>=4 && favoriteArray[registeredNum].third<0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "3位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else if(maleNum>=5 && favoriteArray[registeredNum].fourth<0) {
-				let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "4位が設定されていません。",
-													preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(defaultAction)
-				present(alert, animated: true, completion: nil)
-			} else {
-				choiceComplete = true
-			}
-		} else {
-			let alert: UIAlertController = UIAlertController(title: "エラー",
-													message: "予期せぬエラーが発生しました。",
-													preferredStyle: UIAlertController.Style.alert)
-			alert.addAction(defaultAction)
+
+		/* define actions */
+		// no favorite alert message：Yesボタン押下
+		let noFavoriteAction = UIAlertAction(title: "Yes",
+											 style: .default,
+											 handler:{
+				(action: UIAlertAction!) -> Void in
+				let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
+				registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
+				self.present(registerFavoriteFinishViewController, animated: true)
+		})
+		// no favorite alert message：Noボタン押下
+		let existFavoriteAction = UIAlertAction(title: "No",
+												style: .default,
+												handler: {
+				(action: UIAlertAction!) -> Void in
+		})
+
+		// 誰も選択なし
+		if(favoriteArray[registeredNum].first < 0 &&
+			favoriteArray[registeredNum].second < 0 &&
+			favoriteArray[registeredNum].third < 0 &&
+			favoriteArray[registeredNum].fourth < 0) {
+			let alert = UIAlertController(title: "Alert",
+										  message: "気に入った方がいませんでしたか？",
+										  preferredStyle: .alert)
+			alert.addAction(noFavoriteAction)
+			alert.addAction(existFavoriteAction)
 			present(alert, animated: true, completion: nil)
 		}
-		
-		// registered number count up
+
+		// 1位が未選択
+		if(favoriteArray[registeredNum].first < 0) {
+			let alert: UIAlertController = UIAlertController(title: "Error",
+															 message: "1位が設定されていません。",
+															 preferredStyle: .alert)
+			alert.addAction(defaultAction)
+			self.present(alert, animated: true, completion: nil)
+		} else {
+			// 下位が登録されているのに上位に未登録がないかチェック
+			if(favoriteArray[registeredNum].second < 0 &&
+				(favoriteArray[registeredNum].third >= 0 ||
+					favoriteArray[registeredNum].fourth >= 0)) {
+				let alert: UIAlertController = UIAlertController(title: "Error",
+											message: "3位以下が設定されているのに2位が設定されていません。",
+											preferredStyle: .alert)
+				alert.addAction(defaultAction)
+				self.present(alert, animated: true, completion: nil)
+			} else if(favoriteArray[registeredNum].third < 0 &&
+				favoriteArray[registeredNum].fourth >= 0) {
+				let alert: UIAlertController = UIAlertController(title: "Error",
+											message: "4位が設定されているのに3位が設定されていません。",
+											preferredStyle: .alert)
+				alert.addAction(defaultAction)
+				self.present(alert, animated: true, completion: nil)
+			} else {
+				// all check ok
+				choiceComplete = true
+			}
+		}
+
 		if(choiceComplete) {
 			let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
 			registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen

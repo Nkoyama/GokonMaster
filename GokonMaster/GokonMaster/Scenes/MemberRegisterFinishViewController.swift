@@ -1282,6 +1282,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 						}
 						self.seatBtnJ.backgroundColor = UIColor.blue
 				}
+				// ToDo: 座席未選択エラーの後、座席選択できない
 				seatPositionArray[registeredNum] = tag.rawValue
 			}
 		}

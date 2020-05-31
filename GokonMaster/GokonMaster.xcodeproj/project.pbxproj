@@ -21,6 +21,7 @@
 		4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */; };
 		43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43477D472403E5A8001D37CE /* Setting1ViewController.swift */; };
 		439E5C30248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C2F248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift */; };
+		439E5C3324836CC9001C59D1 /* SeatChangeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C3224836CC9001C59D1 /* SeatChangeLogic.swift */; };
 		43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D5892403CB72005A48AB /* AppDelegate.swift */; };
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 		4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRegisterViewController.swift; sourceTree = "<group>"; };
 		43477D472403E5A8001D37CE /* Setting1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting1ViewController.swift; sourceTree = "<group>"; };
 		439E5C2F248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFavoriteFinishViewController.swift; sourceTree = "<group>"; };
+		439E5C3224836CC9001C59D1 /* SeatChangeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatChangeLogic.swift; sourceTree = "<group>"; };
 		43C1D5862403CB72005A48AB /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C1D5892403CB72005A48AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		439E5C3124836CB1001C59D1 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				439E5C3224836CC9001C59D1 /* SeatChangeLogic.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 		43C1D57D2403CB71005A48AB = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 		43C1D5882403CB72005A48AB /* GokonMaster */ = {
 			isa = PBXGroup;
 			children = (
+				439E5C3124836CB1001C59D1 /* Logic */,
 				4341CC0D241CF3B600C86FB9 /* Scenes */,
 				4341CC0E241CF3E900C86FB9 /* Views */,
 				4341CC0C241CF37400C86FB9 /* Common */,
@@ -271,6 +282,7 @@
 				43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */,
 				43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */,
 				4341CC09241CC6CA00C86FB9 /* TableCircleDrawView.swift in Sources */,
+				439E5C3324836CC9001C59D1 /* SeatChangeLogic.swift in Sources */,
 				4337E51424680697006235BD /* MenuViewController.swift in Sources */,
 				43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */,
 				4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */,
