@@ -92,15 +92,16 @@ public func setNameArray() -> Bool {
 
 
 // 座席位置
-public var seatPositionArray : Array<Int> = Array<Int>()
-public func initSeatPositionArray(joinNum : Int){
-	let len : Int = seatPositionArray.count
-	for _ in 0..<len {
-		seatPositionArray.removeLast()
-	}
-	for _ in 1...joinNum {
-		seatPositionArray.append(-1)
-	}
+// それぞれの座席にいる人のindexを保持　誰もいない席は-1
+// 円テーブル：半時計周りに0〜9
+// 四角テーブル：	5 6 7 8 9
+//			   |‾‾‾‾‾‾‾‾‾|
+//			   |  table  |
+//			   |_________|
+//				0 1 2 3 4
+public var seatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+public func initSeatPositionArray(){
+	seatPositionArray = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 }
 
 

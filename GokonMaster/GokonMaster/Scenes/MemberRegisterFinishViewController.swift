@@ -53,16 +53,16 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let contactInfoOther		= UILabel()			// contact information other
 
 	// テーブル選択状況
-	let memberIndexA = seatSelectedMemberIndex(seatTag: 1)
-	let memberIndexB = seatSelectedMemberIndex(seatTag: 2)
-	let memberIndexC = seatSelectedMemberIndex(seatTag: 3)
-	let memberIndexD = seatSelectedMemberIndex(seatTag: 4)
-	let memberIndexE = seatSelectedMemberIndex(seatTag: 5)
-	let memberIndexF = seatSelectedMemberIndex(seatTag: 6)
-	let memberIndexG = seatSelectedMemberIndex(seatTag: 7)
-	let memberIndexH = seatSelectedMemberIndex(seatTag: 8)
-	let memberIndexI = seatSelectedMemberIndex(seatTag: 9)
-	let memberIndexJ = seatSelectedMemberIndex(seatTag: 10)
+	let memberIndexA = seatPositionArray[0]
+	let memberIndexB = seatPositionArray[1]
+	let memberIndexC = seatPositionArray[2]
+	let memberIndexD = seatPositionArray[3]
+	let memberIndexE = seatPositionArray[4]
+	let memberIndexF = seatPositionArray[5]
+	let memberIndexG = seatPositionArray[6]
+	let memberIndexH = seatPositionArray[7]
+	let memberIndexI = seatPositionArray[8]
+	let memberIndexJ = seatPositionArray[9]
 
 
 	// MARK: Life Cycle
@@ -162,7 +162,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 				self.seatBtnA.isEnabled = false
 			} else {
-				if(seatPositionArray[registeredNum] == 1) {
+				if(seatPositionArray[0] == registeredNum) {
 					self.seatBtnA.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnA.backgroundColor = UIColor.white
@@ -171,7 +171,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnA.layer.borderWidth = 2.0
 			self.seatBtnA.layer.cornerRadius = 2.0
-			self.seatBtnA.tag = 1
+			self.seatBtnA.tag = 0
 			self.view.addSubview(self.seatBtnA)
 			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			self.seatBtnA.snp.makeConstraints { (make) in
@@ -188,7 +188,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 				self.seatBtnF.isEnabled = false
 			} else {
-				if(seatPositionArray[registeredNum] == 6) {
+				if(seatPositionArray[5] == registeredNum) {
 					self.seatBtnF.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnF.backgroundColor = UIColor.white
@@ -197,7 +197,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.seatBtnF.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnF.layer.borderWidth = 2.0
 			self.seatBtnF.layer.cornerRadius = 2.0
-			self.seatBtnF.tag = 6
+			self.seatBtnF.tag = 5
 			self.view.addSubview(self.seatBtnF)
 			self.seatBtnF.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			self.seatBtnF.snp.makeConstraints { (make) in
@@ -215,7 +215,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnB.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 2) {
+					if(seatPositionArray[1] == registeredNum) {
 						self.seatBtnB.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnB.backgroundColor = UIColor.white
@@ -224,7 +224,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnB.layer.borderWidth = 2.0
 				self.seatBtnB.layer.cornerRadius = 2.0
-				self.seatBtnB.tag = 2
+				self.seatBtnB.tag = 1
 				self.view.addSubview(self.seatBtnB)
 				self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnB.snp.makeConstraints { (make) in
@@ -241,7 +241,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnG.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 7) {
+					if(seatPositionArray[6] == registeredNum) {
 						self.seatBtnG.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnG.backgroundColor = UIColor.white
@@ -250,7 +250,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnG.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnG.layer.borderWidth = 2.0
 				self.seatBtnG.layer.cornerRadius = 2.0
-				self.seatBtnG.tag = 7
+				self.seatBtnG.tag = 6
 				self.view.addSubview(self.seatBtnG)
 				self.seatBtnG.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnG.snp.makeConstraints { (make) in
@@ -269,7 +269,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnC.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 3) {
+					if(seatPositionArray[2] == registeredNum) {
 						self.seatBtnC.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnC.backgroundColor = UIColor.white
@@ -278,7 +278,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnC.layer.borderWidth = 2.0
 				self.seatBtnC.layer.cornerRadius = 2.0
-				self.seatBtnC.tag = 3
+				self.seatBtnC.tag = 2
 				self.view.addSubview(self.seatBtnC)
 				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnC.snp.makeConstraints { (make) in
@@ -295,7 +295,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnH.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 8) {
+					if(seatPositionArray[7] == registeredNum) {
 						self.seatBtnH.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnH.backgroundColor = UIColor.white
@@ -304,7 +304,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnH.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnH.layer.borderWidth = 2.0
 				self.seatBtnH.layer.cornerRadius = 2.0
-				self.seatBtnH.tag = 8
+				self.seatBtnH.tag = 7
 				self.view.addSubview(self.seatBtnH)
 				self.seatBtnH.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnH.snp.makeConstraints { (make) in
@@ -323,7 +323,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnD.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 4) {
+					if(seatPositionArray[3] == registeredNum) {
 						self.seatBtnD.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnD.backgroundColor = UIColor.white
@@ -332,7 +332,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnD.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnD.layer.borderWidth = 2.0
 				self.seatBtnD.layer.cornerRadius = 2.0
-				self.seatBtnD.tag = 4
+				self.seatBtnD.tag = 3
 				self.view.addSubview(self.seatBtnD)
 				self.seatBtnD.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnD.snp.makeConstraints { (make) in
@@ -349,7 +349,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnI.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 9) {
+					if(seatPositionArray[8] == registeredNum) {
 						self.seatBtnI.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnI.backgroundColor = UIColor.white
@@ -358,7 +358,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnI.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnI.layer.borderWidth = 2.0
 				self.seatBtnI.layer.cornerRadius = 2.0
-				self.seatBtnI.tag = 9
+				self.seatBtnI.tag = 8
 				self.view.addSubview(self.seatBtnI)
 				self.seatBtnI.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnI.snp.makeConstraints { (make) in
@@ -377,7 +377,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnE.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 5) {
+					if(seatPositionArray[4] == registeredNum) {
 						self.seatBtnE.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnE.backgroundColor = UIColor.white
@@ -386,7 +386,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnE.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnE.layer.borderWidth = 2.0
 				self.seatBtnE.layer.cornerRadius = 2.0
-				self.seatBtnE.tag = 5
+				self.seatBtnE.tag = 4
 				self.view.addSubview(self.seatBtnE)
 				self.seatBtnE.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnE.snp.makeConstraints { (make) in
@@ -403,7 +403,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnJ.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 10) {
+					if(seatPositionArray[9] == registeredNum) {
 						self.seatBtnJ.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnJ.backgroundColor = UIColor.white
@@ -412,7 +412,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnJ.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnJ.layer.borderWidth = 2.0
 				self.seatBtnJ.layer.cornerRadius = 2.0
-				self.seatBtnJ.tag = 10
+				self.seatBtnJ.tag = 9
 				self.view.addSubview(self.seatBtnJ)
 				self.seatBtnJ.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				self.seatBtnJ.snp.makeConstraints { (make) in
@@ -458,7 +458,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 				self.seatBtnA.isEnabled = false
 			} else {
-				if(seatPositionArray[registeredNum] == 1) {
+				if(seatPositionArray[0] == registeredNum) {
 					self.seatBtnA.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnA.backgroundColor = UIColor.white
@@ -467,7 +467,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnA.layer.borderWidth = 2.0
 			self.seatBtnA.layer.cornerRadius = 25.0
-			self.seatBtnA.tag = 1
+			self.seatBtnA.tag = 0
 			self.view.addSubview(self.seatBtnA)
 			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			let centerX_a = screenWidth/2 + 120*cos(CGFloat.pi*(eachAngle-90)/180)
@@ -491,7 +491,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 				self.seatBtnB.isEnabled = false
 			} else {
-				if(seatPositionArray[registeredNum] == 2) {
+				if(seatPositionArray[1] == registeredNum) {
 					self.seatBtnB.backgroundColor = UIColor.blue
 				} else {
 					self.seatBtnB.backgroundColor = UIColor.white
@@ -500,7 +500,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
 			self.seatBtnB.layer.borderWidth = 2.0
 			self.seatBtnB.layer.cornerRadius = 25.0
-			self.seatBtnB.tag = 2
+			self.seatBtnB.tag = 1
 			self.view.addSubview(self.seatBtnB)
 			self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			let centerX_b = screenWidth/2 + 120*cos(CGFloat.pi*(2*eachAngle-90)/180)
@@ -525,7 +525,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnC.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 3) {
+					if(seatPositionArray[2] == registeredNum) {
 						self.seatBtnC.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnC.backgroundColor = UIColor.white
@@ -534,7 +534,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnC.layer.borderWidth = 2.0
 				self.seatBtnC.layer.cornerRadius = 25.0
-				self.seatBtnC.tag = 3
+				self.seatBtnC.tag = 2
 				self.view.addSubview(self.seatBtnC)
 				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(3*eachAngle-90)/180)
@@ -560,7 +560,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnD.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 4) {
+					if(seatPositionArray[3] == registeredNum) {
 						self.seatBtnD.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnD.backgroundColor = UIColor.white
@@ -569,7 +569,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnD.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnD.layer.borderWidth = 2.0
 				self.seatBtnD.layer.cornerRadius = 25.0
-				self.seatBtnD.tag = 4
+				self.seatBtnD.tag = 3
 				self.view.addSubview(self.seatBtnD)
 				self.seatBtnD.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(4*eachAngle-90)/180)
@@ -595,7 +595,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnE.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 5) {
+					if(seatPositionArray[4] == registeredNum) {
 						self.seatBtnE.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnE.backgroundColor = UIColor.white
@@ -604,7 +604,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnE.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnE.layer.borderWidth = 2.0
 				self.seatBtnE.layer.cornerRadius = 25.0
-				self.seatBtnE.tag = 5
+				self.seatBtnE.tag = 4
 				self.view.addSubview(self.seatBtnE)
 				self.seatBtnE.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(5*eachAngle-90)/180)
@@ -630,7 +630,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnF.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 6) {
+					if(seatPositionArray[5] == registeredNum) {
 						self.seatBtnF.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnF.backgroundColor = UIColor.white
@@ -639,7 +639,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnF.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnF.layer.borderWidth = 2.0
 				self.seatBtnF.layer.cornerRadius = 25.0
-				self.seatBtnF.tag = 6
+				self.seatBtnF.tag = 5
 				self.view.addSubview(self.seatBtnF)
 				self.seatBtnF.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(6*eachAngle-90)/180)
@@ -665,7 +665,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnG.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 7) {
+					if(seatPositionArray[6] == registeredNum) {
 						self.seatBtnG.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnG.backgroundColor = UIColor.white
@@ -674,7 +674,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnG.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnG.layer.borderWidth = 2.0
 				self.seatBtnG.layer.cornerRadius = 25.0
-				self.seatBtnG.tag = 7
+				self.seatBtnG.tag = 6
 				self.view.addSubview(self.seatBtnG)
 				self.seatBtnG.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(7*eachAngle-90)/180)
@@ -700,7 +700,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnH.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 8) {
+					if(seatPositionArray[7] == registeredNum) {
 						self.seatBtnH.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnH.backgroundColor = UIColor.white
@@ -709,7 +709,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnH.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnH.layer.borderWidth = 2.0
 				self.seatBtnH.layer.cornerRadius = 25.0
-				self.seatBtnH.tag = 8
+				self.seatBtnH.tag = 7
 				self.view.addSubview(self.seatBtnH)
 				self.seatBtnH.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(8*eachAngle-90)/180)
@@ -735,7 +735,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnI.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 9) {
+					if(seatPositionArray[8] == registeredNum) {
 						self.seatBtnI.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnI.backgroundColor = UIColor.white
@@ -744,7 +744,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnI.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnI.layer.borderWidth = 2.0
 				self.seatBtnI.layer.cornerRadius = 25.0
-				self.seatBtnI.tag = 9
+				self.seatBtnI.tag = 8
 				self.view.addSubview(self.seatBtnI)
 				self.seatBtnI.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(9*eachAngle-90)/180)
@@ -770,7 +770,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
 					self.seatBtnJ.isEnabled = false
 				} else {
-					if(seatPositionArray[registeredNum] == 10) {
+					if(seatPositionArray[9] == registeredNum) {
 						self.seatBtnJ.backgroundColor = UIColor.blue
 					} else {
 						self.seatBtnJ.backgroundColor = UIColor.white
@@ -779,7 +779,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnJ.layer.borderColor = UIColor.gray.cgColor
 				self.seatBtnJ.layer.borderWidth = 2.0
 				self.seatBtnJ.layer.cornerRadius = 25.0
-				self.seatBtnJ.tag = 10
+				self.seatBtnJ.tag = 9
 				self.view.addSubview(self.seatBtnJ)
 				self.seatBtnJ.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(10*eachAngle-90)/180)
@@ -1283,21 +1283,21 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 						self.seatBtnJ.backgroundColor = UIColor.blue
 				}
 				// ToDo: 座席未選択エラーの後、座席選択できない
-				seatPositionArray[registeredNum] = tag.rawValue
+				seatPositionArray[tag.rawValue] = registeredNum
 			}
 		}
 	}
 	enum actionTag: Int {
-		case actionA = 1
-		case actionB = 2
-		case actionC = 3
-		case actionD = 4
-		case actionE = 5
-		case actionF = 6
-		case actionG = 7
-		case actionH = 8
-		case actionI = 9
-		case actionJ = 10
+		case actionA = 0
+		case actionB = 1
+		case actionC = 2
+		case actionD = 3
+		case actionE = 4
+		case actionF = 5
+		case actionG = 6
+		case actionH = 7
+		case actionI = 8
+		case actionJ = 9
 	}
 
 	/// backBtn action
@@ -1312,10 +1312,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
-		if(seatPositionArray[registeredNum] < 0){
+		if(seatPositionArray[0] != registeredNum &&
+			seatPositionArray[1] != registeredNum &&
+			seatPositionArray[2] != registeredNum &&
+			seatPositionArray[3] != registeredNum &&
+			seatPositionArray[4] != registeredNum &&
+			seatPositionArray[5] != registeredNum &&
+			seatPositionArray[6] != registeredNum &&
+			seatPositionArray[7] != registeredNum &&
+			seatPositionArray[8] != registeredNum &&
+			seatPositionArray[9] != registeredNum){
 			let alert: UIAlertController = UIAlertController(title: "エラー",
-													 message: "現在の位置を設定してください。",
-													 preferredStyle: UIAlertController.Style.alert)
+												 message: "現在の位置を設定してください。",
+												 preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		}

@@ -15,19 +15,3 @@ public func String2Int(str: String) throws -> Int {
 	let num = Int(str) ?? 0
 	return num
 }
-
-
-/// 指定したシートを選択しているメンバーの番号を取得
-/// - Parameter seatTag: シート番号
-/// - Returns: メンバー番号
-/// - Authors: Nozomi Koyama
-public func seatSelectedMemberIndex(seatTag: Int) -> Int {
-	var selectedMemberIndex = -1
-	for index in 0..<seatPositionArray.count {
-		if(seatPositionArray[index] == seatTag){
-			selectedMemberIndex = index
-			return selectedMemberIndex
-		}
-	}
-	return selectedMemberIndex
-}
