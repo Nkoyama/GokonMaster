@@ -56,6 +56,7 @@ public func makeTmpSeatPositionPatterns() -> Array<Array<Int>> {
 	}
 
 	if( tableTypeIndex == 0 ) {
+		//四角テーブル
 		if( maleNum==5 && femaleNum==5 ) {
 			
 		} else if( maleNum==5 && femaleNum==4 ) {
@@ -364,6 +365,7 @@ public func makeTmpSeatPositionPatterns() -> Array<Array<Int>> {
 			
 		}
 	} else {
+		//丸テーブル
 		if( maleNum==5 && femaleNum==5 ) {
 			
 		} else if( maleNum==5 && femaleNum==4 ) {
@@ -416,7 +418,7 @@ public func makeTmpSeatPositionPatterns() -> Array<Array<Int>> {
 
 /// 1パターンの座席位置に対しての評価値を計算
 /// - Parameter tmpSeatPositionArray: 計算対象の座席位置パターン
-/// - Returns: evaluation:評価値(Doublt)
+/// - Returns: evaluation:評価値(Double)
 /// - Authors: Nozomi Koyama
 public func calcSeatEvaluation(tmpSeatPositionArray: Array<Int>) -> Double {
 	var evaluation = 0.0
@@ -437,7 +439,7 @@ public func calcSeatEvaluation(tmpSeatPositionArray: Array<Int>) -> Double {
 ///   - tmpSeatPositionArray: 計算対象の座席位置
 ///   - sexIndex: 計算中メンバーの性別index
 ///   - positionIndex: 計算中メンバーの座席位置index
-/// - Returns: points(Doublt)
+/// - Returns: points(Double)
 /// - Authors: Nozomi Koyama
 public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 								sexIndex: Int,
@@ -451,11 +453,8 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 							memberIndex: tmpSeatPositionArray[positionIndex],
 							nextMemberIndex: nextMemberIndex)
 		//端側のポイントを加算
-		points += 0.5 * points
-		//正面のポイントを加算
-		points += frontPoint(memberSexIndex: sexIndex,
-							 memberIndex: tmpSeatPositionArray[positionIndex],
-							 frontMemberIndex: 5 - positionIndex)
+		if(sexIndex==0)	{	points += -3	}
+		else			{	points += 0.5 * points	}
 	// 端の席の場合_2
 	} else if( positionIndex == 4 || positionIndex == 9 ) {
 		let nextMemberIndex = tmpSeatPositionArray[positionIndex - 1]
@@ -464,15 +463,42 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 							memberIndex: tmpSeatPositionArray[positionIndex],
 							nextMemberIndex: nextMemberIndex)
 		//端側のポイントを加算
-		points += 0.5 * points
-		//正面のポイントを加算
-		points += frontPoint(memberSexIndex: sexIndex,
-							 memberIndex: tmpSeatPositionArray[positionIndex],
-							 frontMemberIndex: 13 - positionIndex)
+		if(sexIndex==0)	{	points += -3	}
+		else			{	points += 0.5 * points	}
 	// 端の席ではない場合
 	} else {
-		
+		//indexが小さい方の席が空席の場合
+		if( seatPositionArray[positionIndex-1] == -1 ) {
+			//先にindexが大きい方の席のポイントを計算
+			points += nextPoint(memberSexIndex: sexIndex,
+								memberIndex: tmpSeatPositionArray[positionIndex],
+								nextMemberIndex: positionIndex+1)
+			//indexが小さい方(空席)のポイントを加算
+			if(sexIndex==0)	{	points += -3	}
+			else			{	points += 0.5 * points	}
+		//indexが小さい方の席が空席ではない場合
+		} else {
+			//先にindexが小さい方の席のポイントを計算
+			points += nextPoint(memberSexIndex: sexIndex,
+								memberIndex: tmpSeatPositionArray[positionIndex],
+								nextMemberIndex: positionIndex-1)
+			//indexが大きい方が空席の場合
+			if( seatPositionArray[positionIndex+1] == -1 ) {
+				if(sexIndex==0)	{	points += -3	}
+				else			{	points += 0.5 * points	}
+			//indexが大きい方が空席ではない場合
+			} else {
+				points += nextPoint(memberSexIndex: sexIndex,
+									memberIndex: tmpSeatPositionArray[positionIndex],
+									nextMemberIndex: positionIndex+1)
+			}
+		}
 	}
+	//正面のポイントを加算
+	points += frontPoint(memberSexIndex: sexIndex,
+						 memberIndex: tmpSeatPositionArray[positionIndex],
+						 frontMemberIndex: (positionIndex+5) % 10)
+
 	return points
 }
 
@@ -502,6 +528,7 @@ public func calcEachPointCircle(tmpSeatPositionArray: Array<Int>,
 /// - Authors: Nozomi Koyama
 public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: Int) -> Double {
 	var point = 0.0
+	//男の場合
 	if( memberSexIndex == 0 ) {
 		if( favoriteArray[memberIndex].first == nextMemberIndex ) {
 			point = 10
@@ -522,6 +549,7 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 				point = -3
 			}
 		}
+	//女の場合
 	} else {
 		if( favoriteArray[memberIndex].first == nextMemberIndex ) {
 			point = 20
@@ -561,6 +589,7 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 /// - Authors: Nozomi Koyama
 public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: Int) -> Double {
 	var point = 0.0
+	// 男の場合
 	if( memberSexIndex == 0 ) {
 		if( favoriteArray[memberIndex].first == frontMemberIndex ) {
 			point = 5
@@ -583,6 +612,7 @@ public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: 
 				point = -5
 			}
 		}
+	// 女の場合
 	} else {
 		if( favoriteArray[memberIndex].first == frontMemberIndex ||
 			favoriteArray[memberIndex].second == frontMemberIndex) {
