@@ -113,7 +113,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 
 			if(favoriteArray[registeredNum].first != -1) {
-				self.nameBtn_1.setTitle(maleNameArray[favoriteArray[registeredNum].first],
+				self.nameBtn_1.setTitle(maleArray[favoriteArray[registeredNum].first].nickname,
 										for: .normal)
 			} else {
 				self.nameBtn_1.setTitle("未選択", for: .normal)
@@ -153,7 +153,7 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 
 				if(favoriteArray[registeredNum].second != -1) {
-					self.nameBtn_2.setTitle(maleNameArray[favoriteArray[registeredNum].second],
+					self.nameBtn_2.setTitle(maleArray[favoriteArray[registeredNum].second].nickname,
 											for: .normal)
 				} else {
 					self.nameBtn_2.setTitle("未選択", for: .normal)
@@ -194,7 +194,7 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 
 				if(favoriteArray[registeredNum].third != -1) {
-					self.nameBtn_3.setTitle(maleNameArray[favoriteArray[registeredNum].third],
+					self.nameBtn_3.setTitle(maleArray[favoriteArray[registeredNum].third].nickname,
 											for: .normal)
 				} else {
 					self.nameBtn_3.setTitle("未選択", for: .normal)
@@ -235,7 +235,7 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 
 				if(favoriteArray[registeredNum].fourth != -1) {
-					self.nameBtn_4.setTitle(maleNameArray[favoriteArray[registeredNum].fourth],
+					self.nameBtn_4.setTitle(maleArray[favoriteArray[registeredNum].fourth].nickname,
 											for: .normal)
 				} else {
 					self.nameBtn_4.setTitle("未選択", for: .normal)
@@ -277,7 +277,7 @@ class RegisterFavoriteViewController: UIViewController {
 			}
 			
 			if(favoriteArray[registeredNum].first != -1) {
-				self.nameBtn_1.setTitle(femaleNameArray[favoriteArray[registeredNum].first],
+				self.nameBtn_1.setTitle(femaleArray[favoriteArray[registeredNum].first].nickname,
 										for: .normal)
 			} else {
 				self.nameBtn_1.setTitle("未選択", for: .normal)
@@ -317,7 +317,7 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 				
 				if(favoriteArray[registeredNum].second != -1) {
-					self.nameBtn_2.setTitle(femaleNameArray[favoriteArray[registeredNum].second],
+					self.nameBtn_2.setTitle(femaleArray[favoriteArray[registeredNum].second].nickname,
 											for: .normal)
 				} else {
 					self.nameBtn_2.setTitle("未選択", for: .normal)
@@ -358,7 +358,7 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 				
 				if(favoriteArray[registeredNum].third != -1) {
-					self.nameBtn_3.setTitle(femaleNameArray[favoriteArray[registeredNum].third],
+					self.nameBtn_3.setTitle(femaleArray[favoriteArray[registeredNum].third].nickname,
 											for: .normal)
 				} else {
 					self.nameBtn_3.setTitle("未選択", for: .normal)
@@ -399,7 +399,7 @@ class RegisterFavoriteViewController: UIViewController {
 				}
 				
 				if(favoriteArray[registeredNum].fourth != -1) {
-					self.nameBtn_4.setTitle(femaleNameArray[favoriteArray[registeredNum].fourth],
+					self.nameBtn_4.setTitle(femaleArray[favoriteArray[registeredNum].fourth].nickname,
 											for: .normal)
 				} else {
 					self.nameBtn_4.setTitle("未選択", for: .normal)

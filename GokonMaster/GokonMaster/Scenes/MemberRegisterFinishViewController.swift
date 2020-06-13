@@ -117,7 +117,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 
 		// scroll view
 		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
-		self.contactInfoScrollV.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+		self.contactInfoScrollV.backgroundColor = UIColor.init(red: 84/255,
+															   green: 255/255,
+															   blue: 159/255,
+															   alpha: 0.5)
 		self.contactInfoScrollV.layer.borderWidth = 1.0
 		self.contactInfoScrollV.contentSize = CGSize(width: SCREEN_SIZE.width-100, height: 180)
 		self.contactInfoScrollV.delegate = self
@@ -151,15 +154,22 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 
 			// テーブル描写
 			let screenWidth:Int = Int(self.view.bounds.width)
-			let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80, y: Int(SCREEN_SIZE.height)-425, width: 160, height: seatNum*60))
+			let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80,
+																	y: Int(SCREEN_SIZE.height)-425,
+																	width: 160,
+																	height: seatNum*60))
 			self.view.addSubview(tableSquareDraw)
 
 			// seat button A
 			if(memberIndexA >= 0){
-				self.seatBtnA.setTitle(memberData[memberIndexA].nickname, for: UIControl.State.normal)
+				self.seatBtnA.setTitle(memberData[memberIndexA].nickname,
+									   for: UIControl.State.normal)
 				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnA.setTitleColor(UIColor.black, for: .normal)
-				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255,
+															 green: 255/255,
+															 blue: 159/255,
+															 alpha: 0.5)
 				self.seatBtnA.isEnabled = false
 			} else {
 				if(seatPositionArray[0] == registeredNum) {
@@ -185,7 +195,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnF.setTitle(memberData[memberIndexF].nickname, for: UIControl.State.normal)
 				self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnF.setTitleColor(UIColor.black, for: .normal)
-				self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnF.backgroundColor = UIColor.init(red: 84/255,
+															 green: 255/255,
+															 blue: 159/255,
+															 alpha: 0.5)
 				self.seatBtnF.isEnabled = false
 			} else {
 				if(seatPositionArray[5] == registeredNum) {
@@ -212,7 +225,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnB.setTitle(memberData[memberIndexB].nickname, for: .normal)
 					self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnB.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnB.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnB.isEnabled = false
 				} else {
 					if(seatPositionArray[1] == registeredNum) {
@@ -238,7 +254,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnG.setTitle(memberData[memberIndexG].nickname, for: .normal)
 					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnG.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnG.isEnabled = false
 				} else {
 					if(seatPositionArray[6] == registeredNum) {
@@ -266,7 +285,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnC.setTitle(memberData[memberIndexC].nickname, for: .normal)
 					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnC.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnC.isEnabled = false
 				} else {
 					if(seatPositionArray[2] == registeredNum) {
@@ -292,7 +314,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnH.setTitle(memberData[memberIndexH].nickname, for: .normal)
 					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnH.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnH.isEnabled = false
 				} else {
 					if(seatPositionArray[7] == registeredNum) {
@@ -320,7 +345,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnD.setTitle(memberData[memberIndexD].nickname, for: .normal)
 					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnD.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnD.isEnabled = false
 				} else {
 					if(seatPositionArray[3] == registeredNum) {
@@ -346,7 +374,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnI.setTitle(memberData[memberIndexI].nickname, for: .normal)
 					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnI.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnI.isEnabled = false
 				} else {
 					if(seatPositionArray[8] == registeredNum) {
@@ -400,7 +431,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnJ.setTitle(memberData[memberIndexJ].nickname, for: .normal)
 					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnJ.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnJ.isEnabled = false
 				} else {
 					if(seatPositionArray[9] == registeredNum) {
@@ -455,7 +489,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 									   for: .normal)
 				self.seatBtnA.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnA.setTitleColor(UIColor.black, for: .normal)
-				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnA.backgroundColor = UIColor.init(red: 84/255,
+															 green: 255/255,
+															 blue: 159/255,
+															 alpha: 0.5)
 				self.seatBtnA.isEnabled = false
 			} else {
 				if(seatPositionArray[0] == registeredNum) {
@@ -488,7 +525,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 									   for: .normal)
 				self.seatBtnB.titleLabel?.adjustsFontSizeToFitWidth = true
 				self.seatBtnB.setTitleColor(UIColor.black, for: .normal)
-				self.seatBtnB.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+				self.seatBtnB.backgroundColor = UIColor.init(red: 84/255,
+															 green: 255/255,
+															 blue: 159/255,
+															 alpha: 0.5)
 				self.seatBtnB.isEnabled = false
 			} else {
 				if(seatPositionArray[1] == registeredNum) {
@@ -522,7 +562,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnC.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnC.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnC.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnC.isEnabled = false
 				} else {
 					if(seatPositionArray[2] == registeredNum) {
@@ -557,7 +600,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnD.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnD.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnD.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnD.isEnabled = false
 				} else {
 					if(seatPositionArray[3] == registeredNum) {
@@ -592,7 +638,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnE.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnE.isEnabled = false
 				} else {
 					if(seatPositionArray[4] == registeredNum) {
@@ -627,7 +676,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnF.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnF.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnF.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnF.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnF.isEnabled = false
 				} else {
 					if(seatPositionArray[5] == registeredNum) {
@@ -662,7 +714,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnG.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnG.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnG.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnG.isEnabled = false
 				} else {
 					if(seatPositionArray[6] == registeredNum) {
@@ -697,7 +752,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnH.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnH.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnH.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnH.isEnabled = false
 				} else {
 					if(seatPositionArray[7] == registeredNum) {
@@ -732,7 +790,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnI.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnI.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnI.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnI.isEnabled = false
 				} else {
 					if(seatPositionArray[8] == registeredNum) {
@@ -767,7 +828,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 										   for: .normal)
 					self.seatBtnJ.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnJ.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnJ.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnJ.isEnabled = false
 				} else {
 					if(seatPositionArray[9] == registeredNum) {
@@ -1321,7 +1385,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			seatPositionArray[6] != registeredNum &&
 			seatPositionArray[7] != registeredNum &&
 			seatPositionArray[8] != registeredNum &&
-			seatPositionArray[9] != registeredNum){
+			seatPositionArray[9] != registeredNum) {
 			let alert: UIAlertController = UIAlertController(title: "エラー",
 												 message: "現在の位置を設定してください。",
 												 preferredStyle: UIAlertController.Style.alert)
@@ -1331,11 +1395,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 
 		// registered number count up
 		registeredNum += 1
-		if(registeredNum == joinNumSum){
+		if( registeredNum == joinNumSum ) {
 			let settingFinishViewController = SettingFinishViewController()
 			settingFinishViewController.modalPresentationStyle = .fullScreen
 			self.present(settingFinishViewController, animated: true)
-		}else{
+		} else {
 			let memberRegisterViewController = MemberRegisterViewController()
 			memberRegisterViewController.modalPresentationStyle = .fullScreen
 			self.present(memberRegisterViewController, animated: true)

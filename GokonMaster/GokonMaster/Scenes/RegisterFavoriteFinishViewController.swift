@@ -95,9 +95,9 @@ class RegisterFavoriteFinishViewController: UIViewController {
 			self.favoriteName_1.text = "未登録"
 		} else {
 			if(memberData[registeredNum].sexIndex == 0) {
-				self.favoriteName_1.text = femaleNameArray[favoriteArray[registeredNum].first]
+				self.favoriteName_1.text = femaleArray[favoriteArray[registeredNum].first].nickname
 			} else if(memberData[registeredNum].sexIndex == 1) {
-				self.favoriteName_1.text = maleNameArray[favoriteArray[registeredNum].first]
+				self.favoriteName_1.text = maleArray[favoriteArray[registeredNum].first].nickname
 			}
 		}
 		self.favoriteName_1.textColor = UIColor.black
@@ -128,9 +128,9 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				self.favoriteName_2.text = "未登録"
 			} else {
 				if(memberData[registeredNum].sexIndex == 0) {
-					self.favoriteName_2.text = femaleNameArray[favoriteArray[registeredNum].second]
+					self.favoriteName_2.text = femaleArray[favoriteArray[registeredNum].second].nickname
 				} else if(memberData[registeredNum].sexIndex == 1) {
-					self.favoriteName_2.text = maleNameArray[favoriteArray[registeredNum].second]
+					self.favoriteName_2.text = maleArray[favoriteArray[registeredNum].second].nickname
 				}
 			}
 			self.favoriteName_2.textColor = UIColor.black
@@ -162,9 +162,9 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				self.favoriteName_3.text = "未登録"
 			} else {
 				if(memberData[registeredNum].sexIndex == 0) {
-					self.favoriteName_3.text = femaleNameArray[favoriteArray[registeredNum].third]
+					self.favoriteName_3.text = femaleArray[favoriteArray[registeredNum].third].nickname
 				} else if(memberData[registeredNum].sexIndex == 1) {
-					self.favoriteName_3.text = maleNameArray[favoriteArray[registeredNum].third]
+					self.favoriteName_3.text = maleArray[favoriteArray[registeredNum].third].nickname
 				}
 			}
 			self.favoriteName_3.textColor = UIColor.black
@@ -196,9 +196,9 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				self.favoriteName_4.text = "未登録"
 			} else {
 				if(memberData[registeredNum].sexIndex == 0) {
-					self.favoriteName_4.text = femaleNameArray[favoriteArray[registeredNum].fourth]
+					self.favoriteName_4.text = femaleArray[favoriteArray[registeredNum].fourth].nickname
 				} else if(memberData[registeredNum].sexIndex == 1) {
-					self.favoriteName_4.text = maleNameArray[favoriteArray[registeredNum].fourth]
+					self.favoriteName_4.text = maleArray[favoriteArray[registeredNum].fourth].nickname
 				}
 			}
 			self.favoriteName_4.textColor = UIColor.black
@@ -262,7 +262,10 @@ class RegisterFavoriteFinishViewController: UIViewController {
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		// registered number count up
 		registeredNum += 1
-		if(registeredNum == joinNumSum) {
+		if( registeredNum == joinNumSum ) {
+			let seatChangeResultViewController = SeatChangeResultViewController()
+			seatChangeResultViewController.modalPresentationStyle = .fullScreen
+			self.present(seatChangeResultViewController, animated: true)
 		} else {
 			let registerFavoriteViewController = RegisterFavoriteViewController()
 			registerFavoriteViewController.modalPresentationStyle = .fullScreen

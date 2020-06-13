@@ -10,7 +10,7 @@ import Foundation
 
 public func seatChangeMainLogic() -> Bool {
 	var bestTmpSeatPositionArray : Array<Int> = Array<Int>()
-	var bestEvaluationPoint = 0.0
+	var bestEvaluationPoint = -10000.0
 
 	if( tableTypeIndex == 0 && maleNum == 1 && femaleNum == 1 ) {
 		
@@ -25,14 +25,16 @@ public func seatChangeMainLogic() -> Bool {
 		var evaluationPoint = 0.0
 		for tmpSeatPositionArray in tmpSeatPositionPatterns {
 			evaluationPoint = calcSeatEvaluation(tmpSeatPositionArray: tmpSeatPositionArray)
+			print(tmpSeatPositionArray, evaluationPoint)
 			if(evaluationPoint > bestEvaluationPoint) {
 				bestEvaluationPoint = evaluationPoint
 				bestTmpSeatPositionArray = tmpSeatPositionArray
 			}
+			print(bestEvaluationPoint)
 		}
 	}
-
 	seatPositionArray = bestTmpSeatPositionArray
+
 	return true
 }
 
@@ -352,7 +354,21 @@ public func makeTmpSeatPositionPatterns() -> Array<Array<Int>> {
 			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
 			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 		} else if( maleNum==2 && femaleNum==2 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// pattern 1-1
+			tmpSeatPositionArray[0] = maleMembersIndexArray[0]
+			tmpSeatPositionArray[6] = maleMembersIndexArray[1]
+			tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+			tmpSeatPositionArray[5] = femaleMembersIndexArray[1]
+			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+
+			// pattern 1-2
+			tmpSeatPositionArray[0] = maleMembersIndexArray[0]
+			tmpSeatPositionArray[6] = maleMembersIndexArray[1]
+			tmpSeatPositionArray[1] = femaleMembersIndexArray[1]
+			tmpSeatPositionArray[5] = femaleMembersIndexArray[0]
+			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 		} else if( maleNum==2 && femaleNum==1 ) {
 			
 		} else if( maleNum==1 && femaleNum==5 ) {
@@ -424,17 +440,19 @@ public func calcSeatEvaluation(tmpSeatPositionArray: Array<Int>) -> Double {
 	var evaluation = 0.0
 	var i = 0
 	for position in tmpSeatPositionArray {
-		let sexIndex = memberData[position].sexIndex
-		evaluation += calcEachPointSquare(tmpSeatPositionArray: tmpSeatPositionArray,
-										  sexIndex: sexIndex,
-										  positionIndex: i)
+		if( position >= 0 ) {
+			evaluation += calcEachPointSquare(tmpSeatPositionArray: tmpSeatPositionArray,
+											  sexIndex: memberData[position].sexIndex,
+											  positionIndex: i)
+			print(String(i) + "人目加算後評価値 : " + String(evaluation))
+		}
 		i += 1
 	}
 	return evaluation
 }
 
 
-/// 1人1人に対するポイントの合計値を計算(四角テーブル)
+/// 1人1人に対するポイントを計算(四角テーブル)
 /// - Parameters:
 ///   - tmpSeatPositionArray: 計算対象の座席位置
 ///   - sexIndex: 計算中メンバーの性別index
@@ -447,57 +465,64 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 	var points = 0.0
 	// 端の席の場合_1
 	if( positionIndex == 0 || positionIndex == 5 ) {
-		let nextMemberIndex = tmpSeatPositionArray[positionIndex + 1]
 		//端ではない側のポイントを加算
 		points += nextPoint(memberSexIndex: sexIndex,
 							memberIndex: tmpSeatPositionArray[positionIndex],
-							nextMemberIndex: nextMemberIndex)
+							nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
+		print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 		//端側のポイントを加算
 		if(sexIndex==0)	{	points += -3	}
 		else			{	points += 0.5 * points	}
+		print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 	// 端の席の場合_2
 	} else if( positionIndex == 4 || positionIndex == 9 ) {
-		let nextMemberIndex = tmpSeatPositionArray[positionIndex - 1]
 		//端ではない側のポイントを加算
 		points += nextPoint(memberSexIndex: sexIndex,
 							memberIndex: tmpSeatPositionArray[positionIndex],
-							nextMemberIndex: nextMemberIndex)
+							nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
+		print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 		//端側のポイントを加算
 		if(sexIndex==0)	{	points += -3	}
 		else			{	points += 0.5 * points	}
+		print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 	// 端の席ではない場合
 	} else {
 		//indexが小さい方の席が空席の場合
-		if( seatPositionArray[positionIndex-1] == -1 ) {
+		if( seatPositionArray[positionIndex-1] < 0 ) {
 			//先にindexが大きい方の席のポイントを計算
 			points += nextPoint(memberSexIndex: sexIndex,
 								memberIndex: tmpSeatPositionArray[positionIndex],
-								nextMemberIndex: positionIndex+1)
+								nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
+			print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 			//indexが小さい方(空席)のポイントを加算
 			if(sexIndex==0)	{	points += -3	}
 			else			{	points += 0.5 * points	}
+			print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 		//indexが小さい方の席が空席ではない場合
 		} else {
 			//先にindexが小さい方の席のポイントを計算
 			points += nextPoint(memberSexIndex: sexIndex,
 								memberIndex: tmpSeatPositionArray[positionIndex],
-								nextMemberIndex: positionIndex-1)
+								nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
+			print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 			//indexが大きい方が空席の場合
-			if( seatPositionArray[positionIndex+1] == -1 ) {
+			if( seatPositionArray[positionIndex+1] < 0 ) {
 				if(sexIndex==0)	{	points += -3	}
 				else			{	points += 0.5 * points	}
 			//indexが大きい方が空席ではない場合
 			} else {
 				points += nextPoint(memberSexIndex: sexIndex,
 									memberIndex: tmpSeatPositionArray[positionIndex],
-									nextMemberIndex: positionIndex+1)
+									nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
 			}
+			print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 		}
 	}
 	//正面のポイントを加算
 	points += frontPoint(memberSexIndex: sexIndex,
 						 memberIndex: tmpSeatPositionArray[positionIndex],
-						 frontMemberIndex: (positionIndex+5) % 10)
+						 frontMemberIndex: tmpSeatPositionArray[(positionIndex+5) % 10])
+	print("positionIndex : " + String(positionIndex) + "  frontPoint加算後 : " + String(points))
 
 	return points
 }
@@ -528,52 +553,110 @@ public func calcEachPointCircle(tmpSeatPositionArray: Array<Int>,
 /// - Authors: Nozomi Koyama
 public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: Int) -> Double {
 	var point = 0.0
-	//男の場合
+	// male
 	if( memberSexIndex == 0 ) {
-		if( favoriteArray[memberIndex].first == nextMemberIndex ) {
-			point = 10
-		} else if( favoriteArray[memberIndex].second == nextMemberIndex ) {
-			if( femaleNum >= 4 ) {
-				point = 7
-			} else {
-				point = 3
-			}
-		} else if( favoriteArray[memberIndex].third == nextMemberIndex ) {
-			point = 3
-		} else if( favoriteArray[memberIndex].fourth == nextMemberIndex ) {
-			point = 1
-		} else {
-			if( memberData[nextMemberIndex].sexIndex == 0 ) {
-				point = -10
-			} else {
-				point = -3
-			}
-		}
-	//女の場合
-	} else {
-		if( favoriteArray[memberIndex].first == nextMemberIndex ) {
-			point = 20
-		} else if( favoriteArray[memberIndex].second == nextMemberIndex ) {
-			if( maleNum >= 4 ) {
+		//お気に入り1位が登録済み
+		if( favoriteArray[memberIndex].first >= 0 ) {
+			//隣がお気に入り1位
+			if(femaleArray[favoriteArray[memberIndex].first].index==nextMemberIndex) {
 				point = 10
+			//お気に入り2位が登録済み
+			} else if( favoriteArray[memberIndex].second >= 0 ) {
+				//隣がお気に入り2位
+				if(femaleArray[favoriteArray[memberIndex].second].index==nextMemberIndex) {
+					if( femaleNum >= 4 ) {
+						point = 7
+					} else {
+						point = 3
+					}
+				//お気に入り3位が登録済み
+				} else if( favoriteArray[memberIndex].third >= 0 ) {
+					//隣がお気に入り3位
+					if(femaleArray[favoriteArray[memberIndex].third].index==nextMemberIndex) {
+						point = 3
+					//お気に入り4位が登録済み
+					} else if( favoriteArray[memberIndex].fourth >= 0 ) {
+						//隣がお気に入り4位
+						if(femaleArray[favoriteArray[memberIndex].fourth].index==nextMemberIndex) {
+							point = 1
+						//隣がお気に入りトップ4以外
+						} else {
+							//隣が同性
+							if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+							//隣がお気に入りランク外
+							else										{	point = -3	}
+						}
+					//お気に入り4位は未登録
+					} else {
+						//隣が同性
+						if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+						//隣がお気に入りランク外
+						else										{	point = -3	}
+					}
+				//お気に入り3位以下は未登録
+				} else {
+					//隣が同性
+					if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+					//隣がお気に入りランク外
+					else										{	point = -3	}
+				}
+			//お気に入り2位以下は未登録
 			} else {
-				point = 0
+				//隣が同性
+				if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+				//隣がお気に入りランク外
+				else										{	point = -3	}
 			}
-		} else if( favoriteArray[memberIndex].third == nextMemberIndex ) {
-			if( maleNum >= 5 ) {
-				point = 0
-			} else {
-				point = -10
-			}
-		} else if(favoriteArray[memberIndex].fourth == nextMemberIndex ) {
-			point = -10
+		//お気に入り未登録
 		} else {
-			if( nextMemberIndex < 0 ) {
-				//隣が空席の場合、個別に計算が必要なため、-999を返す
-				point = -999
+			//隣が同性
+			if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+			//隣がお気に入りランク外
+			else										{	point = -3	}
+		}
+	// female
+	} else {
+		//お気に入り1位が登録済み
+		if( favoriteArray[memberIndex].first >= 0 ) {
+			//隣がお気に入り1位
+			if(maleArray[favoriteArray[memberIndex].first].index==nextMemberIndex) {
+				point = 20
+			//お気に入り2位が登録済み
+			} else if( favoriteArray[memberIndex].second >= 0 ) {
+				//隣がお気に入り2位
+				if(maleArray[favoriteArray[memberIndex].second].index==nextMemberIndex) {
+					if(maleNum>=4)	{	point = 10	}
+					else			{	point = 0	}
+				//お気に入り3位が登録済み
+				} else if( favoriteArray[memberIndex].third >= 0 ) {
+					//隣がお気に入り3位
+					if(maleArray[favoriteArray[memberIndex].third].index==nextMemberIndex) {
+						if(maleNum>=5)	{	point = 0	}
+						else			{	point = -10	}
+					//お気に入り4位が登録済み
+					} else if( favoriteArray[memberIndex].fourth >= 0 ) {
+						//隣がお気に入り4位
+						if(maleArray[favoriteArray[memberIndex].fourth].index==nextMemberIndex) {
+							point = -10
+						//隣がお気に入りランク外、または同性
+						} else {
+							point = -20
+						}
+					//お気に入り4位は未登録
+					} else {
+						point = -20
+					}
+				//お気に入り3位以下は未登録
+				} else {
+					point = -20
+				}
+			//お気に入り2位以下は未登録
 			} else {
 				point = -20
 			}
+		//お気に入り未登録
+		} else {
+			point = -20
 		}
 	}
 	return point
@@ -588,52 +671,73 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 /// - Returns: point(Double)
 /// - Authors: Nozomi Koyama
 public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: Int) -> Double {
-	var point = 0.0
-	// 男の場合
+	// male
 	if( memberSexIndex == 0 ) {
-		if( favoriteArray[memberIndex].first == frontMemberIndex ) {
-			point = 5
-		} else if( favoriteArray[memberIndex].second == frontMemberIndex ) {
-			if( femaleNum >= 4 ) {
-				point = 3
-			} else {
-				point = 0
-			}
-		} else if( favoriteArray[memberIndex].third == frontMemberIndex ) {
-			point = 0
-		} else if( favoriteArray[memberIndex].fourth == frontMemberIndex ) {
-			point = -3
-		} else {
-			if( memberData[frontMemberIndex].sexIndex == 0 ) {
-				point = 0
-			} else if( frontMemberIndex < 0 ) {
-				point = 0
-			} else {
-				point = -5
+		//お気に入り1位が登録済み
+		if( favoriteArray[memberIndex].first >= 0 ) {
+			//正面がお気に入り1位
+			if(femaleArray[favoriteArray[memberIndex].first].index==frontMemberIndex) {
+				return 5
+			//お気に入り2位が登録されている
+			} else if( favoriteArray[memberIndex].second >= 0 ) {
+				//正面がお気に入り2位
+				if(femaleArray[favoriteArray[memberIndex].second].index==frontMemberIndex) {
+					if(femaleNum>=4)	{	return 3	}
+					else				{	return 0	}
+				//お気に入り3位が登録されている
+				} else if( favoriteArray[memberIndex].third >= 0 ) {
+					//正面がお気に入り3位
+					if(femaleArray[favoriteArray[memberIndex].third].index==frontMemberIndex) {
+						return 0
+					//お気に入り4位が登録されている
+					} else if( favoriteArray[memberIndex].fourth >= 0 ) {
+						//正面がお気に入り4位
+						if(femaleArray[favoriteArray[memberIndex].fourth].index==frontMemberIndex) {
+							return -3
+						}
+					}
+				}
 			}
 		}
-	// 女の場合
+		//正面が同性
+		if(memberData[frontMemberIndex].sexIndex==0){	return 0	}
+		//正面が空席
+		else if(frontMemberIndex<0)					{	return 0	}
+		//正面がお気に入りランク外
+		else										{	return -5	}
+	// female
 	} else {
-		if( favoriteArray[memberIndex].first == frontMemberIndex ||
-			favoriteArray[memberIndex].second == frontMemberIndex) {
-			point = 0
-		} else if( favoriteArray[memberIndex].third == frontMemberIndex ) {
-			if( maleNum >= 5 ) {
-				point = 0
-			} else {
-				point = -5
-			}
-		} else if(favoriteArray[memberIndex].fourth == frontMemberIndex ) {
-			point = -5
-		} else {
-			if( memberData[frontMemberIndex].sexIndex == 1 ) {
-				point = 0
-			} else if( frontMemberIndex < 0 ) {
-				point = 0
-			} else {
-				point = -10
+		//お気に入り1位が登録されている
+		if( favoriteArray[memberIndex].first >= 0 ){
+			//正面がお気に入り1位
+			if(maleArray[favoriteArray[memberIndex].first].index==frontMemberIndex) {
+				return 0
+			//お気に入り2位が登録されている
+			} else if( favoriteArray[memberIndex].second >= 0 ) {
+				//正面がお気に入り2位
+				if(maleArray[favoriteArray[memberIndex].second].index==frontMemberIndex) {
+					return 0
+				//お気に入り3位が登録されている
+				} else if( favoriteArray[memberIndex].third >= 0 ) {
+					//正面がお気に入り3位
+					if(maleArray[favoriteArray[memberIndex].third].index==frontMemberIndex) {
+						if(maleNum>=5)	{	return 0	}
+						else			{	return -5	}
+					//お気に入り4位が登録されている
+					} else if( favoriteArray[memberIndex].fourth >= 0 ) {
+						//正面がお気に入り4位
+						if(maleArray[favoriteArray[memberIndex].fourth].index==frontMemberIndex) {
+							return -5
+						}
+					}
+				}
 			}
 		}
+		//正面が同性
+		if(memberData[frontMemberIndex].sexIndex==1){	return 0	}
+		//正面が空席
+		else if(frontMemberIndex<0)					{	return 0	}
+		//正面がお気に入りランク外
+		else										{	return -10	}
 	}
-	return point
 }

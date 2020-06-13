@@ -31,9 +31,13 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 
 		// set choice list
 		if(sexIndex == 0) {
-			choiceList = femaleNameArray
+			for oneFemale in femaleArray {
+				choiceList.append(oneFemale.nickname)
+			}
 		} else if(sexIndex == 1) {
-			choiceList = maleNameArray
+			for oneMale in maleArray {
+				choiceList.append(oneMale.nickname)
+			}
 		}
 
 		let popupWidth	= SCREEN_SIZE.width * 2/3
