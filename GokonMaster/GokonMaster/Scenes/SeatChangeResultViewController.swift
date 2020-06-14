@@ -53,7 +53,7 @@ class SeatChangeResultViewController: UIViewController {
 				if(femaleNum>seatNum)	{	seatNum = femaleNum	}
 				let screenWidth:Int = Int(self.view.bounds.width)
 				let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80,
-																		y: 240,
+																		y: 235,
 																		width: 160,
 																		height: seatNum*60))
 				self.view.addSubview(tableSquareDraw)

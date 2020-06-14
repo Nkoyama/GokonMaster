@@ -30,7 +30,6 @@ public func seatChangeMainLogic() -> Bool {
 				bestEvaluationPoint = evaluationPoint
 				bestTmpSeatPositionArray = tmpSeatPositionArray
 			}
-			print(bestEvaluationPoint)
 		}
 	}
 	seatPositionArray = bestTmpSeatPositionArray
@@ -951,7 +950,6 @@ public func calcSeatEvaluation(tmpSeatPositionArray: Array<Int>) -> Double {
 			evaluation += calcEachPointSquare(tmpSeatPositionArray: tmpSeatPositionArray,
 											  sexIndex: memberData[position].sexIndex,
 											  positionIndex: i)
-			print(String(i) + "人目加算後評価値 : " + String(evaluation))
 		}
 		i += 1
 	}
@@ -976,22 +974,18 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 		points += nextPoint(memberSexIndex: sexIndex,
 							memberIndex: tmpSeatPositionArray[positionIndex],
 							nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
-		print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 		//端側のポイントを加算
 		if(sexIndex==0)	{	points += -3	}
 		else			{	points += 0.5 * points	}
-		print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 	// 端の席の場合_2
 	} else if( positionIndex == 4 || positionIndex == 9 ) {
 		//端ではない側のポイントを加算
 		points += nextPoint(memberSexIndex: sexIndex,
 							memberIndex: tmpSeatPositionArray[positionIndex],
 							nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
-		print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 		//端側のポイントを加算
 		if(sexIndex==0)	{	points += -3	}
 		else			{	points += 0.5 * points	}
-		print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 	// 端の席ではない場合
 	} else {
 		//indexが小さい方の席が空席の場合
@@ -1000,18 +994,15 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 			points += nextPoint(memberSexIndex: sexIndex,
 								memberIndex: tmpSeatPositionArray[positionIndex],
 								nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
-			print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 			//indexが小さい方(空席)のポイントを加算
 			if(sexIndex==0)	{	points += -3	}
 			else			{	points += 0.5 * points	}
-			print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 		//indexが小さい方の席が空席ではない場合
 		} else {
 			//先にindexが小さい方の席のポイントを計算
 			points += nextPoint(memberSexIndex: sexIndex,
 								memberIndex: tmpSeatPositionArray[positionIndex],
 								nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
-			print("positionIndex : " + String(positionIndex) + "  nextPoint1加算後 : " + String(points))
 			//indexが大きい方が空席の場合
 			if( seatPositionArray[positionIndex+1] < 0 ) {
 				if(sexIndex==0)	{	points += -3	}
@@ -1022,14 +1013,12 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 									memberIndex: tmpSeatPositionArray[positionIndex],
 									nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
 			}
-			print("positionIndex : " + String(positionIndex) + "  nextPoint2加算後 : " + String(points))
 		}
 	}
 	//正面のポイントを加算
 	points += frontPoint(memberSexIndex: sexIndex,
 						 memberIndex: tmpSeatPositionArray[positionIndex],
 						 frontMemberIndex: tmpSeatPositionArray[(positionIndex+5) % 10])
-	print("positionIndex : " + String(positionIndex) + "  frontPoint加算後 : " + String(points))
 
 	return points
 }
