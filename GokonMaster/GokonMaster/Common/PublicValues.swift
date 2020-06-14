@@ -48,9 +48,7 @@ public var memberData:[(nickname:		String,
 						otherName:		String,
 						other:			String)] = []
 public func initMemberData() {
-	for _ in memberData {
-		memberData.removeLast()
-	}
+	memberData.removeAll()
 	for _ in 1...joinNumSum {
 		memberData.append((nickname:		"",
 						   sexIndex:		-1,
@@ -72,12 +70,8 @@ public var maleArray : [(index:		Int,
 public var femaleArray : [(index:		Int,
 						   nickname:	String)] = []
 public func clearBothSexArray() {
-	for _ in maleArray {
-		maleArray.removeLast()
-	}
-	for _ in femaleArray {
-		femaleArray.removeLast()
-	}
+	maleArray.removeAll()
+	femaleArray.removeAll()
 }
 /// memberDataから性別ごとの名前リストを作成
 /// - Returns: succeed(true) or fail(false)
@@ -128,9 +122,7 @@ public var favoriteArray:[(	first:	Int,
 							third:	Int,
 							fourth:	Int)] = []
 public func initFavoriteArray(joinNum : Int) {
-	for _ in favoriteArray {
-		favoriteArray.removeLast()
-	}
+	favoriteArray.removeAll()
 	for _ in 1...joinNum {
 		favoriteArray.append((first:	-1,
 							  second:	-1,
