@@ -162,65 +162,108 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 										femaleMembersIndexArray: Array<Int>) -> Array<Array<Int>> {
 	var tmpSeatPositionPatterns : Array<Array<Int>> = Array<Array<Int>>()
 
+	// 男配置順全パターン作成
+	var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+	if( maleNum == 5 ) {
+		for i in 0...4 {
+			maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+			maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+			maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+			maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+			maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+			maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+			maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+			maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+			maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+			maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+			maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+			maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+			maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+			maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+			maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+			maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+			maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+			maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+			maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+			maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+			maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+			maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+			maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+			maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+		}
+	} else if( maleNum == 4 ) {
+		for i in 0...3 {
+			maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+			maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+			maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+			maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+			maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+			maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+		}
+	} else if( maleNum == 3 ) {
+		maleOrderAllPattern.append([0, 1, 2])
+		maleOrderAllPattern.append([0, 2, 1])
+		maleOrderAllPattern.append([1, 0, 2])
+		maleOrderAllPattern.append([1, 2, 0])
+		maleOrderAllPattern.append([2, 0, 1])
+		maleOrderAllPattern.append([2, 1, 0])
+	} else if( maleNum == 2 ) {
+		maleOrderAllPattern.append([0, 1])
+		maleOrderAllPattern.append([1, 0])
+	}
+	// 女配置順全パターン作成
+	var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+	if( femaleNum == 5 ) {
+		for i in 0...4 {
+			femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+			femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+			femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+			femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+			femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+			femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+			femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+			femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+			femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+			femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+			femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+			femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+			femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+			femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+			femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+			femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+			femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+			femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+			femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+			femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+			femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+			femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+			femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+			femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+		}
+	} else if( femaleNum == 4 ) {
+		for i in 0...3 {
+			femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+			femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+			femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+			femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+			femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+			femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+		}
+	} else if( femaleNum == 3 ) {
+		femaleOrderAllPattern.append([0, 1, 2])
+		femaleOrderAllPattern.append([0, 2, 1])
+		femaleOrderAllPattern.append([1, 0, 2])
+		femaleOrderAllPattern.append([1, 2, 0])
+		femaleOrderAllPattern.append([2, 0, 1])
+		femaleOrderAllPattern.append([2, 1, 0])
+	} else if( femaleNum == 2 ) {
+		femaleOrderAllPattern.append([0, 1])
+		femaleOrderAllPattern.append([1, 0])
+	}
+
+	// square table
 	if( tableTypeIndex == 0 ) {
-		//四角テーブル
 		if( maleNum==5 && femaleNum==5 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
 
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
@@ -241,45 +284,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==5 && femaleNum==4 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -298,45 +302,8 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==5 && femaleNum==3 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1, 2])
-			femaleOrderAllPattern.append([0, 2, 1])
-			femaleOrderAllPattern.append([1, 0, 2])
-			femaleOrderAllPattern.append([1, 2, 0])
-			femaleOrderAllPattern.append([2, 0, 1])
-			femaleOrderAllPattern.append([2, 1, 0])
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-			
+
 			// make patterns
 			for maleOrder in maleOrderAllPattern {
 				for femaleOrder in femaleOrderAllPattern {
@@ -352,41 +319,8 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==5 && femaleNum==2 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1])
-			femaleOrderAllPattern.append([1, 0])
-			
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-			
+
 			// make patterns
 			for maleOrder in maleOrderAllPattern {
 				for femaleOrder in femaleOrderAllPattern {
@@ -401,35 +335,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==5 && femaleNum==1 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 			
 			// make patterns
@@ -443,45 +348,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==4 && femaleNum==5 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -500,27 +366,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==4 && femaleNum==4 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -538,25 +383,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==4 && femaleNum==3 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1, 2])
-			femaleOrderAllPattern.append([0, 2, 1])
-			femaleOrderAllPattern.append([1, 0, 2])
-			femaleOrderAllPattern.append([1, 2, 0])
-			femaleOrderAllPattern.append([2, 0, 1])
-			femaleOrderAllPattern.append([2, 1, 0])
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -573,17 +399,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==4 && femaleNum==2 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -598,17 +413,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==4 && femaleNum==1 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -621,43 +425,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==3 && femaleNum==5 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			maleOrderAllPattern.append([0, 1, 2])
-			maleOrderAllPattern.append([0, 2, 1])
-			maleOrderAllPattern.append([1, 0, 2])
-			maleOrderAllPattern.append([1, 2, 0])
-			maleOrderAllPattern.append([2, 0, 1])
-			maleOrderAllPattern.append([2, 1, 0])
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -675,25 +442,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==3 && femaleNum==4 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			maleOrderAllPattern.append([0, 1, 2])
-			maleOrderAllPattern.append([0, 2, 1])
-			maleOrderAllPattern.append([1, 0, 2])
-			maleOrderAllPattern.append([1, 2, 0])
-			maleOrderAllPattern.append([2, 0, 1])
-			maleOrderAllPattern.append([2, 1, 0])
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -710,23 +458,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==3 && femaleNum==3 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			maleOrderAllPattern.append([0, 1, 2])
-			maleOrderAllPattern.append([0, 2, 1])
-			maleOrderAllPattern.append([1, 0, 2])
-			maleOrderAllPattern.append([1, 2, 0])
-			maleOrderAllPattern.append([2, 0, 1])
-			maleOrderAllPattern.append([2, 1, 0])
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1, 2])
-			femaleOrderAllPattern.append([0, 2, 1])
-			femaleOrderAllPattern.append([1, 0, 2])
-			femaleOrderAllPattern.append([1, 2, 0])
-			femaleOrderAllPattern.append([2, 0, 1])
-			femaleOrderAllPattern.append([2, 1, 0])
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -742,19 +473,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==3 && femaleNum==2 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			maleOrderAllPattern.append([0, 1, 2])
-			maleOrderAllPattern.append([0, 2, 1])
-			maleOrderAllPattern.append([1, 0, 2])
-			maleOrderAllPattern.append([1, 2, 0])
-			maleOrderAllPattern.append([2, 0, 1])
-			maleOrderAllPattern.append([2, 1, 0])
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1])
-			femaleOrderAllPattern.append([1, 0])
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -769,15 +487,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==3 && femaleNum==1 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			maleOrderAllPattern.append([0, 1, 2])
-			maleOrderAllPattern.append([0, 2, 1])
-			maleOrderAllPattern.append([1, 0, 2])
-			maleOrderAllPattern.append([1, 2, 0])
-			maleOrderAllPattern.append([2, 0, 1])
-			maleOrderAllPattern.append([2, 1, 0])
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -789,39 +498,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==2 && femaleNum==5 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			maleOrderAllPattern.append([0, 1])
-			maleOrderAllPattern.append([1, 0])
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -838,17 +514,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==2 && femaleNum==4 ) {
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -863,19 +528,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==2 && femaleNum==3 ) {
-			// 男配置順全パターン
-			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			maleOrderAllPattern.append([0, 1])
-			maleOrderAllPattern.append([1, 0])
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1, 2])
-			femaleOrderAllPattern.append([0, 2, 1])
-			femaleOrderAllPattern.append([1, 0, 2])
-			femaleOrderAllPattern.append([1, 2, 0])
-			femaleOrderAllPattern.append([2, 0, 1])
-			femaleOrderAllPattern.append([2, 1, 0])
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -890,11 +542,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				}
 			}
 		} else if( maleNum==2 && femaleNum==2 ) {
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1])
-			femaleOrderAllPattern.append([1, 0])
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -907,35 +554,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==1 && femaleNum==5 ) {
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...4 {
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
-				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -949,17 +567,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==1 && femaleNum==4 ) {
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			for i in 0...3 {
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
-				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
-				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
-			}
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -972,17 +579,8 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		} else if( maleNum==1 && femaleNum==3 ) {
-			// 女配置順全パターン
-			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
-			femaleOrderAllPattern.append([0, 1, 2])
-			femaleOrderAllPattern.append([0, 2, 1])
-			femaleOrderAllPattern.append([1, 0, 2])
-			femaleOrderAllPattern.append([1, 2, 0])
-			femaleOrderAllPattern.append([2, 0, 1])
-			femaleOrderAllPattern.append([2, 1, 0])
-			
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-			
+
 			// make patterns
 			for femaleOrder in femaleOrderAllPattern {
 				tmpSeatPositionArray[0] = maleMembersIndexArray[0]
@@ -992,8 +590,8 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
 			}
 		}
+	// circle table
 	} else {
-		//丸テーブル
 		if( maleNum==5 && femaleNum==5 ) {
 			
 		} else if( maleNum==5 && femaleNum==4 ) {
