@@ -32,11 +32,11 @@ public func seatChangeMainLogic() -> Bool {
 			bestTmpSeatPositionArray = [0, 1, -1, -1, -1, -1, -1, -1, -1, -1]
 		}
 	} else if( maleNum == 1 && femaleNum == 2 ) {
-		// 男の席固定
-		bestTmpSeatPositionArray = [maleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
-
 		// square table
 		if( tableTypeIndex == 0 ) {
+			// 男の席固定
+			bestTmpSeatPositionArray = [maleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
 			//1人目の女性のお気に入りが登録されている
 			if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
 				//2人目の女性のお気に入りが登録されている
@@ -88,13 +88,17 @@ public func seatChangeMainLogic() -> Bool {
 			}
 		// circle table
 		} else {
+			bestTmpSeatPositionArray = [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1]
+			bestTmpSeatPositionArray[0] = femaleMembersIndexArray[0]
+			bestTmpSeatPositionArray[1] = maleMembersIndexArray[0]
+			bestTmpSeatPositionArray[2] = femaleMembersIndexArray[1]
 		}
 	} else if( maleNum == 2 && femaleNum == 1 ) {
-		// 女の席固定
-		bestTmpSeatPositionArray = [femaleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
-
 		// square table
 		if( tableTypeIndex == 0 ) {
+			// 女の席固定
+			bestTmpSeatPositionArray = [femaleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
 			//女性のお気に入りが登録されている
 			if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
 				if(maleArray[favoriteArray[femaleMembersIndexArray[0]].first].index==maleMembersIndexArray[0]) {
@@ -134,6 +138,10 @@ public func seatChangeMainLogic() -> Bool {
 			}
 		// circle table
 		} else {
+			bestTmpSeatPositionArray = [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1]
+			bestTmpSeatPositionArray[0] = maleMembersIndexArray[0]
+			bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+			bestTmpSeatPositionArray[2] = maleMembersIndexArray[1]
 		}
 	// 全パターン計算し、最適な配置を選択
 	} else {
