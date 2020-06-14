@@ -78,14 +78,6 @@ public func clearBothSexArray() {
 	for _ in femaleArray {
 		femaleArray.removeLast()
 	}
-	for _ in 1...maleNum {
-		maleArray.append((index:	-1,
-						  nickname:	""))
-	}
-	for _ in 1...femaleNum {
-		femaleArray.append((index:		-1,
-							nickname:	""))
-	}
 }
 /// memberDataから性別ごとの名前リストを作成
 /// - Returns: succeed(true) or fail(false)
@@ -95,15 +87,11 @@ public func setNameArray() -> Bool {
 	var i = 0
 	for oneMemberData in memberData {
 		if(oneMemberData.sexIndex == 0) {
-			for _ in 1...maleNum {
-				maleArray.append((index:	i,
-								  nickname:	oneMemberData.nickname))
-			}
+			maleArray.append((index:	i,
+							  nickname:	oneMemberData.nickname))
 		} else if(oneMemberData.sexIndex == 1) {
-			for _ in 1...femaleNum {
-				femaleArray.append((index:	i,
-								  nickname:	oneMemberData.nickname))
-			}
+			femaleArray.append((index:	i,
+							  nickname:	oneMemberData.nickname))
 		} else {
 			return false
 		}
