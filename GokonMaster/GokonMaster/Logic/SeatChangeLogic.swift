@@ -92,16 +92,6 @@ public func seatChangeMainLogic() -> Bool {
 	} else if( maleNum == 2 && femaleNum == 1 ) {
 		// 女の席固定
 		bestTmpSeatPositionArray = [femaleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
-		print("maleMemberIndexArray:")
-		print(maleMembersIndexArray)
-		print("femaleMemberIndexArray:")
-		print(femaleMembersIndexArray)
-		print("favoriteArray:")
-		print(favoriteArray)
-		print("maleArray:")
-		print(maleArray)
-		print("femaleArray:")
-		print(femaleArray)
 
 		// square table
 		if( tableTypeIndex == 0 ) {
