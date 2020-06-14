@@ -12,17 +12,18 @@ import SnapKit
 class SeatChangeResultViewController: UIViewController {
 
 	// MARK: Views
-	let smallTitle				= UILabel()			// title
-	let seatLabelA				= UILabel()
-	let seatLabelB				= UILabel()
-	let seatLabelC				= UILabel()
-	let seatLabelD				= UILabel()
-	let seatLabelE				= UILabel()
-	let seatLabelF				= UILabel()
-	let seatLabelG				= UILabel()
-	let seatLabelH				= UILabel()
-	let seatLabelI				= UILabel()
-	let seatLabelJ				= UILabel()
+	let smallTitle		= UILabel()		// title
+	let seatLabelA		= UILabel()
+	let seatLabelB		= UILabel()
+	let seatLabelC		= UILabel()
+	let seatLabelD		= UILabel()
+	let seatLabelE		= UILabel()
+	let seatLabelF		= UILabel()
+	let seatLabelG		= UILabel()
+	let seatLabelH		= UILabel()
+	let seatLabelI		= UILabel()
+	let seatLabelJ		= UILabel()
+	let message			= UILabel()		// message
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -42,7 +43,7 @@ class SeatChangeResultViewController: UIViewController {
 		// calc the best seat position
 		let seatChangeResult = seatChangeMainLogic()
 		print(seatPositionArray)
-		
+
 		if( seatChangeResult ) {
 			// square table
 			if( tableTypeIndex == 0 ) {
@@ -62,6 +63,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelA.text = memberData[seatPositionArray[0]].nickname
 					self.seatLabelA.textAlignment = NSTextAlignment.center
 					self.seatLabelA.textColor = UIColor.black
+					self.seatLabelA.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelA.adjustsFontSizeToFitWidth = true
+					self.seatLabelA.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelA)
 					self.seatLabelA.snp.makeConstraints{ (make) in
 						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
@@ -75,6 +82,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelB.text = memberData[seatPositionArray[1]].nickname
 					self.seatLabelB.textAlignment = NSTextAlignment.center
 					self.seatLabelB.textColor = UIColor.black
+					self.seatLabelB.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelB.adjustsFontSizeToFitWidth = true
+					self.seatLabelB.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelB)
 					self.seatLabelB.snp.makeConstraints{ (make) in
 						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
@@ -88,6 +101,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelC.text = memberData[seatPositionArray[2]].nickname
 					self.seatLabelC.textAlignment = NSTextAlignment.center
 					self.seatLabelC.textColor = UIColor.black
+					self.seatLabelC.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelC.adjustsFontSizeToFitWidth = true
+					self.seatLabelC.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelC)
 					self.seatLabelC.snp.makeConstraints{ (make) in
 						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
@@ -101,6 +120,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelD.text = memberData[seatPositionArray[3]].nickname
 					self.seatLabelD.textAlignment = NSTextAlignment.center
 					self.seatLabelD.textColor = UIColor.black
+					self.seatLabelD.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelD.adjustsFontSizeToFitWidth = true
+					self.seatLabelD.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelD)
 					self.seatLabelD.snp.makeConstraints{ (make) in
 						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
@@ -114,6 +139,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelE.text = memberData[seatPositionArray[4]].nickname
 					self.seatLabelE.textAlignment = NSTextAlignment.center
 					self.seatLabelE.textColor = UIColor.black
+					self.seatLabelE.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelE.adjustsFontSizeToFitWidth = true
+					self.seatLabelE.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelE)
 					self.seatLabelE.snp.makeConstraints{ (make) in
 						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
@@ -127,6 +158,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelF.text = memberData[seatPositionArray[5]].nickname
 					self.seatLabelF.textAlignment = NSTextAlignment.center
 					self.seatLabelF.textColor = UIColor.black
+					self.seatLabelF.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelF.adjustsFontSizeToFitWidth = true
+					self.seatLabelF.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelF)
 					self.seatLabelF.snp.makeConstraints{ (make) in
 						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
@@ -140,6 +177,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelG.text = memberData[seatPositionArray[6]].nickname
 					self.seatLabelG.textAlignment = NSTextAlignment.center
 					self.seatLabelG.textColor = UIColor.black
+					self.seatLabelG.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelG.adjustsFontSizeToFitWidth = true
+					self.seatLabelG.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelG)
 					self.seatLabelG.snp.makeConstraints{ (make) in
 						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
@@ -153,6 +196,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelH.text = memberData[seatPositionArray[7]].nickname
 					self.seatLabelH.textAlignment = NSTextAlignment.center
 					self.seatLabelH.textColor = UIColor.black
+					self.seatLabelH.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelH.adjustsFontSizeToFitWidth = true
+					self.seatLabelH.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelH)
 					self.seatLabelH.snp.makeConstraints{ (make) in
 						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
@@ -166,6 +215,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelI.text = memberData[seatPositionArray[8]].nickname
 					self.seatLabelI.textAlignment = NSTextAlignment.center
 					self.seatLabelI.textColor = UIColor.black
+					self.seatLabelI.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelI.adjustsFontSizeToFitWidth = true
+					self.seatLabelI.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelI)
 					self.seatLabelI.snp.makeConstraints{ (make) in
 						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
@@ -179,6 +234,12 @@ class SeatChangeResultViewController: UIViewController {
 					self.seatLabelJ.text = memberData[seatPositionArray[9]].nickname
 					self.seatLabelJ.textAlignment = NSTextAlignment.center
 					self.seatLabelJ.textColor = UIColor.black
+					self.seatLabelJ.font = UIFont.systemFont(ofSize: 25.0)
+					self.seatLabelJ.adjustsFontSizeToFitWidth = true
+					self.seatLabelJ.backgroundColor = UIColor.init(red: 174/255,
+																   green: 218/255,
+																   blue: 204/255,
+																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelJ)
 					self.seatLabelJ.snp.makeConstraints{ (make) in
 						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
