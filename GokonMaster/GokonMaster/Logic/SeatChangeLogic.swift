@@ -264,7 +264,6 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 	// square table
 	if( tableTypeIndex == 0 ) {
 		if( maleNum==5 && femaleNum==5 ) {
-
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// make patterns
@@ -336,7 +335,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 			}
 		} else if( maleNum==5 && femaleNum==1 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-			
+
 			// make patterns
 			for maleOrder in maleOrderAllPattern {
 				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
@@ -403,7 +402,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 
 			// make patterns
 			for maleOrder in maleOrderAllPattern {
-				//左右対象同配置を排除するため女の席を固定
+				//線対称同配置を排除するため女の席を固定
 				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
 				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
 				tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
@@ -459,6 +458,12 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 			}
 		} else if( maleNum==3 && femaleNum==3 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// 線対称同配列を排除するため、女の並び順を限定
+			femaleOrderAllPattern = []
+			femaleOrderAllPattern.append([0, 1, 2])
+			femaleOrderAllPattern.append([1, 0, 2])
+			femaleOrderAllPattern.append([2, 0, 1])
 
 			// make patterns
 			for maleOrder in maleOrderAllPattern {
@@ -518,7 +523,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 
 			// make patterns
 			for femaleOrder in femaleOrderAllPattern {
-				//左右対象同配置を排除するため男の席を固定
+				//線対称同配置を排除するため男の席を固定
 				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
 				tmpSeatPositionArray[1] = maleMembersIndexArray[0]
 				tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
@@ -546,7 +551,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 
 			// make patterns
 			for femaleOrder in femaleOrderAllPattern {
-				//左右対象同配置を排除するため男の席を固定
+				//線対称同配置を排除するため男の席を固定
 				tmpSeatPositionArray[0] = maleMembersIndexArray[0]
 				tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
 				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[1]]
@@ -593,49 +598,343 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 	// circle table
 	} else {
 		if( maleNum==5 && femaleNum==5 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[8] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionArray[9] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==4 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[8] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==3 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==2 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==1 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[3]]
+				tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[4]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==4 && femaleNum==5 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[8] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==4 && femaleNum==4 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==4 && femaleNum==3 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// 線対称同配列を排除するため、女の並び順を限定
+			femaleOrderAllPattern = []
+			femaleOrderAllPattern.append([1, 0, 2])
+			femaleOrderAllPattern.append([0, 1, 2])
+			femaleOrderAllPattern.append([0, 2, 1])
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==4 && femaleNum==2 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				//線対称同配置を排除するため女の席を固定
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionArray[4] = femaleMembersIndexArray[1]
+				tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==4 && femaleNum==1 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==3 && femaleNum==5 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==3 && femaleNum==4 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// 線対称同配列を排除するため、男の並び順を限定
+			maleOrderAllPattern = []
+			maleOrderAllPattern.append([1, 0, 2])
+			maleOrderAllPattern.append([0, 1, 2])
+			maleOrderAllPattern.append([0, 2, 1])
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==3 && femaleNum==3 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==3 && femaleNum==2 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				//線対称同配置を排除するため女の席を固定
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[3] = femaleMembersIndexArray[1]
+				tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==3 && femaleNum==1 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==2 && femaleNum==5 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==2 && femaleNum==4 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				//線対称同配置を排除するため男の席を固定
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionArray[4] = maleMembersIndexArray[1]
+				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==2 && femaleNum==3 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				//線対称同配置を排除するため男の席を固定
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[3] = maleMembersIndexArray[1]
+				tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==2 && femaleNum==2 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==1 && femaleNum==5 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[3]]
+				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[4]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==1 && femaleNum==4 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==1 && femaleNum==3 ) {
-			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		}
 	}
 	return tmpSeatPositionPatterns
