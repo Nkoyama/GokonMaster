@@ -266,6 +266,14 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 		if( maleNum==5 && femaleNum==5 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
+			// 線対称同配置を排除するため、男の並び順を限定
+			for i in 4...0 {
+				for j in 11...0 {
+					//6と7の位置に入る男のindex(maleOrder[3]とmaleOrder[4])が入れ替わっているだけのパターンをremove
+					maleOrderAllPattern.remove(at: 24*i + j*2 + 1)
+				}
+			}
+
 			// make patterns
 			for maleOrder in maleOrderAllPattern {
 				for femaleOrder in femaleOrderAllPattern {
@@ -400,16 +408,26 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 		} else if( maleNum==4 && femaleNum==2 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
+			// 点対称･線対称同配置を排除するため、男の並び順を限定
+			maleOrderAllPattern = []
+			maleOrderAllPattern.append([0, 1, 2, 3])
+			maleOrderAllPattern.append([0, 1, 3, 2])
+			maleOrderAllPattern.append([0, 2, 1, 3])
+			maleOrderAllPattern.append([0, 2, 3, 1])
+			maleOrderAllPattern.append([0, 3, 1, 2])
+			maleOrderAllPattern.append([0, 3, 2, 1])
+
 			// make patterns
 			for maleOrder in maleOrderAllPattern {
-				//線対称同配置を排除するため女の席を固定
-				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
-				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
-				tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
-				tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
-				tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-				tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[3]]
-				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
 			}
 		} else if( maleNum==4 && femaleNum==1 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
@@ -459,7 +477,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 		} else if( maleNum==3 && femaleNum==3 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			// 線対称同配列を排除するため、女の並び順を限定
+			// 線対称同配置を排除するため、女の並び順を限定
 			femaleOrderAllPattern = []
 			femaleOrderAllPattern.append([0, 1, 2])
 			femaleOrderAllPattern.append([1, 0, 2])
@@ -521,16 +539,26 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 		} else if( maleNum==2 && femaleNum==4 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
+			// 点対象･線対称同配置を排除するため、女の並び順を限定
+			femaleOrderAllPattern = []
+			femaleOrderAllPattern.append([0, 1, 2, 3])
+			femaleOrderAllPattern.append([0, 1, 3, 2])
+			femaleOrderAllPattern.append([0, 2, 1, 3])
+			femaleOrderAllPattern.append([0, 2, 3, 1])
+			femaleOrderAllPattern.append([0, 3, 1, 2])
+			femaleOrderAllPattern.append([0, 3, 2, 1])
+
 			// make patterns
-			for femaleOrder in femaleOrderAllPattern {
-				//線対称同配置を排除するため男の席を固定
-				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
-				tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-				tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
-				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
-				tmpSeatPositionArray[6] = maleMembersIndexArray[1]
-				tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
-				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
 			}
 		} else if( maleNum==2 && femaleNum==3 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
@@ -718,7 +746,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 		} else if( maleNum==4 && femaleNum==3 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			// 線対称同配列を排除するため、女の並び順を限定
+			// 線対称同配置を排除するため、女の並び順を限定
 			femaleOrderAllPattern = []
 			femaleOrderAllPattern.append([1, 0, 2])
 			femaleOrderAllPattern.append([0, 1, 2])
@@ -783,7 +811,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 		} else if( maleNum==3 && femaleNum==4 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			// 線対称同配列を排除するため、男の並び順を限定
+			// 線対称同配置を排除するため、男の並び順を限定
 			maleOrderAllPattern = []
 			maleOrderAllPattern.append([1, 0, 2])
 			maleOrderAllPattern.append([0, 1, 2])
