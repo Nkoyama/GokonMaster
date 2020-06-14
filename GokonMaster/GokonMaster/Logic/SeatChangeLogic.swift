@@ -12,14 +12,14 @@ public func seatChangeMainLogic() -> Bool {
 	var bestTmpSeatPositionArray : Array<Int> = Array<Int>()
 	var bestEvaluationPoint = -10000.0
 
-	if( tableTypeIndex == 0 && maleNum == 1 && femaleNum == 1 ) {
+	// 人数が少ない場合は決め打ち
+	if( maleNum == 1 && femaleNum == 1 ) {
 		
-	} else if( tableTypeIndex == 1 && maleNum == 1 && femaleNum == 1 ) {
+	} else if( maleNum == 1 && femaleNum == 2 ) {
 		
-	} else if( tableTypeIndex == 1 && maleNum == 1 && femaleNum == 2 ) {
+	} else if( maleNum == 2 && femaleNum == 1 ) {
 		
-	} else if( tableTypeIndex == 1 && maleNum == 2 && femaleNum == 1 ) {
-		
+	// 全パターン計算し、最適な配置を選択
 	} else {
 		let tmpSeatPositionPatterns = makeTmpSeatPositionPatterns()
 		var evaluationPoint = 0.0
@@ -60,325 +60,832 @@ public func makeTmpSeatPositionPatterns() -> Array<Array<Int>> {
 	if( tableTypeIndex == 0 ) {
 		//四角テーブル
 		if( maleNum==5 && femaleNum==5 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[8] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionArray[9] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==4 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[4] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[8] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==3 ) {
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1, 2])
+			femaleOrderAllPattern.append([0, 2, 1])
+			femaleOrderAllPattern.append([1, 0, 2])
+			femaleOrderAllPattern.append([1, 2, 0])
+			femaleOrderAllPattern.append([2, 0, 1])
+			femaleOrderAllPattern.append([2, 1, 0])
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 			
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[8] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==2 ) {
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1])
+			femaleOrderAllPattern.append([1, 0])
 			
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+			
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==5 && femaleNum==1 ) {
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				maleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 			
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+				tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[4]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==4 && femaleNum==5 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[4] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionArray[8] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==4 && femaleNum==4 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[8] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==4 && femaleNum==3 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1, 2])
+			femaleOrderAllPattern.append([0, 2, 1])
+			femaleOrderAllPattern.append([1, 0, 2])
+			femaleOrderAllPattern.append([1, 2, 0])
+			femaleOrderAllPattern.append([2, 0, 1])
+			femaleOrderAllPattern.append([2, 1, 0])
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==4 && femaleNum==2 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				//左右対象同配置を排除するため女の席を固定
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
+				tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==4 && femaleNum==1 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				maleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				maleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				maleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==3 && femaleNum==5 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			maleOrderAllPattern.append([0, 1, 2])
+			maleOrderAllPattern.append([0, 2, 1])
+			maleOrderAllPattern.append([1, 0, 2])
+			maleOrderAllPattern.append([1, 2, 0])
+			maleOrderAllPattern.append([2, 0, 1])
+			maleOrderAllPattern.append([2, 1, 0])
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[7] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[8] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==3 && femaleNum==4 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			maleOrderAllPattern.append([0, 1, 2])
+			maleOrderAllPattern.append([0, 2, 1])
+			maleOrderAllPattern.append([1, 0, 2])
+			maleOrderAllPattern.append([1, 2, 0])
+			maleOrderAllPattern.append([2, 0, 1])
+			maleOrderAllPattern.append([2, 1, 0])
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==3 && femaleNum==3 ) {
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			maleOrderAllPattern.append([0, 1, 2])
+			maleOrderAllPattern.append([0, 2, 1])
+			maleOrderAllPattern.append([1, 0, 2])
+			maleOrderAllPattern.append([1, 2, 0])
+			maleOrderAllPattern.append([2, 0, 1])
+			maleOrderAllPattern.append([2, 1, 0])
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1, 2])
+			femaleOrderAllPattern.append([0, 2, 1])
+			femaleOrderAllPattern.append([1, 0, 2])
+			femaleOrderAllPattern.append([1, 2, 0])
+			femaleOrderAllPattern.append([2, 0, 1])
+			femaleOrderAllPattern.append([2, 1, 0])
+
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			// pattern 1-1
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-2
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-3
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-4
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-5
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-6
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-1
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-2
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-3
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-4
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-5
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-6
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 3-1
-			tmpSeatPositionArray[1] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 3-2
-			tmpSeatPositionArray[1] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 3-3
-			tmpSeatPositionArray[1] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 3-4
-			tmpSeatPositionArray[1] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 3-5
-			tmpSeatPositionArray[1] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 3-6
-			tmpSeatPositionArray[1] = maleMembersIndexArray[2]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[7] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==3 && femaleNum==2 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			maleOrderAllPattern.append([0, 1, 2])
+			maleOrderAllPattern.append([0, 2, 1])
+			maleOrderAllPattern.append([1, 0, 2])
+			maleOrderAllPattern.append([1, 2, 0])
+			maleOrderAllPattern.append([2, 0, 1])
+			maleOrderAllPattern.append([2, 1, 0])
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1])
+			femaleOrderAllPattern.append([1, 0])
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[2]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==3 && femaleNum==1 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			maleOrderAllPattern.append([0, 1, 2])
+			maleOrderAllPattern.append([0, 2, 1])
+			maleOrderAllPattern.append([1, 0, 2])
+			maleOrderAllPattern.append([1, 2, 0])
+			maleOrderAllPattern.append([2, 0, 1])
+			maleOrderAllPattern.append([2, 1, 0])
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				tmpSeatPositionArray[0] = maleMembersIndexArray[maleOrder[0]]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+				tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[1]]
+				tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[2]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==2 && femaleNum==5 ) {
-			
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			maleOrderAllPattern.append([0, 1])
+			maleOrderAllPattern.append([1, 0])
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[2] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[3] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[3]]
+					tmpSeatPositionArray[6] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[4]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==2 && femaleNum==4 ) {
-			
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				//左右対象同配置を排除するため男の席を固定
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionArray[6] = maleMembersIndexArray[1]
+				tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==2 && femaleNum==3 ) {
+			// 男配置順全パターン
+			var maleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			maleOrderAllPattern.append([0, 1])
+			maleOrderAllPattern.append([1, 0])
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1, 2])
+			femaleOrderAllPattern.append([0, 2, 1])
+			femaleOrderAllPattern.append([1, 0, 2])
+			femaleOrderAllPattern.append([1, 2, 0])
+			femaleOrderAllPattern.append([2, 0, 1])
+			femaleOrderAllPattern.append([2, 1, 0])
+
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			// pattern 1-1
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-2
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-3
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-4
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-5
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-6
-			tmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-1
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-2
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-3
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[2]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-4
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-5
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 2-6
-			tmpSeatPositionArray[1] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[0] = femaleMembersIndexArray[2]
-			tmpSeatPositionArray[2] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[6] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			// make patterns
+			for maleOrder in maleOrderAllPattern {
+				for femaleOrder in femaleOrderAllPattern {
+					tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+					tmpSeatPositionArray[1] = maleMembersIndexArray[maleOrder[0]]
+					tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+					tmpSeatPositionArray[5] = maleMembersIndexArray[maleOrder[1]]
+					tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[2]]
+					tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+				}
+			}
 		} else if( maleNum==2 && femaleNum==2 ) {
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1])
+			femaleOrderAllPattern.append([1, 0])
+
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			// pattern 1-1
-			tmpSeatPositionArray[0] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[1] = femaleMembersIndexArray[0]
-			tmpSeatPositionArray[5] = femaleMembersIndexArray[1]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-
-			// pattern 1-2
-			tmpSeatPositionArray[0] = maleMembersIndexArray[0]
-			tmpSeatPositionArray[6] = maleMembersIndexArray[1]
-			tmpSeatPositionArray[1] = femaleMembersIndexArray[1]
-			tmpSeatPositionArray[5] = femaleMembersIndexArray[0]
-			tmpSeatPositionPatterns.append(tmpSeatPositionArray)
-		} else if( maleNum==2 && femaleNum==1 ) {
-			
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				//左右対象同配置を排除するため男の席を固定
+				tmpSeatPositionArray[0] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[6] = maleMembersIndexArray[1]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==1 && femaleNum==5 ) {
-			
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...4 {
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+2)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+3)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+1)%5, (i+4)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+3)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+1)%5, (i+4)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+3)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+2)%5, (i+4)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+2)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+1)%5, (i+4)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+1)%5, (i+4)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+2)%5, (i+4)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+3)%5, (i+4)%5, (i+2)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+2)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+1)%5, (i+3)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+1)%5, (i+3)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+2)%5, (i+3)%5, (i+1)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+1)%5, (i+2)%5])
+				femaleOrderAllPattern.append([i, (i+4)%5, (i+3)%5, (i+2)%5, (i+1)%5])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[3]]
+				tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[7] = femaleMembersIndexArray[femaleOrder[4]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==1 && femaleNum==4 ) {
-			
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			for i in 0...3 {
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+2)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+1)%4, (i+3)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+1)%4, (i+3)%4])
+				femaleOrderAllPattern.append([i, (i+2)%4, (i+3)%4, (i+1)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+1)%4, (i+2)%4])
+				femaleOrderAllPattern.append([i, (i+3)%4, (i+2)%4, (i+1)%4])
+			}
+
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				tmpSeatPositionArray[0] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[1] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[2] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[3]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		} else if( maleNum==1 && femaleNum==3 ) {
+			// 女配置順全パターン
+			var femaleOrderAllPattern : Array<Array<Int>> = Array<Array<Int>>()
+			femaleOrderAllPattern.append([0, 1, 2])
+			femaleOrderAllPattern.append([0, 2, 1])
+			femaleOrderAllPattern.append([1, 0, 2])
+			femaleOrderAllPattern.append([1, 2, 0])
+			femaleOrderAllPattern.append([2, 0, 1])
+			femaleOrderAllPattern.append([2, 1, 0])
 			
-		} else if( maleNum==1 && femaleNum==2 ) {
+			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 			
+			// make patterns
+			for femaleOrder in femaleOrderAllPattern {
+				tmpSeatPositionArray[0] = maleMembersIndexArray[0]
+				tmpSeatPositionArray[1] = femaleMembersIndexArray[femaleOrder[0]]
+				tmpSeatPositionArray[5] = femaleMembersIndexArray[femaleOrder[1]]
+				tmpSeatPositionArray[6] = femaleMembersIndexArray[femaleOrder[2]]
+				tmpSeatPositionPatterns.append(tmpSeatPositionArray)
+			}
 		}
 	} else {
 		//丸テーブル
