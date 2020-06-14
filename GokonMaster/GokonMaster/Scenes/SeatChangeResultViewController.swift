@@ -24,6 +24,7 @@ class SeatChangeResultViewController: UIViewController {
 	let seatLabelI		= UILabel()
 	let seatLabelJ		= UILabel()
 	let message			= UILabel()		// message
+	let menuBtn			= UIButton()	// menu button
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -253,5 +254,41 @@ class SeatChangeResultViewController: UIViewController {
 				
 			}
 		}
+
+		// message
+		self.message.text = "席を移動しましょう！"
+		self.message.textColor = UIColor.black
+		self.message.font = UIFont.systemFont(ofSize: 20.0)
+		self.view.addSubview(self.message)
+		self.message.snp.makeConstraints{ (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(150)
+		}
+
+		// menu button
+		self.menuBtn.setTitle(" メニューへ ", for: .normal)
+		self.menuBtn.setTitleColor(UIColor.black, for: .normal)
+		self.menuBtn.backgroundColor = UIColor.green
+		self.menuBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.menuBtn.layer.borderColor = UIColor.clear.cgColor
+		self.menuBtn.layer.borderWidth = 2.0
+		self.menuBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.menuBtn)
+		self.menuBtn.addTarget(self,
+							   action: #selector(self.menuBtnDidTap(_:)),
+							   for: .touchUpInside)
+		self.menuBtn.snp.makeConstraints{ (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+		}
+	}
+
+	/// menuBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func menuBtnDidTap(_ sender: UIButton) {
+		let menuViewController = MenuViewController()
+		menuViewController.modalPresentationStyle = .fullScreen
+		self.present(menuViewController, animated: true)
 	}
 }
