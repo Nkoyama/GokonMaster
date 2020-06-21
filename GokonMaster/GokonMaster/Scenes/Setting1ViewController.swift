@@ -192,7 +192,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 			initMemberData()
 			let memberRegisterViewController = MemberRegisterViewController()
 			memberRegisterViewController.modalPresentationStyle = .fullScreen
-			initSeatPositionArray(joinNum: joinNumSum)
+			initSeatPositionArray()
 			self.present(memberRegisterViewController, animated: true)
 		}
 	}

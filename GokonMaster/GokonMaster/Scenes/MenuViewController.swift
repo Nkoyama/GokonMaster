@@ -64,11 +64,14 @@ class MenuViewController: UIViewController {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(400)
 		}
 	}
-	
+
 	/// changeSeatBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func changeSeatBtnDidTap(_ sender: UIButton) {
+		initRegisteredNum()
+		initFavoriteArray(joinNum: joinNumSum)
+
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.modalPresentationStyle = .fullScreen
 		self.present(registerFavoriteViewController, animated: true)

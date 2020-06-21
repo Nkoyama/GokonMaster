@@ -37,45 +37,75 @@ public func initTableTypeIndex() {
 }
 
 /* 参加者データ */
-public var memberData:[(nickname:String,
-						sexIndex:Int,
-						pinCode:String,
-						lineId:String,
-						emailAddress:String,
-						phoneNumber:String,
-						instagramId:String,
-						twitterId:String,
-						otherName:String,
-						other:String)] = []
+public var memberData:[(nickname:		String,
+						sexIndex:		Int,
+						pinCode:		String,
+						lineId:			String,
+						emailAddress:	String,
+						phoneNumber:	String,
+						instagramId:	String,
+						twitterId:		String,
+						otherName:		String,
+						other:			String)] = []
 public func initMemberData() {
-	for _ in memberData {
-		memberData.removeLast()
-	}
+	memberData.removeAll()
 	for _ in 1...joinNumSum {
-		memberData.append((nickname:"",
-						   sexIndex:-1,
-						   pinCode:"",
-						   lineId:"",
-						   emailAddress:"",
-						   phoneNumber:"",
-						   instagramId:"",
-						   twitterId:"",
-						   otherName:"",
-						   other:""))
+		memberData.append((nickname:		"",
+						   sexIndex:		-1,
+						   pinCode:			"",
+						   lineId:			"",
+						   emailAddress:	"",
+						   phoneNumber:		"",
+						   instagramId:		"",
+						   twitterId:		"",
+						   otherName:		"",
+						   other:			""))
 	}
 }
 
 
+/* 男女別リスト */
+public var maleArray : [(index:		Int,
+						 nickname:	String)] = []
+public var femaleArray : [(index:		Int,
+						   nickname:	String)] = []
+public func clearBothSexArray() {
+	maleArray.removeAll()
+	femaleArray.removeAll()
+}
+/// memberDataから性別ごとの名前リストを作成
+/// - Returns: succeed(true) or fail(false)
+/// - Authors: Nozomi Koyama
+public func setNameArray() -> Bool {
+	clearBothSexArray()
+	var i = 0
+	for oneMemberData in memberData {
+		if(oneMemberData.sexIndex == 0) {
+			maleArray.append((index:	i,
+							  nickname:	oneMemberData.nickname))
+		} else if(oneMemberData.sexIndex == 1) {
+			femaleArray.append((index:	i,
+							  nickname:	oneMemberData.nickname))
+		} else {
+			return false
+		}
+		i += 1
+	}
+	return true
+}
+
+
 // 座席位置
-public var seatPositionArray : Array<Int> = Array<Int>()
-public func initSeatPositionArray(joinNum : Int){
-	let len : Int = seatPositionArray.count
-	for _ in 0..<len {
-		seatPositionArray.removeLast()
-	}
-	for _ in 1...joinNum {
-		seatPositionArray.append(-1)
-	}
+// それぞれの座席にいる人のindexを保持　誰もいない席は-1
+// 円テーブル：半時計周りに0〜9
+// 四角テーブル：	5 6 7 8 9
+//			   |‾‾‾‾‾‾‾‾‾|
+//			   |  table  |
+//			   |_________|
+//				0 1 2 3 4
+public var seatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+public func initSeatPositionArray(){
+	seatPositionArray = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 }
 
 
@@ -83,6 +113,22 @@ public func initSeatPositionArray(joinNum : Int){
 public var registeredNum = 0
 public func initRegisteredNum() {
 	registeredNum = 0
+}
+
+
+// お気に入りリスト
+public var favoriteArray:[(	first:	Int,
+							second:	Int,
+							third:	Int,
+							fourth:	Int)] = []
+public func initFavoriteArray(joinNum : Int) {
+	favoriteArray.removeAll()
+	for _ in 1...joinNum {
+		favoriteArray.append((first:	-1,
+							  second:	-1,
+							  third:	-1,
+							  fourth:	-1))
+	}
 }
 
 
@@ -98,15 +144,53 @@ public func initAllPublicValues() {
 	tableTypeIndex = 0
 
 	initMemberData()
+	clearBothSexArray()
 
 	let len : Int = seatPositionArray.count
 	for _ in 0..<len {
 		seatPositionArray.removeLast()
 	}
+	
+	initRegisteredNum()
+	
+	initFavoriteArray(joinNum: 0)
 }
 
 
-// エラーメッセージ：OKボタン押下
-public let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-	(action: UIAlertAction!) -> Void in
+public var alertResult = -1
+public func initAlertResult() {
+	alertResult = -1
+}
+
+// alert message：OKボタン押下
+public let defaultAction = UIAlertAction(title: "OK",
+										 style: .default,
+										 handler:{
+											(action: UIAlertAction!) -> Void in
+											alertResult = 1
+})
+
+// alert message：Cancelボタン押下
+public let cancelAction = UIAlertAction(title: "Cancel",
+										style: .destructive,
+										handler:{
+											(action: UIAlertAction!) -> Void in
+											alertResult = 0
+											return;
+})
+
+// alert message：Yesボタン押下
+public let yesAction = UIAlertAction(title: "Yes",
+									 style: .default,
+									 handler:{
+										(action: UIAlertAction!) -> Void in
+										alertResult = 2
+})
+
+// alert message：Noボタン押下
+public let noAction = UIAlertAction(title: "No",
+									style: .default,
+									handler:{
+										(action: UIAlertAction!) -> Void in
+										alertResult = 3
 })
