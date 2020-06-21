@@ -28,9 +28,9 @@ extension String {
 		return NSPredicate(format: "SELF MATCHES %@", range).evaluate(with: self)
 	}
 	
-	/// 日本語ではないか
-	var isNotJapanese: Bool {
-		let range = "[a-zA-Z0-9._%+-/:~$^()&!']"
+	/// 全角文字を含まないかどうか
+	var isNotZenkaku: Bool {
+		let range = "^[a-zA-Z0-9!-/:-@¥[-`{-~]*]+$"
 		return NSPredicate(format: "SELF MATCHES %@", range).evaluate(with: self)
 	}
 }

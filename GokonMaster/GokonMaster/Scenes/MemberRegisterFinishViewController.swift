@@ -482,7 +482,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button A
 			var prefixNumA = 2
 			if(memberIndexA >= 0) {
-				if(memberData[memberIndexA].nickname.isNotJapanese) {
+				if(memberData[memberIndexA].nickname.isNotZenkaku) {
 					prefixNumA = 5
 				}
 				self.seatBtnA.setTitle(String(memberData[memberIndexA].nickname.prefix(prefixNumA)),
@@ -518,7 +518,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// seat button B
 			var prefixNumB = 2
 			if(memberIndexB >= 0) {
-				if(memberData[memberIndexB].nickname.isNotJapanese) {
+				if(memberData[memberIndexB].nickname.isNotZenkaku) {
 					prefixNumB = 5
 				}
 				self.seatBtnB.setTitle(String(memberData[memberIndexB].nickname.prefix(prefixNumB)),
@@ -555,7 +555,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 3) {
 				var prefixNumC = 2
 				if(memberIndexC >= 0) {
-					if(memberData[memberIndexC].nickname.isNotJapanese) {
+					if(memberData[memberIndexC].nickname.isNotZenkaku) {
 						prefixNumC = 5
 					}
 					self.seatBtnC.setTitle(String(memberData[memberIndexC].nickname.prefix(prefixNumC)),
@@ -593,7 +593,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 4) {
 				var prefixNumD = 2
 				if(memberIndexD >= 0) {
-					if(memberData[memberIndexD].nickname.isNotJapanese) {
+					if(memberData[memberIndexD].nickname.isNotZenkaku) {
 						prefixNumD = 5
 					}
 					self.seatBtnD.setTitle(String(memberData[memberIndexD].nickname.prefix(prefixNumD)),
@@ -631,7 +631,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 5) {
 				var prefixNumE = 2
 				if(memberIndexE >= 0) {
-					if(memberData[memberIndexE].nickname.isNotJapanese) {
+					if(memberData[memberIndexE].nickname.isNotZenkaku) {
 						prefixNumE = 5
 					}
 					self.seatBtnE.setTitle(String(memberData[memberIndexE].nickname.prefix(prefixNumE)),
@@ -669,7 +669,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 6) {
 				var prefixNumF = 2
 				if(memberIndexF >= 0) {
-					if(memberData[memberIndexF].nickname.isNotJapanese) {
+					if(memberData[memberIndexF].nickname.isNotZenkaku) {
 						prefixNumF = 5
 					}
 					self.seatBtnF.setTitle(String(memberData[memberIndexF].nickname.prefix(prefixNumF)),
@@ -707,7 +707,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 7) {
 				var prefixNumG = 2
 				if(memberIndexG >= 0) {
-					if(memberData[memberIndexG].nickname.isNotJapanese) {
+					if(memberData[memberIndexG].nickname.isNotZenkaku) {
 						prefixNumG = 5
 					}
 					self.seatBtnG.setTitle(String(memberData[memberIndexG].nickname.prefix(prefixNumG)),
@@ -745,7 +745,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 8) {
 				var prefixNumH = 2
 				if(memberIndexH >= 0) {
-					if(memberData[memberIndexH].nickname.isNotJapanese) {
+					if(memberData[memberIndexH].nickname.isNotZenkaku) {
 						prefixNumH = 5
 					}
 					self.seatBtnH.setTitle(String(memberData[memberIndexH].nickname.prefix(prefixNumH)),
@@ -783,7 +783,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 9) {
 				var prefixNumI = 2
 				if(memberIndexI >= 0) {
-					if(memberData[memberIndexI].nickname.isNotJapanese) {
+					if(memberData[memberIndexI].nickname.isNotZenkaku) {
 						prefixNumI = 5
 					}
 					self.seatBtnI.setTitle(String(memberData[memberIndexI].nickname.prefix(prefixNumI)),
@@ -821,7 +821,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			if(joinNumSum >= 10) {
 				var prefixNumJ = 2
 				if(memberIndexJ >= 0) {
-					if(memberData[memberIndexJ].nickname.isNotJapanese) {
+					if(memberData[memberIndexJ].nickname.isNotZenkaku) {
 						prefixNumJ = 5
 					}
 					self.seatBtnJ.setTitle(String(memberData[memberIndexJ].nickname.prefix(prefixNumJ)),

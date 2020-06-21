@@ -986,9 +986,15 @@ public func calcSeatEvaluation(tmpSeatPositionArray: Array<Int>) -> Double {
 	var i = 0
 	for position in tmpSeatPositionArray {
 		if( position >= 0 ) {
-			evaluation += calcEachPointSquare(tmpSeatPositionArray: tmpSeatPositionArray,
-											  sexIndex: memberData[position].sexIndex,
-											  positionIndex: i)
+			if( tableTypeIndex == 0 ) {
+				evaluation += calcEachPointSquare(tmpSeatPositionArray: tmpSeatPositionArray,
+												  sexIndex: memberData[position].sexIndex,
+												  positionIndex: i)
+			} else {
+				evaluation += calcEachPointCircle(tmpSeatPositionArray: tmpSeatPositionArray,
+												  sexIndex: memberData[position].sexIndex,
+												  positionIndex: i)
+			}
 		}
 		i += 1
 	}
@@ -1074,7 +1080,32 @@ public func calcEachPointCircle(tmpSeatPositionArray: Array<Int>,
 								sexIndex: Int,
 								positionIndex: Int) -> Double {
 	var points = 0.0
-	
+	//端の席の場合
+	if( positionIndex == 0 || positionIndex == joinNumSum-1 ) {
+		//端ではない側のポイントを加算
+		if( positionIndex == 0 ) {
+			points += nextPoint(memberSexIndex: sexIndex,
+								memberIndex: tmpSeatPositionArray[positionIndex],
+								nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
+		} else {
+			points += nextPoint(memberSexIndex: sexIndex,
+								memberIndex: tmpSeatPositionArray[positionIndex],
+								nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
+		}
+		//端側のポイントを加算
+		if(sexIndex==0)	{	points += -3	}
+		else			{	points += 0.5 * points	}
+	//端の席ではない場合
+	} else {
+		//indexが小さい方の席のポイントを加算
+		points += nextPoint(memberSexIndex: sexIndex,
+							memberIndex: tmpSeatPositionArray[positionIndex],
+							nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
+		//indexが大きい方の席のポイントを加算
+		points += nextPoint(memberSexIndex: sexIndex,
+							memberIndex: tmpSeatPositionArray[positionIndex],
+							nextMemberIndex: tmpSeatPositionArray[positionIndex+1])
+	}
 	return points
 }
 
