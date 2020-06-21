@@ -289,7 +289,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button A
 				var prefixNumA = 2
 				if( seatPositionArray[0] >= 0 ) {
-					if(memberData[seatPositionArray[0]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[0]].nickname.isNotZenkaku) {
 						prefixNumA = 5
 					}
 					self.seatBtnA.setTitle(String(memberData[seatPositionArray[0]].nickname.prefix(prefixNumA)),
@@ -321,7 +321,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button B
 				var prefixNumB = 2
 				if( seatPositionArray[1] >= 0 ) {
-					if(memberData[seatPositionArray[1]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[1]].nickname.isNotZenkaku) {
 						prefixNumB = 5
 					}
 					self.seatBtnB.setTitle(String(memberData[seatPositionArray[1]].nickname.prefix(prefixNumB)),
@@ -354,7 +354,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button C
 				var prefixNumC = 2
 				if( seatPositionArray[2] >= 0 ) {
-					if(memberData[seatPositionArray[2]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[2]].nickname.isNotZenkaku) {
 						prefixNumC = 5
 					}
 					self.seatBtnC.setTitle(String(memberData[seatPositionArray[2]].nickname.prefix(prefixNumC)),
@@ -387,7 +387,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button D
 				var prefixNumD = 2
 				if( seatPositionArray[3] >= 0 ) {
-					if(memberData[seatPositionArray[3]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[3]].nickname.isNotZenkaku) {
 						prefixNumD = 5
 					}
 					self.seatBtnD.setTitle(String(memberData[seatPositionArray[3]].nickname.prefix(prefixNumD)),
@@ -420,7 +420,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button E
 				var prefixNumE = 2
 				if( seatPositionArray[4] >= 0 ) {
-					if(memberData[seatPositionArray[4]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[4]].nickname.isNotZenkaku) {
 						prefixNumE = 5
 					}
 					self.seatBtnE.setTitle(String(memberData[seatPositionArray[4]].nickname.prefix(prefixNumE)),
@@ -453,7 +453,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button F
 				var prefixNumF = 2
 				if( seatPositionArray[5] >= 0 ) {
-					if(memberData[seatPositionArray[5]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[5]].nickname.isNotZenkaku) {
 						prefixNumF = 5
 					}
 					self.seatBtnF.setTitle(String(memberData[seatPositionArray[5]].nickname.prefix(prefixNumF)),
@@ -486,7 +486,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button G
 				var prefixNumG = 2
 				if( seatPositionArray[6] >= 0 ) {
-					if(memberData[seatPositionArray[6]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[6]].nickname.isNotZenkaku) {
 						prefixNumG = 5
 					}
 					self.seatBtnG.setTitle(String(memberData[seatPositionArray[6]].nickname.prefix(prefixNumG)),
@@ -519,7 +519,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button H
 				var prefixNumH = 2
 				if( seatPositionArray[7] >= 0 ) {
-					if(memberData[seatPositionArray[7]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[7]].nickname.isNotZenkaku) {
 						prefixNumH = 5
 					}
 					self.seatBtnH.setTitle(String(memberData[seatPositionArray[7]].nickname.prefix(prefixNumH)),
@@ -552,7 +552,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button I
 				var prefixNumI = 2
 				if( seatPositionArray[8] >= 0 ) {
-					if(memberData[seatPositionArray[8]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[8]].nickname.isNotZenkaku) {
 						prefixNumI = 5
 					}
 					self.seatBtnI.setTitle(String(memberData[seatPositionArray[8]].nickname.prefix(prefixNumI)),
@@ -585,7 +585,7 @@ class SeatChangeResultViewController: UIViewController {
 				// seat button J
 				var prefixNumJ = 2
 				if( seatPositionArray[9] >= 0 ) {
-					if(memberData[seatPositionArray[9]].nickname.isNotJapanese) {
+					if(memberData[seatPositionArray[9]].nickname.isNotZenkaku) {
 						prefixNumJ = 5
 					}
 					self.seatBtnJ.setTitle(String(memberData[seatPositionArray[9]].nickname.prefix(prefixNumJ)),
