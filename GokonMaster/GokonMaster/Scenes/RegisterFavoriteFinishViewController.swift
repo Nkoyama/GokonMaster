@@ -272,9 +272,9 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				seatChangeResultViewController.modalPresentationStyle = .fullScreen
 				self.present(seatChangeResultViewController, animated: true)
 			} else if( self.favoriteType == 1 ) {
-				let matchingResultViewController = MatchingResultViewController()
-				matchingResultViewController.modalPresentationStyle = .fullScreen
-				self.present(matchingResultViewController, animated: true)
+				let matchingResultInitViewController = MatchingResultInitViewController()
+				matchingResultInitViewController.modalPresentationStyle = .fullScreen
+				self.present(matchingResultInitViewController, animated: true)
 			}
 		} else {
 			let registerFavoriteViewController = RegisterFavoriteViewController()
