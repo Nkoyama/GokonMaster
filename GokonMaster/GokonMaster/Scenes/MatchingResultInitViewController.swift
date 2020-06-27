@@ -58,7 +58,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
 		}
 		// message
-		self.message.text = "パスワードを入力してください。"
+		self.message.text = "最初に登録した暗証番号を入力してください。"
 		self.message.textColor = UIColor.black
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in
@@ -99,10 +99,14 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func okBtnDidTap(_ sender: UIButton) {
-		// registered number count up
-		registeredNum += 1
-		if( registeredNum == joinNumSum ) {
+		if( self.pinCodeTF.text == memberData[registeredNum].pinCode ) {
+			
 		} else {
+			let alert: UIAlertController = UIAlertController(title: "Error",
+															 message: "暗証番号が一致しません。",
+															 preferredStyle: .alert)
+			alert.addAction(defaultAction)
+			self.present(alert, animated: true, completion: nil)
 		}
 	}
 }
