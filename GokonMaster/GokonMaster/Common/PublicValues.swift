@@ -129,17 +129,14 @@ public func initAllPublicValues() {
 
 	tableTypeIndex = 0
 
-	initMemberData()
+	memberData.removeAll()
 	clearBothSexArray()
 
-	let len : Int = seatPositionArray.count
-	for _ in 0..<len {
-		seatPositionArray.removeLast()
-	}
-	
+	initSeatPositionArray()
+
 	initRegisteredNum()
 	
-	initFavoriteArray(joinNum: 0)
+	favoriteArray.removeAll()
 }
 
 
