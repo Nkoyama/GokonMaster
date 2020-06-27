@@ -39,27 +39,13 @@ public func initTableTypeIndex() {
 /* 参加者データ */
 public var memberData:[(nickname:		String,
 						sexIndex:		Int,
-						pinCode:		String,
-						lineId:			String,
-						emailAddress:	String,
-						phoneNumber:	String,
-						instagramId:	String,
-						twitterId:		String,
-						otherName:		String,
-						other:			String)] = []
+						pinCode:		String)] = []
 public func initMemberData() {
 	memberData.removeAll()
 	for _ in 1...joinNumSum {
 		memberData.append((nickname:		"",
 						   sexIndex:		-1,
-						   pinCode:			"",
-						   lineId:			"",
-						   emailAddress:	"",
-						   phoneNumber:		"",
-						   instagramId:		"",
-						   twitterId:		"",
-						   otherName:		"",
-						   other:			""))
+						   pinCode:			""))
 	}
 }
 
