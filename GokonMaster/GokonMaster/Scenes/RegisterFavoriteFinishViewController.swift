@@ -268,10 +268,12 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
 			if( self.favoriteType == 0 ) {
+				initRegisteredNum()
 				let seatChangeResultViewController = SeatChangeResultViewController()
 				seatChangeResultViewController.modalPresentationStyle = .fullScreen
 				self.present(seatChangeResultViewController, animated: true)
 			} else if( self.favoriteType == 1 ) {
+				initRegisteredNum()
 				let matchingResultInitViewController = MatchingResultInitViewController()
 				matchingResultInitViewController.modalPresentationStyle = .fullScreen
 				self.present(matchingResultInitViewController, animated: true)
