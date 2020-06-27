@@ -492,6 +492,7 @@ class RegisterFavoriteViewController: UIViewController {
 											 handler:{
 				(action: UIAlertAction!) -> Void in
 				let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
+				registerFavoriteFinishViewController.favoriteType = self.favoriteType
 				registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
 				self.present(registerFavoriteFinishViewController, animated: true)
 		})
@@ -547,6 +548,7 @@ class RegisterFavoriteViewController: UIViewController {
 
 		if(choiceComplete) {
 			let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
+			registerFavoriteFinishViewController.favoriteType = self.favoriteType
 			registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
 			self.present(registerFavoriteFinishViewController, animated: true)
 		}
