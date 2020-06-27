@@ -15,7 +15,6 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	let smallTitle			= UILabel()				// title
 	let message1			= UILabel()				// message1
 	let message2			= UILabel()				// message2
-	let settingMsg			= UILabel()				// setting message
 	let nicknameLabel		= UILabel()				// nickname label
 	let nicknameTF			= UITextField()			// nickname
 	let sexLabel			= UILabel()				// sex label
@@ -50,7 +49,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(188)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(198)
 		}
 		// message2
 		self.message2.text = "の情報を登録してください。"
@@ -58,16 +57,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
-		}
-		// setting message
-		self.settingMsg.numberOfLines = 2
-		self.settingMsg.text = "※登録された連絡先は合コン終了後、\n  マッチした相手にのみ表示されます。"
-		self.settingMsg.textColor = UIColor.black
-		self.view.addSubview(settingMsg)
-		self.settingMsg.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
 		}
 
 		// nickname
