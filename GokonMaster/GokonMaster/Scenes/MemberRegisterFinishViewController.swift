@@ -1174,8 +1174,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 						}
 						self.seatBtnJ.backgroundColor = UIColor.blue
 				}
-				// ToDo: 座席未選択エラーの後、座席選択できない
-				seatPositionArray[tag.rawValue] = registeredNum
 			}
 		}
 	}
@@ -1204,16 +1202,38 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
-		if(seatPositionArray[0] != registeredNum &&
-			seatPositionArray[1] != registeredNum &&
-			seatPositionArray[2] != registeredNum &&
-			seatPositionArray[3] != registeredNum &&
-			seatPositionArray[4] != registeredNum &&
-			seatPositionArray[5] != registeredNum &&
-			seatPositionArray[6] != registeredNum &&
-			seatPositionArray[7] != registeredNum &&
-			seatPositionArray[8] != registeredNum &&
-			seatPositionArray[9] != registeredNum) {
+		// 選択中の座席を設定
+		if(self.seatBtnA.backgroundColor == UIColor.blue) {
+			seatPositionArray[0] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnB.backgroundColor == UIColor.blue) {
+			seatPositionArray[1] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnC.backgroundColor == UIColor.blue) {
+			seatPositionArray[2] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnD.backgroundColor == UIColor.blue) {
+			seatPositionArray[3] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnE.backgroundColor == UIColor.blue) {
+			seatPositionArray[4] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnF.backgroundColor == UIColor.blue) {
+			seatPositionArray[5] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnG.backgroundColor == UIColor.blue) {
+			seatPositionArray[6] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnH.backgroundColor == UIColor.blue) {
+			seatPositionArray[7] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnI.backgroundColor == UIColor.blue) {
+			seatPositionArray[8] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnJ.backgroundColor == UIColor.blue) {
+			seatPositionArray[9] = registeredNum
+			registeredNum += 1
+		} else {
 			let alert: UIAlertController = UIAlertController(title: "エラー",
 												 message: "現在の位置を設定してください。",
 												 preferredStyle: UIAlertController.Style.alert)
@@ -1221,8 +1241,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			present(alert, animated: true, completion: nil)
 		}
 
-		// registered number count up
-		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
 			let settingFinishViewController = SettingFinishViewController()
 			settingFinishViewController.modalPresentationStyle = .fullScreen
