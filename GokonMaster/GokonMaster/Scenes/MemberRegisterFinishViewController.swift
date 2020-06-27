@@ -91,7 +91,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(160)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
 		}
 
 		// message1
@@ -100,29 +100,44 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
 		}
 
-		// scroll view
-		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
-		self.contactInfoScrollV.backgroundColor = UIColor.init(red: 84/255,
-															   green: 255/255,
-															   blue: 159/255,
-															   alpha: 0.5)
-		self.contactInfoScrollV.layer.borderWidth = 1.0
-		self.contactInfoScrollV.contentSize = CGSize(width: SCREEN_SIZE.width-100, height: 180)
-		self.contactInfoScrollV.delegate = self
-		self.view.addSubview(self.contactInfoScrollV)
-		self.contactInfoScrollV.frame.origin.y		= 280
-		self.contactInfoScrollV.frame.origin.x		= 50
-		self.contactInfoScrollV.frame.size.height	= SCREEN_SIZE.height - 760
-		self.contactInfoScrollV.frame.size.width	= SCREEN_SIZE.width - 100
-		let contactInfoView = createContactInfoListView()
-		self.contactInfoScrollV.addSubview(contactInfoView)
-		// ドラッグ開始時にキーボードを閉じる
-		self.contactInfoScrollV.keyboardDismissMode = .onDrag
-		// キーボードを下にドラッグした時にキーボードを閉じる
-		self.contactInfoScrollV.keyboardDismissMode = .interactive
+		// sex
+		self.sexLabel.text = "性別 : "
+		self.sexLabel.textColor = UIColor.black
+		self.view.addSubview(sexLabel)
+		self.sexLabel.snp.makeConstraints { (make) in
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+		}
+		if(memberData[registeredNum].sexIndex == 1){
+			self.sex.text = "女"
+		}else{
+			self.sex.text = "男"
+		}
+		self.sex.textColor = UIColor.black
+		self.view.addSubview(sex)
+		self.sex.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+		}
+
+		// PIN code
+		self.pinCodeLabel.text = "暗証番号 : "
+		self.pinCodeLabel.textColor = UIColor.black
+		self.view.addSubview(pinCodeLabel)
+		self.pinCodeLabel.snp.makeConstraints { (make) in
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+		}
+		self.pinCode.text = String(memberData[registeredNum].pinCode)
+		self.pinCode.textColor = UIColor.black
+		self.view.addSubview(pinCode)
+		self.pinCode.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+		}
 
 		// setting message
 		self.message2.text = "あなたの現在の位置はどこですか？"
@@ -859,53 +874,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
 		}
-	}
-
-	/// 登録された連絡先を表示するスクロール部分のViewを作成
-	/// - Authors: Nozomi Koyama
-	func createContactInfoListView() -> UIView {
-		// MARK: Views
-		let contactInfoListView = UIView()
-		contactInfoListView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-100, height: 180)
-
-		// MARK: Life Cycle
-		// sex
-		self.sexLabel.text = "性別 : "
-		self.sexLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(sexLabel)
-		self.sexLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
-		}
-		if(memberData[registeredNum].sexIndex == 1){
-			self.sex.text = "女"
-		}else{
-			self.sex.text = "男"
-		}
-		self.sex.textColor = UIColor.black
-		contactInfoListView.addSubview(sex)
-		self.sex.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
-		}
-		
-		// PIN code
-		self.pinCodeLabel.text = "暗証番号 : "
-		self.pinCodeLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(pinCodeLabel)
-		self.pinCodeLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(30)
-		}
-		self.pinCode.text = String(memberData[registeredNum].pinCode)
-		self.pinCode.textColor = UIColor.black
-		contactInfoListView.addSubview(pinCode)
-		self.pinCode.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(30)
-		}
-
-		return contactInfoListView
 	}
 
 	/// seatBtn action
