@@ -39,18 +39,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let sex						= UILabel()			// sex
 	let pinCodeLabel			= UILabel()			// PIN code label
 	let pinCode					= UILabel()			// PIN code
-	let lineIdLabel				= UILabel()			// LINE ID label
-	let lineId					= UILabel()			// LINE ID
-	let emailAddressLabel		= UILabel()			// e-mail address label
-	let emailAddress			= UILabel()			// e-mail address
-	let phoneNumberLabel		= UILabel()			// phone number label
-	let phoneNumber				= UILabel()			// phone number
-	let instagramIdLabel		= UILabel()			// Instagram ID label
-	let instagramId				= UILabel()			// Instagram ID
-	let twitterIdLabel			= UILabel()			// Twitter ID label
-	let twitterId				= UILabel()			// Twitter ID
-	let contactInfoOtherName	= UILabel()			// contact information other name
-	let contactInfoOther		= UILabel()			// contact information other
 
 	// テーブル選択状況
 	let memberIndexA = seatPositionArray[0]
@@ -103,7 +91,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(160)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
 		}
 
 		// message1
@@ -112,29 +100,44 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
 		}
 
-		// scroll view
-		self.contactInfoScrollV.layer.borderColor = UIColor.black.cgColor
-		self.contactInfoScrollV.backgroundColor = UIColor.init(red: 84/255,
-															   green: 255/255,
-															   blue: 159/255,
-															   alpha: 0.5)
-		self.contactInfoScrollV.layer.borderWidth = 1.0
-		self.contactInfoScrollV.contentSize = CGSize(width: SCREEN_SIZE.width-100, height: 180)
-		self.contactInfoScrollV.delegate = self
-		self.view.addSubview(self.contactInfoScrollV)
-		self.contactInfoScrollV.frame.origin.y		= 280
-		self.contactInfoScrollV.frame.origin.x		= 50
-		self.contactInfoScrollV.frame.size.height	= SCREEN_SIZE.height - 760
-		self.contactInfoScrollV.frame.size.width	= SCREEN_SIZE.width - 100
-		let contactInfoView = createContactInfoListView()
-		self.contactInfoScrollV.addSubview(contactInfoView)
-		// ドラッグ開始時にキーボードを閉じる
-		self.contactInfoScrollV.keyboardDismissMode = .onDrag
-		// キーボードを下にドラッグした時にキーボードを閉じる
-		self.contactInfoScrollV.keyboardDismissMode = .interactive
+		// sex
+		self.sexLabel.text = "性別 : "
+		self.sexLabel.textColor = UIColor.black
+		self.view.addSubview(sexLabel)
+		self.sexLabel.snp.makeConstraints { (make) in
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+		}
+		if(memberData[registeredNum].sexIndex == 1){
+			self.sex.text = "女"
+		}else{
+			self.sex.text = "男"
+		}
+		self.sex.textColor = UIColor.black
+		self.view.addSubview(sex)
+		self.sex.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+		}
+
+		// PIN code
+		self.pinCodeLabel.text = "暗証番号 : "
+		self.pinCodeLabel.textColor = UIColor.black
+		self.view.addSubview(pinCodeLabel)
+		self.pinCodeLabel.snp.makeConstraints { (make) in
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+		}
+		self.pinCode.text = String(memberData[registeredNum].pinCode)
+		self.pinCode.textColor = UIColor.black
+		self.view.addSubview(pinCode)
+		self.pinCode.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+		}
 
 		// setting message
 		self.message2.text = "あなたの現在の位置はどこですか？"
@@ -873,181 +876,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		}
 	}
 
-	/// 登録された連絡先を表示するスクロール部分のViewを作成
-	/// - Authors: Nozomi Koyama
-	func createContactInfoListView() -> UIView {
-		// MARK: Views
-		let contactInfoListView = UIView()
-		contactInfoListView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-100, height: 180)
-
-		// MARK: Life Cycle
-		// sex
-		self.sexLabel.text = "性別 : "
-		self.sexLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(sexLabel)
-		self.sexLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
-		}
-		if(memberData[registeredNum].sexIndex == 1){
-			self.sex.text = "女"
-		}else{
-			self.sex.text = "男"
-		}
-		self.sex.textColor = UIColor.black
-		contactInfoListView.addSubview(sex)
-		self.sex.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(10)
-		}
-		
-		// PIN code
-		self.pinCodeLabel.text = "暗証番号 : "
-		self.pinCodeLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(pinCodeLabel)
-		self.pinCodeLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(30)
-		}
-		self.pinCode.text = String(memberData[registeredNum].pinCode)
-		self.pinCode.textColor = UIColor.black
-		contactInfoListView.addSubview(pinCode)
-		self.pinCode.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(30)
-		}
-
-		// LINE ID
-		self.lineIdLabel.text = "LINE ID : "
-		self.lineIdLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(lineIdLabel)
-		self.lineIdLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(50)
-		}
-		if(memberData[registeredNum].lineId == ""){
-			self.lineId.text = "未登録"
-			self.lineId.textColor = UIColor.lightGray
-		}else{
-			self.lineId.text = memberData[registeredNum].lineId
-			self.lineId.textColor = UIColor.black
-		}
-		contactInfoListView.addSubview(lineId)
-		self.lineId.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(50)
-		}
-
-		// e-mail address
-		self.emailAddressLabel.text = "e-mail address : "
-		self.emailAddressLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(emailAddressLabel)
-		self.emailAddressLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(70)
-		}
-		if(memberData[registeredNum].emailAddress == ""){
-			self.emailAddress.text = "未登録"
-			self.emailAddress.textColor = UIColor.lightGray
-		}else{
-			self.emailAddress.text = memberData[registeredNum].emailAddress
-			self.emailAddress.textColor = UIColor.black
-		}
-		contactInfoListView.addSubview(emailAddress)
-		self.emailAddress.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(70)
-		}
-
-		// phone number
-		self.phoneNumberLabel.text = "phone number : "
-		self.phoneNumberLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(phoneNumberLabel)
-		self.phoneNumberLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(90)
-		}
-		if(memberData[registeredNum].phoneNumber == ""){
-			self.phoneNumber.text = "未登録"
-			self.phoneNumber.textColor = UIColor.lightGray
-		}else{
-			self.phoneNumber.text = memberData[registeredNum].phoneNumber
-			self.phoneNumber.textColor = UIColor.black
-		}
-		contactInfoListView.addSubview(phoneNumber)
-		self.phoneNumber.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(90)
-		}
-
-		// Instagram ID
-		self.instagramIdLabel.text = "Instagram ID : "
-		self.instagramIdLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(instagramIdLabel)
-		self.instagramIdLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(110)
-		}
-		if(memberData[registeredNum].instagramId == ""){
-			self.instagramId.text = "未登録"
-			self.instagramId.textColor = UIColor.lightGray
-		}else{
-			self.instagramId.text = memberData[registeredNum].instagramId
-			self.instagramId.textColor = UIColor.black
-		}
-		contactInfoListView.addSubview(instagramId)
-		self.instagramId.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(110)
-		}
-
-		// Twitter ID
-		self.twitterIdLabel.text = "Twitter ID : "
-		self.twitterIdLabel.textColor = UIColor.black
-		contactInfoListView.addSubview(twitterIdLabel)
-		self.twitterIdLabel.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(130)
-		}
-		if(memberData[registeredNum].twitterId == ""){
-			self.twitterId.text = "未登録"
-			self.twitterId.textColor = UIColor.lightGray
-		}else{
-			self.twitterId.text = memberData[registeredNum].twitterId
-			self.twitterId.textColor = UIColor.black
-		}
-		contactInfoListView.addSubview(twitterId)
-		self.twitterId.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(130)
-		}
-
-		// other
-		if(memberData[registeredNum].otherName == ""){
-			self.contactInfoOtherName.text = "other : "
-			self.contactInfoOtherName.textColor = UIColor.lightGray
-			self.contactInfoOther.text = "未登録"
-			self.contactInfoOther.textColor = UIColor.lightGray
-		}else{
-			self.contactInfoOtherName.text = memberData[registeredNum].otherName + " : "
-			self.contactInfoOtherName.textColor = UIColor.black
-			self.contactInfoOther.text = memberData[registeredNum].other
-			self.contactInfoOther.textColor = UIColor.black
-		}
-		contactInfoListView.addSubview(contactInfoOtherName)
-		self.contactInfoOtherName.snp.makeConstraints { (make) in
-			make.right.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(140)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(150)
-		}
-		contactInfoListView.addSubview(contactInfoOther)
-		self.contactInfoOther.snp.makeConstraints{ (make) in
-			make.left.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.left).inset(150)
-			make.top.equalTo(contactInfoListView.safeAreaLayoutGuide.snp.top).inset(150)
-		}
-
-		return contactInfoListView
-	}
-
 	/// seatBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
@@ -1346,8 +1174,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 						}
 						self.seatBtnJ.backgroundColor = UIColor.blue
 				}
-				// ToDo: 座席未選択エラーの後、座席選択できない
-				seatPositionArray[tag.rawValue] = registeredNum
 			}
 		}
 	}
@@ -1376,16 +1202,38 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
-		if(seatPositionArray[0] != registeredNum &&
-			seatPositionArray[1] != registeredNum &&
-			seatPositionArray[2] != registeredNum &&
-			seatPositionArray[3] != registeredNum &&
-			seatPositionArray[4] != registeredNum &&
-			seatPositionArray[5] != registeredNum &&
-			seatPositionArray[6] != registeredNum &&
-			seatPositionArray[7] != registeredNum &&
-			seatPositionArray[8] != registeredNum &&
-			seatPositionArray[9] != registeredNum) {
+		// 選択中の座席を設定
+		if(self.seatBtnA.backgroundColor == UIColor.blue) {
+			seatPositionArray[0] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnB.backgroundColor == UIColor.blue) {
+			seatPositionArray[1] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnC.backgroundColor == UIColor.blue) {
+			seatPositionArray[2] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnD.backgroundColor == UIColor.blue) {
+			seatPositionArray[3] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnE.backgroundColor == UIColor.blue) {
+			seatPositionArray[4] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnF.backgroundColor == UIColor.blue) {
+			seatPositionArray[5] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnG.backgroundColor == UIColor.blue) {
+			seatPositionArray[6] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnH.backgroundColor == UIColor.blue) {
+			seatPositionArray[7] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnI.backgroundColor == UIColor.blue) {
+			seatPositionArray[8] = registeredNum
+			registeredNum += 1
+		} else if(self.seatBtnJ.backgroundColor == UIColor.blue) {
+			seatPositionArray[9] = registeredNum
+			registeredNum += 1
+		} else {
 			let alert: UIAlertController = UIAlertController(title: "エラー",
 												 message: "現在の位置を設定してください。",
 												 preferredStyle: UIAlertController.Style.alert)
@@ -1393,8 +1241,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			present(alert, animated: true, completion: nil)
 		}
 
-		// registered number count up
-		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
 			let settingFinishViewController = SettingFinishViewController()
 			settingFinishViewController.modalPresentationStyle = .fullScreen
