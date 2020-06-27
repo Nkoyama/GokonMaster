@@ -9,17 +9,18 @@
 import Foundation
 
 public func matchingMainLogic() -> Array<Int> {
-	// マッチングリスト・未マッチリスト初期化
-	var matchingList: Array<Int>		= Array<Int>()
+	// 未マッチリスト初期化
 	var noMatchMaleList: Array<Int>		= Array<Int>()
 	var noMatchFemaleList: Array<Int>	= Array<Int>()
 	for oneMale in maleArray {
 		noMatchMaleList.append(oneMale.index)
-		matchingList.append(-1)
 	}
 	for oneFemale in femaleArray {
 		noMatchFemaleList.append(oneFemale.index)
 	}
+
+	// マッチングリスト初期化
+	var matchingList = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 	// お気に入り1位同士をマッチング
 	var i = 0
@@ -28,7 +29,8 @@ public func matchingMainLogic() -> Array<Int> {
 		j = 0
 		for noMatchFemale in noMatchFemaleList {
 			if( favoriteArray[noMatchMale].first == favoriteArray[noMatchFemale].first ) {
-				matchingList[i] = noMatchFemale
+				matchingList[noMatchMale] = noMatchFemale
+				matchingList[noMatchFemale] = noMatchMale
 				noMatchMaleList.remove(at: i)
 				noMatchFemaleList.remove(at: j)
 			}
@@ -43,7 +45,8 @@ public func matchingMainLogic() -> Array<Int> {
 		j = 0
 		for noMatchFemale in noMatchFemaleList {
 			if( favoriteArray[noMatchMale].second == favoriteArray[noMatchFemale].first ) {
-				matchingList[i] = noMatchFemale
+				matchingList[noMatchMale] = noMatchFemale
+				matchingList[noMatchFemale] = noMatchMale
 				noMatchMaleList.remove(at: i)
 				noMatchFemaleList.remove(at: j)
 			}
@@ -57,7 +60,8 @@ public func matchingMainLogic() -> Array<Int> {
 		j = 0
 		for noMatchFemale in noMatchFemaleList {
 			if( favoriteArray[noMatchMale].first == favoriteArray[noMatchFemale].second ) {
-				matchingList[i] = noMatchFemale
+				matchingList[noMatchMale] = noMatchFemale
+				matchingList[noMatchFemale] = noMatchMale
 				noMatchMaleList.remove(at: i)
 				noMatchFemaleList.remove(at: j)
 			}
@@ -71,7 +75,8 @@ public func matchingMainLogic() -> Array<Int> {
 		j = 0
 		for noMatchFemale in noMatchFemaleList {
 			if( favoriteArray[noMatchMale].second == favoriteArray[noMatchFemale].second ) {
-				matchingList[i] = noMatchFemale
+				matchingList[noMatchMale] = noMatchFemale
+				matchingList[noMatchFemale] = noMatchMale
 				noMatchMaleList.remove(at: i)
 				noMatchFemaleList.remove(at: j)
 			}

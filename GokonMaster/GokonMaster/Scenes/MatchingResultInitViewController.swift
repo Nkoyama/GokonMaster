@@ -100,7 +100,9 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate {
 	/// - Authors: Nozomi Koyama
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		if( self.pinCodeTF.text == memberData[registeredNum].pinCode ) {
-			
+			let matchingResultViewController = MatchingResultViewController()
+			matchingResultViewController.modalPresentationStyle = .fullScreen
+			self.present(matchingResultViewController, animated: true)
 		} else {
 			let alert: UIAlertController = UIAlertController(title: "Error",
 															 message: "暗証番号が一致しません。",
