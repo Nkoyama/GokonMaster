@@ -67,6 +67,9 @@ class MenuViewController: UIViewController {
 		self.matchingBtn.layer.borderWidth = 2.0
 		self.matchingBtn.layer.cornerRadius = 2.0
 		self.view.addSubview(matchingBtn)
+		self.matchingBtn.addTarget(self,
+									 action: #selector(self.matchingBtnDidTap(_:)),
+									 for: .touchUpInside)
 		self.matchingBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
@@ -103,6 +106,20 @@ class MenuViewController: UIViewController {
 		initFavoriteArray(joinNum: joinNumSum)
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
+		registerFavoriteViewController.favoriteType = 0
+		registerFavoriteViewController.modalPresentationStyle = .fullScreen
+		self.present(registerFavoriteViewController, animated: true)
+	}
+
+	/// matchingBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func matchingBtnDidTap(_ sender: UIButton) {
+		initRegisteredNum()
+		initFavoriteArray(joinNum: joinNumSum)
+
+		let registerFavoriteViewController = RegisterFavoriteViewController()
+		registerFavoriteViewController.favoriteType = 1
 		registerFavoriteViewController.modalPresentationStyle = .fullScreen
 		self.present(registerFavoriteViewController, animated: true)
 	}

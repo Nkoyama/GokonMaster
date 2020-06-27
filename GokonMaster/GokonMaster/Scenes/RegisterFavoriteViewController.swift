@@ -28,8 +28,9 @@ class RegisterFavoriteViewController: UIViewController {
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
 
-	var nameArray	= [[String]]()
-	var rankArray	= [String]()
+	var nameArray			= [[String]]()
+	var rankArray			= [String]()
+	var favoriteType: Int	= Int()		// 0:seat change, 1:matching
 
 
 	// MARK: Life Cycle

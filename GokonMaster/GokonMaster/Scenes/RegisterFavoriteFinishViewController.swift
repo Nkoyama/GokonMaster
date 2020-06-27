@@ -268,6 +268,7 @@ class RegisterFavoriteFinishViewController: UIViewController {
 			self.present(seatChangeResultViewController, animated: true)
 		} else {
 			let registerFavoriteViewController = RegisterFavoriteViewController()
+			registerFavoriteViewController.favoriteType = 0
 			registerFavoriteViewController.modalPresentationStyle = .fullScreen
 			self.present(registerFavoriteViewController, animated: true)
 		}
