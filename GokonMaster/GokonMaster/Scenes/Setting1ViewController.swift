@@ -13,8 +13,8 @@ import SnapKit
 class Setting1ViewController: UIViewController, UITextFieldDelegate {
 
 	// MARK: Views
-	let backBtn			= UIButton()			// back button
 	let smallTitle		= UILabel()				// title
+	let backBtn			= UIButton()			// back button
 	let settingMsg		= UILabel()				// setting message
 	let joinNumLabel	= UILabel()				// 参加人数 label
 	let maleLabel		= UILabel()				// 男 label
@@ -47,11 +47,13 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		}
 
 		// title
-		self.smallTitle.numberOfLines = 2
-		self.smallTitle.text = "合コン\n    master"
-		self.smallTitle.textColor = UIColor.blue
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 40.0)
-		self.view.addSubview(smallTitle)
+		self.smallTitle.text = "初期設定"
+		self.smallTitle.textColor = UIColor.init(red: 0/255,
+												 green: 167/255,
+												 blue: 113/255,
+												 alpha: 1)
+		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
+		self.view.addSubview(self.smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)

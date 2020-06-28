@@ -118,6 +118,13 @@ public func initFavoriteArray(joinNum : Int) {
 }
 
 
+// マッチング結果
+public var matchingResult = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+public func initMatchingResult() {
+	matchingResult = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+}
+
+
 /// すべてのpublic変数を初期化
 public func initAllPublicValues() {
 	editingTextFieldName = ""

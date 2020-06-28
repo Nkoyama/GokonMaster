@@ -29,11 +29,13 @@ class SettingFinishViewController: UIViewController {
 		self.view.backgroundColor = UIColor.white
 
 		// title
-		self.smallTitle.numberOfLines = 2
-		self.smallTitle.text = "合コン\n    master"
-		self.smallTitle.textColor = UIColor.blue
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 40.0)
-		self.view.addSubview(smallTitle)
+		self.smallTitle.text = "設定完了"
+		self.smallTitle.textColor = UIColor.init(red: 0/255,
+												 green: 167/255,
+												 blue: 113/255,
+												 alpha: 1)
+		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
+		self.view.addSubview(self.smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)

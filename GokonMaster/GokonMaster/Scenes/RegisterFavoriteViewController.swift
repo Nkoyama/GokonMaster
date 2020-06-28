@@ -13,23 +13,27 @@ class RegisterFavoriteViewController: UIViewController {
 	// MARK: Views
 	let backBtn				= UIButton()	// back button
 	let smallTitle			= UILabel()		// title
-	let secondTitle			= UILabel()		// secondary title
 	let dearName			= UILabel()
 	let message				= UILabel()
 	let rankLabel_1			= UILabel()		// 1位 label
 	let rankLabel_2			= UILabel()		// 2位 label
 	let rankLabel_3			= UILabel()		// 3位 label
 	let rankLabel_4			= UILabel()		// 4位 label
-	let nameBtn_1			= UIButton()	// 1位 ボタン
-	let nameBtn_2			= UIButton()	// 2位 ボタン
-	let nameBtn_3			= UIButton()	// 3位 ボタン
-	let nameBtn_4			= UIButton()	// 4位 ボタン
+	let nameBtn_1			= UIButton()	// 1位 button
+	let nameBtn_2			= UIButton()	// 2位 button
+	let nameBtn_3			= UIButton()	// 3位 button
+	let nameBtn_4			= UIButton()	// 4位 button
+	let clearBtn_1			= UIButton()	// 1位 clear button
+	let clearBtn_2			= UIButton()	// 2位 clear button
+	let clearBtn_3			= UIButton()	// 3位 clear button
+	let clearBtn_4			= UIButton()	// 4位 clear button
 	let decideBtn			= UIButton()	// 決定 ボタン
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
 
-	var nameArray	= [[String]]()
-	var rankArray	= [String]()
+	var nameArray			= [[String]]()
+	var rankArray			= [String]()
+	var favoriteType: Int	= Int()		// 0:seat change, 1:matching
 
 
 	// MARK: Life Cycle
@@ -55,24 +59,16 @@ class RegisterFavoriteViewController: UIViewController {
 		}
 
 		// title
-		self.smallTitle.numberOfLines = 2
-		self.smallTitle.text = "合コン\n    master"
-		self.smallTitle.textColor = UIColor.blue
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 40.0)
+		self.smallTitle.text = "お気に入り登録"
+		self.smallTitle.textColor = UIColor.init(red: 0/255,
+												 green: 167/255,
+												 blue: 113/255,
+												 alpha: 1)
+		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
-
-		// secondary title
-		self.secondTitle.text = "お気に入り登録"
-		self.secondTitle.textColor = UIColor.init(red: 0/255, green: 167/255, blue: 113/255, alpha: 1)
-		self.secondTitle.font = UIFont.italicSystemFont(ofSize: 25.0)
-		self.view.addSubview(secondTitle)
-		self.secondTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
 		}
 
 		// dear name
@@ -112,7 +108,7 @@ class RegisterFavoriteViewController: UIViewController {
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
 
-			if(favoriteArray[registeredNum].first != -1) {
+			if(favoriteArray[registeredNum].first >= 0) {
 				self.nameBtn_1.setTitle(maleArray[favoriteArray[registeredNum].first].nickname,
 										for: .normal)
 			} else {
@@ -152,7 +148,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
 				}
 
-				if(favoriteArray[registeredNum].second != -1) {
+				if(favoriteArray[registeredNum].second >= 0) {
 					self.nameBtn_2.setTitle(maleArray[favoriteArray[registeredNum].second].nickname,
 											for: .normal)
 				} else {
@@ -193,7 +189,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
 				}
 
-				if(favoriteArray[registeredNum].third != -1) {
+				if(favoriteArray[registeredNum].third >= 0) {
 					self.nameBtn_3.setTitle(maleArray[favoriteArray[registeredNum].third].nickname,
 											for: .normal)
 				} else {
@@ -234,7 +230,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
 				}
 
-				if(favoriteArray[registeredNum].fourth != -1) {
+				if(favoriteArray[registeredNum].fourth >= 0) {
 					self.nameBtn_4.setTitle(maleArray[favoriteArray[registeredNum].fourth].nickname,
 											for: .normal)
 				} else {
@@ -276,7 +272,7 @@ class RegisterFavoriteViewController: UIViewController {
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
 			
-			if(favoriteArray[registeredNum].first != -1) {
+			if(favoriteArray[registeredNum].first >= 0) {
 				self.nameBtn_1.setTitle(femaleArray[favoriteArray[registeredNum].first].nickname,
 										for: .normal)
 			} else {
@@ -316,7 +312,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
 				}
 				
-				if(favoriteArray[registeredNum].second != -1) {
+				if(favoriteArray[registeredNum].second >= 0) {
 					self.nameBtn_2.setTitle(femaleArray[favoriteArray[registeredNum].second].nickname,
 											for: .normal)
 				} else {
@@ -357,7 +353,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
 				}
 				
-				if(favoriteArray[registeredNum].third != -1) {
+				if(favoriteArray[registeredNum].third >= 0) {
 					self.nameBtn_3.setTitle(femaleArray[favoriteArray[registeredNum].third].nickname,
 											for: .normal)
 				} else {
@@ -398,7 +394,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
 				}
 				
-				if(favoriteArray[registeredNum].fourth != -1) {
+				if(favoriteArray[registeredNum].fourth >= 0) {
 					self.nameBtn_4.setTitle(femaleArray[favoriteArray[registeredNum].fourth].nickname,
 											for: .normal)
 				} else {
@@ -491,6 +487,7 @@ class RegisterFavoriteViewController: UIViewController {
 											 handler:{
 				(action: UIAlertAction!) -> Void in
 				let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
+				registerFavoriteFinishViewController.favoriteType = self.favoriteType
 				registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
 				self.present(registerFavoriteFinishViewController, animated: true)
 		})
@@ -506,7 +503,7 @@ class RegisterFavoriteViewController: UIViewController {
 			favoriteArray[registeredNum].second < 0 &&
 			favoriteArray[registeredNum].third < 0 &&
 			favoriteArray[registeredNum].fourth < 0) {
-			let alert = UIAlertController(title: "Alert",
+			let alert = UIAlertController(title: "!!!",
 										  message: "気に入った方がいませんでしたか？",
 										  preferredStyle: .alert)
 			alert.addAction(noFavoriteAction)
@@ -546,6 +543,7 @@ class RegisterFavoriteViewController: UIViewController {
 
 		if(choiceComplete) {
 			let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
+			registerFavoriteFinishViewController.favoriteType = self.favoriteType
 			registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
 			self.present(registerFavoriteFinishViewController, animated: true)
 		}

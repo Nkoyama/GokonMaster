@@ -26,6 +26,8 @@ class RegisterFavoriteFinishViewController: UIViewController {
 	let favoriteName_4	= UILabel()			// お気に入り 4位
 	let message2		= UILabel()			// message2
 	let okBtn			= UIButton()		// OK button
+	
+	var favoriteType:Int	= Int()		// 0:seat change, 1:matching
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -50,10 +52,12 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		}
 
 		// title
-		self.smallTitle.numberOfLines = 2
-		self.smallTitle.text = "合コン\n    master"
-		self.smallTitle.textColor = UIColor.blue
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 40.0)
+		self.smallTitle.text = "お気に入り登録"
+		self.smallTitle.textColor = UIColor.init(red: 0/255,
+												 green: 167/255,
+												 blue: 113/255,
+												 alpha: 1)
+		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
@@ -145,8 +149,9 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		}
 
 		// 3位
-		if((memberData[registeredNum].sexIndex == 0 && femaleNum >= 4) ||
-			(memberData[registeredNum].sexIndex == 1 && maleNum >= 4)) {
+		if( ( (memberData[registeredNum].sexIndex == 0 && femaleNum >= 4) ||
+			  (memberData[registeredNum].sexIndex == 1 && maleNum >= 4) )
+			&& self.favoriteType == 0 ) {
 			self.rankLabel_3.text = "3位"
 			self.rankLabel_3.textColor = UIColor.black
 			self.rankLabel_3.textAlignment = NSTextAlignment.center
@@ -179,8 +184,9 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		}
 
 		// 4位
-		if((memberData[registeredNum].sexIndex == 0 && femaleNum >= 5) ||
-			(memberData[registeredNum].sexIndex == 1 && maleNum >= 5)) {
+		if( ( (memberData[registeredNum].sexIndex == 0 && femaleNum >= 5) ||
+			  (memberData[registeredNum].sexIndex == 1 && maleNum >= 5) )
+			&& self.favoriteType == 0 ) {
 			self.rankLabel_4.text = "4位"
 			self.rankLabel_4.textColor = UIColor.black
 			self.rankLabel_4.textAlignment = NSTextAlignment.center
@@ -263,11 +269,22 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		// registered number count up
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
-			let seatChangeResultViewController = SeatChangeResultViewController()
-			seatChangeResultViewController.modalPresentationStyle = .fullScreen
-			self.present(seatChangeResultViewController, animated: true)
+			if( self.favoriteType == 0 ) {
+				initRegisteredNum()
+				let seatChangeResultViewController = SeatChangeResultViewController()
+				seatChangeResultViewController.modalPresentationStyle = .fullScreen
+				self.present(seatChangeResultViewController, animated: true)
+			} else if( self.favoriteType == 1 ) {
+				initRegisteredNum()
+				//マッチング
+				matchingMainLogic()
+				let matchingResultInitViewController = MatchingResultInitViewController()
+				matchingResultInitViewController.modalPresentationStyle = .fullScreen
+				self.present(matchingResultInitViewController, animated: true)
+			}
 		} else {
 			let registerFavoriteViewController = RegisterFavoriteViewController()
+			registerFavoriteViewController.favoriteType = self.favoriteType
 			registerFavoriteViewController.modalPresentationStyle = .fullScreen
 			self.present(registerFavoriteViewController, animated: true)
 		}
