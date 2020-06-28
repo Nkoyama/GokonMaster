@@ -57,7 +57,7 @@ class MatchingResultViewController: UIViewController {
 			self.view.addSubview(self.message3)
 			self.message3.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(370)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
 		// seucceed to match
 		} else {
