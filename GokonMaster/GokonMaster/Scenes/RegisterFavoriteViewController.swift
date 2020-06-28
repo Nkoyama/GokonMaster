@@ -23,11 +23,7 @@ class RegisterFavoriteViewController: UIViewController {
 	let nameBtn_2			= UIButton()	// 2位 button
 	let nameBtn_3			= UIButton()	// 3位 button
 	let nameBtn_4			= UIButton()	// 4位 button
-	let clearBtn_1			= UIButton()	// 1位 clear button
-	let clearBtn_2			= UIButton()	// 2位 clear button
-	let clearBtn_3			= UIButton()	// 3位 clear button
-	let clearBtn_4			= UIButton()	// 4位 clear button
-	let decideBtn			= UIButton()	// 決定 ボタン
+	let decideBtn			= UIButton()	// decide button
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
 

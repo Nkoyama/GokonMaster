@@ -70,7 +70,7 @@ class SeatChangeResultViewController: UIViewController {
 				if(femaleNum>seatNum)	{	seatNum = femaleNum	}
 				let screenWidth:Int = Int(self.view.bounds.width)
 				let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80,
-																		y: 235,
+																		y: 190,
 																		width: 160,
 																		height: seatNum*60))
 				self.view.addSubview(tableSquareDraw)
@@ -87,12 +87,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelA)
-					self.seatLabelA.snp.makeConstraints{ (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
-					}
+					self.seatLabelA.frame = CGRect(x: 20,
+												   y: 200,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat B
 				if( seatPositionArray[1] >= 0 ) {
@@ -106,12 +104,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelB)
-					self.seatLabelB.snp.makeConstraints{ (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
-					}
+					self.seatLabelB.frame = CGRect(x: 20,
+												   y: 260,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat C
 				if( seatPositionArray[2] >= 0 ) {
@@ -125,12 +121,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelC)
-					self.seatLabelC.snp.makeConstraints{ (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(360)
-					}
+					self.seatLabelC.frame = CGRect(x: 20,
+												   y: 320,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat D
 				if( seatPositionArray[3] >= 0 ) {
@@ -144,12 +138,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelD)
-					self.seatLabelD.snp.makeConstraints{ (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(380)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
-					}
+					self.seatLabelD.frame = CGRect(x: 20,
+												   y: 380,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat E
 				if( seatPositionArray[4] >= 0 ) {
@@ -163,12 +155,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelE)
-					self.seatLabelE.snp.makeConstraints{ (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(440)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(480)
-					}
+					self.seatLabelE.frame = CGRect(x: 20,
+												   y: 440,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat F
 				if( seatPositionArray[5] >= 0 ) {
@@ -182,12 +172,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelF)
-					self.seatLabelF.snp.makeConstraints{ (make) in
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
-					}
+					self.seatLabelF.frame = CGRect(x: screenWidth/2+90,
+												   y: 200,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat G
 				if( seatPositionArray[6] >= 0 ) {
@@ -201,12 +189,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelG)
-					self.seatLabelG.snp.makeConstraints{ (make) in
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
-					}
+					self.seatLabelG.frame = CGRect(x: screenWidth/2+90,
+												   y: 260,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat H
 				if( seatPositionArray[7] >= 0 ) {
@@ -220,12 +206,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelH)
-					self.seatLabelH.snp.makeConstraints{ (make) in
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(360)
-					}
+					self.seatLabelH.frame = CGRect(x: screenWidth/2+90,
+												   y: 320,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat I
 				if( seatPositionArray[8] >= 0 ) {
@@ -239,12 +223,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelI)
-					self.seatLabelI.snp.makeConstraints{ (make) in
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(380)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
-					}
+					self.seatLabelI.frame = CGRect(x: screenWidth/2+90,
+												   y: 380,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 				//seat J
 				if( seatPositionArray[9] >= 0 ) {
@@ -258,12 +240,10 @@ class SeatChangeResultViewController: UIViewController {
 																   blue: 204/255,
 																   alpha: 0.7)
 					self.view.addSubview(self.seatLabelJ)
-					self.seatLabelJ.snp.makeConstraints{ (make) in
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(440)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(480)
-					}
+					self.seatLabelJ.frame = CGRect(x: screenWidth/2+90,
+												   y: 440,
+												   width: screenWidth/2-110,
+												   height: 40)
 				}
 			// circle table
 			} else {

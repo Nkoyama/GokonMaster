@@ -275,10 +275,10 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
 			// 線対称同配置を排除するため、男の並び順を限定
-			for i in 4...0 {
-				for j in 11...0 {
+			for i in 0...4 {
+				for j in 0...11 {
 					//6と7の位置に入る男のindex(maleOrder[3]とmaleOrder[4])が入れ替わっているだけのパターンをremove
-					maleOrderAllPattern.remove(at: 24*i + j*2 + 1)
+					maleOrderAllPattern.remove(at: 24*(4-i) + 2*(11-j) + 1)
 				}
 			}
 
@@ -1299,10 +1299,10 @@ public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: 
 				}
 			}
 		}
-		//正面が同性
-		if(memberData[frontMemberIndex].sexIndex==1){	return 0	}
 		//正面が空席
-		else if(frontMemberIndex<0)					{	return 0	}
+		if(frontMemberIndex<0)					{	return 0	}
+		//正面が同性
+		else if(memberData[frontMemberIndex].sexIndex==1){	return 0	}
 		//正面がお気に入りランク外
 		else										{	return -10	}
 	}
