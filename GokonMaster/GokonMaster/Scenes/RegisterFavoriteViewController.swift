@@ -105,7 +105,7 @@ class RegisterFavoriteViewController: UIViewController {
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 			}
 
 			if(favoriteArray[registeredNum].first >= 0) {
