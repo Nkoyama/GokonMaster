@@ -17,9 +17,6 @@ public func matchingMainLogic() {
 	for oneFemale in femaleArray {
 		femaleList.append(oneFemale.index)
 	}
-	print(maleList)
-	print(femaleList)
-	print(favoriteArray)
 
 	// マッチングリスト初期化
 	var matchingList = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
@@ -35,7 +32,6 @@ public func matchingMainLogic() {
 						matchingList[male] = female
 						matchingList[female] = male
 					}
-					print(matchingList)
 				}
 			}
 		}
@@ -51,7 +47,6 @@ public func matchingMainLogic() {
 						matchingList[male] = female
 						matchingList[female] = male
 					}
-					print(matchingList)
 				}
 			}
 		}
@@ -67,7 +62,6 @@ public func matchingMainLogic() {
 						matchingList[male] = female
 						matchingList[female] = male
 					}
-					print(matchingList)
 				}
 			}
 		}
@@ -83,7 +77,6 @@ public func matchingMainLogic() {
 						matchingList[male] = female
 						matchingList[female] = male
 					}
-					print(matchingList)
 				}
 			}
 		}
@@ -99,12 +92,10 @@ public func matchingMainLogic() {
 						matchingList[male] = female
 						matchingList[female] = male
 					}
-					print(matchingList)
 				}
 			}
 		}
 	}
 
 	matchingResult = matchingList
-	print(matchingResult)
 }
