@@ -144,6 +144,8 @@ public func initAllPublicValues() {
 	initRegisteredNum()
 	
 	favoriteArray.removeAll()
+
+	initMatchingResult()
 }
 
 
