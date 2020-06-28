@@ -39,6 +39,7 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 				choiceList.append(oneMale.nickname)
 			}
 		}
+		choiceList.append("未選択")
 
 		let popupWidth	= SCREEN_SIZE.width * 2/3
 		let popupHeight	= SCREEN_SIZE.height / 2
@@ -154,13 +155,29 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 		} else {
 			switch rank {
 				case 1:
-					favoriteArray[registeredNum].first = indexPath.row
+					if( indexPath.row >= choiceList.count-1 ) {
+						favoriteArray[registeredNum].first = -1
+					} else {
+						favoriteArray[registeredNum].first = indexPath.row
+					}
 				case 2:
-					favoriteArray[registeredNum].second = indexPath.row
+					if( indexPath.row >= choiceList.count-1 ) {
+						favoriteArray[registeredNum].second = -1
+					} else {
+						favoriteArray[registeredNum].second = indexPath.row
+					}
 				case 3:
-					favoriteArray[registeredNum].third = indexPath.row
+					if( indexPath.row >= choiceList.count-1 ) {
+						favoriteArray[registeredNum].third = -1
+					} else {
+						favoriteArray[registeredNum].third = indexPath.row
+					}
 				case 4:
-					favoriteArray[registeredNum].fourth = indexPath.row
+					if( indexPath.row >= choiceList.count-1 ) {
+						favoriteArray[registeredNum].fourth = -1
+					} else {
+						favoriteArray[registeredNum].fourth = indexPath.row
+					}
 				default:
 					print("error")
 			}

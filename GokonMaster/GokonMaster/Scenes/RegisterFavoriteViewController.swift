@@ -19,10 +19,14 @@ class RegisterFavoriteViewController: UIViewController {
 	let rankLabel_2			= UILabel()		// 2位 label
 	let rankLabel_3			= UILabel()		// 3位 label
 	let rankLabel_4			= UILabel()		// 4位 label
-	let nameBtn_1			= UIButton()	// 1位 ボタン
-	let nameBtn_2			= UIButton()	// 2位 ボタン
-	let nameBtn_3			= UIButton()	// 3位 ボタン
-	let nameBtn_4			= UIButton()	// 4位 ボタン
+	let nameBtn_1			= UIButton()	// 1位 button
+	let nameBtn_2			= UIButton()	// 2位 button
+	let nameBtn_3			= UIButton()	// 3位 button
+	let nameBtn_4			= UIButton()	// 4位 button
+	let clearBtn_1			= UIButton()	// 1位 clear button
+	let clearBtn_2			= UIButton()	// 2位 clear button
+	let clearBtn_3			= UIButton()	// 3位 clear button
+	let clearBtn_4			= UIButton()	// 4位 clear button
 	let decideBtn			= UIButton()	// 決定 ボタン
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
@@ -104,7 +108,7 @@ class RegisterFavoriteViewController: UIViewController {
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
 
-			if(favoriteArray[registeredNum].first != -1) {
+			if(favoriteArray[registeredNum].first >= 0) {
 				self.nameBtn_1.setTitle(maleArray[favoriteArray[registeredNum].first].nickname,
 										for: .normal)
 			} else {
@@ -144,7 +148,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
 				}
 
-				if(favoriteArray[registeredNum].second != -1) {
+				if(favoriteArray[registeredNum].second >= 0) {
 					self.nameBtn_2.setTitle(maleArray[favoriteArray[registeredNum].second].nickname,
 											for: .normal)
 				} else {
@@ -185,7 +189,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
 				}
 
-				if(favoriteArray[registeredNum].third != -1) {
+				if(favoriteArray[registeredNum].third >= 0) {
 					self.nameBtn_3.setTitle(maleArray[favoriteArray[registeredNum].third].nickname,
 											for: .normal)
 				} else {
@@ -226,7 +230,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
 				}
 
-				if(favoriteArray[registeredNum].fourth != -1) {
+				if(favoriteArray[registeredNum].fourth >= 0) {
 					self.nameBtn_4.setTitle(maleArray[favoriteArray[registeredNum].fourth].nickname,
 											for: .normal)
 				} else {
@@ -268,7 +272,7 @@ class RegisterFavoriteViewController: UIViewController {
 				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 			}
 			
-			if(favoriteArray[registeredNum].first != -1) {
+			if(favoriteArray[registeredNum].first >= 0) {
 				self.nameBtn_1.setTitle(femaleArray[favoriteArray[registeredNum].first].nickname,
 										for: .normal)
 			} else {
@@ -308,7 +312,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
 				}
 				
-				if(favoriteArray[registeredNum].second != -1) {
+				if(favoriteArray[registeredNum].second >= 0) {
 					self.nameBtn_2.setTitle(femaleArray[favoriteArray[registeredNum].second].nickname,
 											for: .normal)
 				} else {
@@ -349,7 +353,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
 				}
 				
-				if(favoriteArray[registeredNum].third != -1) {
+				if(favoriteArray[registeredNum].third >= 0) {
 					self.nameBtn_3.setTitle(femaleArray[favoriteArray[registeredNum].third].nickname,
 											for: .normal)
 				} else {
@@ -390,7 +394,7 @@ class RegisterFavoriteViewController: UIViewController {
 					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
 				}
 				
-				if(favoriteArray[registeredNum].fourth != -1) {
+				if(favoriteArray[registeredNum].fourth >= 0) {
 					self.nameBtn_4.setTitle(femaleArray[favoriteArray[registeredNum].fourth].nickname,
 											for: .normal)
 				} else {
