@@ -40,9 +40,6 @@ class MatchingResultViewController: UIViewController {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
 		}
 
-		// マッチング結果
-		let matchingResult = matchingMainLogic()
-
 		// failed to match
 		if( matchingResult[registeredNum] < 0 ) {
 			// message2

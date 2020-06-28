@@ -499,7 +499,7 @@ class RegisterFavoriteViewController: UIViewController {
 			favoriteArray[registeredNum].second < 0 &&
 			favoriteArray[registeredNum].third < 0 &&
 			favoriteArray[registeredNum].fourth < 0) {
-			let alert = UIAlertController(title: "Alert",
+			let alert = UIAlertController(title: "!!!",
 										  message: "気に入った方がいませんでしたか？",
 										  preferredStyle: .alert)
 			alert.addAction(noFavoriteAction)

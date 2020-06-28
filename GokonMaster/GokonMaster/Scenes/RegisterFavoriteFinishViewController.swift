@@ -276,6 +276,8 @@ class RegisterFavoriteFinishViewController: UIViewController {
 				self.present(seatChangeResultViewController, animated: true)
 			} else if( self.favoriteType == 1 ) {
 				initRegisteredNum()
+				//マッチング
+				matchingMainLogic()
 				let matchingResultInitViewController = MatchingResultInitViewController()
 				matchingResultInitViewController.modalPresentationStyle = .fullScreen
 				self.present(matchingResultInitViewController, animated: true)

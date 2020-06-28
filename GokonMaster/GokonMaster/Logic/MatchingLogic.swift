@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func matchingMainLogic() -> Array<Int> {
+public func matchingMainLogic() {
 	// 未マッチリスト初期化
 	var noMatchMaleList: Array<Int>		= Array<Int>()
 	var noMatchFemaleList: Array<Int>	= Array<Int>()
@@ -21,6 +21,7 @@ public func matchingMainLogic() -> Array<Int> {
 
 	// マッチングリスト初期化
 	var matchingList = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+	initMatchingResult()
 
 	// お気に入り1位同士をマッチング
 	var i = 0
@@ -84,5 +85,6 @@ public func matchingMainLogic() -> Array<Int> {
 		i += 1
 	}
 
-	return matchingList
+	matchingResult = matchingList
+	print(matchingResult)
 }
