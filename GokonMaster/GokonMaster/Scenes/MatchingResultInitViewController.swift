@@ -13,7 +13,6 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate {
 
 	// MARK: Views
 	let smallTitle			= UILabel()			// title
-	let secondTitle			= UILabel()			// secondary title
 	let dearName			= UILabel()
 	let message				= UILabel()
 	let pinCodeTF			= UITextField()		// PIN code
@@ -25,27 +24,16 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate {
 		self.view.backgroundColor = UIColor.white
 
 		// title
-		self.smallTitle.numberOfLines = 2
-		self.smallTitle.text = "合コン\n    master"
-		self.smallTitle.textColor = UIColor.blue
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 40.0)
+		self.smallTitle.text = "マッチング結果"
+		self.smallTitle.textColor = UIColor.init(red: 0/255,
+												 green: 167/255,
+												 blue: 113/255,
+												 alpha: 1)
+		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
-
-		// secondary title
-		self.secondTitle.text = "マッチング結果確認"
-		self.secondTitle.textColor = UIColor.init(red: 0/255,
-												  green: 167/255,
-												  blue: 113/255,
-												  alpha: 1)
-		self.secondTitle.font = UIFont.italicSystemFont(ofSize: 25.0)
-		self.view.addSubview(secondTitle)
-		self.secondTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
 		}
 
 		// dear name
