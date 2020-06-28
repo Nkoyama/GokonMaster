@@ -75,7 +75,8 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		}
 
 		// message1
-		self.message1.text = "気に入ったお相手が以下の通り登録されました。"
+		self.message1.numberOfLines = 2
+		self.message1.text = "気に入ったお相手が以下の通り\n登録されました。"
 		self.message1.textColor = UIColor.black
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
@@ -220,9 +221,11 @@ class RegisterFavoriteFinishViewController: UIViewController {
 
 		// message2
 		if( registeredNum+1 == joinNumSum ) {
-			self.message2.text = "全員の気に入った方の登録が完了しました。"
+			self.message2.text = "全員の登録が完了しました。"
 		} else {
-			self.message2.text = "OKボタンを押して " + memberData[registeredNum+1].nickname + " さんに渡してください。"
+			self.message2.numberOfLines = 2
+			self.message2.text = "OKボタンを押して、\n"
+								+ memberData[registeredNum+1].nickname + " さんに渡してください。"
 		}
 		self.message2.lineBreakMode = .byWordWrapping
 		self.message2.textColor = UIColor.black
@@ -233,7 +236,7 @@ class RegisterFavoriteFinishViewController: UIViewController {
 		}
 
 		// OK button
-		if( registeredNum+1 == joinNumSum ) {
+		if( registeredNum+1 == joinNumSum && favoriteType == 0 ) {
 			self.okBtn.setTitle(" 席替え ", for: .normal)
 		} else {
 			self.okBtn.setTitle(" OK ", for: .normal)

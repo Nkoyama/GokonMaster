@@ -13,7 +13,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 
 	// MARK: Views
 	let backBtn					= UIButton()		// back button
-	let smallTitle				= UILabel()			// title
 	let registeredNickname		= UILabel()			// registered nickname
 	let message1				= UILabel()			// message1
 	let contactInfoScrollV		= UIScrollView()	// contact information scroll view
@@ -30,15 +29,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let seatBtnI				= UIButton()		// seat button I
 	let seatBtnJ				= UIButton()		// seat button J
 	let nextBtn					= UIButton()		// 次へボタン
-
-	let SCREEN_SIZE				= UIScreen.main.bounds.size
-
-	// contactInfoScrollV内
 	let nickname				= UILabel()			// nickname
 	let sexLabel				= UILabel()			// sex label
 	let sex						= UILabel()			// sex
 	let pinCodeLabel			= UILabel()			// PIN code label
 	let pinCode					= UILabel()			// PIN code
+
+	let SCREEN_SIZE				= UIScreen.main.bounds.size
 
 	// テーブル選択状況
 	let memberIndexA = seatPositionArray[0]
@@ -67,23 +64,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.backBtn.layer.borderWidth = 2.0
 		self.backBtn.layer.cornerRadius = 2.0
 		self.view.addSubview(self.backBtn)
-		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
+		self.backBtn.addTarget(self,
+							   action: #selector(self.backBtnDidTap(_:)),
+							   for: .touchUpInside)
 		self.backBtn.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-		}
-
-		// title
-		self.smallTitle.text = "メンバー登録"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
 		}
 
 		// registered nickname
@@ -93,7 +79,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
 		}
 
 		// message1
@@ -102,7 +88,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
 		}
 
 		// sex
@@ -111,7 +97,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(sexLabel)
 		self.sexLabel.snp.makeConstraints { (make) in
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(130)
 		}
 		if(memberData[registeredNum].sexIndex == 1){
 			self.sex.text = "女"
@@ -122,7 +108,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(sex)
 		self.sex.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(130)
 		}
 
 		// PIN code
@@ -131,14 +117,14 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(pinCodeLabel)
 		self.pinCodeLabel.snp.makeConstraints { (make) in
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(160)
 		}
 		self.pinCode.text = String(memberData[registeredNum].pinCode)
 		self.pinCode.textColor = UIColor.black
 		self.view.addSubview(pinCode)
 		self.pinCode.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(160)
 		}
 
 		// setting message
@@ -147,7 +133,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(400)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(430)
 		}
 
 		// テーブル分岐
@@ -160,7 +146,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			// テーブル描写
 			let screenWidth:Int = Int(self.view.bounds.width)
 			let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80,
-																	y: Int(SCREEN_SIZE.height)-425,
+																	y: Int(SCREEN_SIZE.height)-420,
 																	width: 160,
 																	height: seatNum*60))
 			self.view.addSubview(tableSquareDraw)
@@ -188,13 +174,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.seatBtnA.layer.cornerRadius = 2.0
 			self.seatBtnA.tag = 0
 			self.view.addSubview(self.seatBtnA)
-			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-			self.seatBtnA.snp.makeConstraints { (make) in
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(380)
-				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
-			}
+			self.seatBtnA.addTarget(self,
+									action: #selector(self.seatBtnDidTap(_:)),
+									for: .touchUpInside)
+			self.seatBtnA.frame = CGRect(x: 20,
+										 y: Int(SCREEN_SIZE.height)-410,
+										 width: screenWidth/2-110,
+										 height: 40)
 			// seat button F
 			if(memberIndexF >= 0) {
 				self.seatBtnF.setTitle(memberData[memberIndexF].nickname, for: UIControl.State.normal)
@@ -217,13 +203,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.seatBtnF.layer.cornerRadius = 2.0
 			self.seatBtnF.tag = 5
 			self.view.addSubview(self.seatBtnF)
-			self.seatBtnF.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-			self.seatBtnF.snp.makeConstraints { (make) in
-				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(380)
-				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(340)
-			}
+			self.seatBtnF.addTarget(self,
+									action: #selector(self.seatBtnDidTap(_:)),
+									for: .touchUpInside)
+			self.seatBtnF.frame = CGRect(x: screenWidth/2+90,
+										 y: Int(SCREEN_SIZE.height)-410,
+										 width: screenWidth/2-110,
+										 height: 40)
 			if(seatNum>=2) {
 				// seat button B
 				if(memberIndexB >= 0) {
@@ -247,13 +233,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnB.layer.cornerRadius = 2.0
 				self.seatBtnB.tag = 1
 				self.view.addSubview(self.seatBtnB)
-				self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnB.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(320)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
-				}
+				self.seatBtnB.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnB.frame = CGRect(x: 20,
+											 y: Int(SCREEN_SIZE.height)-350,
+											 width: screenWidth/2-110,
+											 height: 40)
 				// seat button G
 				if(memberIndexG >= 0) {
 					self.seatBtnG.setTitle(memberData[memberIndexG].nickname, for: .normal)
@@ -276,13 +262,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnG.layer.cornerRadius = 2.0
 				self.seatBtnG.tag = 6
 				self.view.addSubview(self.seatBtnG)
-				self.seatBtnG.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnG.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(320)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(280)
-				}
+				self.seatBtnG.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnG.frame = CGRect(x: screenWidth/2+90,
+											 y: Int(SCREEN_SIZE.height)-350,
+											 width: screenWidth/2-110,
+											 height: 40)
 			}
 			if(seatNum>=3) {
 				// seat button C
@@ -307,13 +293,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnC.layer.cornerRadius = 2.0
 				self.seatBtnC.tag = 2
 				self.view.addSubview(self.seatBtnC)
-				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnC.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(260)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
-				}
+				self.seatBtnC.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnC.frame = CGRect(x: 20,
+											 y: Int(SCREEN_SIZE.height)-290,
+											 width: screenWidth/2-110,
+											 height: 40)
 				// seat button H
 				if(memberIndexH >= 0) {
 					self.seatBtnH.setTitle(memberData[memberIndexH].nickname, for: .normal)
@@ -336,13 +322,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnH.layer.cornerRadius = 2.0
 				self.seatBtnH.tag = 7
 				self.view.addSubview(self.seatBtnH)
-				self.seatBtnH.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnH.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(260)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(220)
-				}
+				self.seatBtnH.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnH.frame = CGRect(x: screenWidth/2+90,
+											 y: Int(SCREEN_SIZE.height)-290,
+											 width: screenWidth/2-110,
+											 height: 40)
 			}
 			if(seatNum>=4) {
 				// seat button D
@@ -367,13 +353,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnD.layer.cornerRadius = 2.0
 				self.seatBtnD.tag = 3
 				self.view.addSubview(self.seatBtnD)
-				self.seatBtnD.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnD.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
-				}
+				self.seatBtnD.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnD.frame = CGRect(x: 20,
+											 y: Int(SCREEN_SIZE.height)-230,
+											 width: screenWidth/2-110,
+											 height: 40)
 				// seat button I
 				if(memberIndexI >= 0) {
 					self.seatBtnI.setTitle(memberData[memberIndexI].nickname, for: .normal)
@@ -396,13 +382,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnI.layer.cornerRadius = 2.0
 				self.seatBtnI.tag = 8
 				self.view.addSubview(self.seatBtnI)
-				self.seatBtnI.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnI.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(160)
-				}
+				self.seatBtnI.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnI.frame = CGRect(x: screenWidth/2+90,
+											 y: Int(SCREEN_SIZE.height)-230,
+											 width: screenWidth/2-110,
+											 height: 40)
 			}
 			if(seatNum>=5) {
 				// seat button E
@@ -410,7 +396,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 					self.seatBtnE.setTitle(memberData[memberIndexE].nickname, for: .normal)
 					self.seatBtnE.titleLabel?.adjustsFontSizeToFitWidth = true
 					self.seatBtnE.setTitleColor(UIColor.black, for: .normal)
-					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255, green: 255/255, blue: 159/255, alpha: 0.5)
+					self.seatBtnE.backgroundColor = UIColor.init(red: 84/255,
+																 green: 255/255,
+																 blue: 159/255,
+																 alpha: 0.5)
 					self.seatBtnE.isEnabled = false
 				} else {
 					if(seatPositionArray[4] == registeredNum) {
@@ -424,13 +413,13 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnE.layer.cornerRadius = 2.0
 				self.seatBtnE.tag = 4
 				self.view.addSubview(self.seatBtnE)
-				self.seatBtnE.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnE.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(140)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
-				}
+				self.seatBtnE.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnE.frame = CGRect(x: 20,
+											 y: Int(SCREEN_SIZE.height)-170,
+											 width: screenWidth/2-110,
+											 height: 40)
 				// seat button J
 				if(memberIndexJ >= 0) {
 					self.seatBtnJ.setTitle(memberData[memberIndexJ].nickname, for: .normal)
@@ -453,18 +442,21 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnJ.layer.cornerRadius = 2.0
 				self.seatBtnJ.tag = 9
 				self.view.addSubview(self.seatBtnJ)
-				self.seatBtnJ.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				self.seatBtnJ.snp.makeConstraints { (make) in
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(screenWidth/2-90)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(140)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(100)
-				}
+				self.seatBtnJ.addTarget(self,
+										action: #selector(self.seatBtnDidTap(_:)),
+										for: .touchUpInside)
+				self.seatBtnJ.frame = CGRect(x: screenWidth/2+90,
+											 y: Int(SCREEN_SIZE.height)-170,
+											 width: screenWidth/2-110,
+											 height: 40)
 			}
 		} else if(tableTypeIndex == 1) {
 			// circle
 			let screenWidth = SCREEN_SIZE.width
-			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: Int(screenWidth)/2-90, y: Int(SCREEN_SIZE.height)-370, width: 180, height: 180))
+			let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: Int(screenWidth)/2 - 90,
+																	y: Int(SCREEN_SIZE.height) - 370,
+																	width: 180,
+																	height: 180))
 			self.view.addSubview(tableCircleDraw)
 
 			/* いい感じにseat buttonを配置 */
@@ -474,15 +466,19 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.doorWay.text = " 出入口 "
 			self.doorWay.textColor = UIColor.black
 			self.doorWay.font = UIFont.boldSystemFont(ofSize: 20.0)
-			self.doorWay.backgroundColor = UIColor.init(red: 102/255, green: 51/255, blue: 204/255, alpha: 0.5)
+			self.doorWay.backgroundColor = UIColor.init(red: 102/255,
+														green: 51/255,
+														blue: 204/255,
+														alpha: 0.5)
 			self.doorWay.layer.borderColor = UIColor.gray.cgColor
+			self.doorWay.textAlignment = NSTextAlignment.center
 			self.doorWay.layer.borderWidth = 1.0
 			self.doorWay.layer.cornerRadius = 5.0
 			self.view.addSubview(doorWay)
-			self.doorWay.snp.makeConstraints { (make) in
-				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(SCREEN_SIZE.height-450)
-			}
+			self.doorWay.frame = CGRect(x: Int(screenWidth)/2 - 40,
+										y: Int(SCREEN_SIZE.height) - 410,
+										width: 75,
+										height: 30)
 
 			// seat button A
 			var prefixNumA = 2
@@ -513,13 +509,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.view.addSubview(self.seatBtnA)
 			self.seatBtnA.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			let centerX_a = screenWidth/2 + 120*cos(CGFloat.pi*(eachAngle-90)/180)
-			let centerY_a = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(eachAngle-90)/180)
-			self.seatBtnA.snp.makeConstraints { (make) in
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_a-25)
-				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_a+25)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_a-25)
-				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_a+25)
-			}
+			let centerY_a = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(eachAngle-90)/180)
+			self.seatBtnA.frame = CGRect(x: centerX_a-25,
+										 y: centerY_a-25,
+										 width: 50,
+										 height: 50)
 			// seat button B
 			var prefixNumB = 2
 			if(memberIndexB >= 0) {
@@ -549,13 +543,11 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 			self.view.addSubview(self.seatBtnB)
 			self.seatBtnB.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
 			let centerX_b = screenWidth/2 + 120*cos(CGFloat.pi*(2*eachAngle-90)/180)
-			let centerY_b = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(2*eachAngle-90)/180)
-			self.seatBtnB.snp.makeConstraints { (make) in
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_b-25)
-				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_b+25)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_b-25)
-				make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_b+25)
-			}
+			let centerY_b = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(2*eachAngle-90)/180)
+			self.seatBtnB.frame = CGRect(x: centerX_b-25,
+										 y: centerY_b-25,
+										 width: 50,
+										 height: 50)
 			// seat button C
 			if(joinNumSum >= 3) {
 				var prefixNumC = 2
@@ -585,14 +577,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnC.tag = 2
 				self.view.addSubview(self.seatBtnC)
 				self.seatBtnC.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(3*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(3*eachAngle-90)/180)
-				self.seatBtnC.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_c = screenWidth/2 + 120*cos(CGFloat.pi*(3*eachAngle-90)/180)
+				let centerY_c = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(3*eachAngle-90)/180)
+				self.seatBtnC.frame = CGRect(x: centerX_c-25,
+											 y: centerY_c-25,
+											 width: 50,
+											 height: 50)
 			}
 			// seat button D
 			if(joinNumSum >= 4) {
@@ -623,14 +613,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnD.tag = 3
 				self.view.addSubview(self.seatBtnD)
 				self.seatBtnD.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(4*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(4*eachAngle-90)/180)
-				self.seatBtnD.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_d = screenWidth/2 + 120*cos(CGFloat.pi*(4*eachAngle-90)/180)
+				let centerY_d = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(4*eachAngle-90)/180)
+				self.seatBtnD.frame = CGRect(x: centerX_d-25,
+											 y: centerY_d-25,
+											 width: 50,
+											 height: 50)
 			}
 			// seat button E
 			if(joinNumSum >= 5) {
@@ -661,14 +649,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnE.tag = 4
 				self.view.addSubview(self.seatBtnE)
 				self.seatBtnE.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(5*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(5*eachAngle-90)/180)
-				self.seatBtnE.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_e = screenWidth/2 + 120*cos(CGFloat.pi*(5*eachAngle-90)/180)
+				let centerY_e = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(5*eachAngle-90)/180)
+				self.seatBtnE.frame = CGRect(x: centerX_e-25,
+											 y: centerY_e-25,
+											 width: 50,
+											 height: 50)
 			}
 			// seat button F
 			if(joinNumSum >= 6) {
@@ -699,14 +685,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnF.tag = 5
 				self.view.addSubview(self.seatBtnF)
 				self.seatBtnF.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(6*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(6*eachAngle-90)/180)
-				self.seatBtnF.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_f = screenWidth/2 + 120*cos(CGFloat.pi*(6*eachAngle-90)/180)
+				let centerY_f = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(6*eachAngle-90)/180)
+				self.seatBtnF.frame = CGRect(x: centerX_f-25,
+											 y: centerY_f-25,
+											 width: 50,
+											 height: 50)
 			}
 			// seat button G
 			if(joinNumSum >= 7) {
@@ -737,14 +721,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnG.tag = 6
 				self.view.addSubview(self.seatBtnG)
 				self.seatBtnG.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(7*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(7*eachAngle-90)/180)
-				self.seatBtnG.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_g = screenWidth/2 + 120*cos(CGFloat.pi*(7*eachAngle-90)/180)
+				let centerY_g = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(7*eachAngle-90)/180)
+				self.seatBtnG.frame = CGRect(x: centerX_g-25,
+											 y: centerY_g-25,
+											 width: 50,
+											 height: 50)
 			}
 			// seat button H
 			if(joinNumSum >= 8) {
@@ -775,14 +757,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnH.tag = 7
 				self.view.addSubview(self.seatBtnH)
 				self.seatBtnH.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(8*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(8*eachAngle-90)/180)
-				self.seatBtnH.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_h = screenWidth/2 + 120*cos(CGFloat.pi*(8*eachAngle-90)/180)
+				let centerY_h = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(8*eachAngle-90)/180)
+				self.seatBtnH.frame = CGRect(x: centerX_h-25,
+											 y: centerY_h-25,
+											 width: 50,
+											 height: 50)
 			}
 			// seat button I
 			if(joinNumSum >= 9) {
@@ -813,14 +793,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnI.tag = 8
 				self.view.addSubview(self.seatBtnI)
 				self.seatBtnI.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(9*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(9*eachAngle-90)/180)
-				self.seatBtnI.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_i = screenWidth/2 + 120*cos(CGFloat.pi*(9*eachAngle-90)/180)
+				let centerY_i = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(9*eachAngle-90)/180)
+				self.seatBtnI.frame = CGRect(x: centerX_i-25,
+											 y: centerY_i-25,
+											 width: 50,
+											 height: 50)
 			}
 			// seat button J
 			if(joinNumSum >= 10) {
@@ -851,14 +829,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 				self.seatBtnJ.tag = 9
 				self.view.addSubview(self.seatBtnJ)
 				self.seatBtnJ.addTarget(self, action: #selector(self.seatBtnDidTap(_:)), for: .touchUpInside)
-				let centerX = screenWidth/2 + 120*cos(CGFloat.pi*(10*eachAngle-90)/180)
-				let centerY = SCREEN_SIZE.height-320 + 120*sin(CGFloat.pi*(10*eachAngle-90)/180)
-				self.seatBtnJ.snp.makeConstraints { (make) in
-					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX-25)
-					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX+25)
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY-25)
-					make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY+25)
-				}
+				let centerX_j = screenWidth/2 + 120*cos(CGFloat.pi*(10*eachAngle-90)/180)
+				let centerY_j = SCREEN_SIZE.height-280 + 120*sin(CGFloat.pi*(10*eachAngle-90)/180)
+				self.seatBtnJ.frame = CGRect(x: centerX_j-25,
+											 y: centerY_j-25,
+											 width: 50,
+											 height: 50)
 			}
 		}
 

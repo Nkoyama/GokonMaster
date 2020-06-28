@@ -65,7 +65,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(settingMsg)
 		self.settingMsg.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
 		}
 
 		// 参加人数
@@ -74,7 +74,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(joinNumLabel)
 		self.joinNumLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
 		}
 
 		// 男
@@ -83,7 +83,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(maleLabel)
 		self.maleLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
 		// 男参加人数
@@ -92,7 +92,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(maleNumTF)
 		self.maleNumTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(110)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(245)
 		}
 		self.maleNumTF.delegate = self
 
@@ -102,7 +102,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(femaleLabel)
 		self.femaleLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(180)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 		}
 
 		// 女参加人数
@@ -111,7 +111,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(femaleNumTF)
 		self.femaleNumTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(210)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(345)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(245)
 		}
 		self.femaleNumTF.delegate = self
 
@@ -121,7 +121,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(joinNumSumLabel)
 		self.joinNumSumLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(400)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
 		}
 
 		// テーブルタイプ
@@ -130,7 +130,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.view.addSubview(tableTypeLabel)
 		self.tableTypeLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(450)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 		}
 
 		// テーブルタイプ選択
@@ -142,12 +142,12 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.tableTypeSC.snp.makeConstraints { (make) in
 			make.width.equalTo(250)
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(480)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(380)
 		}
 
 		// テーブルタイプの（四角、丸）の描画
 		let screenWidth = self.view.bounds.width	//Screen Size Width
-		let tableTypeDraw = TableTypeDrawView(frame: CGRect(x: screenWidth/2-100, y: 570, width: 210, height: 100))
+		let tableTypeDraw = TableTypeDrawView(frame: CGRect(x: screenWidth/2-100, y: 470, width: 210, height: 100))
 		self.view.addSubview(tableTypeDraw)
 
 		// next button

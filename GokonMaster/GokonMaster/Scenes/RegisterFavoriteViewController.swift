@@ -23,11 +23,7 @@ class RegisterFavoriteViewController: UIViewController {
 	let nameBtn_2			= UIButton()	// 2位 button
 	let nameBtn_3			= UIButton()	// 3位 button
 	let nameBtn_4			= UIButton()	// 4位 button
-	let clearBtn_1			= UIButton()	// 1位 clear button
-	let clearBtn_2			= UIButton()	// 2位 clear button
-	let clearBtn_3			= UIButton()	// 3位 clear button
-	let clearBtn_4			= UIButton()	// 4位 clear button
-	let decideBtn			= UIButton()	// 決定 ボタン
+	let decideBtn			= UIButton()	// decide button
 
 	let SCREEN_SIZE			= UIScreen.main.bounds.size
 
@@ -78,7 +74,7 @@ class RegisterFavoriteViewController: UIViewController {
 		self.view.addSubview(dearName)
 		self.dearName.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
 		}
 		// message
 		self.message.text = "気に入っている方を登録してください。"
@@ -86,12 +82,12 @@ class RegisterFavoriteViewController: UIViewController {
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
 		}
 
 		/* select favorite */
 		// 行の間隔を計算
-		let lineWidth = (SCREEN_SIZE.height - 500) / 5
+		let lineWidth = (SCREEN_SIZE.height - 300) / 5
 
 		// 女の場合
 		if(memberData[registeredNum].sexIndex == 1) {
@@ -105,7 +101,7 @@ class RegisterFavoriteViewController: UIViewController {
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 			}
 
 			if(favoriteArray[registeredNum].first >= 0) {
@@ -131,7 +127,7 @@ class RegisterFavoriteViewController: UIViewController {
 			self.nameBtn_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 			}
 
 			// 2位
@@ -145,7 +141,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
 				}
 
 				if(favoriteArray[registeredNum].second >= 0) {
@@ -171,7 +167,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
 				}
 			}
 
@@ -186,7 +182,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*2)
 				}
 
 				if(favoriteArray[registeredNum].third >= 0) {
@@ -212,7 +208,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth*2))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth*2))
 				}
 			}
 
@@ -227,7 +223,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
 				}
 
 				if(favoriteArray[registeredNum].fourth >= 0) {
@@ -253,7 +249,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
 				}
 			}
 
@@ -269,7 +265,7 @@ class RegisterFavoriteViewController: UIViewController {
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 			}
 			
 			if(favoriteArray[registeredNum].first >= 0) {
@@ -295,7 +291,7 @@ class RegisterFavoriteViewController: UIViewController {
 			self.nameBtn_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
 			}
 			
 			// 2位
@@ -309,7 +305,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
 				}
 				
 				if(favoriteArray[registeredNum].second >= 0) {
@@ -335,7 +331,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
 				}
 			}
 			
@@ -350,7 +346,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*2)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*2)
 				}
 				
 				if(favoriteArray[registeredNum].third >= 0) {
@@ -376,7 +372,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth*2))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth*2))
 				}
 			}
 			
@@ -391,7 +387,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
 				}
 				
 				if(favoriteArray[registeredNum].fourth >= 0) {
@@ -417,7 +413,7 @@ class RegisterFavoriteViewController: UIViewController {
 				self.nameBtn_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
 				}
 			}
 		}

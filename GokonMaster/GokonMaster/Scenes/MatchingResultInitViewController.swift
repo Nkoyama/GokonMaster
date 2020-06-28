@@ -46,7 +46,8 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
 		}
 		// message
-		self.message.text = "最初に登録した暗証番号を入力してください。"
+		self.message.numberOfLines = 2
+		self.message.text = "最初に登録した暗証番号を\n入力してください。"
 		self.message.textColor = UIColor.black
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in

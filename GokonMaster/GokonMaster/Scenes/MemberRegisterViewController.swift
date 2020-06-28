@@ -51,7 +51,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(198)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(188)
 		}
 		// message2
 		self.message2.text = "の情報を登録してください。"
@@ -59,7 +59,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
 		}
 
 		// nickname
@@ -68,7 +68,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(nicknameLabel)
 		self.nicknameLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(290)
 		}
 		self.nicknameTF.keyboardType = .asciiCapable
 		self.nicknameTF.borderStyle = .roundedRect
@@ -76,7 +76,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.nicknameTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(315)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(285)
 		}
 		self.nicknameTF.delegate = self
 
@@ -86,7 +86,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(sexLabel)
 		self.sexLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(370)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(340)
 		}
 		// 性別選択
 		let options = ["男", "女"]
@@ -96,7 +96,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.sexSC.addTarget(self, action: #selector(self.sexChanged(_:)), for: .valueChanged)
 		self.sexSC.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(365)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(335)
 		}
 
 		// PIN code
@@ -105,7 +105,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(pinCodeLabel)
 		self.pinCodeLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(390)
 		}
 		self.pinCodeTF.keyboardType = .numberPad
 		self.pinCodeTF.borderStyle = .roundedRect
@@ -113,7 +113,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(200)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(415)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(385)
 		}
 		self.pinCodeTF.delegate = self
 

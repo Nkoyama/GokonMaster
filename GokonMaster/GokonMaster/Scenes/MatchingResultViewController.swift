@@ -43,7 +43,8 @@ class MatchingResultViewController: UIViewController {
 		// failed to match
 		if( matchingResult[registeredNum] < 0 ) {
 			// message2
-			self.message2.text = "残念ながら、誰ともマッチングしませんでした。"
+			self.message2.numberOfLines = 2
+			self.message2.text = "残念ながら、\n誰ともマッチングしませんでした。"
 			self.message2.textColor = UIColor.black
 			self.view.addSubview(message2)
 			self.message2.snp.makeConstraints { (make) in
