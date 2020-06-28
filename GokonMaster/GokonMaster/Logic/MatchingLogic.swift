@@ -9,14 +9,13 @@
 import Foundation
 
 public func matchingMainLogic() {
-	// 未マッチリスト初期化
-	var noMatchMaleList: Array<Int>		= Array<Int>()
-	var noMatchFemaleList: Array<Int>	= Array<Int>()
+	var maleList: Array<Int>	= Array<Int>()
+	var femaleList: Array<Int>	= Array<Int>()
 	for oneMale in maleArray {
-		noMatchMaleList.append(oneMale.index)
+		maleList.append(oneMale.index)
 	}
 	for oneFemale in femaleArray {
-		noMatchFemaleList.append(oneFemale.index)
+		femaleList.append(oneFemale.index)
 	}
 
 	// マッチングリスト初期化
@@ -24,65 +23,68 @@ public func matchingMainLogic() {
 	initMatchingResult()
 
 	// お気に入り1位同士をマッチング
-	var i = 0
-	var j = 0
-	for noMatchMale in noMatchMaleList {
-		j = 0
-		for noMatchFemale in noMatchFemaleList {
-			if( favoriteArray[noMatchMale].first == favoriteArray[noMatchFemale].first ) {
-				matchingList[noMatchMale] = noMatchFemale
-				matchingList[noMatchFemale] = noMatchMale
-				noMatchMaleList.remove(at: i)
-				noMatchFemaleList.remove(at: j)
+	for male in maleList {
+		for female in femaleList {
+			if( favoriteArray[male].first == favoriteArray[female].first ) {
+				if( matchingList[male]<0 && matchingList[female]<0 ) {
+					matchingList[male] = female
+					matchingList[female] = male
+				}
+				print(matchingList)
 			}
-			j += 1
 		}
-		i += 1
 	}
 
 	// 未マッチの中で女->男：1位、男->女：2位をマッチング
-	i = 0
-	for noMatchMale in noMatchMaleList {
-		j = 0
-		for noMatchFemale in noMatchFemaleList {
-			if( favoriteArray[noMatchMale].second == favoriteArray[noMatchFemale].first ) {
-				matchingList[noMatchMale] = noMatchFemale
-				matchingList[noMatchFemale] = noMatchMale
-				noMatchMaleList.remove(at: i)
-				noMatchFemaleList.remove(at: j)
+	for male in maleList {
+		for female in femaleList {
+			if( favoriteArray[male].second == favoriteArray[female].first ) {
+				if( matchingList[male]<0 && matchingList[female]<0 ) {
+					matchingList[male] = female
+					matchingList[female] = male
+				}
+				print(matchingList)
 			}
 		}
-		i += 1
+	}
+
+	// 未マッチの中で女->男：1位、男->女：3位をマッチング
+	for male in maleList {
+		for female in femaleList {
+			if( favoriteArray[male].third == favoriteArray[female].first ) {
+				if( matchingList[male]<0 && matchingList[female]<0 ) {
+					matchingList[male] = female
+					matchingList[female] = male
+				}
+				print(matchingList)
+			}
+		}
 	}
 
 	// 未マッチの中で女->男：2位、男->女：1位をマッチング
-	i = 0
-	for noMatchMale in noMatchMaleList {
-		j = 0
-		for noMatchFemale in noMatchFemaleList {
-			if( favoriteArray[noMatchMale].first == favoriteArray[noMatchFemale].second ) {
-				matchingList[noMatchMale] = noMatchFemale
-				matchingList[noMatchFemale] = noMatchMale
-				noMatchMaleList.remove(at: i)
-				noMatchFemaleList.remove(at: j)
+	for male in maleList {
+		for female in femaleList {
+			if( favoriteArray[male].first == favoriteArray[female].second ) {
+				if( matchingList[male]<0 && matchingList[female]<0 ) {
+					matchingList[male] = female
+					matchingList[female] = male
+				}
+				print(matchingList)
 			}
 		}
-		i += 1
 	}
 
 	// 未マッチの中でお気に入り2位同士をマッチング
-	i = 0
-	for noMatchMale in noMatchMaleList {
-		j = 0
-		for noMatchFemale in noMatchFemaleList {
-			if( favoriteArray[noMatchMale].second == favoriteArray[noMatchFemale].second ) {
-				matchingList[noMatchMale] = noMatchFemale
-				matchingList[noMatchFemale] = noMatchMale
-				noMatchMaleList.remove(at: i)
-				noMatchFemaleList.remove(at: j)
+	for male in maleList {
+		for female in femaleList {
+			if( favoriteArray[male].second == favoriteArray[female].second ) {
+				if( matchingList[male]<0 && matchingList[female]<0 ) {
+					matchingList[male] = female
+					matchingList[female] = male
+				}
+				print(matchingList)
 			}
 		}
-		i += 1
 	}
 
 	matchingResult = matchingList
