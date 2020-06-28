@@ -249,7 +249,10 @@ class SeatChangeResultViewController: UIViewController {
 			} else {
 				//draw circle
 				let screenWidth = SCREEN_SIZE.width
-				let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: Int(screenWidth)/2-90, y: 270, width: 180, height: 180))
+				let tableCircleDraw = TableCircleDrawView(frame: CGRect(x: Int(screenWidth)/2-90,
+																		y: 230,
+																		width: 180,
+																		height: 180))
 				self.view.addSubview(tableCircleDraw)
 
 				/* いい感じにseat buttonを配置 */
@@ -259,15 +262,18 @@ class SeatChangeResultViewController: UIViewController {
 				self.doorWay.text = " 出入口 "
 				self.doorWay.textColor = UIColor.black
 				self.doorWay.font = UIFont.boldSystemFont(ofSize: 20.0)
-				self.doorWay.backgroundColor = UIColor.init(red: 102/255, green: 51/255, blue: 204/255, alpha: 0.5)
+				self.doorWay.backgroundColor = UIColor.init(red: 102/255,
+															green: 51/255,
+															blue: 204/255,
+															alpha: 0.5)
 				self.doorWay.layer.borderColor = UIColor.gray.cgColor
 				self.doorWay.layer.borderWidth = 1.0
 				self.doorWay.layer.cornerRadius = 5.0
 				self.view.addSubview(doorWay)
-				self.doorWay.snp.makeConstraints { (make) in
-					make.centerX.equalToSuperview()
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
-				}
+				self.doorWay.frame = CGRect(x: CGFloat(Int(screenWidth)/2-40),
+											y: 190,
+											width: 75,
+											height: 30)
 
 				// seat button A
 				var prefixNumA = 2
@@ -294,12 +300,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_a = screenWidth/2 + 120*cos(CGFloat.pi*(eachAngle-90)/180)
 					let centerY_a = 320 + 120*sin(CGFloat.pi*(eachAngle-90)/180)
-					self.seatBtnA.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_a-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_a+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_a-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_a+25)
-					}
+					self.seatBtnA.frame = CGRect(x: centerX_a-25,
+												 y: centerY_a-25,
+												 width: 50,
+												 height: 50)
 				}
 				// seat button B
 				var prefixNumB = 2
@@ -326,12 +330,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_b = screenWidth/2 + 120*cos(CGFloat.pi*(2*eachAngle-90)/180)
 					let centerY_b = 320 + 120*sin(CGFloat.pi*(2*eachAngle-90)/180)
-					self.seatBtnB.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_b-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_b+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_b-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_b+25)
-					}
+					self.seatBtnB.frame = CGRect(x: centerX_b-25,
+												 y: centerY_b-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button C
@@ -359,12 +361,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_c = screenWidth/2 + 120*cos(CGFloat.pi*(3*eachAngle-90)/180)
 					let centerY_c = 320 + 120*sin(CGFloat.pi*(3*eachAngle-90)/180)
-					self.seatBtnC.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_c-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_c+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_c-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_c+25)
-					}
+					self.seatBtnC.frame = CGRect(x: centerX_c-25,
+												 y: centerY_c-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button D
@@ -392,12 +392,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_d = screenWidth/2 + 120*cos(CGFloat.pi*(4*eachAngle-90)/180)
 					let centerY_d = 320 + 120*sin(CGFloat.pi*(4*eachAngle-90)/180)
-					self.seatBtnD.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_d-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_d+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_d-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_d+25)
-					}
+					self.seatBtnD.frame = CGRect(x: centerX_d-25,
+												 y: centerY_d-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button E
@@ -425,12 +423,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_e = screenWidth/2 + 120*cos(CGFloat.pi*(5*eachAngle-90)/180)
 					let centerY_e = 320 + 120*sin(CGFloat.pi*(5*eachAngle-90)/180)
-					self.seatBtnE.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_e-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_e+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_e-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_e+25)
-					}
+					self.seatBtnE.frame = CGRect(x: centerX_e-25,
+												 y: centerY_e-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button F
@@ -458,12 +454,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_f = screenWidth/2 + 120*cos(CGFloat.pi*(6*eachAngle-90)/180)
 					let centerY_f = 320 + 120*sin(CGFloat.pi*(6*eachAngle-90)/180)
-					self.seatBtnF.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_f-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_f+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_f-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_f+25)
-					}
+					self.seatBtnF.frame = CGRect(x: centerX_f-25,
+												 y: centerY_f-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button G
@@ -491,12 +485,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_g = screenWidth/2 + 120*cos(CGFloat.pi*(7*eachAngle-90)/180)
 					let centerY_g = 320 + 120*sin(CGFloat.pi*(7*eachAngle-90)/180)
-					self.seatBtnG.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_g-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_g+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_g-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_g+25)
-					}
+					self.seatBtnG.frame = CGRect(x: centerX_g-25,
+												 y: centerY_g-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button H
@@ -524,12 +516,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_h = screenWidth/2 + 120*cos(CGFloat.pi*(8*eachAngle-90)/180)
 					let centerY_h = 320 + 120*sin(CGFloat.pi*(8*eachAngle-90)/180)
-					self.seatBtnH.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_h-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_h+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_h-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_h+25)
-					}
+					self.seatBtnH.frame = CGRect(x: centerX_h-25,
+												 y: centerY_h-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button I
@@ -557,12 +547,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_i = screenWidth/2 + 120*cos(CGFloat.pi*(9*eachAngle-90)/180)
 					let centerY_i = 320 + 120*sin(CGFloat.pi*(9*eachAngle-90)/180)
-					self.seatBtnI.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_i-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_i+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_i-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_i+25)
-					}
+					self.seatBtnI.frame = CGRect(x: centerX_i-25,
+												 y: centerY_i-25,
+												 width: 50,
+												 height: 50)
 				}
 
 				// seat button J
@@ -590,12 +578,10 @@ class SeatChangeResultViewController: UIViewController {
 											for: .touchUpInside)
 					let centerX_j = screenWidth/2 + 120*cos(CGFloat.pi*(10*eachAngle-90)/180)
 					let centerY_j = 320 + 120*sin(CGFloat.pi*(10*eachAngle-90)/180)
-					self.seatBtnJ.snp.makeConstraints { (make) in
-						make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_j-25)
-						make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(centerX_j+25)
-						make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_j-25)
-						make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(centerY_j+25)
-					}
+					self.seatBtnJ.frame = CGRect(x: centerX_j-25,
+												 y: centerY_j-25,
+												 width: 50,
+												 height: 50)
 				}
 			}
 		}
