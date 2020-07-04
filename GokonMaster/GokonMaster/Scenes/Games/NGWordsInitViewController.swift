@@ -16,6 +16,7 @@ class NGWordsInitViewController: UIViewController {
 	let smallTitle			= UILabel()
 	let ruleLabel			= UILabel()
 	let ruleDetail			= UILabel()
+	let startBtn			= UIButton()
 
 
 	// MARK: Life Cycle
@@ -76,6 +77,23 @@ class NGWordsInitViewController: UIViewController {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
 		}
+
+		// start button
+		self.startBtn.setTitle(" 次へ ", for: .normal)
+		self.startBtn.setTitleColor(UIColor.black, for: .normal)
+		self.startBtn.backgroundColor = UIColor.green
+		self.startBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.startBtn.layer.borderColor = UIColor.clear.cgColor
+		self.startBtn.layer.borderWidth = 2.0
+		self.startBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.startBtn)
+		self.startBtn.addTarget(self,
+								action: #selector(self.startBtnDidTap(_:)),
+								for: .touchUpInside)
+		self.startBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+		}
 	}
 
 	/// backBtn action
@@ -84,5 +102,11 @@ class NGWordsInitViewController: UIViewController {
 	@objc func backBtnDidTap(_ sender: UIButton) {
 		// 現在の画面を破棄
 		self.dismiss(animated: true, completion: nil)
+	}
+
+	/// starttn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func startBtnDidTap(_ sender: UIButton) {
 	}
 }
