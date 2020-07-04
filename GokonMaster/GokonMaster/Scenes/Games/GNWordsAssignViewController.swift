@@ -57,6 +57,16 @@ class NGWordsAssignViewController: UIViewController {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
 		}
 
+		// NG word
+		self.ngWordLabel.text = assignedNGWords[registeredNum]
+		self.ngWordLabel.textColor = UIColor.purple
+		self.ngWordLabel.font = UIFont.italicSystemFont(ofSize: 25.0)
+		self.view.addSubview(self.ngWordLabel)
+		self.ngWordLabel.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
+		}
+
 		// message2
 		self.message2.text = "です。"
 		self.message2.textColor = UIColor.black

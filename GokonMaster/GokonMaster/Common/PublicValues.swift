@@ -125,6 +125,32 @@ public func initMatchingResult() {
 }
 
 
+// NG words master
+public let ngWordsList = ["あさって", "おととい", "来年", "去年", "平成",
+						  "いぬ", "ねこ", "牛(うし･ぎゅう)",
+						  "スカイツリー", "東京タワー", "レインボーブリッジ",
+						  "ディズニー", "通天閣", "道頓堀", "富士山",
+						  "ユニバーサルスタジオジャパン (略称可)",
+						  "野球", "バスケ", "サッカー", "テニス", "ゴルフ",
+						  "キャンプ", "バーベキュー", "プール", "うみ", "やま",
+						  "パン", "ケーキ", "タピオカ",
+						  "あか", "みどり", "あお", "きいろ", "ピンク",
+						  "あたま", "かみ", "うで",
+						  "おいしい", "かっこいい", "微妙",
+						  "パパ", "ママ", "兄ちゃん", "姉ちゃん", "いとこ",
+						  "おとうと", "いもうと",
+						  "あらし", "キング", "プリンス", "ニュース",
+						  "au", "docomo", "SoftBank",
+						  "Insta(gram)", "Twitter", "TikTok", "Facebook",
+						  "YouTube(r)", "Netflix", "Hulu",
+						  "アンドロイド", "アプリ",
+						  "浮気", "方言", "血液型", "占い", "早番", "遅番", "OK"]
+public var assignedNGWords = ["", "", "", "", "", "", "", "", "", ""]
+public func initAssignedNGWords() {
+	assignedNGWords = ["", "", "", "", "", "", "", "", "", ""]
+}
+
+
 /// すべてのpublic変数を初期化
 public func initAllPublicValues() {
 	editingTextFieldName = ""
@@ -146,6 +172,8 @@ public func initAllPublicValues() {
 	favoriteArray.removeAll()
 
 	initMatchingResult()
+
+	initAssignedNGWords()
 }
 
 
@@ -186,25 +214,3 @@ public let noAction = UIAlertAction(title: "No",
 										(action: UIAlertAction!) -> Void in
 										alertResult = 3
 })
-
-
-// NG words master
-public let masterNGWords = ["あさって", "おととい", "来年", "去年", "平成",		// 時間系
-							"いぬ", "ねこ", "牛(うし･ぎゅう)",					// 動物系
-							"スカイツリー", "東京タワー", "レインボーブリッジ",
-							"ディズニー", "通天閣", "道頓堀", "富士山",
-							"ユニバーサルスタジオジャパン (略称可)",				// 観光地系
-							"野球", "バスケ", "サッカー", "テニス", "ゴルフ",		// スポーツ系
-							"キャンプ", "バーベキュー", "プール", "うみ", "やま",	// レジャー系
-							"パン", "ケーキ", "タピオカ",						// 食品系
-							"あか", "みどり", "あお", "きいろ", "ピンク",		// 色
-							"あたま", "かみ", "うで",							// 体
-							"おいしい", "かっこいい", "微妙",					// 形容詞系
-							"パパ", "ママ", "兄ちゃん", "姉ちゃん", "いとこ",
-							"おとうと", "いもうと",								// 家族系
-							"あらし", "キング", "プリンス",	 "ニュース",			// ジャニーズ
-							"au", "docomo", "SoftBank",						// キャリア
-							"Insta(gram)", "Twitter", "TikTok", "Facebook",	// SNS
-							"YouTube(r)", "Netflix", "Hulu",				// 動画
-							"アンドロイド", "アプリ",							// スマホ系
-							"浮気", "方言", "血液型", "占い", "早番", "遅番", "OK"]
