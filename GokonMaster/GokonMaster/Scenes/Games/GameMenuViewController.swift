@@ -15,8 +15,9 @@ class GameMenuViewController: UIViewController {
 	let backBtn				= UIButton()
 	let smallTitle			= UILabel()		// title
 	let ngWordBtn			= UIButton()	// NGワードボタン
-	
-	
+	let message				= UILabel()
+
+
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		// background color
@@ -66,6 +67,16 @@ class GameMenuViewController: UIViewController {
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+		}
+
+		// message
+		self.message.numberOfLines = 2
+		self.message.text = "他のゲームも続々追加予定！\nお楽しみに！"
+		self.message.textColor = UIColor.black
+		self.view.addSubview(message)
+		self.message.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(200)
 		}
 	}
 

@@ -54,7 +54,7 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate {
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
 		}
-		
+
 		// PIN code
 		self.pinCodeTF.keyboardType = .numberPad
 		self.pinCodeTF.borderStyle = .roundedRect
