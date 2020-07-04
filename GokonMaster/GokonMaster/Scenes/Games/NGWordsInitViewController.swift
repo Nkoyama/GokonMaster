@@ -12,7 +12,8 @@ import SnapKit
 class NGWordsInitViewController: UIViewController {
 	
 	// MARK: Views
-	let smallTitle			= UILabel()		// title
+	let backBtn				= UIButton()
+	let smallTitle			= UILabel()
 	let ruleLabel			= UILabel()
 	let ruleDetail			= UILabel()
 
@@ -21,6 +22,21 @@ class NGWordsInitViewController: UIViewController {
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
+
+		// back button
+		self.backBtn.setTitle(" ゲーム選択に戻る ", for: .normal)
+		self.backBtn.setTitleColor(UIColor.green, for: .normal)
+		self.backBtn.backgroundColor = UIColor.clear
+		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
+		self.backBtn.layer.borderColor = UIColor.clear.cgColor
+		self.backBtn.layer.borderWidth = 2.0
+		self.backBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.backBtn)
+		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
+		self.backBtn.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
+		}
 
 		// title
 		self.smallTitle.text = "NGワード"
@@ -60,5 +76,13 @@ class NGWordsInitViewController: UIViewController {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
 		}
+	}
+
+	/// backBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func backBtnDidTap(_ sender: UIButton) {
+		// 現在の画面を破棄
+		self.dismiss(animated: true, completion: nil)
 	}
 }

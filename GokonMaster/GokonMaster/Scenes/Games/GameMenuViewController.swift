@@ -12,6 +12,7 @@ import SnapKit
 class GameMenuViewController: UIViewController {
 
 	// MARK: Views
+	let backBtn				= UIButton()
 	let smallTitle			= UILabel()		// title
 	let ngWordBtn			= UIButton()	// NGワードボタン
 	
@@ -20,6 +21,21 @@ class GameMenuViewController: UIViewController {
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
+
+		// back button
+		self.backBtn.setTitle(" メニューに戻る ", for: .normal)
+		self.backBtn.setTitleColor(UIColor.green, for: .normal)
+		self.backBtn.backgroundColor = UIColor.clear
+		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
+		self.backBtn.layer.borderColor = UIColor.clear.cgColor
+		self.backBtn.layer.borderWidth = 2.0
+		self.backBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.backBtn)
+		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
+		self.backBtn.snp.makeConstraints { (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
+		}
 
 		// title
 		self.smallTitle.text = "ゲーム"
@@ -51,6 +67,14 @@ class GameMenuViewController: UIViewController {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
 		}
+	}
+
+	/// backBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func backBtnDidTap(_ sender: UIButton) {
+		// 現在の画面を破棄
+		self.dismiss(animated: true, completion: nil)
 	}
 
 	/// ngWordBtn action
