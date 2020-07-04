@@ -60,14 +60,15 @@ class NGWordsInitViewController: UIViewController {
 		}
 
 		// rule detail
-		self.ruleDetail.numberOfLines = 9
+		self.ruleDetail.numberOfLines = 10
 		self.ruleDetail.text = "まず、全員に別々のNGワードが割り振られます。\n"
 							 + "NGワードはゲーム終了まで覚えておき、\n"
 							 + "誰にも教えないで下さい。\n"
 							 + "自分だけのNGワードを、誰かに言わせたら勝ち、\n"
 							 + "NGワードを言った人が負けとなります。\n"
 							 + "他の人のNGワードを言わないようにしながら、\n"
-							 + "自分のNGワードを言わせましょう。\n\n"
+							 + "自分のNGワードを言わせましょう。\n"
+							 + "(自分のNGワードを自分で言うのはOK)\n\n"
 							 + "最初に全員のNGワードを確認していきましょう！"
 		self.ruleDetail.textColor = UIColor.black
 		self.ruleDetail.adjustsFontSizeToFitWidth = true
@@ -79,7 +80,7 @@ class NGWordsInitViewController: UIViewController {
 		}
 
 		// start button
-		self.startBtn.setTitle(" 次へ ", for: .normal)
+		self.startBtn.setTitle(" start ", for: .normal)
 		self.startBtn.setTitleColor(UIColor.black, for: .normal)
 		self.startBtn.backgroundColor = UIColor.green
 		self.startBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
