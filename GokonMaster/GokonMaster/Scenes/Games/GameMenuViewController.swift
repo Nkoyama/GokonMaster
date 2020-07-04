@@ -73,8 +73,9 @@ class GameMenuViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
+		let menuViewController = MenuViewController()
+		menuViewController.modalPresentationStyle = .fullScreen
+		self.present(menuViewController, animated: true)
 	}
 
 	/// ngWordBtn action

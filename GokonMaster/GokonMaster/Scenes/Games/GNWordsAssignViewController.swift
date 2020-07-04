@@ -61,9 +61,12 @@ class NGWordsAssignViewController: UIViewController {
 		self.ngWordLabel.text = assignedNGWords[registeredNum]
 		self.ngWordLabel.textColor = UIColor.purple
 		self.ngWordLabel.font = UIFont.italicSystemFont(ofSize: 25.0)
+		self.ngWordLabel.adjustsFontSizeToFitWidth = true
+		self.ngWordLabel.textAlignment = NSTextAlignment.center
 		self.view.addSubview(self.ngWordLabel)
 		self.ngWordLabel.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
 		}
 
@@ -122,6 +125,9 @@ class NGWordsAssignViewController: UIViewController {
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
+			let ngWordsAssignFinishViewController = NGWordsAssignFinishViewController()
+			ngWordsAssignFinishViewController.modalPresentationStyle = .fullScreen
+			self.present(ngWordsAssignFinishViewController, animated: true)
 		} else {
 			let ngWordsAssignInitViewController = NGWordsAssignInitViewController()
 			ngWordsAssignInitViewController.modalPresentationStyle = .fullScreen

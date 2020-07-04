@@ -31,6 +31,8 @@
 		439E5C4224B07391001C59D1 /* GNWordsAssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4124B07391001C59D1 /* GNWordsAssignViewController.swift */; };
 		439E5C4424B07539001C59D1 /* NGWordsAssignInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4324B07539001C59D1 /* NGWordsAssignInitViewController.swift */; };
 		439E5C4624B07DF2001C59D1 /* NGwordAssignLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4524B07DF2001C59D1 /* NGwordAssignLogic.swift */; };
+		439E5C4824B08290001C59D1 /* NGWordsAssignFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */; };
+		439E5C4A24B084D0001C59D1 /* NGWordsCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */; };
 		43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D5892403CB72005A48AB /* AppDelegate.swift */; };
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		439E5C4124B07391001C59D1 /* GNWordsAssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNWordsAssignViewController.swift; sourceTree = "<group>"; };
 		439E5C4324B07539001C59D1 /* NGWordsAssignInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsAssignInitViewController.swift; sourceTree = "<group>"; };
 		439E5C4524B07DF2001C59D1 /* NGwordAssignLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGwordAssignLogic.swift; sourceTree = "<group>"; };
+		439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsAssignFinishViewController.swift; sourceTree = "<group>"; };
+		439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsCheckViewController.swift; sourceTree = "<group>"; };
 		43C1D5862403CB72005A48AB /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C1D5892403CB72005A48AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				439E5C3F24B050D0001C59D1 /* NGWordsInitViewController.swift */,
 				439E5C4324B07539001C59D1 /* NGWordsAssignInitViewController.swift */,
 				439E5C4124B07391001C59D1 /* GNWordsAssignViewController.swift */,
+				439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */,
+				439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439E5C4A24B084D0001C59D1 /* NGWordsCheckViewController.swift in Sources */,
 				439E5C4624B07DF2001C59D1 /* NGwordAssignLogic.swift in Sources */,
 				43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */,
 				43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */,
@@ -329,6 +336,7 @@
 				4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */,
 				4337E5102462CC2E006235BD /* DefineExtension.swift in Sources */,
 				439E5C35249486EA001C59D1 /* SeatChangeResultViewController.swift in Sources */,
+				439E5C4824B08290001C59D1 /* NGWordsAssignFinishViewController.swift in Sources */,
 				43084D5E2414CA7500370070 /* CommonMethods.swift in Sources */,
 				4337E51624712F45006235BD /* RegisterFavoriteViewController.swift in Sources */,
 				4337E5182478DA4D006235BD /* ChooseFavoritePopup.swift in Sources */,

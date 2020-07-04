@@ -104,8 +104,9 @@ class NGWordsInitViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
+		let gameMenuViewController = GameMenuViewController()
+		gameMenuViewController.modalPresentationStyle = .fullScreen
+		self.present(gameMenuViewController, animated: true)
 	}
 
 	/// starttn action
