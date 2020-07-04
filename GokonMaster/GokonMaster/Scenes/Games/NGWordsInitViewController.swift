@@ -112,8 +112,8 @@ class NGWordsInitViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func startBtnDidTap(_ sender: UIButton) {
-		let ngWordsAssignViewController = NGWordsAssignViewController()
-		ngWordsAssignViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsAssignViewController, animated: true)
+		let ngWordsAssignInitViewController = NGWordsAssignInitViewController()
+		ngWordsAssignInitViewController.modalPresentationStyle = .fullScreen
+		self.present(ngWordsAssignInitViewController, animated: true)
 	}
 }
