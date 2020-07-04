@@ -41,8 +41,11 @@ class NGWordsInitViewController: UIViewController {
 
 		// title
 		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.blue
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 40.0)
+		self.smallTitle.textColor = UIColor.init(red: 0/255,
+												 green: 167/255,
+												 blue: 113/255,
+												 alpha: 1)
+		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
@@ -51,8 +54,8 @@ class NGWordsInitViewController: UIViewController {
 
 		// rule
 		self.ruleLabel.text = "ルール"
-		self.ruleLabel.textColor = UIColor.green
-		self.ruleLabel.font = UIFont.italicSystemFont(ofSize: 30.0)
+		self.ruleLabel.textColor = UIColor.orange
+		self.ruleLabel.font = UIFont.italicSystemFont(ofSize: 25.0)
 		self.view.addSubview(self.ruleLabel)
 		self.ruleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
@@ -109,5 +112,8 @@ class NGWordsInitViewController: UIViewController {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func startBtnDidTap(_ sender: UIButton) {
+		let ngWordsAssignViewController = NGWordsAssignViewController()
+		ngWordsAssignViewController.modalPresentationStyle = .fullScreen
+		self.present(ngWordsAssignViewController, animated: true)
 	}
 }
