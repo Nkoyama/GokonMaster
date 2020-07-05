@@ -27,18 +27,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 
 	let SCREEN_SIZE				= UIScreen.main.bounds.size
 
-	// テーブル選択状況
-	let memberIndexA = seatPositionArray[0]
-	let memberIndexB = seatPositionArray[1]
-	let memberIndexC = seatPositionArray[2]
-	let memberIndexD = seatPositionArray[3]
-	let memberIndexE = seatPositionArray[4]
-	let memberIndexF = seatPositionArray[5]
-	let memberIndexG = seatPositionArray[6]
-	let memberIndexH = seatPositionArray[7]
-	let memberIndexI = seatPositionArray[8]
-	let memberIndexJ = seatPositionArray[9]
-
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
