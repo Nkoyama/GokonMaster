@@ -8,9 +8,10 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
 /// 設定完了画面
-class SettingFinishViewController: UIViewController {
+class SettingFinishViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
 	let smallTitle		= UILabel()				// title
@@ -22,6 +23,8 @@ class SettingFinishViewController: UIViewController {
 	let nextBtn			= UIButton()			// 次へボタン
 
 	let SCREEN_SIZE		= UIScreen.main.bounds.size
+	
+	var bannerView: GADBannerView!
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -114,9 +117,16 @@ class SettingFinishViewController: UIViewController {
 		self.nextBtn.addTarget(self, action: #selector(self.nextBtnDidTap(_:)), for: .touchUpInside)
 		self.nextBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
 
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// nextBtn action
@@ -138,4 +148,27 @@ class SettingFinishViewController: UIViewController {
 		}
 	}
 
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: bottomLayoutGuide,
+								attribute: .top,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
+	}
 }
