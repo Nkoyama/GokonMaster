@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
-class SeatChangeResultViewController: UIViewController {
+class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
 	let smallTitle		= UILabel()		// title
@@ -38,6 +39,8 @@ class SeatChangeResultViewController: UIViewController {
 	let menuBtn			= UIButton()	// menu button
 
 	let SCREEN_SIZE		= UIScreen.main.bounds.size
+
+	var bannerView: GADBannerView!
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -609,8 +612,16 @@ class SeatChangeResultViewController: UIViewController {
 							   for: .touchUpInside)
 		self.menuBtn.snp.makeConstraints{ (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// seatBtn action
@@ -627,5 +638,29 @@ class SeatChangeResultViewController: UIViewController {
 		let menuViewController = MenuViewController()
 		menuViewController.modalPresentationStyle = .fullScreen
 		self.present(menuViewController, animated: true)
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: bottomLayoutGuide,
+								attribute: .top,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
 	}
 }
