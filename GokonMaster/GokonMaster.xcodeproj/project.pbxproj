@@ -26,6 +26,13 @@
 		439E5C3724A72F42001C59D1 /* MatchingResultInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C3624A72F42001C59D1 /* MatchingResultInitViewController.swift */; };
 		439E5C3924A7310A001C59D1 /* MatchingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C3824A7310A001C59D1 /* MatchingLogic.swift */; };
 		439E5C3B24A74E14001C59D1 /* MatchingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C3A24A74E14001C59D1 /* MatchingResultViewController.swift */; };
+		439E5C3D24B04DC3001C59D1 /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C3C24B04DC3001C59D1 /* GameMenuViewController.swift */; };
+		439E5C4024B050D0001C59D1 /* NGWordsInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C3F24B050D0001C59D1 /* NGWordsInitViewController.swift */; };
+		439E5C4224B07391001C59D1 /* GNWordsAssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4124B07391001C59D1 /* GNWordsAssignViewController.swift */; };
+		439E5C4424B07539001C59D1 /* NGWordsAssignInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4324B07539001C59D1 /* NGWordsAssignInitViewController.swift */; };
+		439E5C4624B07DF2001C59D1 /* NGwordAssignLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4524B07DF2001C59D1 /* NGwordAssignLogic.swift */; };
+		439E5C4824B08290001C59D1 /* NGWordsAssignFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */; };
+		439E5C4A24B084D0001C59D1 /* NGWordsCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */; };
 		43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D5892403CB72005A48AB /* AppDelegate.swift */; };
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
@@ -54,6 +61,13 @@
 		439E5C3624A72F42001C59D1 /* MatchingResultInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingResultInitViewController.swift; sourceTree = "<group>"; };
 		439E5C3824A7310A001C59D1 /* MatchingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingLogic.swift; sourceTree = "<group>"; };
 		439E5C3A24A74E14001C59D1 /* MatchingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingResultViewController.swift; sourceTree = "<group>"; };
+		439E5C3C24B04DC3001C59D1 /* GameMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
+		439E5C3F24B050D0001C59D1 /* NGWordsInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsInitViewController.swift; sourceTree = "<group>"; };
+		439E5C4124B07391001C59D1 /* GNWordsAssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNWordsAssignViewController.swift; sourceTree = "<group>"; };
+		439E5C4324B07539001C59D1 /* NGWordsAssignInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsAssignInitViewController.swift; sourceTree = "<group>"; };
+		439E5C4524B07DF2001C59D1 /* NGwordAssignLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGwordAssignLogic.swift; sourceTree = "<group>"; };
+		439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsAssignFinishViewController.swift; sourceTree = "<group>"; };
+		439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsCheckViewController.swift; sourceTree = "<group>"; };
 		43C1D5862403CB72005A48AB /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C1D5892403CB72005A48AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +114,7 @@
 		4341CC0D241CF3B600C86FB9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				439E5C3E24B04F6B001C59D1 /* Games */,
 				43C1D58D2403CB72005A48AB /* ViewController.swift */,
 				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
 				4337E50D24627383006235BD /* SettingFinishViewController.swift */,
@@ -131,8 +146,22 @@
 			children = (
 				439E5C3224836CC9001C59D1 /* SeatChangeLogic.swift */,
 				439E5C3824A7310A001C59D1 /* MatchingLogic.swift */,
+				439E5C4524B07DF2001C59D1 /* NGwordAssignLogic.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		439E5C3E24B04F6B001C59D1 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				439E5C3C24B04DC3001C59D1 /* GameMenuViewController.swift */,
+				439E5C3F24B050D0001C59D1 /* NGWordsInitViewController.swift */,
+				439E5C4324B07539001C59D1 /* NGWordsAssignInitViewController.swift */,
+				439E5C4124B07391001C59D1 /* GNWordsAssignViewController.swift */,
+				439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */,
+				439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */,
+			);
+			path = Games;
 			sourceTree = "<group>";
 		};
 		43C1D57D2403CB71005A48AB = {
@@ -291,17 +320,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439E5C4A24B084D0001C59D1 /* NGWordsCheckViewController.swift in Sources */,
+				439E5C4624B07DF2001C59D1 /* NGwordAssignLogic.swift in Sources */,
 				43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */,
 				43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */,
 				4341CC09241CC6CA00C86FB9 /* TableCircleDrawView.swift in Sources */,
 				439E5C3324836CC9001C59D1 /* SeatChangeLogic.swift in Sources */,
+				439E5C3D24B04DC3001C59D1 /* GameMenuViewController.swift in Sources */,
 				439E5C3B24A74E14001C59D1 /* MatchingResultViewController.swift in Sources */,
 				4337E51424680697006235BD /* MenuViewController.swift in Sources */,
+				439E5C4224B07391001C59D1 /* GNWordsAssignViewController.swift in Sources */,
 				439E5C3924A7310A001C59D1 /* MatchingLogic.swift in Sources */,
 				43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */,
+				439E5C4024B050D0001C59D1 /* NGWordsInitViewController.swift in Sources */,
 				4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */,
 				4337E5102462CC2E006235BD /* DefineExtension.swift in Sources */,
 				439E5C35249486EA001C59D1 /* SeatChangeResultViewController.swift in Sources */,
+				439E5C4824B08290001C59D1 /* NGWordsAssignFinishViewController.swift in Sources */,
 				43084D5E2414CA7500370070 /* CommonMethods.swift in Sources */,
 				4337E51624712F45006235BD /* RegisterFavoriteViewController.swift in Sources */,
 				4337E5182478DA4D006235BD /* ChooseFavoritePopup.swift in Sources */,
@@ -312,6 +347,7 @@
 				4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */,
 				4337E50E24627383006235BD /* SettingFinishViewController.swift in Sources */,
 				439E5C3724A72F42001C59D1 /* MatchingResultInitViewController.swift in Sources */,
+				439E5C4424B07539001C59D1 /* NGWordsAssignInitViewController.swift in Sources */,
 				43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,7 @@ class MenuViewController: UIViewController {
 	// MARK: Views
 	let smallTitle			= UILabel()		// title
 	let changeSeatBtn		= UIButton()	// 席替えボタン
+	let gameBtn				= UIButton()	// ゲームボタン
 	let matchingBtn			= UIButton()	// マッチングボタン
 	let returnTopBtn		= UIButton()	// トップに戻るボタン
 
@@ -52,7 +53,28 @@ class MenuViewController: UIViewController {
 		self.changeSeatBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+		}
+
+		// ゲームボタン
+		self.gameBtn.setTitle("ゲーム", for: .normal)
+		self.gameBtn.setTitleColor(UIColor.black, for: .normal)
+		self.gameBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.gameBtn.backgroundColor = UIColor.init(red: 255/255,
+													green: 187/255,
+													blue: 0/255,
+													alpha: 1)
+		self.gameBtn.layer.borderColor = UIColor.gray.cgColor
+		self.gameBtn.layer.borderWidth = 2.0
+		self.gameBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.gameBtn)
+		self.gameBtn.addTarget(self,
+							   action: #selector(self.gameBtnDidTap(_:)),
+							   for: .touchUpInside)
+		self.gameBtn.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(290)
 		}
 
 		// マッチングボタン
@@ -109,6 +131,17 @@ class MenuViewController: UIViewController {
 		registerFavoriteViewController.favoriteType = 0
 		registerFavoriteViewController.modalPresentationStyle = .fullScreen
 		self.present(registerFavoriteViewController, animated: true)
+	}
+
+	/// gameBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func gameBtnDidTap(_ sender: UIButton) {
+		initRegisteredNum()
+
+		let gameMenuViewController = GameMenuViewController()
+		gameMenuViewController.modalPresentationStyle = .fullScreen
+		self.present(gameMenuViewController, animated: true)
 	}
 
 	/// matchingBtn action
