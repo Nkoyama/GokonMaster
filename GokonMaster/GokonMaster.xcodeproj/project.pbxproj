@@ -33,6 +33,7 @@
 		439E5C4624B07DF2001C59D1 /* NGwordAssignLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4524B07DF2001C59D1 /* NGwordAssignLogic.swift */; };
 		439E5C4824B08290001C59D1 /* NGWordsAssignFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */; };
 		439E5C4A24B084D0001C59D1 /* NGWordsCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */; };
+		439E5C4C24B1BFDF001C59D1 /* PublicConstantValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4B24B1BFDF001C59D1 /* PublicConstantValues.swift */; };
 		43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D5892403CB72005A48AB /* AppDelegate.swift */; };
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 		439E5C4524B07DF2001C59D1 /* NGwordAssignLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGwordAssignLogic.swift; sourceTree = "<group>"; };
 		439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsAssignFinishViewController.swift; sourceTree = "<group>"; };
 		439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGWordsCheckViewController.swift; sourceTree = "<group>"; };
+		439E5C4B24B1BFDF001C59D1 /* PublicConstantValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicConstantValues.swift; sourceTree = "<group>"; };
 		43C1D5862403CB72005A48AB /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C1D5892403CB72005A48AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				4341CC0A241CEAB700C86FB9 /* PublicValues.swift */,
+				439E5C4B24B1BFDF001C59D1 /* PublicConstantValues.swift */,
 				43084D5D2414CA7500370070 /* CommonMethods.swift */,
 				4337E50F2462CC2E006235BD /* DefineExtension.swift */,
 			);
@@ -346,6 +349,7 @@
 				439E5C30248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift in Sources */,
 				4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */,
 				4337E50E24627383006235BD /* SettingFinishViewController.swift in Sources */,
+				439E5C4C24B1BFDF001C59D1 /* PublicConstantValues.swift in Sources */,
 				439E5C3724A72F42001C59D1 /* MatchingResultInitViewController.swift in Sources */,
 				439E5C4424B07539001C59D1 /* NGWordsAssignInitViewController.swift in Sources */,
 				43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */,

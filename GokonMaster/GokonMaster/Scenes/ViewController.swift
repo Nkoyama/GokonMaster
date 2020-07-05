@@ -26,14 +26,6 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.green
 
-		// banner ad
-		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-		bannerView.rootViewController = self
-		bannerView.load(GADRequest())
-		bannerView.delegate = self
-
 		// title
 		self.titleLabel.numberOfLines = 2
 		self.titleLabel.text = "合コン\n    master"
@@ -57,8 +49,16 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(70)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 	
 	/// startBtn action
@@ -69,7 +69,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 		setting1ViewController.modalPresentationStyle = .fullScreen
 		self.present(setting1ViewController, animated: true)
 	}
-	
+
 	/// make GADBannerView
 	/// - Parameter bannerView: GADBannerView
 	/// - Authors: Nozomi Koyama

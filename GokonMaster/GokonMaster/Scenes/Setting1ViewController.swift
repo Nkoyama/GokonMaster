@@ -8,9 +8,10 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
 /// 設定画面①
-class Setting1ViewController: UIViewController, UITextFieldDelegate {
+class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
 	let smallTitle		= UILabel()				// title
@@ -25,6 +26,10 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	let tableTypeLabel	= UILabel()				// テーブルタイプ label
 	var tableTypeSC		= UISegmentedControl()	// テーブルタイプ選択 segmented control
 	let nextBtn			= UIButton()			// 次へボタン
+	
+	let SCREEN_SIZE		= UIScreen.main.bounds.size
+
+	var bannerView: GADBannerView!
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -142,12 +147,15 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.tableTypeSC.snp.makeConstraints { (make) in
 			make.width.equalTo(250)
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(380)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(375)
 		}
 
 		// テーブルタイプの（四角、丸）の描画
 		let screenWidth = self.view.bounds.width	//Screen Size Width
-		let tableTypeDraw = TableTypeDrawView(frame: CGRect(x: screenWidth/2-100, y: 470, width: 210, height: 100))
+		let tableTypeDraw = TableTypeDrawView(frame: CGRect(x: screenWidth/2-100,
+															y: 450,
+															width: 210,
+															height: 100))
 		self.view.addSubview(tableTypeDraw)
 
 		// next button
@@ -159,11 +167,21 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 		self.nextBtn.layer.borderWidth = 2.0
 		self.nextBtn.layer.cornerRadius = 2.0
 		self.view.addSubview(self.nextBtn)
-		self.nextBtn.addTarget(self, action: #selector(self.nextBtnDidTap(_:)), for: .touchUpInside)
+		self.nextBtn.addTarget(self,
+							   action: #selector(self.nextBtnDidTap(_:)),
+							   for: .touchUpInside)
 		self.nextBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// backBtn action
@@ -229,5 +247,29 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate {
 	/// - Authors: Nozomi Koyama
 	@objc func tableTypeChanged(_ sender: Any) {
 		tableTypeIndex = self.tableTypeSC.selectedSegmentIndex
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: bottomLayoutGuide,
+								attribute: .top,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
 	}
 }
