@@ -16,8 +16,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let registeredNickname		= UILabel()			// registered nickname
 	let message1				= UILabel()			// message1
 	let contactInfoScrollV		= UIScrollView()	// contact information scroll view
-	let message2				= UILabel()			// message2
-	let doorWay					= UILabel()			// 出入口
 	let nextBtn					= UIButton()		// 次へボタン
 	let nickname				= UILabel()			// nickname
 	let sexLabel				= UILabel()			// sex label
@@ -114,7 +112,9 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.nextBtn.layer.borderWidth = 2.0
 		self.nextBtn.layer.cornerRadius = 2.0
 		self.view.addSubview(self.nextBtn)
-		self.nextBtn.addTarget(self, action: #selector(self.nextBtnDidTap(_:)), for: .touchUpInside)
+		self.nextBtn.addTarget(self,
+							   action: #selector(self.nextBtnDidTap(_:)),
+							   for: .touchUpInside)
 		self.nextBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
