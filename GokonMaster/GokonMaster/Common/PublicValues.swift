@@ -185,16 +185,14 @@ public func initAlertResult() {
 // alert message：OKボタン押下
 public let defaultAction = UIAlertAction(title: "OK",
 										 style: .default,
-										 handler:{
-											(action: UIAlertAction!) -> Void in
+										 handler: { (action: UIAlertAction!) -> Void in
 											alertResult = 1
 })
 
 // alert message：Cancelボタン押下
 public let cancelAction = UIAlertAction(title: "Cancel",
 										style: .destructive,
-										handler:{
-											(action: UIAlertAction!) -> Void in
+										handler: { (action: UIAlertAction) in
 											alertResult = 0
 											return;
 })
@@ -202,15 +200,13 @@ public let cancelAction = UIAlertAction(title: "Cancel",
 // alert message：Yesボタン押下
 public let yesAction = UIAlertAction(title: "Yes",
 									 style: .default,
-									 handler:{
-										(action: UIAlertAction!) -> Void in
+									 handler: { (action: UIAlertAction) in
 										alertResult = 2
 })
 
 // alert message：Noボタン押下
 public let noAction = UIAlertAction(title: "No",
 									style: .default,
-									handler:{
-										(action: UIAlertAction!) -> Void in
+									handler: { (action: UIAlertAction) in
 										alertResult = 3
 })

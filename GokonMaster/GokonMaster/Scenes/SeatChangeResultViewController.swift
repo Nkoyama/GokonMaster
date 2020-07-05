@@ -59,7 +59,6 @@ class SeatChangeResultViewController: UIViewController {
 
 		// calc the best seat position
 		let seatChangeResult = seatChangeMainLogic()
-		print(seatPositionArray)
 
 		if( seatChangeResult ) {
 			// square table
