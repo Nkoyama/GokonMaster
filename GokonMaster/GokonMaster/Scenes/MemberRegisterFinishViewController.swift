@@ -16,18 +16,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let registeredNickname		= UILabel()			// registered nickname
 	let message1				= UILabel()			// message1
 	let contactInfoScrollV		= UIScrollView()	// contact information scroll view
-	let message2				= UILabel()			// message2
-	let doorWay					= UILabel()			// 出入口
-	let seatBtnA				= UIButton()		// seat button A
-	let seatBtnB				= UIButton()		// seat button B
-	let seatBtnC				= UIButton()		// seat button C
-	let seatBtnD				= UIButton()		// seat button D
-	let seatBtnE				= UIButton()		// seat button E
-	let seatBtnF				= UIButton()		// seat button F
-	let seatBtnG				= UIButton()		// seat button G
-	let seatBtnH				= UIButton()		// seat button H
-	let seatBtnI				= UIButton()		// seat button I
-	let seatBtnJ				= UIButton()		// seat button J
 	let nextBtn					= UIButton()		// 次へボタン
 	let nickname				= UILabel()			// nickname
 	let sexLabel				= UILabel()			// sex label
@@ -36,18 +24,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let pinCode					= UILabel()			// PIN code
 
 	let SCREEN_SIZE				= UIScreen.main.bounds.size
-
-	// テーブル選択状況
-	let memberIndexA = seatPositionArray[0]
-	let memberIndexB = seatPositionArray[1]
-	let memberIndexC = seatPositionArray[2]
-	let memberIndexD = seatPositionArray[3]
-	let memberIndexE = seatPositionArray[4]
-	let memberIndexF = seatPositionArray[5]
-	let memberIndexG = seatPositionArray[6]
-	let memberIndexH = seatPositionArray[7]
-	let memberIndexI = seatPositionArray[8]
-	let memberIndexJ = seatPositionArray[9]
 
 
 	// MARK: Life Cycle
@@ -136,7 +112,9 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.nextBtn.layer.borderWidth = 2.0
 		self.nextBtn.layer.cornerRadius = 2.0
 		self.view.addSubview(self.nextBtn)
-		self.nextBtn.addTarget(self, action: #selector(self.nextBtnDidTap(_:)), for: .touchUpInside)
+		self.nextBtn.addTarget(self,
+							   action: #selector(self.nextBtnDidTap(_:)),
+							   for: .touchUpInside)
 		self.nextBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
