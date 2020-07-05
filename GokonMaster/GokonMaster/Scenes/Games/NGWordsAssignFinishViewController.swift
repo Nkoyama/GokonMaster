@@ -8,13 +8,16 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
-class NGWordsAssignFinishViewController: UIViewController {
+class NGWordsAssignFinishViewController: UIViewController, GADBannerViewDelegate {
 	
 	// MARK: Views
 	let smallTitle			= UILabel()
 	let message1			= UILabel()
 	let checkBtn			= UIButton()
+
+	var bannerView: GADBannerView!
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -62,8 +65,16 @@ class NGWordsAssignFinishViewController: UIViewController {
 							 for: .touchUpInside)
 		self.checkBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// checkBtn action
@@ -73,5 +84,29 @@ class NGWordsAssignFinishViewController: UIViewController {
 		let ngWordsCheckViewController = NGWordsCheckViewController()
 		ngWordsCheckViewController.modalPresentationStyle = .fullScreen
 		self.present(ngWordsCheckViewController, animated: true)
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: bottomLayoutGuide,
+								attribute: .top,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
 	}
 }
