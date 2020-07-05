@@ -18,16 +18,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 	let contactInfoScrollV		= UIScrollView()	// contact information scroll view
 	let message2				= UILabel()			// message2
 	let doorWay					= UILabel()			// 出入口
-	let seatBtnA				= UIButton()		// seat button A
-	let seatBtnB				= UIButton()		// seat button B
-	let seatBtnC				= UIButton()		// seat button C
-	let seatBtnD				= UIButton()		// seat button D
-	let seatBtnE				= UIButton()		// seat button E
-	let seatBtnF				= UIButton()		// seat button F
-	let seatBtnG				= UIButton()		// seat button G
-	let seatBtnH				= UIButton()		// seat button H
-	let seatBtnI				= UIButton()		// seat button I
-	let seatBtnJ				= UIButton()		// seat button J
 	let nextBtn					= UIButton()		// 次へボタン
 	let nickname				= UILabel()			// nickname
 	let sexLabel				= UILabel()			// sex label
