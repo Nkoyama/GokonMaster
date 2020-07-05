@@ -150,7 +150,6 @@ public func seatChangeMainLogic() -> Bool {
 		var evaluationPoint = 0.0
 		for tmpSeatPositionArray in tmpSeatPositionPatterns {
 			evaluationPoint = calcSeatEvaluation(tmpSeatPositionArray: tmpSeatPositionArray)
-			print(tmpSeatPositionArray, evaluationPoint)
 			if(evaluationPoint > bestEvaluationPoint) {
 				bestEvaluationPoint = evaluationPoint
 				bestTmpSeatPositionArray = tmpSeatPositionArray

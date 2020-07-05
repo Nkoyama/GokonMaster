@@ -14,6 +14,7 @@ class MenuViewController: UIViewController {
 	// MARK: Views
 	let smallTitle			= UILabel()		// title
 	let changeSeatBtn		= UIButton()	// 席替えボタン
+	let changeTableTypeBtn	= UIButton()	// テーブルタイプ変更ボタン
 	let gameBtn				= UIButton()	// ゲームボタン
 	let matchingBtn			= UIButton()	// マッチングボタン
 	let returnTopBtn		= UIButton()	// トップに戻るボタン
@@ -53,7 +54,28 @@ class MenuViewController: UIViewController {
 		self.changeSeatBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+		}
+
+		// テーブルタイプ変更ボタン
+		self.changeTableTypeBtn.setTitle("テーブルタイプ変更(店移動)", for: .normal)
+		self.changeTableTypeBtn.setTitleColor(UIColor.black, for: .normal)
+		self.changeTableTypeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.changeTableTypeBtn.backgroundColor = UIColor.init(red: 255/255,
+															  green: 187/255,
+															  blue: 0/255,
+															  alpha: 1)
+		self.changeTableTypeBtn.layer.borderColor = UIColor.gray.cgColor
+		self.changeTableTypeBtn.layer.borderWidth = 2.0
+		self.changeTableTypeBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.changeTableTypeBtn)
+		self.changeTableTypeBtn.addTarget(self,
+										 action: #selector(self.changeTableTypeBtnDidTap(_:)),
+										 for: .touchUpInside)
+		self.changeTableTypeBtn.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
 		}
 
 		// ゲームボタン
@@ -74,7 +96,7 @@ class MenuViewController: UIViewController {
 		self.gameBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(290)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
 		}
 
 		// マッチングボタン
@@ -95,7 +117,7 @@ class MenuViewController: UIViewController {
 		self.matchingBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(440)
 		}
 
 		// トップに戻るボタン
@@ -131,6 +153,57 @@ class MenuViewController: UIViewController {
 		registerFavoriteViewController.favoriteType = 0
 		registerFavoriteViewController.modalPresentationStyle = .fullScreen
 		self.present(registerFavoriteViewController, animated: true)
+	}
+
+	/// changeSeatTypeBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func changeTableTypeBtnDidTap(_ sender: UIButton) {
+		var newTableTypeName = ""
+		var message = ""
+
+		// alert message：Yesボタン押下
+		let changeAction = UIAlertAction(title: "Yes",
+										 style: .default,
+										 handler: { (action: UIAlertAction) in
+											tableTypeIndex = 1 - tableTypeIndex
+											message = "テーブルタイプを" + newTableTypeName + "に変更しました。"
+											let alert = UIAlertController(title: "",
+																		  message: message,
+																		  preferredStyle: .alert)
+											alert.addAction(defaultAction)
+											self.present(alert, animated: true, completion: nil)
+		})
+		// alert message：Noボタン押下
+		let notChangeAction = UIAlertAction(title: "No",
+											style: .default,
+											handler: { (action: UIAlertAction) in
+												message = "テーブルタイプの変更をキャンセルしました。"
+												let alert = UIAlertController(title: "",
+																			  message: message,
+																			  preferredStyle: .alert)
+												alert.addAction(defaultAction)
+												self.present(alert, animated: true, completion: nil)
+		})
+		if( tableTypeIndex == 0 ) {
+			let alert = UIAlertController(title: "",
+										  message: "現在、テーブルタイプは四角が設定されています。\n"
+													+ "テーブルタイプを丸に変更しますか？",
+										  preferredStyle: .alert)
+			alert.addAction(changeAction)
+			alert.addAction(notChangeAction)
+			present(alert, animated: true, completion: nil)
+			newTableTypeName = "丸"
+		} else {
+			let alert = UIAlertController(title: "",
+										  message: "現在、テーブルタイプは丸が設定されています。\n"
+													+ "テーブルタイプを四角に変更しますか？",
+										  preferredStyle: .alert)
+			alert.addAction(changeAction)
+			alert.addAction(notChangeAction)
+			present(alert, animated: true, completion: nil)
+			newTableTypeName = "四角"
+		}
 	}
 
 	/// gameBtn action
