@@ -6,6 +6,7 @@
 //  Copyright © 2020 Nozomi Koyama. All rights reserved.
 //
 
+import GoogleMobileAds
 import UIKit
 
 @UIApplicationMain
@@ -14,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		// 広告初期化
+		GADMobileAds.sharedInstance().start(completionHandler: nil)
+
 		/* 最初に表示するUIViewControllerを指定する */
 		// windowをスクリーンサイズに合わせて生成
 		window = UIWindow(frame: UIScreen.main.bounds)

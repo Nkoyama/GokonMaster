@@ -7,4 +7,5 @@ target 'GokonMaster' do
 
   # Pods for GokonMaster
   pod 'SnapKit', '>=3.2.0'
+  pod 'Google-Mobile-Ads-SDK'
 end
