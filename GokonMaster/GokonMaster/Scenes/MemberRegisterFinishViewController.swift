@@ -125,7 +125,8 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
+//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
