@@ -61,3 +61,10 @@ public let ngWordsList = ["あさって", "おととい", "来年", "去年", "�
 						  "アンドロイド", "アプリ",
 						  "浮気", "方言", "血液型", "占い", "早番", "遅番", "OK"]
 
+
+public let keyWindow = UIApplication.shared.connectedScenes
+	.filter({$0.activationState == .foregroundActive})
+	.map({$0 as? UIWindowScene})
+	.compactMap({$0})
+	.first?.windows
+	.filter({$0.isKeyWindow}).first
