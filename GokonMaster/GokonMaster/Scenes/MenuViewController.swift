@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
 	let smallTitle			= UILabel()		// title
@@ -19,6 +20,7 @@ class MenuViewController: UIViewController {
 	let matchingBtn			= UIButton()	// マッチングボタン
 	let returnTopBtn		= UIButton()	// トップに戻るボタン
 
+	var bannerView: GADBannerView!
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -61,6 +63,7 @@ class MenuViewController: UIViewController {
 		self.changeTableTypeBtn.setTitle("テーブルタイプ変更(店移動)", for: .normal)
 		self.changeTableTypeBtn.setTitleColor(UIColor.black, for: .normal)
 		self.changeTableTypeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.changeTableTypeBtn.titleLabel?.adjustsFontSizeToFitWidth = true
 		self.changeTableTypeBtn.backgroundColor = UIColor.init(red: 255/255,
 															  green: 187/255,
 															  blue: 0/255,
@@ -138,8 +141,16 @@ class MenuViewController: UIViewController {
 		self.returnTopBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(550)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// changeSeatBtn action
@@ -257,5 +268,29 @@ class MenuViewController: UIViewController {
 		alert.addAction(notReset)
 		alert.addAction(reset)
 		present(alert, animated: true, completion: nil)
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: bottomLayoutGuide,
+								attribute: .top,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
 	}
 }
