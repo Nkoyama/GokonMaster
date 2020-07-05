@@ -125,26 +125,7 @@ public func initMatchingResult() {
 }
 
 
-// NG words master
-public let ngWordsList = ["あさって", "おととい", "来年", "去年", "平成",
-						  "いぬ", "ねこ", "牛(うし･ぎゅう)",
-						  "スカイツリー", "東京タワー", "レインボーブリッジ",
-						  "ディズニー", "通天閣", "道頓堀", "富士山",
-						  "ユニバーサルスタジオジャパン(略称可)",
-						  "野球", "バスケ", "サッカー", "テニス", "ゴルフ",
-						  "キャンプ", "バーベキュー", "プール", "うみ", "やま",
-						  "パン", "ケーキ", "タピオカ",
-						  "あか", "みどり", "あお", "きいろ", "ピンク",
-						  "あたま", "かみ", "うで",
-						  "おいしい", "かっこいい", "微妙",
-						  "パパ", "ママ", "兄ちゃん", "姉ちゃん", "いとこ",
-						  "おとうと", "いもうと",
-						  "あらし", "キング", "プリンス", "ニュース",
-						  "au", "docomo", "SoftBank",
-						  "Insta(gram)", "Twitter", "TikTok", "Facebook",
-						  "YouTube(r)", "Netflix", "Hulu",
-						  "アンドロイド", "アプリ",
-						  "浮気", "方言", "血液型", "占い", "早番", "遅番", "OK"]
+// NG words
 public var assignedNGWords = ["", "", "", "", "", "", "", "", "", ""]
 public func initAssignedNGWords() {
 	assignedNGWords = ["", "", "", "", "", "", "", "", "", ""]
@@ -181,32 +162,3 @@ public var alertResult = -1
 public func initAlertResult() {
 	alertResult = -1
 }
-
-// alert message：OKボタン押下
-public let defaultAction = UIAlertAction(title: "OK",
-										 style: .default,
-										 handler: { (action: UIAlertAction!) -> Void in
-											alertResult = 1
-})
-
-// alert message：Cancelボタン押下
-public let cancelAction = UIAlertAction(title: "Cancel",
-										style: .destructive,
-										handler: { (action: UIAlertAction) in
-											alertResult = 0
-											return;
-})
-
-// alert message：Yesボタン押下
-public let yesAction = UIAlertAction(title: "Yes",
-									 style: .default,
-									 handler: { (action: UIAlertAction) in
-										alertResult = 2
-})
-
-// alert message：Noボタン押下
-public let noAction = UIAlertAction(title: "No",
-									style: .default,
-									handler: { (action: UIAlertAction) in
-										alertResult = 3
-})

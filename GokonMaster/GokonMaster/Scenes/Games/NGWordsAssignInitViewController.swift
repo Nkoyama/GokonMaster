@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
-class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate {
+class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GADBannerViewDelegate {
 	
 	// MARK: Views
 	let smallTitle			= UILabel()
@@ -17,6 +18,8 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate {
 	let message				= UILabel()
 	let pinCodeTF			= UITextField()		// PIN code
 	let okBtn				= UIButton()		// OK button
+
+	var bannerView: GADBannerView!
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -80,8 +83,17 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate {
 							 for: .touchUpInside)
 		self.okBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
+//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// okBtn action
@@ -99,5 +111,29 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate {
 			alert.addAction(defaultAction)
 			self.present(alert, animated: true, completion: nil)
 		}
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: view.safeAreaLayoutGuide,
+								attribute: .bottom,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
 	}
 }

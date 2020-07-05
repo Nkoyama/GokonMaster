@@ -8,14 +8,17 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
 /// 初期画面
-class ViewController: UIViewController {
+class ViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
 	let startBtn = UIButton()	// 合コンスタートボタン
 	let titleLabel = UILabel()	// title
-	
+
+	var bannerView: GADBannerView!
+
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,7 +34,7 @@ class ViewController: UIViewController {
 		self.view.addSubview(titleLabel)
 		self.titleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
 		}
 
 		// start button
@@ -46,8 +49,17 @@ class ViewController: UIViewController {
 		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
+//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 	
 	/// startBtn action
@@ -57,5 +69,29 @@ class ViewController: UIViewController {
 		let setting1ViewController = Setting1ViewController()
 		setting1ViewController.modalPresentationStyle = .fullScreen
 		self.present(setting1ViewController, animated: true)
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: view.safeAreaLayoutGuide,
+								attribute: .bottom,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
 	}
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import GoogleMobileAds
 
-class RegisterFavoriteFinishViewController: UIViewController {
+class RegisterFavoriteFinishViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
 	let backBtn			= UIButton()		// back button
@@ -28,6 +29,8 @@ class RegisterFavoriteFinishViewController: UIViewController {
 	let okBtn			= UIButton()		// OK button
 	
 	var favoriteType:Int	= Int()		// 0:seat change, 1:matching
+
+	var bannerView: GADBannerView!
 
 	// MARK: Life Cycle
 	override func viewDidLoad() {
@@ -253,8 +256,17 @@ class RegisterFavoriteFinishViewController: UIViewController {
 							 for: .touchUpInside)
 		self.okBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(30)
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
+//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// backBtn action
@@ -291,5 +303,29 @@ class RegisterFavoriteFinishViewController: UIViewController {
 			registerFavoriteViewController.modalPresentationStyle = .fullScreen
 			self.present(registerFavoriteViewController, animated: true)
 		}
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: view.safeAreaLayoutGuide,
+								attribute: .bottom,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)
+		])
 	}
 }
