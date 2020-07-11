@@ -62,6 +62,12 @@ public let ngWordsList = ["あさって", "おととい", "来年", "去年", "�
 						  "浮気", "方言", "血液型", "占い", "早番", "遅番", "OK"]
 
 
+// king game job (王様以外)
+public let commonJobList	= ["戦車", "僧侶", "騎士", "武士", "兵隊", "平民", "百姓"]
+public let maleJobList		= ["王子"]
+public let femaleJobList	= ["女王"]
+
+
 public let keyWindow = UIApplication.shared.connectedScenes
 	.filter({$0.activationState == .foregroundActive})
 	.map({$0 as? UIWindowScene})
