@@ -139,9 +139,9 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 	@objc func kingGameBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
 
-		let ngWordsInitViewController = NGWordsInitViewController()
-		ngWordsInitViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsInitViewController, animated: true)
+		let kingGameInitViewController = KingGameInitViewController()
+		kingGameInitViewController.modalPresentationStyle = .fullScreen
+		self.present(kingGameInitViewController, animated: true)
 	}
 
 	/// make GADBannerView
