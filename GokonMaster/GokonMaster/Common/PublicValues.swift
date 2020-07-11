@@ -132,6 +132,13 @@ public func initAssignedNGWords() {
 }
 
 
+// king game job
+public var assignedJobs = ["", "", "", "", "", "", "", "", "", ""]
+public func initAssignedJobs() {
+	assignedJobs = ["", "", "", "", "", "", "", "", "", ""]
+}
+
+
 /// すべてのpublic変数を初期化
 public func initAllPublicValues() {
 	editingTextFieldName = ""
@@ -155,6 +162,7 @@ public func initAllPublicValues() {
 	initMatchingResult()
 
 	initAssignedNGWords()
+	initAssignedJobs()
 }
 
 
