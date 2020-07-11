@@ -1264,12 +1264,12 @@ public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: 
 				}
 			}
 		}
-		//正面が同性
-		if(memberData[frontMemberIndex].sexIndex==0){	return 0	}
 		//正面が空席
-		else if(frontMemberIndex<0)					{	return 0	}
+		if(frontMemberIndex<0)								{	return 0	}
+		//正面が同性
+		else if(memberData[frontMemberIndex].sexIndex==0)	{	return 0	}
 		//正面がお気に入りランク外
-		else										{	return -5	}
+		else												{	return -5	}
 	// female
 	} else {
 		//お気に入り1位が登録されている
@@ -1299,10 +1299,10 @@ public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: 
 			}
 		}
 		//正面が空席
-		if(frontMemberIndex<0)					{	return 0	}
+		if(frontMemberIndex<0)								{	return 0	}
 		//正面が同性
-		else if(memberData[frontMemberIndex].sexIndex==1){	return 0	}
+		else if(memberData[frontMemberIndex].sexIndex==1)	{	return 0	}
 		//正面がお気に入りランク外
-		else										{	return -10	}
+		else												{	return -10	}
 	}
 }
