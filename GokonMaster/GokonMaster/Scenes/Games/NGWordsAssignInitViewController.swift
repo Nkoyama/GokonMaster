@@ -49,8 +49,9 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GA
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
 		}
 		// message
-		self.message.numberOfLines = 2
-		self.message.text = "最初に登録した暗証番号を\n入力してください。"
+		self.message.numberOfLines = 3
+		self.message.text = "最初に登録した暗証番号を\n入力してください。\n"
+						  + "※未登録の場合はそのままOKをタップ。"
 		self.message.textColor = UIColor.black
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in
@@ -65,7 +66,7 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GA
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(330)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
 		}
 		self.pinCodeTF.delegate = self
 		

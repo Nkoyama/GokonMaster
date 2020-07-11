@@ -16,7 +16,6 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 	let smallTitle			= UILabel()			// title
 	let dearName			= UILabel()
 	let message				= UILabel()
-	let pinCodeTF			= UITextField()		// PIN code
 	let message2			= UILabel()
 	let matchedName			= UILabel()
 	let message3			= UILabel()
