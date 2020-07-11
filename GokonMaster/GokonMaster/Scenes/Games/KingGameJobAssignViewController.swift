@@ -132,9 +132,9 @@ class KingGameJobAssignViewController: UIViewController, GADBannerViewDelegate {
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
-			let kingGameCheckJobsViewController = KingGameCheckJobsViewController()
-			kingGameCheckJobsViewController.modalPresentationStyle = .fullScreen
-			self.present(kingGameCheckJobsViewController, animated: true)
+			let kingGameJobAssignFinichViewController = KingGameJobAssignFinishViewController()
+			kingGameJobAssignFinichViewController.modalPresentationStyle = .fullScreen
+			self.present(kingGameJobAssignFinichViewController, animated: true)
 		} else {
 			let kingGameJobAssignInitViewController = KingGameJobAssignInitViewController()
 			kingGameJobAssignInitViewController.modalPresentationStyle = .fullScreen
