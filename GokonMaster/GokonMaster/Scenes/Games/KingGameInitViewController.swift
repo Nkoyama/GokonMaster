@@ -18,14 +18,14 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 	let ruleLabel			= UILabel()
 	let ruleDetail			= UILabel()
 	let startBtn			= UIButton()
-	
+
 	var bannerView: GADBannerView!
-	
+
 	// MARK: Life Cycle
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
-		
+
 		// back button
 		self.backBtn.setTitle(" ゲーム選択に戻る ", for: .normal)
 		self.backBtn.setTitleColor(UIColor.green, for: .normal)
@@ -40,7 +40,7 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
 		}
-		
+
 		// title
 		self.smallTitle.text = "王様ゲーム"
 		self.smallTitle.textColor = UIColor.init(red: 0/255,
@@ -53,7 +53,7 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
 		}
-		
+
 		// rule
 		self.ruleLabel.text = "ルール"
 		self.ruleLabel.textColor = UIColor.orange
@@ -63,7 +63,7 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 			make.centerX.equalToSuperview()
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
 		}
-		
+
 		// rule detail
 		self.ruleDetail.numberOfLines = 15
 		self.ruleDetail.text = "まず、全員に以下のいずれかの役割が割り振られます。\n"
@@ -88,7 +88,7 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
 		}
-		
+
 		// start button
 		self.startBtn.setTitle(" start ", for: .normal)
 		self.startBtn.setTitleColor(UIColor.black, for: .normal)
@@ -105,7 +105,7 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
 		}
-		
+
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
@@ -115,7 +115,7 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
 	}
-	
+
 	/// backBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
@@ -124,19 +124,19 @@ class KingGameInitViewController: UIViewController, GADBannerViewDelegate {
 		gameMenuViewController.modalPresentationStyle = .fullScreen
 		self.present(gameMenuViewController, animated: true)
 	}
-	
+
 	/// starttn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func startBtnDidTap(_ sender: UIButton) {
-		// assign NG words
-		ngWordAssignMainLogic()
-		
-		let ngWordsAssignInitViewController = NGWordsAssignInitViewController()
-		ngWordsAssignInitViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsAssignInitViewController, animated: true)
+		// assign jobs
+		kingGameJobAssignMainLogic()
+
+		let kingGameJobAssignInitViewController = KingGameJobAssignInitViewController()
+		kingGameJobAssignInitViewController.modalPresentationStyle = .fullScreen
+		self.present(kingGameJobAssignInitViewController, animated: true)
 	}
-	
+
 	/// make GADBannerView
 	/// - Parameter bannerView: GADBannerView
 	/// - Authors: Nozomi Koyama

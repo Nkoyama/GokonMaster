@@ -36,6 +36,9 @@
 		439E5C4C24B1BFDF001C59D1 /* PublicConstantValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4B24B1BFDF001C59D1 /* PublicConstantValues.swift */; };
 		439E5C4F24B980F0001C59D1 /* KingGameInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C4E24B980F0001C59D1 /* KingGameInitViewController.swift */; };
 		439E5C5124B987D6001C59D1 /* KingGameJobAssignLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C5024B987D6001C59D1 /* KingGameJobAssignLogic.swift */; };
+		439E5C5324B98D06001C59D1 /* KingGameJobAssignInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C5224B98D06001C59D1 /* KingGameJobAssignInitViewController.swift */; };
+		439E5C5524B98E01001C59D1 /* KingGameJobAssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C5424B98E01001C59D1 /* KingGameJobAssignViewController.swift */; };
+		439E5C5724B99201001C59D1 /* KingGameCheckJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C5624B99201001C59D1 /* KingGameCheckJobsViewController.swift */; };
 		43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D5892403CB72005A48AB /* AppDelegate.swift */; };
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
@@ -74,6 +77,9 @@
 		439E5C4B24B1BFDF001C59D1 /* PublicConstantValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicConstantValues.swift; sourceTree = "<group>"; };
 		439E5C4E24B980F0001C59D1 /* KingGameInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingGameInitViewController.swift; sourceTree = "<group>"; };
 		439E5C5024B987D6001C59D1 /* KingGameJobAssignLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingGameJobAssignLogic.swift; sourceTree = "<group>"; };
+		439E5C5224B98D06001C59D1 /* KingGameJobAssignInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingGameJobAssignInitViewController.swift; sourceTree = "<group>"; };
+		439E5C5424B98E01001C59D1 /* KingGameJobAssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingGameJobAssignViewController.swift; sourceTree = "<group>"; };
+		439E5C5624B99201001C59D1 /* KingGameCheckJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingGameCheckJobsViewController.swift; sourceTree = "<group>"; };
 		43C1D5862403CB72005A48AB /* GokonMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GokonMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C1D5892403CB72005A48AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +175,9 @@
 				439E5C4724B08290001C59D1 /* NGWordsAssignFinishViewController.swift */,
 				439E5C4924B084D0001C59D1 /* NGWordsCheckViewController.swift */,
 				439E5C4E24B980F0001C59D1 /* KingGameInitViewController.swift */,
+				439E5C5224B98D06001C59D1 /* KingGameJobAssignInitViewController.swift */,
+				439E5C5424B98E01001C59D1 /* KingGameJobAssignViewController.swift */,
+				439E5C5624B99201001C59D1 /* KingGameCheckJobsViewController.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 				4337E51424680697006235BD /* MenuViewController.swift in Sources */,
 				439E5C4224B07391001C59D1 /* GNWordsAssignViewController.swift in Sources */,
 				439E5C3924A7310A001C59D1 /* MatchingLogic.swift in Sources */,
+				439E5C5724B99201001C59D1 /* KingGameCheckJobsViewController.swift in Sources */,
 				43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */,
 				439E5C4024B050D0001C59D1 /* NGWordsInitViewController.swift in Sources */,
 				4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */,
@@ -353,7 +363,9 @@
 				43084D602414E79300370070 /* TableTypeDrawView.swift in Sources */,
 				439E5C4F24B980F0001C59D1 /* KingGameInitViewController.swift in Sources */,
 				434021D52442ECF50023842F /* MemberRegisterFinishViewController.swift in Sources */,
+				439E5C5324B98D06001C59D1 /* KingGameJobAssignInitViewController.swift in Sources */,
 				43084D62241CADE900370070 /* TableSquareDrawView.swift in Sources */,
+				439E5C5524B98E01001C59D1 /* KingGameJobAssignViewController.swift in Sources */,
 				439E5C30248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift in Sources */,
 				4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */,
 				4337E50E24627383006235BD /* SettingFinishViewController.swift in Sources */,
