@@ -16,6 +16,7 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 	let backBtn				= UIButton()
 	let smallTitle			= UILabel()		// title
 	let ngWordBtn			= UIButton()	// NGワードボタン
+	let kingGameBtn			= UIButton()	// 王様ゲームボタン
 	let message				= UILabel()
 
 	var bannerView: GADBannerView!
@@ -68,7 +69,28 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		self.ngWordBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+		}
+
+		// 王様ゲームボタン
+		self.kingGameBtn.setTitle("王様ゲーム", for: .normal)
+		self.kingGameBtn.setTitleColor(UIColor.black, for: .normal)
+		self.kingGameBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+		self.kingGameBtn.backgroundColor = UIColor.init(red: 255/255,
+													  green: 187/255,
+													  blue: 0/255,
+													  alpha: 1)
+		self.kingGameBtn.layer.borderColor = UIColor.gray.cgColor
+		self.kingGameBtn.layer.borderWidth = 2.0
+		self.kingGameBtn.layer.cornerRadius = 2.0
+		self.view.addSubview(self.kingGameBtn)
+		self.kingGameBtn.addTarget(self,
+								   action: #selector(self.kingGameBtnDidTap(_:)),
+								   for: .touchUpInside)
+		self.kingGameBtn.snp.makeConstraints{ (make) in
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(280)
 		}
 
 		// message
@@ -104,6 +126,17 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func ngWordBtnDidTap(_ sender: UIButton) {
+		initRegisteredNum()
+
+		let ngWordsInitViewController = NGWordsInitViewController()
+		ngWordsInitViewController.modalPresentationStyle = .fullScreen
+		self.present(ngWordsInitViewController, animated: true)
+	}
+
+	/// kingGameBtn action
+	/// - Parameter sender: UIButton
+	/// - Authors: Nozomi Koyama
+	@objc func kingGameBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
 
 		let ngWordsInitViewController = NGWordsInitViewController()
