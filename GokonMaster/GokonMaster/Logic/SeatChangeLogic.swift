@@ -150,9 +150,16 @@ public func seatChangeMainLogic() -> Bool {
 		var evaluationPoint = 0.0
 		for tmpSeatPositionArray in tmpSeatPositionPatterns {
 			evaluationPoint = calcSeatEvaluation(tmpSeatPositionArray: tmpSeatPositionArray)
-			if(evaluationPoint > bestEvaluationPoint) {
+			if( evaluationPoint > bestEvaluationPoint ) {
 				bestEvaluationPoint = evaluationPoint
 				bestTmpSeatPositionArray = tmpSeatPositionArray
+			} else if( evaluationPoint == bestEvaluationPoint ) {
+				//評価値が同じ場合 -> random
+				let random = Int.random(in: 0...1)
+				if( random == 1 ) {
+					bestEvaluationPoint = evaluationPoint
+					bestTmpSeatPositionArray = tmpSeatPositionArray
+				}
 			}
 		}
 	}
