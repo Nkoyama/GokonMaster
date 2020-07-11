@@ -156,7 +156,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		// 男女の人数をカウント
-		if(memberData[registeredNum].sexIndex != 1) {
+		if( memberData[registeredNum].sexIndex != 1 ) {
 			memberData[registeredNum].sexIndex = 0
 		}
 		var maleSelectedCount = 0
@@ -169,13 +169,13 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			}
 		}
 		// 参加人数を超えていた場合にエラーメッセージ表示
-		if(maleSelectedCount>maleNum) {
+		if( maleSelectedCount > maleNum ) {
 			let alert: UIAlertController = UIAlertController(title: "エラー",
 													 message: "男性は全員登録済みです。",
 													 preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
-		} else if(femaleSelectedCount>femaleNum) {
+		} else if( femaleSelectedCount > femaleNum ) {
 			let alert: UIAlertController = UIAlertController(title: "エラー",
 													 message: "女性は全員登録済みです。",
 													 preferredStyle: UIAlertController.Style.alert)
@@ -183,17 +183,44 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			present(alert, animated: true, completion: nil)
 		}
 
-		if(self.nicknameTF.text!.count<1){
+		if( self.nicknameTF.text!.count < 1 ){
 			let alert: UIAlertController = UIAlertController(title: "エラー",
 														message: "ニックネームが未入力です。",
 														preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
-		}else if(self.pinCodeTF.text!.count<1 || self.pinCodeTF.text!.count>6){
+		} else if( self.pinCodeTF.text!.count > 6 ){
 			let alert: UIAlertController = UIAlertController(title: "エラー",
-														message: "暗証番号は1桁以上6桁以下にしてください。",
+														message: "暗証番号は6桁以下にしてください。",
 														preferredStyle: UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else if( self.pinCodeTF.text!.count < 1 ) {
+			/* define actions */
+			// PIN code alert message：Yesボタン押下
+			let reset = UIAlertAction(title: "Yes",
+									  style: .default,
+									  handler:{
+										(action: UIAlertAction!) -> Void in
+										// get values
+										memberData[registeredNum].nickname		= self.nicknameTF.text!
+										memberData[registeredNum].pinCode		= self.pinCodeTF.text!
+
+										let memberRegisterFinViewController = MemberRegisterFinishViewController()
+										memberRegisterFinViewController.modalPresentationStyle = .fullScreen
+										self.present(memberRegisterFinViewController, animated: true)
+			})
+			// PIN code alert message：Noボタン押下
+			let notReset = UIAlertAction(title: "No",
+										 style: .default,
+										 handler: {
+											(action: UIAlertAction!) -> Void in
+			})
+			let alert = UIAlertController(title: "",
+										  message: "暗証番号が未登録です。よろしいですか？",
+										  preferredStyle: .alert)
+			alert.addAction(notReset)
+			alert.addAction(reset)
 			present(alert, animated: true, completion: nil)
 		}else{
 			// get values
