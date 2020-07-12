@@ -280,7 +280,7 @@ public func makeTmpSeatPositionPatterns(maleMembersIndexArray: Array<Int>,
 		if( maleNum==5 && femaleNum==5 ) {
 			var tmpSeatPositionArray : [Int] = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			// 線対称同配置を排除するため、男の並び順を限定
+			// 上下線対称同配置を排除するため、男の並び順を限定
 			for i in 0...4 {
 				for j in 0...11 {
 					//6と7の位置に入る男のindex(maleOrder[3]とmaleOrder[4])が入れ替わっているだけのパターンをremove
@@ -1087,7 +1087,7 @@ public func calcEachPointCircle(tmpSeatPositionArray: Array<Int>,
 								positionIndex: Int) -> Double {
 	var points = 0.0
 	//端の席の場合
-	if( positionIndex == 0 || positionIndex == joinNumSum-1 ) {
+	if( positionIndex == 0 || positionIndex >= joinNumSum-1 ) {
 		//端ではない側のポイントを加算
 		if( positionIndex == 0 ) {
 			points += nextPoint(memberSexIndex: sexIndex,
