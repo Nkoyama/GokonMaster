@@ -63,9 +63,7 @@ public let ngWordsList = ["あさって", "おととい", "来年", "去年", "�
 
 
 // king game job (王様以外)
-public let commonJobList	= ["戦車", "僧侶", "騎士", "武士", "兵隊", "平民", "百姓"]
-public let maleJobList		= ["王子"]
-public let femaleJobList	= ["女王"]
+public let jobList	= ["戦車", "僧侶", "騎士", "武士", "兵隊", "平民", "百姓"]
 
 
 public let keyWindow = UIApplication.shared.connectedScenes
