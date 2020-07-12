@@ -41,7 +41,7 @@ class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
 		}
 
 		// message1
-		self.message1.text = "皆さんの役職はこのようになっています。"
+		self.message1.text = "皆さんの役職はこのようになっていました。"
 		self.message1.textColor = UIColor.black
 		self.message1.adjustsFontSizeToFitWidth = true
 		self.view.addSubview(self.message1)
@@ -62,7 +62,7 @@ class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
 			memberName.snp.makeConstraints { (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(SCREEN_SIZE.width/2+10)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 200)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 180)
 			}
 
 			job.text = ": " + assignedJobs[i]
@@ -76,7 +76,7 @@ class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
 			job.snp.makeConstraints { (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 200)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 180)
 			}
 		}
 

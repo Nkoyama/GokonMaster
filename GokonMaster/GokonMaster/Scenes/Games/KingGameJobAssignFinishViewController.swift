@@ -40,7 +40,7 @@ class KingGameJobAssignFinishViewController: UIViewController, GADBannerViewDele
 		// message1
 		self.message1.numberOfLines = 2
 		self.message1.text = "全員の役職確認が完了しました。\n"
-							+ "王様が命令しましょう！"
+							+ "王様は以下の役割の人に命令しましょう！"
 		self.message1.textColor = UIColor.black
 		self.message1.font = UIFont.systemFont(ofSize: 20.0)
 		self.message1.adjustsFontSizeToFitWidth = true
@@ -48,7 +48,29 @@ class KingGameJobAssignFinishViewController: UIViewController, GADBannerViewDele
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
+		}
+
+		for i in 0...9 {
+			if( assignedJobs[9-i] == "" ) {
+				assignedJobs.remove(at: 9-i)
+			}
+		}
+		let shuffledAssignedJobs = assignedJobs.shuffled()
+		var j = 0
+		for idx in 0..<joinNumSum {
+			if( shuffledAssignedJobs[idx] != "王様" ) {
+				let job	= UILabel()
+				job.text = shuffledAssignedJobs[idx]
+				job.textColor = UIColor.black
+				job.adjustsFontSizeToFitWidth = true
+				self.view.addSubview(job)
+				job.snp.makeConstraints { (make) in
+					make.centerX.equalToSuperview()
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*j + 200)
+				}
+				j += 1
+			}
 		}
 
 		// check button
