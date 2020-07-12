@@ -150,9 +150,16 @@ public func seatChangeMainLogic() -> Bool {
 		var evaluationPoint = 0.0
 		for tmpSeatPositionArray in tmpSeatPositionPatterns {
 			evaluationPoint = calcSeatEvaluation(tmpSeatPositionArray: tmpSeatPositionArray)
-			if(evaluationPoint > bestEvaluationPoint) {
+			if( evaluationPoint > bestEvaluationPoint ) {
 				bestEvaluationPoint = evaluationPoint
 				bestTmpSeatPositionArray = tmpSeatPositionArray
+			} else if( evaluationPoint == bestEvaluationPoint ) {
+				//評価値が同じ場合 -> random
+				let random = Int.random(in: 0...1)
+				if( random == 1 ) {
+					bestEvaluationPoint = evaluationPoint
+					bestTmpSeatPositionArray = tmpSeatPositionArray
+				}
 			}
 		}
 	}
@@ -1264,12 +1271,12 @@ public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: 
 				}
 			}
 		}
-		//正面が同性
-		if(memberData[frontMemberIndex].sexIndex==0){	return 0	}
 		//正面が空席
-		else if(frontMemberIndex<0)					{	return 0	}
+		if(frontMemberIndex<0)								{	return 0	}
+		//正面が同性
+		else if(memberData[frontMemberIndex].sexIndex==0)	{	return 0	}
 		//正面がお気に入りランク外
-		else										{	return -5	}
+		else												{	return -5	}
 	// female
 	} else {
 		//お気に入り1位が登録されている
@@ -1299,10 +1306,10 @@ public func frontPoint(memberSexIndex: Int, memberIndex: Int, frontMemberIndex: 
 			}
 		}
 		//正面が空席
-		if(frontMemberIndex<0)					{	return 0	}
+		if(frontMemberIndex<0)								{	return 0	}
 		//正面が同性
-		else if(memberData[frontMemberIndex].sexIndex==1){	return 0	}
+		else if(memberData[frontMemberIndex].sexIndex==1)	{	return 0	}
 		//正面がお気に入りランク外
-		else										{	return -10	}
+		else												{	return -10	}
 	}
 }
