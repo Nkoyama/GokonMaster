@@ -24,7 +24,7 @@ public func kingGameJobAssignMainLogic() {
 	for i in 0..<joinNumSum {
 		if( i == kingIdx ) { continue }
 		if( memberData[i].sexIndex == 0 ) {
-			let random = Int.random(in: 0..<unassignedCommonJobs.count + unassignedMaleJobs.count)
+			let random = Int.random(in: 0...unassignedCommonJobs.count + unassignedMaleJobs.count - 1)
 			if( random >= unassignedCommonJobs.count ) {
 				assignedJobs[i] = unassignedMaleJobs[0]
 				unassignedMaleJobs.remove(at: 0)
@@ -33,7 +33,7 @@ public func kingGameJobAssignMainLogic() {
 				unassignedCommonJobs.remove(at: random)
 			}
 		} else {
-			let random = Int.random(in: 0..<unassignedCommonJobs.count + unassignedFemaleJobs.count)
+			let random = Int.random(in: 0...unassignedCommonJobs.count + unassignedFemaleJobs.count - 1)
 			if( random >= unassignedCommonJobs.count ) {
 				assignedJobs[i] = unassignedFemaleJobs[0]
 				unassignedFemaleJobs.remove(at: 0)
