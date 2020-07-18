@@ -23,6 +23,8 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		title = "top"
+
 		// 初期画面はnavigation bar非表示
 		self.navigationController?.setNavigationBarHidden(true,
 														  animated: false)

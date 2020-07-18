@@ -33,22 +33,8 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// return button
-		self.backBtn.setTitle(" 登録内容修正 ", for: .normal)
-		self.backBtn.setTitleColor(UIColor.green, for: .normal)
-		self.backBtn.backgroundColor = UIColor.clear
-		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-		self.backBtn.layer.borderColor = UIColor.clear.cgColor
-		self.backBtn.layer.borderWidth = 2.0
-		self.backBtn.layer.cornerRadius = 2.0
-		self.view.addSubview(self.backBtn)
-		self.backBtn.addTarget(self,
-							   action: #selector(self.backBtnDidTap(_:)),
-							   for: .touchUpInside)
-		self.backBtn.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-		}
+		/* navigation bar */
+		title = "メンバー登録"
 
 		// registered nickname
 		self.registeredNickname.text = memberData[registeredNum].nickname + " さん"
@@ -147,12 +133,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
 			let settingFinishViewController = SettingFinishViewController()
-			settingFinishViewController.modalPresentationStyle = .fullScreen
-			self.present(settingFinishViewController, animated: true)
+			self.navigationController?.pushViewController(settingFinishViewController,
+														  animated: true)
 		} else {
 			let memberRegisterViewController = MemberRegisterViewController()
-			memberRegisterViewController.modalPresentationStyle = .fullScreen
-			self.present(memberRegisterViewController, animated: true)
+			self.navigationController?.pushViewController(memberRegisterViewController,
+														  animated: true)
 		}
 	}
 
