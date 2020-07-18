@@ -33,18 +33,11 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "メンバー登録"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation bar */
+		self.navigationItem.hidesBackButton = true	//hidden back button
+		title = "メンバー登録"
+		//スワイプでも戻れないようにする
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
 		// message1
 		self.message1.text = String(registeredNum+1) + "人目"
@@ -53,7 +46,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(188)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(138)
 		}
 		// message2
 		self.message2.text = "の情報を登録してください。"
@@ -61,7 +54,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
 		}
 
 		// nickname
@@ -70,7 +63,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(nicknameLabel)
 		self.nicknameLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(290)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
 		}
 		self.nicknameTF.keyboardType = .asciiCapable
 		self.nicknameTF.borderStyle = .roundedRect
@@ -78,7 +71,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.nicknameTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(285)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(235)
 		}
 		self.nicknameTF.delegate = self
 
@@ -88,7 +81,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(sexLabel)
 		self.sexLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(340)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(290)
 		}
 		// 性別選択
 		let options = ["男", "女"]
@@ -98,7 +91,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.sexSC.addTarget(self, action: #selector(self.sexChanged(_:)), for: .valueChanged)
 		self.sexSC.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(335)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(285)
 		}
 
 		// PIN code
@@ -107,7 +100,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(pinCodeLabel)
 		self.pinCodeLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(390)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(340)
 		}
 		self.pinCodeTF.keyboardType = .numberPad
 		self.pinCodeTF.borderStyle = .roundedRect
@@ -115,7 +108,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(200)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(385)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(335)
 		}
 		self.pinCodeTF.delegate = self
 
@@ -207,8 +200,8 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 										memberData[registeredNum].pinCode		= self.pinCodeTF.text!
 
 										let memberRegisterFinViewController = MemberRegisterFinishViewController()
-										memberRegisterFinViewController.modalPresentationStyle = .fullScreen
-										self.present(memberRegisterFinViewController, animated: true)
+										self.navigationController?.pushViewController(memberRegisterFinViewController,
+																					  animated: true)
 			})
 			// PIN code alert message：Noボタン押下
 			let notReset = UIAlertAction(title: "No",
@@ -228,8 +221,8 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 			memberData[registeredNum].pinCode		= self.pinCodeTF.text!
 
 			let memberRegisterFinViewController = MemberRegisterFinishViewController()
-			memberRegisterFinViewController.modalPresentationStyle = .fullScreen
-			self.present(memberRegisterFinViewController, animated: true)
+			self.navigationController?.pushViewController(memberRegisterFinViewController,
+														  animated: true)
 		}
 	}
 

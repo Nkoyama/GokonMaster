@@ -162,14 +162,6 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		bannerView.delegate = self
 	}
 
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-//	@objc func backBtnDidTap(_ sender: UIButton) {
-//		// 現在の画面を破棄
-//		self.dismiss(animated: true, completion: nil)
-//	}
-//
 	/// nextBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
@@ -196,8 +188,6 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 			initMemberData()
 			initSeatPositionArray()
 			let memberRegisterViewController = MemberRegisterViewController()
-//			memberRegisterViewController.modalPresentationStyle = .fullScreen
-//			self.present(memberRegisterViewController, animated: true)
 			self.navigationController?.pushViewController(memberRegisterViewController, animated: true)
 		}
 	}
