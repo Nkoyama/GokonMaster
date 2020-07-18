@@ -163,8 +163,8 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.favoriteType = 0
-		registerFavoriteViewController.modalPresentationStyle = .fullScreen
-		self.present(registerFavoriteViewController, animated: true)
+		self.navigationController?.pushViewController(registerFavoriteViewController,
+													  animated: true)
 	}
 
 	/// changeSeatTypeBtn action
@@ -225,8 +225,8 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		initRegisteredNum()
 
 		let gameMenuViewController = GameMenuViewController()
-		gameMenuViewController.modalPresentationStyle = .fullScreen
-		self.present(gameMenuViewController, animated: true)
+		self.navigationController?.pushViewController(gameMenuViewController,
+													  animated: true)
 	}
 
 	/// matchingBtn action
@@ -238,8 +238,8 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.favoriteType = 1
-		registerFavoriteViewController.modalPresentationStyle = .fullScreen
-		self.present(registerFavoriteViewController, animated: true)
+		self.navigationController?.pushViewController(registerFavoriteViewController,
+													  animated: true)
 	}
 
 	/// returnTopBtn action
@@ -253,9 +253,9 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 								  handler:{
 									(action: UIAlertAction!) -> Void in
 									initAllPublicValues()
-									let topViewController = ViewController()
-									topViewController.modalPresentationStyle = .fullScreen
-									self.present(topViewController, animated: true)
+									self.navigationController?.setNavigationBarHidden(true,
+																					  animated: false)
+									self.navigationController?.popToRootViewController(animated: true)
 		})
 		// reset alert message：Noボタン押下
 		let notReset = UIAlertAction(title: "No",

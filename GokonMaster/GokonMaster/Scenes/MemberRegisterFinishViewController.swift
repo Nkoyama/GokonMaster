@@ -118,14 +118,6 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		bannerView.delegate = self
 	}
 
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
-	}
-
 	/// nextBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
