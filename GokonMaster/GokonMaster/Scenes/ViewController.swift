@@ -23,6 +23,10 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		// 初期画面はnavigation bar非表示
+		self.navigationController?.setNavigationBarHidden(true,
+														  animated: false)
+
 		// background color
 		self.view.backgroundColor = UIColor.green
 
@@ -67,8 +71,9 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 	/// - Authors: Nozomi Koyama
 	@objc func buttonDidTap(_ sender: UIButton) {
 		let setting1ViewController = Setting1ViewController()
-		setting1ViewController.modalPresentationStyle = .fullScreen
-		self.present(setting1ViewController, animated: true)
+//		setting1ViewController.modalPresentationStyle = .fullScreen
+//		self.present(setting1ViewController, animated: true)
+		self.navigationController?.pushViewController(setting1ViewController, animated: true)
 	}
 
 	/// make GADBannerView
