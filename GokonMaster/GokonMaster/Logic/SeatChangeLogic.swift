@@ -1153,38 +1153,48 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 							point = 1
 						//隣がお気に入りトップ4以外
 						} else {
+							//隣が空席
+							if(nextMemberIndex<0)							{	point = -3	}
 							//隣が同性
-							if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+							else if(memberData[nextMemberIndex].sexIndex==0){	point = -10	}
 							//隣がお気に入りランク外
-							else										{	point = -3	}
+							else											{	point = -3	}
 						}
 					//お気に入り4位は未登録
 					} else {
+						//隣が空席
+						if(nextMemberIndex<0)							{	point = -3	}
 						//隣が同性
-						if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+						else if(memberData[nextMemberIndex].sexIndex==0){	point = -10	}
 						//隣がお気に入りランク外
-						else										{	point = -3	}
+						else											{	point = -3	}
 					}
 				//お気に入り3位以下は未登録
 				} else {
+					//隣が空席
+					if(nextMemberIndex<0)							{	point = -3	}
 					//隣が同性
-					if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+					else if(memberData[nextMemberIndex].sexIndex==0){	point = -10	}
 					//隣がお気に入りランク外
-					else										{	point = -3	}
+					else											{	point = -3	}
 				}
 			//お気に入り2位以下は未登録
 			} else {
+				//隣が空席
+				if(nextMemberIndex<0)							{	point = -3	}
 				//隣が同性
-				if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+				else if(memberData[nextMemberIndex].sexIndex==0){	point = -10	}
 				//隣がお気に入りランク外
-				else										{	point = -3	}
+				else											{	point = -3	}
 			}
 		//お気に入り未登録
 		} else {
+			//隣が空席
+			if(nextMemberIndex<0)							{	point = -3	}
 			//隣が同性
-			if(memberData[nextMemberIndex].sexIndex==0)	{	point = -10	}
+			else if(memberData[nextMemberIndex].sexIndex==0){	point = -10	}
 			//隣がお気に入りランク外
-			else										{	point = -3	}
+			else											{	point = -3	}
 		}
 	// female
 	} else {
