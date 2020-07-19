@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class KingGameJobAssignViewController: UIViewController, GADBannerViewDelegate {
+class KingGameJobAssignViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let registeredNickname	= UILabel()
 	let message1			= UILabel()
 	let jobLabel			= UILabel()
@@ -28,19 +27,12 @@ class KingGameJobAssignViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "王様ゲーム"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
-		
+		/* navigation controller */
+		title = "王様ゲーム"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		navigationController?.delegate = self
+
 		// registered nickname
 		self.registeredNickname.text = memberData[registeredNum].nickname + " さん"
 		self.registeredNickname.textColor = UIColor.red
@@ -132,13 +124,13 @@ class KingGameJobAssignViewController: UIViewController, GADBannerViewDelegate {
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
-			let kingGameJobAssignFinichViewController = KingGameJobAssignFinishViewController()
-			kingGameJobAssignFinichViewController.modalPresentationStyle = .fullScreen
-			self.present(kingGameJobAssignFinichViewController, animated: true)
+			let kingGameJobAssignFinishViewController = KingGameJobAssignFinishViewController()
+			self.navigationController?.pushViewController(kingGameJobAssignFinishViewController,
+														  animated: true)
 		} else {
 			let kingGameJobAssignInitViewController = KingGameJobAssignInitViewController()
-			kingGameJobAssignInitViewController.modalPresentationStyle = .fullScreen
-			self.present(kingGameJobAssignInitViewController, animated: true)
+			self.navigationController?.pushViewController(kingGameJobAssignInitViewController,
+														  animated: true)
 		}
 	}
 	

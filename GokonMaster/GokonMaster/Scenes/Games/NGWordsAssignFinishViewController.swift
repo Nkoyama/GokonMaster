@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class NGWordsAssignFinishViewController: UIViewController, GADBannerViewDelegate {
-	
+class NGWordsAssignFinishViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
+
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let message1			= UILabel()
 	let checkBtn			= UIButton()
 
@@ -23,19 +22,12 @@ class NGWordsAssignFinishViewController: UIViewController, GADBannerViewDelegate
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
-		
-		// title
-		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+
+		/* navigation bar */
+		title = "NGワード"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		navigationController?.delegate = self
 
 		// message1
 		self.message1.numberOfLines = 2
@@ -83,8 +75,11 @@ class NGWordsAssignFinishViewController: UIViewController, GADBannerViewDelegate
 	/// - Authors: Nozomi Koyama
 	@objc func checkBtnDidTap(_ sender: UIButton) {
 		let ngWordsCheckViewController = NGWordsCheckViewController()
-		ngWordsCheckViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsCheckViewController, animated: true)
+		let backBarButtonItem = UIBarButtonItem()
+		backBarButtonItem.title = "戻る"
+		self.navigationItem.backBarButtonItem = backBarButtonItem
+		self.navigationController?.pushViewController(ngWordsCheckViewController,
+													  animated: true)
 	}
 
 	/// make GADBannerView
@@ -107,7 +102,7 @@ class NGWordsAssignFinishViewController: UIViewController, GADBannerViewDelegate
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

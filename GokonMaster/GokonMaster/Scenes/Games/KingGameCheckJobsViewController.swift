@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
+class KingGameCheckJobsViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let message1			= UILabel()
 	let againBtn			= UIButton()		// もう一度ボタン
 	let finishBtn			= UIButton()		// 終了ボタン
@@ -27,18 +26,9 @@ class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "王様ゲーム"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation controller */
+		title = "王様ゲーム"
+		navigationController?.delegate = self
 
 		// message1
 		self.message1.text = "皆さんの役職はこのようになっていました。"
@@ -130,9 +120,8 @@ class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
 	@objc func againBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
 
-		let kingGameInitViewController = KingGameInitViewController()
-		kingGameInitViewController.modalPresentationStyle = .fullScreen
-		self.present(kingGameInitViewController, animated: true)
+		self.navigationController?.popToViewController(navigationController!.viewControllers[gameMenuLayerNum+1],
+													   animated: true)
 	}
 
 	/// finishBtn action
@@ -141,9 +130,8 @@ class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
 	@objc func finishBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
 
-		let gameMenuViewController = GameMenuViewController()
-		gameMenuViewController.modalPresentationStyle = .fullScreen
-		self.present(gameMenuViewController, animated: true)
+		self.navigationController?.popToViewController(navigationController!.viewControllers[gameMenuLayerNum],
+													   animated: true)
 	}
 
 	/// make GADBannerView
@@ -166,7 +154,7 @@ class KingGameCheckJobsViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

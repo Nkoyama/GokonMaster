@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
+class NGWordsAssignViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let registeredNickname	= UILabel()
 	let message1			= UILabel()
 	let ngWordLabel			= UILabel()
@@ -28,18 +27,11 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation bar */
+		title = "NGワード"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		navigationController?.delegate = self
 
 		// registered nickname
 		self.registeredNickname.text = memberData[registeredNum].nickname + " さん"
@@ -138,12 +130,12 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
 			let ngWordsAssignFinishViewController = NGWordsAssignFinishViewController()
-			ngWordsAssignFinishViewController.modalPresentationStyle = .fullScreen
-			self.present(ngWordsAssignFinishViewController, animated: true)
+			self.navigationController?.pushViewController(ngWordsAssignFinishViewController,
+														  animated: true)
 		} else {
 			let ngWordsAssignInitViewController = NGWordsAssignInitViewController()
-			ngWordsAssignInitViewController.modalPresentationStyle = .fullScreen
-			self.present(ngWordsAssignInitViewController, animated: true)
+			self.navigationController?.pushViewController(ngWordsAssignInitViewController,
+														  animated: true)
 		}
 	}
 

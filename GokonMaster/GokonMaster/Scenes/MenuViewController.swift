@@ -232,7 +232,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 		let gameMenuViewController = GameMenuViewController()
 		let backBarButtonItem = UIBarButtonItem()
-		backBarButtonItem.title = "menu"
+		backBarButtonItem.title = "main menu"
 		self.navigationItem.backBarButtonItem = backBarButtonItem
 		self.navigationController?.pushViewController(gameMenuViewController,
 													  animated: true)

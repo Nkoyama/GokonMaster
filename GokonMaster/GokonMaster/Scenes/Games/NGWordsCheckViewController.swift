@@ -13,7 +13,6 @@ import GoogleMobileAds
 class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 	
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let message1			= UILabel()
 	let againBtn			= UIButton()		// もう一度ボタン
 	let finishBtn			= UIButton()		// 終了ボタン
@@ -27,18 +26,8 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation bar */
+		title = "NGワード"
 
 		// message1
 		self.message1.text = "皆さんのNGワードはこのようになっていました。"
@@ -124,10 +113,9 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 	/// - Authors: Nozomi Koyama
 	@objc func againBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
-		
-		let ngWordsInitViewController = NGWordsInitViewController()
-		ngWordsInitViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsInitViewController, animated: true)
+
+		self.navigationController?.popToViewController(navigationController!.viewControllers[gameMenuLayerNum+1],
+													   animated: true)
 	}
 
 	/// finishBtn action
@@ -136,9 +124,8 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 	@objc func finishBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
 
-		let gameMenuViewController = GameMenuViewController()
-		gameMenuViewController.modalPresentationStyle = .fullScreen
-		self.present(gameMenuViewController, animated: true)
+		self.navigationController?.popToViewController(navigationController!.viewControllers[gameMenuLayerNum],
+													   animated: true)
 	}
 
 	/// make GADBannerView
@@ -161,7 +148,7 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

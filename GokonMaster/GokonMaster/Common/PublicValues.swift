@@ -145,6 +145,12 @@ public func initMenuLayerNum() {
 	menuLayerNum = 0
 }
 
+// navigation controller: game menu layer number
+public var gameMenuLayerNum = 0
+public func initGameMenuLayerNum() {
+	gameMenuLayerNum = 0
+}
+
 
 /// すべてのpublic変数を初期化
 public func initAllPublicValues() {
@@ -172,10 +178,8 @@ public func initAllPublicValues() {
 	initAssignedJobs()
 
 	initMenuLayerNum()
+	initGameMenuLayerNum()
 }
 
 
 public var alertResult = -1
-public func initAlertResult() {
-	alertResult = -1
-}
