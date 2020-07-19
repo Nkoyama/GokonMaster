@@ -59,17 +59,11 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 	/// - Parameter sender:
 	/// - Authors: Nozomi Koyama
 	@objc func removePopup(_ sender: Any){
-		// 元画面の再描画
-		let parentVC = presentingViewController
-		parentVC?.viewDidLoad()
-		parentVC?.loadView()
 		// 現在の画面削除 & 親画面再描画
-//		self.dismiss(animated: false, completion: nil)
 		self.dismiss(animated: true) {
-			//completionのタイミングでプロパティのクロージャを実行
-			//親ビューで"ボタン押したよ！"という文字列を表示したい！
 			self.callBack?()
-		}	}
+		}
+	}
 	
 	/// お気に入り選択ポップアップ画面
 	/// - Parameters:
