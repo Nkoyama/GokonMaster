@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
+class MatchingResultViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
-	let smallTitle			= UILabel()			// title
 	let dearName			= UILabel()
 	let message				= UILabel()
 	let message2			= UILabel()
@@ -28,19 +27,12 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 	override func viewDidLoad() {
 		// background color
 		self.view.backgroundColor = UIColor.white
-		
-		// title
-		self.smallTitle.text = "マッチング結果"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+
+		/* navigation bar */
+		title = "マッチング結果"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		navigationController?.delegate = self
 
 		// failed to match
 		if( matchingResult[registeredNum] < 0 ) {
@@ -51,7 +43,7 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 			self.view.addSubview(message2)
 			self.message2.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 			}
 
 			// message3
@@ -60,7 +52,7 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 			self.view.addSubview(self.message3)
 			self.message3.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+120)
 			}
 		// seucceed to match
 		} else {
@@ -71,7 +63,7 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 			self.matchedName.font = UIFont.systemFont(ofSize: 25.0)
 			self.message2.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 			}
 
 			// matched name
@@ -81,7 +73,7 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 			self.view.addSubview(self.matchedName)
 			self.matchedName.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(340)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+110)
 			}
 
 			// message3
@@ -91,7 +83,7 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 			self.matchedName.font = UIFont.systemFont(ofSize: 25.0)
 			self.message3.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(390)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 			}
 		}
 
@@ -107,7 +99,7 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 			self.view.addSubview(self.message4)
 			self.message4.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(480)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+250)
 			}
 
 		// OK button
@@ -130,8 +122,7 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
@@ -143,13 +134,12 @@ class MatchingResultViewController: UIViewController, GADBannerViewDelegate {
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
-			let menuViewController = MenuViewController()
-			menuViewController.modalPresentationStyle = .fullScreen
-			self.present(menuViewController, animated: true)
+			self.navigationController?.popToViewController(navigationController!.viewControllers[menuLayerNum],
+														   animated: true)
 		} else {
 			let matchingResultInitViewController = MatchingResultInitViewController()
-			matchingResultInitViewController.modalPresentationStyle = .fullScreen
-			self.present(matchingResultInitViewController, animated: true)
+			self.navigationController?.pushViewController(matchingResultInitViewController,
+														  animated: true)
 		}
 	}
 

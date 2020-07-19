@@ -18,13 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// 広告初期化
 		GADMobileAds.sharedInstance().start(completionHandler: nil)
 
-		/* 最初に表示するUIViewControllerを指定する */
+		let navigationController = UINavigationController(rootViewController: ViewController())
 		// windowをスクリーンサイズに合わせて生成
 		window = UIWindow(frame: UIScreen.main.bounds)
 		// ViewControllerをインスタンス化、windowのrootに設定する
-		window!.rootViewController = ViewController()
+		window?.rootViewController = navigationController
 		// 表示する
-		window!.makeKeyAndVisible()
+		window?.makeKeyAndVisible()
 
 		return true
 	}

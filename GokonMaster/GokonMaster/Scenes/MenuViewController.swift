@@ -27,6 +27,9 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
+		/* navigation controller */
+		menuLayerNum = navigationController!.viewControllers.count - 1
+
 		// title
 		self.smallTitle.numberOfLines = 2
 		self.smallTitle.text = "合コン\n    master"
@@ -35,7 +38,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(50)
 		}
 
 		// 席替えボタン
@@ -56,7 +59,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.changeSeatBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
 		}
 
 		// テーブルタイプ変更ボタン
@@ -78,7 +81,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.changeTableTypeBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
 		}
 
 		// ゲームボタン
@@ -99,7 +102,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.gameBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
 		}
 
 		// マッチングボタン
@@ -120,7 +123,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.matchingBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(440)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
 		}
 
 		// トップに戻るボタン
@@ -147,8 +150,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
@@ -163,8 +165,11 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.favoriteType = 0
-		registerFavoriteViewController.modalPresentationStyle = .fullScreen
-		self.present(registerFavoriteViewController, animated: true)
+		let backBarButtonItem = UIBarButtonItem()
+		backBarButtonItem.title = "menu"
+		self.navigationItem.backBarButtonItem = backBarButtonItem
+		self.navigationController?.pushViewController(registerFavoriteViewController,
+													  animated: true)
 	}
 
 	/// changeSeatTypeBtn action
@@ -225,8 +230,11 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		initRegisteredNum()
 
 		let gameMenuViewController = GameMenuViewController()
-		gameMenuViewController.modalPresentationStyle = .fullScreen
-		self.present(gameMenuViewController, animated: true)
+		let backBarButtonItem = UIBarButtonItem()
+		backBarButtonItem.title = "main menu"
+		self.navigationItem.backBarButtonItem = backBarButtonItem
+		self.navigationController?.pushViewController(gameMenuViewController,
+													  animated: true)
 	}
 
 	/// matchingBtn action
@@ -238,8 +246,11 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.favoriteType = 1
-		registerFavoriteViewController.modalPresentationStyle = .fullScreen
-		self.present(registerFavoriteViewController, animated: true)
+		let backBarButtonItem = UIBarButtonItem()
+		backBarButtonItem.title = "menu"
+		self.navigationItem.backBarButtonItem = backBarButtonItem
+		self.navigationController?.pushViewController(registerFavoriteViewController,
+													  animated: true)
 	}
 
 	/// returnTopBtn action
@@ -253,9 +264,9 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 								  handler:{
 									(action: UIAlertAction!) -> Void in
 									initAllPublicValues()
-									let topViewController = ViewController()
-									topViewController.modalPresentationStyle = .fullScreen
-									self.present(topViewController, animated: true)
+									self.navigationController?.setNavigationBarHidden(true,
+																					  animated: false)
+									self.navigationController?.popToRootViewController(animated: true)
 		})
 		// reset alert message：Noボタン押下
 		let notReset = UIAlertAction(title: "No",

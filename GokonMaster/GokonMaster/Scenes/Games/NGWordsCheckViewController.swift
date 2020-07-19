@@ -13,7 +13,6 @@ import GoogleMobileAds
 class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 	
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let message1			= UILabel()
 	let againBtn			= UIButton()		// もう一度ボタン
 	let finishBtn			= UIButton()		// 終了ボタン
@@ -27,18 +26,8 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation bar */
+		title = "NGワード"
 
 		// message1
 		self.message1.text = "皆さんのNGワードはこのようになっていました。"
@@ -48,7 +37,7 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		for i in 0..<joinNumSum {
@@ -61,7 +50,7 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 			memberName.snp.makeConstraints { (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(30)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(SCREEN_SIZE.width/3)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 200)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + topHeight+30)
 			}
 
 			ngWord.text = ": " + assignedNGWords[i]
@@ -71,7 +60,7 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 			ngWord.snp.makeConstraints { (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/3)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(30)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 200)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + topHeight+30)
 			}
 		}
 
@@ -112,8 +101,7 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
@@ -124,10 +112,9 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 	/// - Authors: Nozomi Koyama
 	@objc func againBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
-		
-		let ngWordsInitViewController = NGWordsInitViewController()
-		ngWordsInitViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsInitViewController, animated: true)
+
+		self.navigationController?.popToViewController(navigationController!.viewControllers[gameMenuLayerNum+1],
+													   animated: true)
 	}
 
 	/// finishBtn action
@@ -136,9 +123,8 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 	@objc func finishBtnDidTap(_ sender: UIButton) {
 		initRegisteredNum()
 
-		let gameMenuViewController = GameMenuViewController()
-		gameMenuViewController.modalPresentationStyle = .fullScreen
-		self.present(gameMenuViewController, animated: true)
+		self.navigationController?.popToViewController(navigationController!.viewControllers[gameMenuLayerNum],
+													   animated: true)
 	}
 
 	/// make GADBannerView
@@ -161,7 +147,7 @@ class NGWordsCheckViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

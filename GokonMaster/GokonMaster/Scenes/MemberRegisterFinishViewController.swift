@@ -33,22 +33,8 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// return button
-		self.backBtn.setTitle(" 登録内容修正 ", for: .normal)
-		self.backBtn.setTitleColor(UIColor.green, for: .normal)
-		self.backBtn.backgroundColor = UIColor.clear
-		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-		self.backBtn.layer.borderColor = UIColor.clear.cgColor
-		self.backBtn.layer.borderWidth = 2.0
-		self.backBtn.layer.cornerRadius = 2.0
-		self.view.addSubview(self.backBtn)
-		self.backBtn.addTarget(self,
-							   action: #selector(self.backBtnDidTap(_:)),
-							   for: .touchUpInside)
-		self.backBtn.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-		}
+		/* navigation bar */
+		title = "メンバー登録"
 
 		// registered nickname
 		self.registeredNickname.text = memberData[registeredNum].nickname + " さん"
@@ -57,7 +43,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// message1
@@ -66,7 +52,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(130)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+60)
 		}
 
 		// sex
@@ -75,7 +61,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(sexLabel)
 		self.sexLabel.snp.makeConstraints { (make) in
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+130)
 		}
 		if(memberData[registeredNum].sexIndex == 1){
 			self.sex.text = "女"
@@ -86,7 +72,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(sex)
 		self.sex.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+130)
 		}
 
 		// PIN code
@@ -95,14 +81,14 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(pinCodeLabel)
 		self.pinCodeLabel.snp.makeConstraints { (make) in
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 		}
 		self.pinCode.text = String(memberData[registeredNum].pinCode)
 		self.pinCode.textColor = UIColor.black
 		self.view.addSubview(pinCode)
 		self.pinCode.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 		}
 
 		// next button
@@ -125,19 +111,10 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
-	}
-
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
 	}
 
 	/// nextBtn action
@@ -147,12 +124,12 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
 			let settingFinishViewController = SettingFinishViewController()
-			settingFinishViewController.modalPresentationStyle = .fullScreen
-			self.present(settingFinishViewController, animated: true)
+			self.navigationController?.pushViewController(settingFinishViewController,
+														  animated: true)
 		} else {
 			let memberRegisterViewController = MemberRegisterViewController()
-			memberRegisterViewController.modalPresentationStyle = .fullScreen
-			self.present(memberRegisterViewController, animated: true)
+			self.navigationController?.pushViewController(memberRegisterViewController,
+														  animated: true)
 		}
 	}
 

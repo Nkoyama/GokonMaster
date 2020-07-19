@@ -23,6 +23,12 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		/* navigation bar */
+		title = "top"
+		// 初期画面はnavigation bar非表示
+		self.navigationController?.setNavigationBarHidden(true,
+														  animated: false)
+
 		// background color
 		self.view.backgroundColor = UIColor.green
 
@@ -55,8 +61,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
@@ -67,8 +72,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 	/// - Authors: Nozomi Koyama
 	@objc func buttonDidTap(_ sender: UIButton) {
 		let setting1ViewController = Setting1ViewController()
-		setting1ViewController.modalPresentationStyle = .fullScreen
-		self.present(setting1ViewController, animated: true)
+		self.navigationController?.pushViewController(setting1ViewController, animated: true)
 	}
 
 	/// make GADBannerView

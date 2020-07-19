@@ -13,8 +13,6 @@ import GoogleMobileAds
 class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
-	let backBtn				= UIButton()
-	let smallTitle			= UILabel()		// title
 	let ngWordBtn			= UIButton()	// NGワードボタン
 	let kingGameBtn			= UIButton()	// 王様ゲームボタン
 	let message				= UILabel()
@@ -26,30 +24,9 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// back button
-		self.backBtn.setTitle(" メニューに戻る ", for: .normal)
-		self.backBtn.setTitleColor(UIColor.green, for: .normal)
-		self.backBtn.backgroundColor = UIColor.clear
-		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-		self.backBtn.layer.borderColor = UIColor.clear.cgColor
-		self.backBtn.layer.borderWidth = 2.0
-		self.backBtn.layer.cornerRadius = 2.0
-		self.view.addSubview(self.backBtn)
-		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
-		self.backBtn.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-		}
-
-		// title
-		self.smallTitle.text = "ゲーム"
-		self.smallTitle.textColor = UIColor.blue
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 40.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation controller */
+		title = "game menu"
+		gameMenuLayerNum = navigationController!.viewControllers.count - 1
 
 		// NGワードボタン
 		self.ngWordBtn.setTitle("NGワード", for: .normal)
@@ -69,7 +46,7 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		self.ngWordBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// 王様ゲームボタン
@@ -90,7 +67,7 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		self.kingGameBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(280)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 		}
 
 		// message
@@ -106,20 +83,10 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
-	}
-
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		let menuViewController = MenuViewController()
-		menuViewController.modalPresentationStyle = .fullScreen
-		self.present(menuViewController, animated: true)
 	}
 
 	/// ngWordBtn action
@@ -129,8 +96,8 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		initRegisteredNum()
 
 		let ngWordsInitViewController = NGWordsInitViewController()
-		ngWordsInitViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsInitViewController, animated: true)
+		self.navigationController?.pushViewController(ngWordsInitViewController,
+													  animated: true)
 	}
 
 	/// kingGameBtn action
@@ -140,8 +107,8 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		initRegisteredNum()
 
 		let kingGameInitViewController = KingGameInitViewController()
-		kingGameInitViewController.modalPresentationStyle = .fullScreen
-		self.present(kingGameInitViewController, animated: true)
+		self.navigationController?.pushViewController(kingGameInitViewController,
+													  animated: true)
 	}
 
 	/// make GADBannerView
@@ -164,7 +131,7 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

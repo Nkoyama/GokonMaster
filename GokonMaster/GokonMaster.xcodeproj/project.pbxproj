@@ -44,8 +44,7 @@
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
 		43C1D5932403CB76005A48AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C1D5922403CB76005A48AB /* Assets.xcassets */; };
-		43C1D5962403CB76005A48AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C1D5942403CB76005A48AB /* LaunchScreen.storyboard */; };
-		C26845CDD84C30FF59770C5D /* Pods_GokonMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9478BB460482A08C8822A2C3 /* Pods_GokonMaster.framework */; };
+		F742904016CCC80CAA04FA63 /* Pods_GokonMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A75579CD3B052D4D8F49BC2 /* Pods_GokonMaster.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,11 +86,10 @@
 		43C1D58B2403CB72005A48AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		43C1D58D2403CB72005A48AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43C1D5922403CB76005A48AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		43C1D5952403CB76005A48AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43C1D5972403CB76005A48AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78D09E09ABF2D98E333BAF89 /* Pods-GokonMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.debug.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.debug.xcconfig"; sourceTree = "<group>"; };
-		9478BB460482A08C8822A2C3 /* Pods_GokonMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3CECF6018B55BB10ADD615A /* Pods-GokonMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.release.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.release.xcconfig"; sourceTree = "<group>"; };
+		73617424919DA148D2A9340F /* Pods-GokonMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.release.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.release.xcconfig"; sourceTree = "<group>"; };
+		73B8E147808EF5531B1E4A34 /* Pods-GokonMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.debug.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.debug.xcconfig"; sourceTree = "<group>"; };
+		7A75579CD3B052D4D8F49BC2 /* Pods_GokonMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,18 +97,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C26845CDD84C30FF59770C5D /* Pods_GokonMaster.framework in Frameworks */,
+				F742904016CCC80CAA04FA63 /* Pods_GokonMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29A0487A4B8C72F01F4C9E87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A75579CD3B052D4D8F49BC2 /* Pods_GokonMaster.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		394F91EA0CEEC2DE597822FB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				78D09E09ABF2D98E333BAF89 /* Pods-GokonMaster.debug.xcconfig */,
-				A3CECF6018B55BB10ADD615A /* Pods-GokonMaster.release.xcconfig */,
+				73B8E147808EF5531B1E4A34 /* Pods-GokonMaster.debug.xcconfig */,
+				73617424919DA148D2A9340F /* Pods-GokonMaster.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -129,7 +135,6 @@
 		4341CC0D241CF3B600C86FB9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				439E5C3E24B04F6B001C59D1 /* Games */,
 				43C1D58D2403CB72005A48AB /* ViewController.swift */,
 				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
 				4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */,
@@ -142,6 +147,7 @@
 				439E5C34249486EA001C59D1 /* SeatChangeResultViewController.swift */,
 				439E5C3624A72F42001C59D1 /* MatchingResultInitViewController.swift */,
 				439E5C3A24A74E14001C59D1 /* MatchingResultViewController.swift */,
+				439E5C3E24B04F6B001C59D1 /* Games */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -191,7 +197,7 @@
 				43C1D5882403CB72005A48AB /* GokonMaster */,
 				43C1D5872403CB72005A48AB /* Products */,
 				394F91EA0CEEC2DE597822FB /* Pods */,
-				92797175348ED726D450648A /* Frameworks */,
+				29A0487A4B8C72F01F4C9E87 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,18 +219,9 @@
 				43C1D5892403CB72005A48AB /* AppDelegate.swift */,
 				43C1D58B2403CB72005A48AB /* SceneDelegate.swift */,
 				43C1D5922403CB76005A48AB /* Assets.xcassets */,
-				43C1D5942403CB76005A48AB /* LaunchScreen.storyboard */,
 				43C1D5972403CB76005A48AB /* Info.plist */,
 			);
 			path = GokonMaster;
-			sourceTree = "<group>";
-		};
-		92797175348ED726D450648A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9478BB460482A08C8822A2C3 /* Pods_GokonMaster.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,11 +231,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43C1D59A2403CB76005A48AB /* Build configuration list for PBXNativeTarget "GokonMaster" */;
 			buildPhases = (
-				24A5D27892419A8B30232927 /* [CP] Check Pods Manifest.lock */,
+				D789DA746F4F95EA6FD706C8 /* [CP] Check Pods Manifest.lock */,
 				43C1D5822403CB71005A48AB /* Sources */,
 				43C1D5832403CB71005A48AB /* Frameworks */,
 				43C1D5842403CB71005A48AB /* Resources */,
-				B8B85358A4291EED31D428AF /* [CP] Embed Pods Frameworks */,
+				EF4831743EDC989B341D98B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,7 +284,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C1D5962403CB76005A48AB /* LaunchScreen.storyboard in Resources */,
 				43C1D5932403CB76005A48AB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +291,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24A5D27892419A8B30232927 /* [CP] Check Pods Manifest.lock */ = {
+		D789DA746F4F95EA6FD706C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,7 +313,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B8B85358A4291EED31D428AF /* [CP] Embed Pods Frameworks */ = {
+		EF4831743EDC989B341D98B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,17 +377,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		43C1D5942403CB76005A48AB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				43C1D5952403CB76005A48AB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		43C1D5982403CB76005A48AB /* Debug */ = {
@@ -510,11 +495,11 @@
 		};
 		43C1D59B2403CB76005A48AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78D09E09ABF2D98E333BAF89 /* Pods-GokonMaster.debug.xcconfig */;
+			baseConfigurationReference = 73B8E147808EF5531B1E4A34 /* Pods-GokonMaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RF83PA9DM8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GokonMaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -523,6 +508,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -530,11 +516,11 @@
 		};
 		43C1D59C2403CB76005A48AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3CECF6018B55BB10ADD615A /* Pods-GokonMaster.release.xcconfig */;
+			baseConfigurationReference = 73617424919DA148D2A9340F /* Pods-GokonMaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RF83PA9DM8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GokonMaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -543,6 +529,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -558,7 +545,7 @@
 				43C1D5992403CB76005A48AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		43C1D59A2403CB76005A48AB /* Build configuration list for PBXNativeTarget "GokonMaster" */ = {
 			isa = XCConfigurationList;
@@ -567,7 +554,7 @@
 				43C1D59C2403CB76005A48AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

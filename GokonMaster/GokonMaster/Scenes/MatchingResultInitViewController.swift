@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, GADBannerViewDelegate {
+class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
-	let smallTitle			= UILabel()			// title
 	let dearName			= UILabel()
 	let message				= UILabel()
 	let pinCodeTF			= UITextField()		// PIN code
@@ -26,18 +25,11 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, G
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "マッチング結果"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation bar */
+		title = "マッチング結果"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		navigationController?.delegate = self
 
 		// dear name
 		self.dearName.text = memberData[registeredNum].nickname + " さん"
@@ -46,7 +38,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, G
 		self.view.addSubview(dearName)
 		self.dearName.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 		// message
 		self.message.numberOfLines = 3
@@ -56,7 +48,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, G
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+120)
 		}
 
 		// PIN code
@@ -66,7 +58,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, G
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(330)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+200)
 		}
 		self.pinCodeTF.delegate = self
 
@@ -90,8 +82,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, G
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
@@ -103,8 +94,8 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, G
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		if( self.pinCodeTF.text == memberData[registeredNum].pinCode ) {
 			let matchingResultViewController = MatchingResultViewController()
-			matchingResultViewController.modalPresentationStyle = .fullScreen
-			self.present(matchingResultViewController, animated: true)
+			self.navigationController?.pushViewController(matchingResultViewController,
+														  animated: true)
 		} else {
 			let alert: UIAlertController = UIAlertController(title: "Error",
 															 message: "暗証番号が一致しません。",

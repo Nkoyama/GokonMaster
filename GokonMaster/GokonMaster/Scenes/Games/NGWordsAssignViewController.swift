@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
+class NGWordsAssignViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let registeredNickname	= UILabel()
 	let message1			= UILabel()
 	let ngWordLabel			= UILabel()
@@ -28,18 +27,11 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation bar */
+		title = "NGワード"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		navigationController?.delegate = self
 
 		// registered nickname
 		self.registeredNickname.text = memberData[registeredNum].nickname + " さん"
@@ -48,7 +40,7 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// message1
@@ -57,7 +49,7 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+50)
 		}
 
 		// NG word
@@ -70,7 +62,7 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		self.ngWordLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+90)
 		}
 
 		// message2
@@ -79,7 +71,7 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(self.message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+140)
 		}
 
 		// message3
@@ -101,7 +93,7 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		self.message3.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+200)
 		}
 
 		// OK button
@@ -124,8 +116,7 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
@@ -138,12 +129,12 @@ class NGWordsAssignViewController: UIViewController, GADBannerViewDelegate {
 		registeredNum += 1
 		if( registeredNum == joinNumSum ) {
 			let ngWordsAssignFinishViewController = NGWordsAssignFinishViewController()
-			ngWordsAssignFinishViewController.modalPresentationStyle = .fullScreen
-			self.present(ngWordsAssignFinishViewController, animated: true)
+			self.navigationController?.pushViewController(ngWordsAssignFinishViewController,
+														  animated: true)
 		} else {
 			let ngWordsAssignInitViewController = NGWordsAssignInitViewController()
-			ngWordsAssignInitViewController.modalPresentationStyle = .fullScreen
-			self.present(ngWordsAssignInitViewController, animated: true)
+			self.navigationController?.pushViewController(ngWordsAssignInitViewController,
+														  animated: true)
 		}
 	}
 

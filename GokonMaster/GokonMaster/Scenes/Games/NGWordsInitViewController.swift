@@ -13,8 +13,6 @@ import GoogleMobileAds
 class NGWordsInitViewController: UIViewController, GADBannerViewDelegate {
 	
 	// MARK: Views
-	let backBtn				= UIButton()
-	let smallTitle			= UILabel()
 	let ruleLabel			= UILabel()
 	let ruleDetail			= UILabel()
 	let startBtn			= UIButton()
@@ -26,33 +24,8 @@ class NGWordsInitViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// back button
-		self.backBtn.setTitle(" ゲーム選択に戻る ", for: .normal)
-		self.backBtn.setTitleColor(UIColor.green, for: .normal)
-		self.backBtn.backgroundColor = UIColor.clear
-		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-		self.backBtn.layer.borderColor = UIColor.clear.cgColor
-		self.backBtn.layer.borderWidth = 2.0
-		self.backBtn.layer.cornerRadius = 2.0
-		self.view.addSubview(self.backBtn)
-		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
-		self.backBtn.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-		}
-
-		// title
-		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation controller */
+		title = "NGワード"
 
 		// rule
 		self.ruleLabel.text = "ルール"
@@ -61,7 +34,7 @@ class NGWordsInitViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(self.ruleLabel)
 		self.ruleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// rule detail
@@ -81,7 +54,7 @@ class NGWordsInitViewController: UIViewController, GADBannerViewDelegate {
 		self.ruleDetail.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+120)
 		}
 
 		// start button
@@ -104,20 +77,10 @@ class NGWordsInitViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
-	}
-
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		let gameMenuViewController = GameMenuViewController()
-		gameMenuViewController.modalPresentationStyle = .fullScreen
-		self.present(gameMenuViewController, animated: true)
 	}
 
 	/// starttn action
@@ -128,8 +91,8 @@ class NGWordsInitViewController: UIViewController, GADBannerViewDelegate {
 		ngWordAssignMainLogic()
 
 		let ngWordsAssignInitViewController = NGWordsAssignInitViewController()
-		ngWordsAssignInitViewController.modalPresentationStyle = .fullScreen
-		self.present(ngWordsAssignInitViewController, animated: true)
+		self.navigationController?.pushViewController(ngWordsAssignInitViewController,
+													  animated: true)
 	}
 
 	/// make GADBannerView
@@ -152,7 +115,7 @@ class NGWordsInitViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

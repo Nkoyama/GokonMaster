@@ -10,10 +10,8 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
+class RegisterFavoriteViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
 	// MARK: Views
-	let backBtn				= UIButton()	// back button
-	let smallTitle			= UILabel()		// title
 	let dearName			= UILabel()
 	let message				= UILabel()
 	let rankLabel_1			= UILabel()		// 1位 label
@@ -39,35 +37,13 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// return button
-		if(registeredNum <= 0) {
-			self.backBtn.setTitle(" メニュー ", for: .normal)
-			self.backBtn.setTitleColor(UIColor.green, for: .normal)
-			self.backBtn.backgroundColor = UIColor.clear
-			self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-			self.backBtn.layer.borderColor = UIColor.clear.cgColor
-			self.backBtn.layer.borderWidth = 2.0
-			self.backBtn.layer.cornerRadius = 2.0
-			self.view.addSubview(self.backBtn)
-			self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
-			self.backBtn.snp.makeConstraints { (make) in
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-			}
+		/* navigation bar */
+		title = "お気に入り登録"
+		if( registeredNum >= 1 ) {
+			self.navigationItem.hidesBackButton = true	//hide back button
+			self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 		}
-
-		// title
-		self.smallTitle.text = "お気に入り登録"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		navigationController?.delegate = self
 
 		// dear name
 		self.dearName.text = memberData[registeredNum].nickname + " さん"
@@ -76,7 +52,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(dearName)
 		self.dearName.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 		// message
 		self.message.text = "気に入っている方を登録してください。"
@@ -84,7 +60,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+30)
 		}
 
 		/* select favorite */
@@ -103,7 +79,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 
 			if(favoriteArray[registeredNum].first >= 0) {
@@ -129,7 +105,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 			self.nameBtn_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 
 			// 2位
@@ -143,7 +119,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 
 				if(favoriteArray[registeredNum].second >= 0) {
@@ -169,7 +145,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.nameBtn_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 			}
 
@@ -184,7 +160,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*2)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*2)
 				}
 
 				if(favoriteArray[registeredNum].third >= 0) {
@@ -210,7 +186,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.nameBtn_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth*2))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth*2))
 				}
 			}
 
@@ -225,7 +201,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 
 				if(favoriteArray[registeredNum].fourth >= 0) {
@@ -251,7 +227,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.nameBtn_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 			}
 
@@ -267,7 +243,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 			
 			if(favoriteArray[registeredNum].first >= 0) {
@@ -293,7 +269,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 			self.nameBtn_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 			
 			// 2位
@@ -307,7 +283,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 				
 				if(favoriteArray[registeredNum].second >= 0) {
@@ -333,7 +309,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.nameBtn_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 			}
 			
@@ -348,7 +324,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*2)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*2)
 				}
 				
 				if(favoriteArray[registeredNum].third >= 0) {
@@ -374,7 +350,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.nameBtn_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth*2))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth*2))
 				}
 			}
 			
@@ -389,7 +365,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 				
 				if(favoriteArray[registeredNum].fourth >= 0) {
@@ -415,7 +391,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				self.nameBtn_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 			}
 		}
@@ -440,19 +416,10 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
-	}
-
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
 	}
 
 	/// chooseFavoriteBtn action
@@ -495,8 +462,11 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 				(action: UIAlertAction!) -> Void in
 				let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
 				registerFavoriteFinishViewController.favoriteType = self.favoriteType
-				registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
-				self.present(registerFavoriteFinishViewController, animated: true)
+				let backBarButtonItem = UIBarButtonItem()
+				backBarButtonItem.title = "お気に入り修正"
+				self.navigationItem.backBarButtonItem = backBarButtonItem
+				self.navigationController?.pushViewController(registerFavoriteFinishViewController,
+															  animated: true)
 		})
 		// no favorite alert message：Noボタン押下
 		let existFavoriteAction = UIAlertAction(title: "No",
@@ -551,8 +521,11 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 		if(choiceComplete) {
 			let registerFavoriteFinishViewController = RegisterFavoriteFinishViewController()
 			registerFavoriteFinishViewController.favoriteType = self.favoriteType
-			registerFavoriteFinishViewController.modalPresentationStyle = .fullScreen
-			self.present(registerFavoriteFinishViewController, animated: true)
+			let backBarButtonItem = UIBarButtonItem()
+			backBarButtonItem.title = "お気に入り修正"
+			self.navigationItem.backBarButtonItem = backBarButtonItem
+			self.navigationController?.pushViewController(registerFavoriteFinishViewController,
+														  animated: true)
 		}
 	}
 
@@ -576,7 +549,7 @@ class RegisterFavoriteViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

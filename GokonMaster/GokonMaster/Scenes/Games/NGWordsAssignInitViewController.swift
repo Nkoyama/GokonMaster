@@ -10,10 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GADBannerViewDelegate {
+class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, GADBannerViewDelegate {
 	
 	// MARK: Views
-	let smallTitle			= UILabel()
 	let dearName			= UILabel()
 	let message				= UILabel()
 	let pinCodeTF			= UITextField()		// PIN code
@@ -26,47 +25,40 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GA
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "NGワード"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation controller */
+		title = "NGワード"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		navigationController?.delegate = self
 
 		// dear name
 		self.dearName.text = memberData[registeredNum].nickname + " さん"
 		self.dearName.textColor = UIColor.red
 		self.dearName.font = self.dearName.font.withSize(20)
-		self.view.addSubview(dearName)
+		self.view.addSubview(self.dearName)
 		self.dearName.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 		// message
 		self.message.numberOfLines = 3
 		self.message.text = "最初に登録した暗証番号を\n入力してください。\n"
 						  + "※未登録の場合はそのままOKをタップ。"
 		self.message.textColor = UIColor.black
-		self.view.addSubview(message)
+		self.view.addSubview(self.message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 		}
 
 		// PIN code
 		self.pinCodeTF.keyboardType = .numberPad
 		self.pinCodeTF.borderStyle = .roundedRect
-		self.view.addSubview(pinCodeTF)
+		self.view.addSubview(self.pinCodeTF)
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+180)
 		}
 		self.pinCodeTF.delegate = self
 		
@@ -90,8 +82,7 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GA
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
@@ -103,8 +94,8 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GA
 	@objc func okBtnDidTap(_ sender: UIButton) {
 		if( self.pinCodeTF.text == memberData[registeredNum].pinCode ) {
 			let ngWordsAssignViewController = NGWordsAssignViewController()
-			ngWordsAssignViewController.modalPresentationStyle = .fullScreen
-			self.present(ngWordsAssignViewController, animated: true)
+			self.navigationController?.pushViewController(ngWordsAssignViewController,
+														  animated: true)
 		} else {
 			let alert: UIAlertController = UIAlertController(title: "Error",
 															 message: "暗証番号が一致しません。",
@@ -134,7 +125,7 @@ class NGWordsAssignInitViewController: UIViewController, UITextFieldDelegate, GA
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

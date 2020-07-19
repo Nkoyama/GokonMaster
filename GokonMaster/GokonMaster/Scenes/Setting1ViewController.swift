@@ -26,7 +26,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 	let tableTypeLabel	= UILabel()				// テーブルタイプ label
 	var tableTypeSC		= UISegmentedControl()	// テーブルタイプ選択 segmented control
 	let nextBtn			= UIButton()			// 次へボタン
-	
+
 	let SCREEN_SIZE		= UIScreen.main.bounds.size
 
 	var bannerView: GADBannerView!
@@ -36,33 +36,10 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// return button
-		self.backBtn.setTitle(" 戻る ", for: .normal)
-		self.backBtn.setTitleColor(UIColor.green, for: .normal)
-		self.backBtn.backgroundColor = UIColor.clear
-		self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-		self.backBtn.layer.borderColor = UIColor.clear.cgColor
-		self.backBtn.layer.borderWidth = 2.0
-		self.backBtn.layer.cornerRadius = 2.0
-		self.view.addSubview(self.backBtn)
-		self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
-		self.backBtn.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-		}
-
-		// title
-		self.smallTitle.text = "初期設定"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		// navigation bar復活
+		self.navigationController?.setNavigationBarHidden(false,
+														  animated: true)
+		title = "初期設定"
 
 		// setting message
 		self.settingMsg.text = "最初に以下の設定をして下さい。"
@@ -70,7 +47,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(settingMsg)
 		self.settingMsg.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// 参加人数
@@ -79,7 +56,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(joinNumLabel)
 		self.joinNumLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+80)
 		}
 
 		// 男
@@ -88,7 +65,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(maleLabel)
 		self.maleLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+110)
 		}
 
 		// 男参加人数
@@ -97,7 +74,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(maleNumTF)
 		self.maleNumTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(110)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(245)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+105)
 		}
 		self.maleNumTF.delegate = self
 
@@ -107,7 +84,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(femaleLabel)
 		self.femaleLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(180)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+110)
 		}
 
 		// 女参加人数
@@ -116,7 +93,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(femaleNumTF)
 		self.femaleNumTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(210)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(245)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+105)
 		}
 		self.femaleNumTF.delegate = self
 
@@ -126,7 +103,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(joinNumSumLabel)
 		self.joinNumSumLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 		}
 
 		// テーブルタイプ
@@ -135,7 +112,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(tableTypeLabel)
 		self.tableTypeLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+210)
 		}
 
 		// テーブルタイプ選択
@@ -147,13 +124,13 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.tableTypeSC.snp.makeConstraints { (make) in
 			make.width.equalTo(250)
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(375)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+235)
 		}
 
 		// テーブルタイプの（四角、丸）の描画
 		let screenWidth = self.view.bounds.width	//Screen Size Width
 		let tableTypeDraw = TableTypeDrawView(frame: CGRect(x: screenWidth/2-100,
-															y: 450,
+															y: 430,
 															width: 210,
 															height: 100))
 		self.view.addSubview(tableTypeDraw)
@@ -178,19 +155,10 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		// banner ad
 		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 		addBannerViewToView(bannerView)
-		bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
-//		bannerView.adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+		bannerView.adUnitID = adUnitID
 		bannerView.rootViewController = self
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
-	}
-
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
 	}
 
 	/// nextBtn action
@@ -198,23 +166,28 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		if(maleNum <= 0) {
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "男性の人数を設定してください。", preferredStyle:  UIAlertController.Style.alert)
+			let alert: UIAlertController = UIAlertController(title: "Error",
+															 message: "男性の人数を設定してください。",
+															 preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		} else if(femaleNum <= 0) {
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "女性の人数を設定してください。", preferredStyle:  UIAlertController.Style.alert)
+			let alert: UIAlertController = UIAlertController(title: "Error",
+															 message: "女性の人数を設定してください。",
+															 preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		} else if(maleNum > 5 || femaleNum > 5) {
-			let alert: UIAlertController = UIAlertController(title: "エラー", message: "申し訳ございませんが、男性または女性が6人以上の合コンには対応しておりません。", preferredStyle:  UIAlertController.Style.alert)
+			let alert: UIAlertController = UIAlertController(title: "",
+															 message: "申し訳ございませんが、男性・女性どちらかが6人以上の合コンには対応しておりません。",
+															 preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		} else {
 			initMemberData()
-			let memberRegisterViewController = MemberRegisterViewController()
-			memberRegisterViewController.modalPresentationStyle = .fullScreen
 			initSeatPositionArray()
-			self.present(memberRegisterViewController, animated: true)
+			let memberRegisterViewController = MemberRegisterViewController()
+			self.navigationController?.pushViewController(memberRegisterViewController, animated: true)
 		}
 	}
 
