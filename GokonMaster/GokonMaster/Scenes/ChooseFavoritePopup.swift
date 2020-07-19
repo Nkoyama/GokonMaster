@@ -19,6 +19,8 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 	var choiceList: [String]	= []
 	let SCREEN_SIZE				= UIScreen.main.bounds.size
 
+	//クロージャを保持するためのプロパティ
+	var callBack: (() -> Void)?
 
 	// MARK: LifeCycle
 	override func viewDidLoad() {
@@ -60,9 +62,14 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 		// 元画面の再描画
 		let parentVC = presentingViewController
 		parentVC?.viewDidLoad()
-		// 現在の画面削除
-		self.dismiss(animated: false, completion: nil)
-	}
+		parentVC?.loadView()
+		// 現在の画面削除 & 親画面再描画
+//		self.dismiss(animated: false, completion: nil)
+		self.dismiss(animated: true) {
+			//completionのタイミングでプロパティのクロージャを実行
+			//親ビューで"ボタン押したよ！"という文字列を表示したい！
+			self.callBack?()
+		}	}
 	
 	/// お気に入り選択ポップアップ画面
 	/// - Parameters:
@@ -107,7 +114,9 @@ class ChooseFavoritePopup: UIViewController, UIGestureRecognizerDelegate, UITabl
 		self.finishBtn.layer.borderWidth = 2.0
 		self.finishBtn.layer.cornerRadius = 2.0
 		chooseFavoriteView.addSubview(self.finishBtn)
-		self.finishBtn.addTarget(self, action: #selector(removePopup(_:)), for: .touchUpInside)
+		self.finishBtn.addTarget(self,
+								 action: #selector(removePopup(_:)),
+								 for: .touchUpInside)
 		self.finishBtn.snp.makeConstraints{ (make) in
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(chooseFavoriteView.safeAreaLayoutGuide.snp.bottom).inset(20)

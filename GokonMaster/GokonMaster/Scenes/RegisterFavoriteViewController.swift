@@ -443,9 +443,17 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			}
 		}
 		chooseFavoritePopup.sexIndex = memberData[registeredNum].sexIndex
-
+		chooseFavoritePopup.callBack = { () in
+			self.callBack()
+		}
 		chooseFavoritePopup.modalPresentationStyle = .overCurrentContext
 		self.present(chooseFavoritePopup, animated: false)
+	}
+
+	/// 画面遷移から戻ってきたときに実行する関数
+	func callBack() {
+		// 画面再読み込み
+		self.viewDidLoad()
 	}
 
 	/// decideBtn action
