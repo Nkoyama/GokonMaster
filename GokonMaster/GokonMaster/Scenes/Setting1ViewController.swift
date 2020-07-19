@@ -47,7 +47,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(settingMsg)
 		self.settingMsg.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(90)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// 参加人数
@@ -56,7 +56,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(joinNumLabel)
 		self.joinNumLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(170)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+80)
 		}
 
 		// 男
@@ -65,7 +65,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(maleLabel)
 		self.maleLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+110)
 		}
 
 		// 男参加人数
@@ -74,7 +74,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(maleNumTF)
 		self.maleNumTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(110)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(195)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+105)
 		}
 		self.maleNumTF.delegate = self
 
@@ -84,7 +84,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(femaleLabel)
 		self.femaleLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(180)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+110)
 		}
 
 		// 女参加人数
@@ -93,7 +93,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(femaleNumTF)
 		self.femaleNumTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(210)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(195)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+105)
 		}
 		self.femaleNumTF.delegate = self
 
@@ -103,7 +103,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(joinNumSumLabel)
 		self.joinNumSumLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(80)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 		}
 
 		// テーブルタイプ
@@ -112,7 +112,7 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(tableTypeLabel)
 		self.tableTypeLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+210)
 		}
 
 		// テーブルタイプ選択
@@ -124,13 +124,13 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.tableTypeSC.snp.makeConstraints { (make) in
 			make.width.equalTo(250)
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(325)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+235)
 		}
 
 		// テーブルタイプの（四角、丸）の描画
 		let screenWidth = self.view.bounds.width	//Screen Size Width
 		let tableTypeDraw = TableTypeDrawView(frame: CGRect(x: screenWidth/2-100,
-															y: 450,
+															y: 430,
 															width: 210,
 															height: 100))
 		self.view.addSubview(tableTypeDraw)
@@ -166,13 +166,13 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 	/// - Authors: Nozomi Koyama
 	@objc func nextBtnDidTap(_ sender: UIButton) {
 		if(maleNum <= 0) {
-			let alert: UIAlertController = UIAlertController(title: "エラー",
+			let alert: UIAlertController = UIAlertController(title: "Error",
 															 message: "男性の人数を設定してください。",
 															 preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)
 			present(alert, animated: true, completion: nil)
 		} else if(femaleNum <= 0) {
-			let alert: UIAlertController = UIAlertController(title: "エラー",
+			let alert: UIAlertController = UIAlertController(title: "Error",
 															 message: "女性の人数を設定してください。",
 															 preferredStyle:  UIAlertController.Style.alert)
 			alert.addAction(defaultAction)

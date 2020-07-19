@@ -43,7 +43,7 @@ class SettingFinishViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// member information
@@ -57,7 +57,7 @@ class SettingFinishViewController: UIViewController, GADBannerViewDelegate {
 		self.maleLabel.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2 - 10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 		}
 		self.femaleLabel.text = "女"
 		self.femaleLabel.textColor = UIColor.init(red: 224/255,
@@ -69,7 +69,7 @@ class SettingFinishViewController: UIViewController, GADBannerViewDelegate {
 		self.femaleLabel.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(SCREEN_SIZE.width/2 - 10)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 		}
 		var maleMemberTxt = ""
 		var femaleMemberTxt = ""
@@ -92,7 +92,7 @@ class SettingFinishViewController: UIViewController, GADBannerViewDelegate {
 		self.maleMember.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2 - 10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+130)
 		}
 		self.femaleMember.numberOfLines = femaleNum + 1
 		self.femaleMember.text = femaleMemberTxt
@@ -106,7 +106,7 @@ class SettingFinishViewController: UIViewController, GADBannerViewDelegate {
 		self.femaleMember.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(SCREEN_SIZE.width/2 - 10)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+130)
 		}
 
 		// next button

@@ -35,7 +35,7 @@ class KingGameInitViewController: UIViewController, UINavigationControllerDelega
 		self.view.addSubview(self.ruleLabel)
 		self.ruleLabel.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// rule detail
@@ -60,7 +60,7 @@ class KingGameInitViewController: UIViewController, UINavigationControllerDelega
 		self.ruleDetail.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+50)
 		}
 
 		// start button

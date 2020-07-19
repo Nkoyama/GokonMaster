@@ -46,7 +46,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(108)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight-2)
 		}
 		// message2
 		self.message2.text = "の情報を登録してください。"
@@ -54,7 +54,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(110)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// nickname
@@ -63,7 +63,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(nicknameLabel)
 		self.nicknameLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(210)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 		}
 		self.nicknameTF.keyboardType = .asciiCapable
 		self.nicknameTF.borderStyle = .roundedRect
@@ -71,7 +71,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.nicknameTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(205)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+95)
 		}
 		self.nicknameTF.delegate = self
 
@@ -81,7 +81,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(sexLabel)
 		self.sexLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+150)
 		}
 		// 性別選択
 		let options = ["男", "女"]
@@ -91,7 +91,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.sexSC.addTarget(self, action: #selector(self.sexChanged(_:)), for: .valueChanged)
 		self.sexSC.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(255)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+145)
 		}
 
 		// PIN code
@@ -100,7 +100,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(pinCodeLabel)
 		self.pinCodeLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(310)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+200)
 		}
 		self.pinCodeTF.keyboardType = .numberPad
 		self.pinCodeTF.borderStyle = .roundedRect
@@ -108,7 +108,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(200)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(305)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+195)
 		}
 		self.pinCodeTF.delegate = self
 
@@ -212,7 +212,7 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 											(action: UIAlertAction!) -> Void in
 			})
 			let alert = UIAlertController(title: "",
-										  message: "暗証番号が未登録です。よろしいですか？",
+										  message: "暗証番号が未登録です。\nよろしいですか？",
 										  preferredStyle: .alert)
 			alert.addAction(notReset)
 			alert.addAction(reset)

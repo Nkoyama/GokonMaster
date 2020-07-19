@@ -46,7 +46,7 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		self.ngWordBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// 王様ゲームボタン
@@ -67,7 +67,7 @@ class GameMenuViewController: UIViewController, GADBannerViewDelegate {
 		self.kingGameBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(280)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 		}
 
 		// message

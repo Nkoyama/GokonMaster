@@ -38,7 +38,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.view.addSubview(smallTitle)
 		self.smallTitle.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(50)
 		}
 
 		// 席替えボタン
@@ -59,7 +59,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.changeSeatBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
 		}
 
 		// テーブルタイプ変更ボタン
@@ -81,7 +81,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.changeTableTypeBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(260)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
 		}
 
 		// ゲームボタン
@@ -102,7 +102,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.gameBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
 		}
 
 		// マッチングボタン
@@ -123,7 +123,7 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		self.matchingBtn.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(440)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
 		}
 
 		// トップに戻るボタン

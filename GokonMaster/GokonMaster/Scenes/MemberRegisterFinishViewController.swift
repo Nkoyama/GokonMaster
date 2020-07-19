@@ -43,7 +43,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// message1
@@ -52,7 +52,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(130)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+60)
 		}
 
 		// sex
@@ -61,7 +61,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(sexLabel)
 		self.sexLabel.snp.makeConstraints { (make) in
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+130)
 		}
 		if(memberData[registeredNum].sexIndex == 1){
 			self.sex.text = "女"
@@ -72,7 +72,7 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(sex)
 		self.sex.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+130)
 		}
 
 		// PIN code
@@ -81,14 +81,14 @@ class MemberRegisterFinishViewController: UIViewController, UITextFieldDelegate,
 		self.view.addSubview(pinCodeLabel)
 		self.pinCodeLabel.snp.makeConstraints { (make) in
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2-10)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 		}
 		self.pinCode.text = String(memberData[registeredNum].pinCode)
 		self.pinCode.textColor = UIColor.black
 		self.view.addSubview(pinCode)
 		self.pinCode.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 		}
 
 		// next button

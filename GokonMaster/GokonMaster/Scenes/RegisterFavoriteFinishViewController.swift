@@ -46,7 +46,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// 1位
@@ -59,7 +59,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 		self.rankLabel_1.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-			make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+			make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+140)
 		}
 		if(favoriteArray[registeredNum].first < 0){
 			self.favoriteName_1.text = "未登録"
@@ -77,7 +77,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 		self.favoriteName_1.snp.makeConstraints{ (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-			make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(300)
+			make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+140)
 		}
 
 		// 2位
@@ -92,7 +92,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 			self.rankLabel_2.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(340)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+180)
 			}
 			if(favoriteArray[registeredNum].second < 0){
 				self.favoriteName_2.text = "未登録"
@@ -110,7 +110,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 			self.favoriteName_2.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(340)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+180)
 			}
 		}
 
@@ -127,7 +127,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 			self.rankLabel_3.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(380)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+220)
 			}
 			if(favoriteArray[registeredNum].third < 0){
 				self.favoriteName_3.text = "未登録"
@@ -145,7 +145,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 			self.favoriteName_3.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(380)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+220)
 			}
 		}
 
@@ -162,7 +162,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 			self.rankLabel_4.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+260)
 			}
 			if(favoriteArray[registeredNum].fourth < 0){
 				self.favoriteName_4.text = "未登録"
@@ -180,7 +180,7 @@ class RegisterFavoriteFinishViewController: UIViewController, UINavigationContro
 			self.favoriteName_4.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(420)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+260)
 			}
 		}
 

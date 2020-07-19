@@ -40,7 +40,7 @@ class KingGameJobAssignViewController: UIViewController, UINavigationControllerD
 		self.view.addSubview(registeredNickname)
 		self.registeredNickname.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// message1
@@ -49,7 +49,7 @@ class KingGameJobAssignViewController: UIViewController, UINavigationControllerD
 		self.view.addSubview(message1)
 		self.message1.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+50)
 		}
 
 		// job
@@ -62,7 +62,7 @@ class KingGameJobAssignViewController: UIViewController, UINavigationControllerD
 		self.jobLabel.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(220)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+90)
 		}
 
 		// message2
@@ -71,7 +71,7 @@ class KingGameJobAssignViewController: UIViewController, UINavigationControllerD
 		self.view.addSubview(self.message2)
 		self.message2.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+140)
 		}
 
 		// message3
@@ -88,7 +88,7 @@ class KingGameJobAssignViewController: UIViewController, UINavigationControllerD
 		self.message3.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(320)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+200)
 		}
 		
 		// OK button

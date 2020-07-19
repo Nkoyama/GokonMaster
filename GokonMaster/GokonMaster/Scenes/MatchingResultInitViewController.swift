@@ -38,7 +38,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, U
 		self.view.addSubview(dearName)
 		self.dearName.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 		// message
 		self.message.numberOfLines = 3
@@ -48,7 +48,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, U
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+120)
 		}
 
 		// PIN code
@@ -58,7 +58,7 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, U
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(230)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+200)
 		}
 		self.pinCodeTF.delegate = self
 

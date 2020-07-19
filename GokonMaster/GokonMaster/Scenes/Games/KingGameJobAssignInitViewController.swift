@@ -38,7 +38,7 @@ class KingGameJobAssignInitViewController: UIViewController, UINavigationControl
 		self.view.addSubview(self.dearName)
 		self.dearName.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(240)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 		// message
 		self.message.numberOfLines = 3
@@ -47,7 +47,7 @@ class KingGameJobAssignInitViewController: UIViewController, UINavigationControl
 		self.view.addSubview(self.message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(270)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 		}
 		
 		// PIN code
@@ -57,7 +57,7 @@ class KingGameJobAssignInitViewController: UIViewController, UINavigationControl
 		self.pinCodeTF.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(100)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(350)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+180)
 		}
 		self.pinCodeTF.delegate = self
 		

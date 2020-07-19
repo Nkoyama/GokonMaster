@@ -52,7 +52,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 		self.view.addSubview(dearName)
 		self.dearName.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 		// message
 		self.message.text = "気に入っている方を登録してください。"
@@ -60,7 +60,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 		self.view.addSubview(message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+30)
 		}
 
 		/* select favorite */
@@ -79,7 +79,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 
 			if(favoriteArray[registeredNum].first >= 0) {
@@ -105,7 +105,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			self.nameBtn_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 
 			// 2位
@@ -119,7 +119,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 
 				if(favoriteArray[registeredNum].second >= 0) {
@@ -145,7 +145,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.nameBtn_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 			}
 
@@ -160,7 +160,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*2)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*2)
 				}
 
 				if(favoriteArray[registeredNum].third >= 0) {
@@ -186,7 +186,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.nameBtn_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth*2))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth*2))
 				}
 			}
 
@@ -201,7 +201,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 
 				if(favoriteArray[registeredNum].fourth >= 0) {
@@ -227,7 +227,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.nameBtn_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 			}
 
@@ -243,7 +243,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			self.rankLabel_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 			
 			if(favoriteArray[registeredNum].first >= 0) {
@@ -269,7 +269,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			self.nameBtn_1.snp.makeConstraints{ (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250)
+				make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100)
 			}
 			
 			// 2位
@@ -283,7 +283,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.rankLabel_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 				
 				if(favoriteArray[registeredNum].second >= 0) {
@@ -309,7 +309,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.nameBtn_2.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth))
 				}
 			}
 			
@@ -324,7 +324,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.rankLabel_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*2)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*2)
 				}
 				
 				if(favoriteArray[registeredNum].third >= 0) {
@@ -350,7 +350,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.nameBtn_3.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth*2))
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth*2))
 				}
 			}
 			
@@ -365,7 +365,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.rankLabel_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(100)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 				
 				if(favoriteArray[registeredNum].fourth >= 0) {
@@ -391,7 +391,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 				self.nameBtn_4.snp.makeConstraints{ (make) in
 					make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(120)
 					make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(250+Int(lineWidth)*3)
+					make.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+100+Int(lineWidth)*3)
 				}
 			}
 		}

@@ -43,7 +43,7 @@ class MatchingResultViewController: UIViewController, UINavigationControllerDele
 			self.view.addSubview(message2)
 			self.message2.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 			}
 
 			// message3
@@ -52,7 +52,7 @@ class MatchingResultViewController: UIViewController, UINavigationControllerDele
 			self.view.addSubview(self.message3)
 			self.message3.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+120)
 			}
 		// seucceed to match
 		} else {
@@ -63,7 +63,7 @@ class MatchingResultViewController: UIViewController, UINavigationControllerDele
 			self.matchedName.font = UIFont.systemFont(ofSize: 25.0)
 			self.message2.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(100)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 			}
 
 			// matched name
@@ -73,7 +73,7 @@ class MatchingResultViewController: UIViewController, UINavigationControllerDele
 			self.view.addSubview(self.matchedName)
 			self.matchedName.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+110)
 			}
 
 			// message3
@@ -83,7 +83,7 @@ class MatchingResultViewController: UIViewController, UINavigationControllerDele
 			self.matchedName.font = UIFont.systemFont(ofSize: 25.0)
 			self.message3.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(190)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+160)
 			}
 		}
 
@@ -99,7 +99,7 @@ class MatchingResultViewController: UIViewController, UINavigationControllerDele
 			self.view.addSubview(self.message4)
 			self.message4.snp.makeConstraints { (make) in
 				make.centerX.equalToSuperview()
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(280)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+250)
 			}
 
 		// OK button

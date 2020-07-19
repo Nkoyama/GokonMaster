@@ -40,7 +40,7 @@ class KingGameJobAssignFinishViewController: UIViewController, UINavigationContr
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		for i in 0...9 {
@@ -59,7 +59,7 @@ class KingGameJobAssignFinishViewController: UIViewController, UINavigationContr
 				self.view.addSubview(job)
 				job.snp.makeConstraints { (make) in
 					make.centerX.equalToSuperview()
-					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*j + 200)
+					make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*j + topHeight+70)
 				}
 				j += 1
 			}

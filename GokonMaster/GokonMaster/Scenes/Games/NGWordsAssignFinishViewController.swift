@@ -40,7 +40,7 @@ class NGWordsAssignFinishViewController: UIViewController, UINavigationControlle
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(180)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		// check button

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// 各画面の最上部オブジェクトの位置(navigation barの下から??pixel)
+public let topHeight = 70
 // 各画面の最下部ボタンの位置(画面最下部から??pixel)
 public let bottomHeight = 70
 
@@ -62,7 +64,7 @@ public let ngWordsList = ["あさって", "おととい", "来年", "去年", "�
 						  "あらし", "キング", "プリンス", "ニュース",
 						  "au", "docomo", "SoftBank",
 						  "Insta(gram)", "Twitter", "TikTok", "Facebook",
-						  "YouTube(r)", "Netflix", "Hulu",
+						  "YouTube(r)", "Netflix", "Hulu", "Google",
 						  "アンドロイド", "アプリ",
 						  "浮気", "方言", "血液型", "占い", "早番", "遅番", "OK"]
 

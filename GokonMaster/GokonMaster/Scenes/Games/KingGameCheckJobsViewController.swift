@@ -38,7 +38,7 @@ class KingGameCheckJobsViewController: UIViewController, UINavigationControllerD
 		self.message1.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(20)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(20)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(140)
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight)
 		}
 
 		for i in 0..<joinNumSum {
@@ -52,7 +52,7 @@ class KingGameCheckJobsViewController: UIViewController, UINavigationControllerD
 			memberName.snp.makeConstraints { (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(50)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(SCREEN_SIZE.width/2+10)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 180)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + topHeight+30)
 			}
 
 			job.text = ": " + assignedJobs[i]
@@ -66,7 +66,7 @@ class KingGameCheckJobsViewController: UIViewController, UINavigationControllerD
 			job.snp.makeConstraints { (make) in
 				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(SCREEN_SIZE.width/2)
 				make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(50)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + 180)
+				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30*i + topHeight+30)
 			}
 		}
 
