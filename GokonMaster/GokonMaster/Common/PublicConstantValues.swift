@@ -12,6 +12,11 @@ import UIKit
 public let bottomHeight = 70
 
 
+/* adUnitID */
+public let adUnitID = "ca-app-pub-3940256099942544/2934735716"	//develop
+//public let adUnitId = "ca-app-pub-7688401383404240/1790495836"	//deploy
+
+
 /* actions */
 // alert message：OKボタン押下
 public let defaultAction = UIAlertAction(title: "OK",

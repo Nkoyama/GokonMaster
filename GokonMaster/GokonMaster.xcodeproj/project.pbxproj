@@ -135,7 +135,6 @@
 		4341CC0D241CF3B600C86FB9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				439E5C3E24B04F6B001C59D1 /* Games */,
 				43C1D58D2403CB72005A48AB /* ViewController.swift */,
 				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
 				4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */,
@@ -148,6 +147,7 @@
 				439E5C34249486EA001C59D1 /* SeatChangeResultViewController.swift */,
 				439E5C3624A72F42001C59D1 /* MatchingResultInitViewController.swift */,
 				439E5C3A24A74E14001C59D1 /* MatchingResultViewController.swift */,
+				439E5C3E24B04F6B001C59D1 /* Games */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
