@@ -10,11 +10,9 @@ import UIKit
 import SnapKit
 import GoogleMobileAds
 
-class RegisterFavoriteFinishViewController: UIViewController, GADBannerViewDelegate {
+class RegisterFavoriteFinishViewController: UIViewController, UINavigationControllerDelegate, GADBannerViewDelegate {
 
 	// MARK: Views
-	let backBtn			= UIButton()		// back button
-	let smallTitle		= UILabel()			// title
 	let nickname		= UILabel()			// nickname
 	let message1		= UILabel()			// message1
 	let rankLabel_1		= UILabel()			// 1位 label
@@ -37,45 +35,9 @@ class RegisterFavoriteFinishViewController: UIViewController, GADBannerViewDeleg
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// return button
-		if(registeredNum <= 0) {
-			self.backBtn.setTitle(" 修正 ", for: .normal)
-			self.backBtn.setTitleColor(UIColor.green, for: .normal)
-			self.backBtn.backgroundColor = UIColor.clear
-			self.backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
-			self.backBtn.layer.borderColor = UIColor.clear.cgColor
-			self.backBtn.layer.borderWidth = 2.0
-			self.backBtn.layer.cornerRadius = 2.0
-			self.view.addSubview(self.backBtn)
-			self.backBtn.addTarget(self, action: #selector(self.backBtnDidTap(_:)), for: .touchUpInside)
-			self.backBtn.snp.makeConstraints { (make) in
-				make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(5)
-				make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
-			}
-		}
-
-		// title
-		self.smallTitle.text = "お気に入り登録"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
-
-		// nickname
-		self.nickname.text = memberData[registeredNum].nickname + " さん"
-		self.nickname.textColor = UIColor.red
-		self.nickname.font = self.nickname.font.withSize(20)
-		self.view.addSubview(nickname)
-		self.nickname.snp.makeConstraints { (make) in
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
-		}
+		/* navigation bar */
+		title = "お気に入り登録"
+		navigationController?.delegate = self
 
 		// message1
 		self.message1.numberOfLines = 2
@@ -269,14 +231,6 @@ class RegisterFavoriteFinishViewController: UIViewController, GADBannerViewDeleg
 		bannerView.delegate = self
 	}
 
-	/// backBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func backBtnDidTap(_ sender: UIButton) {
-		// 現在の画面を破棄
-		self.dismiss(animated: true, completion: nil)
-	}
-
 	/// okBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
@@ -287,21 +241,21 @@ class RegisterFavoriteFinishViewController: UIViewController, GADBannerViewDeleg
 			if( self.favoriteType == 0 ) {
 				initRegisteredNum()
 				let seatChangeResultViewController = SeatChangeResultViewController()
-				seatChangeResultViewController.modalPresentationStyle = .fullScreen
-				self.present(seatChangeResultViewController, animated: true)
+				self.navigationController?.pushViewController(seatChangeResultViewController,
+															  animated: true)
 			} else if( self.favoriteType == 1 ) {
 				initRegisteredNum()
 				//マッチング
 				matchingMainLogic()
 				let matchingResultInitViewController = MatchingResultInitViewController()
-				matchingResultInitViewController.modalPresentationStyle = .fullScreen
-				self.present(matchingResultInitViewController, animated: true)
+				self.navigationController?.pushViewController(matchingResultInitViewController,
+															  animated: true)
 			}
 		} else {
 			let registerFavoriteViewController = RegisterFavoriteViewController()
 			registerFavoriteViewController.favoriteType = self.favoriteType
-			registerFavoriteViewController.modalPresentationStyle = .fullScreen
-			self.present(registerFavoriteViewController, animated: true)
+			self.navigationController?.pushViewController(registerFavoriteViewController,
+														  animated: true)
 		}
 	}
 

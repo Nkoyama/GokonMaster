@@ -13,7 +13,6 @@ import GoogleMobileAds
 class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
-	let smallTitle		= UILabel()		// title
 	let seatLabelA		= UILabel()
 	let seatLabelB		= UILabel()
 	let seatLabelC		= UILabel()
@@ -47,18 +46,10 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
-		// title
-		self.smallTitle.text = "席替え結果"
-		self.smallTitle.textColor = UIColor.init(red: 0/255,
-												 green: 167/255,
-												 blue: 113/255,
-												 alpha: 1)
-		self.smallTitle.font = UIFont.italicSystemFont(ofSize: 30.0)
-		self.view.addSubview(self.smallTitle)
-		self.smallTitle.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(70)
-		}
+		/* navigation bar */
+		title = "席替え結果"
+		self.navigationItem.hidesBackButton = true	//hide back button
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
 		// calc the best seat position
 		let seatChangeResult = seatChangeMainLogic()
@@ -297,9 +288,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnA.layer.cornerRadius = 25.0
 					self.seatBtnA.tag = 0
 					self.view.addSubview(self.seatBtnA)
-					self.seatBtnA.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_a = screenWidth/2 + 120*cos(CGFloat.pi*(eachAngle-90)/180)
 					let centerY_a = 320 + 120*sin(CGFloat.pi*(eachAngle-90)/180)
 					self.seatBtnA.frame = CGRect(x: centerX_a-25,
@@ -327,9 +315,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnB.layer.cornerRadius = 25.0
 					self.seatBtnB.tag = 0
 					self.view.addSubview(self.seatBtnB)
-					self.seatBtnB.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_b = screenWidth/2 + 120*cos(CGFloat.pi*(2*eachAngle-90)/180)
 					let centerY_b = 320 + 120*sin(CGFloat.pi*(2*eachAngle-90)/180)
 					self.seatBtnB.frame = CGRect(x: centerX_b-25,
@@ -358,9 +343,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnC.layer.cornerRadius = 25.0
 					self.seatBtnC.tag = 0
 					self.view.addSubview(self.seatBtnC)
-					self.seatBtnC.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_c = screenWidth/2 + 120*cos(CGFloat.pi*(3*eachAngle-90)/180)
 					let centerY_c = 320 + 120*sin(CGFloat.pi*(3*eachAngle-90)/180)
 					self.seatBtnC.frame = CGRect(x: centerX_c-25,
@@ -389,9 +371,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnD.layer.cornerRadius = 25.0
 					self.seatBtnD.tag = 0
 					self.view.addSubview(self.seatBtnD)
-					self.seatBtnD.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_d = screenWidth/2 + 120*cos(CGFloat.pi*(4*eachAngle-90)/180)
 					let centerY_d = 320 + 120*sin(CGFloat.pi*(4*eachAngle-90)/180)
 					self.seatBtnD.frame = CGRect(x: centerX_d-25,
@@ -420,9 +399,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnE.layer.cornerRadius = 25.0
 					self.seatBtnE.tag = 0
 					self.view.addSubview(self.seatBtnE)
-					self.seatBtnE.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_e = screenWidth/2 + 120*cos(CGFloat.pi*(5*eachAngle-90)/180)
 					let centerY_e = 320 + 120*sin(CGFloat.pi*(5*eachAngle-90)/180)
 					self.seatBtnE.frame = CGRect(x: centerX_e-25,
@@ -451,9 +427,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnF.layer.cornerRadius = 25.0
 					self.seatBtnF.tag = 0
 					self.view.addSubview(self.seatBtnF)
-					self.seatBtnF.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_f = screenWidth/2 + 120*cos(CGFloat.pi*(6*eachAngle-90)/180)
 					let centerY_f = 320 + 120*sin(CGFloat.pi*(6*eachAngle-90)/180)
 					self.seatBtnF.frame = CGRect(x: centerX_f-25,
@@ -482,9 +455,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnG.layer.cornerRadius = 25.0
 					self.seatBtnG.tag = 0
 					self.view.addSubview(self.seatBtnG)
-					self.seatBtnG.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_g = screenWidth/2 + 120*cos(CGFloat.pi*(7*eachAngle-90)/180)
 					let centerY_g = 320 + 120*sin(CGFloat.pi*(7*eachAngle-90)/180)
 					self.seatBtnG.frame = CGRect(x: centerX_g-25,
@@ -513,9 +483,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnH.layer.cornerRadius = 25.0
 					self.seatBtnH.tag = 0
 					self.view.addSubview(self.seatBtnH)
-					self.seatBtnH.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_h = screenWidth/2 + 120*cos(CGFloat.pi*(8*eachAngle-90)/180)
 					let centerY_h = 320 + 120*sin(CGFloat.pi*(8*eachAngle-90)/180)
 					self.seatBtnH.frame = CGRect(x: centerX_h-25,
@@ -544,9 +511,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnI.layer.cornerRadius = 25.0
 					self.seatBtnI.tag = 0
 					self.view.addSubview(self.seatBtnI)
-					self.seatBtnI.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_i = screenWidth/2 + 120*cos(CGFloat.pi*(9*eachAngle-90)/180)
 					let centerY_i = 320 + 120*sin(CGFloat.pi*(9*eachAngle-90)/180)
 					self.seatBtnI.frame = CGRect(x: centerX_i-25,
@@ -575,9 +539,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnJ.layer.cornerRadius = 25.0
 					self.seatBtnJ.tag = 0
 					self.view.addSubview(self.seatBtnJ)
-					self.seatBtnJ.addTarget(self,
-											action: #selector(self.seatBtnDidTap(_:)),
-											for: .touchUpInside)
 					let centerX_j = screenWidth/2 + 120*cos(CGFloat.pi*(10*eachAngle-90)/180)
 					let centerY_j = 320 + 120*sin(CGFloat.pi*(10*eachAngle-90)/180)
 					self.seatBtnJ.frame = CGRect(x: centerX_j-25,
@@ -625,20 +586,12 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 		bannerView.delegate = self
 	}
 
-	/// seatBtn action
-	/// - Parameter sender: UIButton
-	/// - Authors: Nozomi Koyama
-	@objc func seatBtnDidTap(_ sender: Any) {
-		
-	}
-
 	/// menuBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func menuBtnDidTap(_ sender: UIButton) {
-		let menuViewController = MenuViewController()
-		menuViewController.modalPresentationStyle = .fullScreen
-		self.present(menuViewController, animated: true)
+		self.navigationController?.popToViewController(navigationController!.viewControllers[menuLayerNum],
+													   animated: true)
 	}
 
 	/// make GADBannerView
@@ -661,7 +614,7 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

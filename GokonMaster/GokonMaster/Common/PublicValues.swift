@@ -139,6 +139,13 @@ public func initAssignedJobs() {
 }
 
 
+// navigation controller: menu layer number
+public var menuLayerNum = 0
+public func initMenuLayerNum() {
+	menuLayerNum = 0
+}
+
+
 /// すべてのpublic変数を初期化
 public func initAllPublicValues() {
 	editingTextFieldName = ""
@@ -163,6 +170,8 @@ public func initAllPublicValues() {
 
 	initAssignedNGWords()
 	initAssignedJobs()
+
+	initMenuLayerNum()
 }
 
 

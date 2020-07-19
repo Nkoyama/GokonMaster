@@ -144,6 +144,9 @@ class SettingFinishViewController: UIViewController, GADBannerViewDelegate {
 		let setNameList = setNameArray()
 		if(setNameList) {
 			let menuViewController = MenuViewController()
+			let backBarButtonItem = UIBarButtonItem()
+			backBarButtonItem.title = "メンバー確認"
+			self.navigationItem.backBarButtonItem = backBarButtonItem
 			self.navigationController?.pushViewController(menuViewController,
 														  animated: true)
 		} else {

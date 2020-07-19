@@ -27,6 +27,9 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		// background color
 		self.view.backgroundColor = UIColor.white
 
+		/* navigation controller */
+		menuLayerNum = navigationController!.viewControllers.count - 1
+
 		// title
 		self.smallTitle.numberOfLines = 2
 		self.smallTitle.text = "合コン\n    master"
@@ -163,6 +166,9 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.favoriteType = 0
+		let backBarButtonItem = UIBarButtonItem()
+		backBarButtonItem.title = "menu"
+		self.navigationItem.backBarButtonItem = backBarButtonItem
 		self.navigationController?.pushViewController(registerFavoriteViewController,
 													  animated: true)
 	}
@@ -225,6 +231,9 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 		initRegisteredNum()
 
 		let gameMenuViewController = GameMenuViewController()
+		let backBarButtonItem = UIBarButtonItem()
+		backBarButtonItem.title = "menu"
+		self.navigationItem.backBarButtonItem = backBarButtonItem
 		self.navigationController?.pushViewController(gameMenuViewController,
 													  animated: true)
 	}
@@ -238,6 +247,9 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 
 		let registerFavoriteViewController = RegisterFavoriteViewController()
 		registerFavoriteViewController.favoriteType = 1
+		let backBarButtonItem = UIBarButtonItem()
+		backBarButtonItem.title = "menu"
+		self.navigationItem.backBarButtonItem = backBarButtonItem
 		self.navigationController?.pushViewController(registerFavoriteViewController,
 													  animated: true)
 	}
