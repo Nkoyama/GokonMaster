@@ -286,7 +286,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnA.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnA.layer.borderWidth = 2.0
 					self.seatBtnA.layer.cornerRadius = 25.0
-					self.seatBtnA.tag = 0
 					self.view.addSubview(self.seatBtnA)
 					let centerX_a = screenWidth/2 + 120*cos(CGFloat.pi*(eachAngle-90)/180)
 					let centerY_a = 280 + 120*sin(CGFloat.pi*(eachAngle-90)/180)
@@ -313,7 +312,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnB.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnB.layer.borderWidth = 2.0
 					self.seatBtnB.layer.cornerRadius = 25.0
-					self.seatBtnB.tag = 0
 					self.view.addSubview(self.seatBtnB)
 					let centerX_b = screenWidth/2 + 120*cos(CGFloat.pi*(2*eachAngle-90)/180)
 					let centerY_b = 280 + 120*sin(CGFloat.pi*(2*eachAngle-90)/180)
@@ -341,7 +339,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnC.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnC.layer.borderWidth = 2.0
 					self.seatBtnC.layer.cornerRadius = 25.0
-					self.seatBtnC.tag = 0
 					self.view.addSubview(self.seatBtnC)
 					let centerX_c = screenWidth/2 + 120*cos(CGFloat.pi*(3*eachAngle-90)/180)
 					let centerY_c = 280 + 120*sin(CGFloat.pi*(3*eachAngle-90)/180)
@@ -369,7 +366,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnD.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnD.layer.borderWidth = 2.0
 					self.seatBtnD.layer.cornerRadius = 25.0
-					self.seatBtnD.tag = 0
 					self.view.addSubview(self.seatBtnD)
 					let centerX_d = screenWidth/2 + 120*cos(CGFloat.pi*(4*eachAngle-90)/180)
 					let centerY_d = 280 + 120*sin(CGFloat.pi*(4*eachAngle-90)/180)
@@ -397,7 +393,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnE.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnE.layer.borderWidth = 2.0
 					self.seatBtnE.layer.cornerRadius = 25.0
-					self.seatBtnE.tag = 0
 					self.view.addSubview(self.seatBtnE)
 					let centerX_e = screenWidth/2 + 120*cos(CGFloat.pi*(5*eachAngle-90)/180)
 					let centerY_e = 280 + 120*sin(CGFloat.pi*(5*eachAngle-90)/180)
@@ -425,7 +420,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnF.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnF.layer.borderWidth = 2.0
 					self.seatBtnF.layer.cornerRadius = 25.0
-					self.seatBtnF.tag = 0
 					self.view.addSubview(self.seatBtnF)
 					let centerX_f = screenWidth/2 + 120*cos(CGFloat.pi*(6*eachAngle-90)/180)
 					let centerY_f = 280 + 120*sin(CGFloat.pi*(6*eachAngle-90)/180)
@@ -453,7 +447,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnG.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnG.layer.borderWidth = 2.0
 					self.seatBtnG.layer.cornerRadius = 25.0
-					self.seatBtnG.tag = 0
 					self.view.addSubview(self.seatBtnG)
 					let centerX_g = screenWidth/2 + 120*cos(CGFloat.pi*(7*eachAngle-90)/180)
 					let centerY_g = 280 + 120*sin(CGFloat.pi*(7*eachAngle-90)/180)
@@ -481,7 +474,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnH.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnH.layer.borderWidth = 2.0
 					self.seatBtnH.layer.cornerRadius = 25.0
-					self.seatBtnH.tag = 0
 					self.view.addSubview(self.seatBtnH)
 					let centerX_h = screenWidth/2 + 120*cos(CGFloat.pi*(8*eachAngle-90)/180)
 					let centerY_h = 280 + 120*sin(CGFloat.pi*(8*eachAngle-90)/180)
@@ -509,7 +501,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnI.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnI.layer.borderWidth = 2.0
 					self.seatBtnI.layer.cornerRadius = 25.0
-					self.seatBtnI.tag = 0
 					self.view.addSubview(self.seatBtnI)
 					let centerX_i = screenWidth/2 + 120*cos(CGFloat.pi*(9*eachAngle-90)/180)
 					let centerY_i = 280 + 120*sin(CGFloat.pi*(9*eachAngle-90)/180)
@@ -537,7 +528,6 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 					self.seatBtnJ.layer.borderColor = UIColor.gray.cgColor
 					self.seatBtnJ.layer.borderWidth = 2.0
 					self.seatBtnJ.layer.cornerRadius = 25.0
-					self.seatBtnJ.tag = 0
 					self.view.addSubview(self.seatBtnJ)
 					let centerX_j = screenWidth/2 + 120*cos(CGFloat.pi*(10*eachAngle-90)/180)
 					let centerY_j = 280 + 120*sin(CGFloat.pi*(10*eachAngle-90)/180)
