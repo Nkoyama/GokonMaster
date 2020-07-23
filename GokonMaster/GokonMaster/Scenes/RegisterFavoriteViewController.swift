@@ -150,7 +150,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			}
 
 			// 3位
-			if(maleNum>=4) {
+			if(maleNum>=4 && favoriteType==0) {
 				self.rankLabel_3.text = "3位"
 				self.rankLabel_3.textColor = UIColor.black
 				self.rankLabel_3.textAlignment = NSTextAlignment.center
@@ -191,7 +191,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			}
 
 			// 4位
-			if(maleNum>=5) {
+			if(maleNum>=5 && favoriteType==0) {
 				self.rankLabel_4.text = "4位"
 				self.rankLabel_4.textColor = UIColor.black
 				self.rankLabel_4.textAlignment = NSTextAlignment.center
@@ -314,7 +314,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			}
 			
 			// 3位
-			if(femaleNum>=4) {
+			if(femaleNum>=4 && favoriteType==0) {
 				self.rankLabel_3.text = "3位"
 				self.rankLabel_3.textColor = UIColor.black
 				self.rankLabel_3.textAlignment = NSTextAlignment.center
@@ -355,7 +355,7 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			}
 			
 			// 4位
-			if(femaleNum>=5) {
+			if(femaleNum>=5 && favoriteType==0) {
 				self.rankLabel_4.text = "4位"
 				self.rankLabel_4.textColor = UIColor.black
 				self.rankLabel_4.textAlignment = NSTextAlignment.center
@@ -443,9 +443,17 @@ class RegisterFavoriteViewController: UIViewController, UINavigationControllerDe
 			}
 		}
 		chooseFavoritePopup.sexIndex = memberData[registeredNum].sexIndex
-
+		chooseFavoritePopup.callBack = { () in
+			self.callBack()
+		}
 		chooseFavoritePopup.modalPresentationStyle = .overCurrentContext
 		self.present(chooseFavoritePopup, animated: false)
+	}
+
+	/// 画面遷移から戻ってきたときに実行する関数
+	func callBack() {
+		// 画面再読み込み
+		self.viewDidLoad()
 	}
 
 	/// decideBtn action
