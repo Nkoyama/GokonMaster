@@ -58,9 +58,7 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 			// square table
 			if( tableTypeIndex == 0 ) {
 				//draw table
-				var seatNum:Int = joinNumSum/2
-				if(maleNum>seatNum)		{	seatNum = maleNum	}
-				if(femaleNum>seatNum)	{	seatNum = femaleNum	}
+				let seatNum:Int = Int(ceil(Double(joinNumSum)/2))
 				let screenWidth:Int = Int(self.view.bounds.width)
 				let tableSquareDraw = TableSquareDrawView(frame: CGRect(x: screenWidth/2-80,
 																		y: 150,
@@ -255,6 +253,7 @@ class SeatChangeResultViewController: UIViewController, GADBannerViewDelegate {
 				self.doorWay.text = " 出入口 "
 				self.doorWay.textColor = UIColor.black
 				self.doorWay.font = UIFont.boldSystemFont(ofSize: 20.0)
+				self.doorWay.textAlignment = NSTextAlignment.center
 				self.doorWay.backgroundColor = UIColor.init(red: 102/255,
 															green: 51/255,
 															blue: 204/255,
