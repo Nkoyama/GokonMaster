@@ -977,6 +977,7 @@ public func calcSeatEvaluation(tmpSeatPositionArray: Array<Int>) -> Double {
 												  sexIndex: memberData[position].sexIndex,
 												  positionIndex: i)
 			}
+			print(evaluation)
 		}
 		i += 1
 	}
@@ -1016,7 +1017,7 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 	// 端の席ではない場合
 	} else {
 		//indexが小さい方の席が空席の場合
-		if( seatPositionArray[positionIndex-1] < 0 ) {
+		if( tmpSeatPositionArray[positionIndex-1] < 0 ) {
 			//先にindexが大きい方の席のポイントを計算
 			points += nextPoint(memberSexIndex: sexIndex,
 								memberIndex: tmpSeatPositionArray[positionIndex],
@@ -1031,7 +1032,7 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 								memberIndex: tmpSeatPositionArray[positionIndex],
 								nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
 			//indexが大きい方が空席の場合
-			if( seatPositionArray[positionIndex+1] < 0 ) {
+			if( tmpSeatPositionArray[positionIndex+1] < 0 ) {
 				if(sexIndex==0)	{	points += -3	}
 				else			{	points += 0.5 * points	}
 			//indexが大きい方が空席ではない場合
