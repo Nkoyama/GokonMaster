@@ -137,7 +137,6 @@ public func seatChangeMainLogic() -> Bool {
 					bestTmpSeatPositionArray = tmpSeatPositionArray
 				}
 			}
-			print(tmpSeatPositionArray)
 		}
 	}
 	seatPositionArray = bestTmpSeatPositionArray
@@ -978,7 +977,6 @@ public func calcSeatEvaluation(tmpSeatPositionArray: Array<Int>) -> Double {
 												  sexIndex: memberData[position].sexIndex,
 												  positionIndex: i)
 			}
-			print(evaluation)
 		}
 		i += 1
 	}
