@@ -52,21 +52,6 @@ public func matchingMainLogic() {
 		}
 	}
 
-	// 未マッチの中で女->男：1位、男->女：3位をマッチング
-	for male in maleList {
-		for female in femaleList {
-			if( favoriteArray[male].third>=0 && favoriteArray[female].first>=0 ) {
-				if( femaleArray[favoriteArray[male].third].index == female &&
-					maleArray[favoriteArray[female].first].index == male ) {
-					if( matchingList[male]<0 && matchingList[female]<0 ) {
-						matchingList[male] = female
-						matchingList[female] = male
-					}
-				}
-			}
-		}
-	}
-
 	// 未マッチの中で女->男：2位、男->女：1位をマッチング
 	for male in maleList {
 		for female in femaleList {
