@@ -137,6 +137,7 @@ public func seatChangeMainLogic() -> Bool {
 					bestTmpSeatPositionArray = tmpSeatPositionArray
 				}
 			}
+			print(tmpSeatPositionArray)
 		}
 	}
 	seatPositionArray = bestTmpSeatPositionArray
@@ -1109,6 +1110,12 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 			//隣がお気に入り1位
 			if(femaleArray[favoriteArray[memberIndex].first].index==nextMemberIndex) {
 				point = 10
+				//さらに、隣とお気に入り1位同士の場合
+				if( favoriteArray[nextMemberIndex].first >= 0 ) {
+					if(maleArray[favoriteArray[nextMemberIndex].first].index==memberIndex) {
+						point += 5
+					}
+				}
 			//お気に入り2位が登録済み
 			} else if( favoriteArray[memberIndex].second >= 0 ) {
 				//隣がお気に入り2位
@@ -1180,6 +1187,12 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 			//隣がお気に入り1位
 			if(maleArray[favoriteArray[memberIndex].first].index==nextMemberIndex) {
 				point = 20
+				//さらに、隣とお気に入り1位同士の場合
+				if( favoriteArray[nextMemberIndex].first >= 0 ) {
+					if(femaleArray[favoriteArray[nextMemberIndex].first].index==memberIndex) {
+						point += 5
+					}
+				}
 			//お気に入り2位が登録済み
 			} else if( favoriteArray[memberIndex].second >= 0 ) {
 				//隣がお気に入り2位
