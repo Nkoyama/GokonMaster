@@ -25,123 +25,99 @@ public func seatChangeMainLogic() -> Bool {
 	}
 
 	// 人数が少ない場合は決め打ち
-	if( maleNum == 1 && femaleNum == 1 ) {
-		if( tableTypeIndex == 0 ) {
-			bestTmpSeatPositionArray = [0, -1, -1, -1, -1, 1, -1, -1, -1, -1]
-		} else {
-			bestTmpSeatPositionArray = [0, 1, -1, -1, -1, -1, -1, -1, -1, -1]
-		}
-	} else if( maleNum == 1 && femaleNum == 2 ) {
-		// square table
-		if( tableTypeIndex == 0 ) {
-			// 男の席固定
-			bestTmpSeatPositionArray = [maleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
+	if( maleNum == 1 && femaleNum == 2 && tableTypeIndex == 0 ) {
+		// 男の席固定
+		bestTmpSeatPositionArray = [maleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			//1人目の女性のお気に入りが登録されている
-			if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
-				//2人目の女性のお気に入りが登録されている
-				if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
-					//男のお気に入りが登録されている場合
-					if( favoriteArray[maleMembersIndexArray[0]].first >= 0 ) {
-						if(femaleArray[favoriteArray[maleMembersIndexArray[0]].first].index==femaleMembersIndexArray[0]) {
-							bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
-							bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1]
-						} else {
-							bestTmpSeatPositionArray[1] = femaleMembersIndexArray[1]
-							bestTmpSeatPositionArray[5] = femaleMembersIndexArray[0]
-						}
-					//男のお気に入りが未登録 -> random
+		//1人目の女性のお気に入りが登録されている
+		if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
+			//2人目の女性のお気に入りが登録されている
+			if( favoriteArray[femaleMembersIndexArray[1]].first >= 0 ) {
+				//男のお気に入りが登録されている場合
+				if( favoriteArray[maleMembersIndexArray[0]].first >= 0 ) {
+					if(femaleArray[favoriteArray[maleMembersIndexArray[0]].first].index==femaleMembersIndexArray[0]) {
+						bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+						bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1]
 					} else {
-						let randIndex = Int.random(in: 0...1)
-						bestTmpSeatPositionArray[1] = femaleMembersIndexArray[randIndex]
-						bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1-randIndex]
+						bestTmpSeatPositionArray[1] = femaleMembersIndexArray[1]
+						bestTmpSeatPositionArray[5] = femaleMembersIndexArray[0]
 					}
-				//2人目の女性のお気に入りが未登録 -> 男の隣は1人目の女性
+				//男のお気に入りが未登録 -> random
 				} else {
-					bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
-					bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1]
+					let randIndex = Int.random(in: 0...1)
+					bestTmpSeatPositionArray[1] = femaleMembersIndexArray[randIndex]
+					bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1-randIndex]
 				}
-			//1人目の女性のお気に入りが未登録
+			//2人目の女性のお気に入りが未登録 -> 男の隣は1人目の女性
 			} else {
-				//2人目の女性のお気に入りが登録されている -> 男の隣は2人目の女性
-				if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
-					bestTmpSeatPositionArray[1] = femaleMembersIndexArray[1]
-					bestTmpSeatPositionArray[5] = femaleMembersIndexArray[0]
-				//2人目の女性もお気に入りが未登録
-				} else {
-					//男のお気に入りが登録されている場合
-					if( favoriteArray[maleMembersIndexArray[0]].first >= 0 ) {
-						if(maleArray[favoriteArray[maleMembersIndexArray[0]].first].index==femaleMembersIndexArray[0]) {
-							bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
-							bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1]
-						} else {
-							bestTmpSeatPositionArray[1] = femaleMembersIndexArray[1]
-							bestTmpSeatPositionArray[5] = femaleMembersIndexArray[0]
-						}
-					//男のお気に入りが未登録 -> random
+				bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+				bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1]
+			}
+		//1人目の女性のお気に入りが未登録
+		} else {
+			//2人目の女性のお気に入りが登録されている -> 男の隣は2人目の女性
+			if( favoriteArray[femaleMembersIndexArray[1]].first >= 0 ) {
+				bestTmpSeatPositionArray[1] = femaleMembersIndexArray[1]
+				bestTmpSeatPositionArray[5] = femaleMembersIndexArray[0]
+			//2人目の女性もお気に入りが未登録
+			} else {
+				//男のお気に入りが登録されている場合
+				if( favoriteArray[maleMembersIndexArray[0]].first >= 0 ) {
+					if(femaleArray[favoriteArray[maleMembersIndexArray[0]].first].index==femaleMembersIndexArray[0]) {
+						bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
+						bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1]
 					} else {
-						let randIndex = Int.random(in: 0...1)
-						bestTmpSeatPositionArray[1] = femaleMembersIndexArray[randIndex]
-						bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1-randIndex]
+						bestTmpSeatPositionArray[1] = femaleMembersIndexArray[1]
+						bestTmpSeatPositionArray[5] = femaleMembersIndexArray[0]
 					}
+				//男のお気に入りが未登録 -> random
+				} else {
+					let randIndex = Int.random(in: 0...1)
+					bestTmpSeatPositionArray[1] = femaleMembersIndexArray[randIndex]
+					bestTmpSeatPositionArray[5] = femaleMembersIndexArray[1-randIndex]
 				}
 			}
-		// circle table
-		} else {
-			bestTmpSeatPositionArray = [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1]
-			bestTmpSeatPositionArray[0] = femaleMembersIndexArray[0]
-			bestTmpSeatPositionArray[1] = maleMembersIndexArray[0]
-			bestTmpSeatPositionArray[2] = femaleMembersIndexArray[1]
 		}
-	} else if( maleNum == 2 && femaleNum == 1 ) {
-		// square table
-		if( tableTypeIndex == 0 ) {
-			// 女の席固定
-			bestTmpSeatPositionArray = [femaleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
+	} else if( maleNum == 2 && femaleNum == 1 && tableTypeIndex == 0 ) {
+		// 女の席固定
+		bestTmpSeatPositionArray = [femaleMembersIndexArray[0], -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
-			//女性のお気に入りが登録されている
-			if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
-				if(maleArray[favoriteArray[femaleMembersIndexArray[0]].first].index==maleMembersIndexArray[0]) {
+		//女性のお気に入りが登録されている
+		if( favoriteArray[femaleMembersIndexArray[0]].first >= 0 ) {
+			if(maleArray[favoriteArray[femaleMembersIndexArray[0]].first].index==maleMembersIndexArray[0]) {
+				bestTmpSeatPositionArray[1] = maleMembersIndexArray[0]
+				bestTmpSeatPositionArray[5] = maleMembersIndexArray[1]
+			} else {
+				bestTmpSeatPositionArray[1] = maleMembersIndexArray[1]
+				bestTmpSeatPositionArray[5] = maleMembersIndexArray[0]
+			}
+		//女性のお気に入りが未登録
+		} else {
+			//1人目の男のお気に入りが登録されている場合
+			if( favoriteArray[maleMembersIndexArray[0]].first >= 0 ) {
+				//2人目の男のお気に入りが登録されている場合 -> random
+				if( favoriteArray[maleMembersIndexArray[1]].first >= 0 ) {
+					let randIndex = Int.random(in: 0...1)
+					bestTmpSeatPositionArray[1] = maleMembersIndexArray[randIndex]
+					bestTmpSeatPositionArray[5] = maleMembersIndexArray[1-randIndex]
+				//2人目の男のお気に入りが登録されていない
+				} else {
 					bestTmpSeatPositionArray[1] = maleMembersIndexArray[0]
 					bestTmpSeatPositionArray[5] = maleMembersIndexArray[1]
-				} else {
+				}
+			//1人目の男のお気に入りが未登録
+			} else {
+				//2人目の男のお気に入りが登録されている場合
+				if( favoriteArray[maleMembersIndexArray[1]].first >= 0 ) {
 					bestTmpSeatPositionArray[1] = maleMembersIndexArray[1]
 					bestTmpSeatPositionArray[5] = maleMembersIndexArray[0]
-				}
-			//女性のお気に入りが未登録
-			} else {
-				//1人目の男のお気に入りが登録されている場合
-				if( favoriteArray[maleMembersIndexArray[0]].first >= 0 ) {
-					//2人目の男のお気に入りが登録されている場合 -> random
-					if( favoriteArray[maleMembersIndexArray[1]].first >= 0 ) {
-						let randIndex = Int.random(in: 0...1)
-						bestTmpSeatPositionArray[1] = maleMembersIndexArray[randIndex]
-						bestTmpSeatPositionArray[5] = maleMembersIndexArray[1-randIndex]
-					//2人目の男のお気に入りが登録されていない
-					} else {
-						bestTmpSeatPositionArray[1] = maleMembersIndexArray[0]
-						bestTmpSeatPositionArray[5] = maleMembersIndexArray[1]
-					}
-				//1人目の男のお気に入りが未登録
+				//2人目の男のお気に入りも未登録の場合 -> random
 				} else {
-					//2人目の男のお気に入りが登録されている場合
-					if( favoriteArray[maleMembersIndexArray[1]].first >= 0 ) {
-						bestTmpSeatPositionArray[1] = maleMembersIndexArray[1]
-						bestTmpSeatPositionArray[5] = maleMembersIndexArray[0]
-					//2人目の男のお気に入りも未登録の場合 -> random
-					} else {
-						let randIndex = Int.random(in: 0...1)
-						bestTmpSeatPositionArray[1] = maleMembersIndexArray[randIndex]
-						bestTmpSeatPositionArray[5] = maleMembersIndexArray[1-randIndex]
-					}
+					let randIndex = Int.random(in: 0...1)
+					bestTmpSeatPositionArray[1] = maleMembersIndexArray[randIndex]
+					bestTmpSeatPositionArray[5] = maleMembersIndexArray[1-randIndex]
 				}
 			}
-		// circle table
-		} else {
-			bestTmpSeatPositionArray = [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1]
-			bestTmpSeatPositionArray[0] = maleMembersIndexArray[0]
-			bestTmpSeatPositionArray[1] = femaleMembersIndexArray[0]
-			bestTmpSeatPositionArray[2] = maleMembersIndexArray[1]
 		}
 	// 全パターン計算し、最適な配置を選択
 	} else {
@@ -1040,7 +1016,7 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 	// 端の席ではない場合
 	} else {
 		//indexが小さい方の席が空席の場合
-		if( seatPositionArray[positionIndex-1] < 0 ) {
+		if( tmpSeatPositionArray[positionIndex-1] < 0 ) {
 			//先にindexが大きい方の席のポイントを計算
 			points += nextPoint(memberSexIndex: sexIndex,
 								memberIndex: tmpSeatPositionArray[positionIndex],
@@ -1055,7 +1031,7 @@ public func calcEachPointSquare(tmpSeatPositionArray: Array<Int>,
 								memberIndex: tmpSeatPositionArray[positionIndex],
 								nextMemberIndex: tmpSeatPositionArray[positionIndex-1])
 			//indexが大きい方が空席の場合
-			if( seatPositionArray[positionIndex+1] < 0 ) {
+			if( tmpSeatPositionArray[positionIndex+1] < 0 ) {
 				if(sexIndex==0)	{	points += -3	}
 				else			{	points += 0.5 * points	}
 			//indexが大きい方が空席ではない場合
@@ -1132,6 +1108,12 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 			//隣がお気に入り1位
 			if(femaleArray[favoriteArray[memberIndex].first].index==nextMemberIndex) {
 				point = 10
+				//さらに、隣とお気に入り1位同士の場合
+				if( favoriteArray[nextMemberIndex].first >= 0 ) {
+					if(maleArray[favoriteArray[nextMemberIndex].first].index==memberIndex) {
+						point += 5
+					}
+				}
 			//お気に入り2位が登録済み
 			} else if( favoriteArray[memberIndex].second >= 0 ) {
 				//隣がお気に入り2位
@@ -1203,6 +1185,12 @@ public func nextPoint(memberSexIndex: Int, memberIndex: Int, nextMemberIndex: In
 			//隣がお気に入り1位
 			if(maleArray[favoriteArray[memberIndex].first].index==nextMemberIndex) {
 				point = 20
+				//さらに、隣とお気に入り1位同士の場合
+				if( favoriteArray[nextMemberIndex].first >= 0 ) {
+					if(femaleArray[favoriteArray[nextMemberIndex].first].index==memberIndex) {
+						point += 5
+					}
+				}
 			//お気に入り2位が登録済み
 			} else if( favoriteArray[memberIndex].second >= 0 ) {
 				//隣がお気に入り2位

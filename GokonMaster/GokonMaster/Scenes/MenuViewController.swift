@@ -160,16 +160,41 @@ class MenuViewController: UIViewController, GADBannerViewDelegate {
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
 	@objc func changeSeatBtnDidTap(_ sender: UIButton) {
-		initRegisteredNum()
-		initFavoriteArray(joinNum: joinNumSum)
+		if( joinNumSum<=2 ){
+			let alert: UIAlertController = UIAlertController(
+				title: "",
+				message: "人数が少ない場合、この機能はご利用いただけません。",
+				preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else if( maleNum==1 && femaleNum==2 && tableTypeIndex==1 ){
+			let alert: UIAlertController = UIAlertController(
+				title: "",
+				message: "人数が少ない場合、この機能はご利用いただけません。\n"
+						+ "女性 男性 女性 の順に席替えしてください。",
+				preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else if( maleNum==2 && femaleNum==1 && tableTypeIndex==1 ){
+			let alert: UIAlertController = UIAlertController(
+				title: "",
+				message: "人数が少ない場合、この機能はご利用いただけません。\n"
+						+ "男性 女性 男性 の順に席替えしてください。",
+				preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		} else {
+			initRegisteredNum()
+			initFavoriteArray(joinNum: joinNumSum)
 
-		let registerFavoriteViewController = RegisterFavoriteViewController()
-		registerFavoriteViewController.favoriteType = 0
-		let backBarButtonItem = UIBarButtonItem()
-		backBarButtonItem.title = "menu"
-		self.navigationItem.backBarButtonItem = backBarButtonItem
-		self.navigationController?.pushViewController(registerFavoriteViewController,
-													  animated: true)
+			let registerFavoriteViewController = RegisterFavoriteViewController()
+			registerFavoriteViewController.favoriteType = 0
+			let backBarButtonItem = UIBarButtonItem()
+			backBarButtonItem.title = "menu"
+			self.navigationItem.backBarButtonItem = backBarButtonItem
+			self.navigationController?.pushViewController(registerFavoriteViewController,
+														  animated: true)
+		}
 	}
 
 	/// changeSeatTypeBtn action

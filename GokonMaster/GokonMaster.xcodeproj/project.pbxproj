@@ -20,6 +20,7 @@
 		4341CC0B241CEAB700C86FB9 /* PublicValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0A241CEAB700C86FB9 /* PublicValues.swift */; };
 		4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */; };
 		43477D482403E5A8001D37CE /* Setting1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43477D472403E5A8001D37CE /* Setting1ViewController.swift */; };
+		434D594724CBED2B007FEEFC /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434D594624CBED2B007FEEFC /* HowToUseViewController.swift */; };
 		439E5C30248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C2F248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift */; };
 		439E5C3324836CC9001C59D1 /* SeatChangeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C3224836CC9001C59D1 /* SeatChangeLogic.swift */; };
 		439E5C35249486EA001C59D1 /* SeatChangeResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E5C34249486EA001C59D1 /* SeatChangeResultViewController.swift */; };
@@ -61,6 +62,7 @@
 		4341CC0A241CEAB700C86FB9 /* PublicValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicValues.swift; sourceTree = "<group>"; };
 		4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRegisterViewController.swift; sourceTree = "<group>"; };
 		43477D472403E5A8001D37CE /* Setting1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting1ViewController.swift; sourceTree = "<group>"; };
+		434D594624CBED2B007FEEFC /* HowToUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		439E5C2F248238FF001C59D1 /* RegisterFavoriteFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFavoriteFinishViewController.swift; sourceTree = "<group>"; };
 		439E5C3224836CC9001C59D1 /* SeatChangeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatChangeLogic.swift; sourceTree = "<group>"; };
 		439E5C34249486EA001C59D1 /* SeatChangeResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatChangeResultViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				43C1D58D2403CB72005A48AB /* ViewController.swift */,
+				434D594624CBED2B007FEEFC /* HowToUseViewController.swift */,
 				43477D472403E5A8001D37CE /* Setting1ViewController.swift */,
 				4341CC0F242760A500C86FB9 /* MemberRegisterViewController.swift */,
 				434021D42442ECF50023842F /* MemberRegisterFinishViewController.swift */,
@@ -353,6 +356,7 @@
 				439E5C5724B99201001C59D1 /* KingGameCheckJobsViewController.swift in Sources */,
 				43C1D58A2403CB72005A48AB /* AppDelegate.swift in Sources */,
 				439E5C4024B050D0001C59D1 /* NGWordsInitViewController.swift in Sources */,
+				434D594724CBED2B007FEEFC /* HowToUseViewController.swift in Sources */,
 				4341CC10242760A500C86FB9 /* MemberRegisterViewController.swift in Sources */,
 				4337E5102462CC2E006235BD /* DefineExtension.swift in Sources */,
 				439E5C35249486EA001C59D1 /* SeatChangeResultViewController.swift in Sources */,

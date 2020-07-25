@@ -14,8 +14,9 @@ import GoogleMobileAds
 class ViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
-	let startBtn = UIButton()	// 合コンスタートボタン
-	let titleLabel = UILabel()	// title
+	let titleLabel		= UILabel()		// title
+	let startBtn		= UIButton()	// 合コンスタートボタン
+	let howToUseBtn		= UIButton()	// 使い方ボタン
 
 	var bannerView: GADBannerView!
 
@@ -43,6 +44,23 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(200)
 		}
 
+		// 使い方button
+		self.howToUseBtn.setTitle(" 使い方 ", for: .normal)
+		self.howToUseBtn.setTitleColor(UIColor.black, for: .normal)
+		self.howToUseBtn.backgroundColor = UIColor.white
+		self.howToUseBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
+		self.howToUseBtn.layer.borderColor = UIColor.gray.cgColor	//枠線色
+		self.howToUseBtn.layer.borderWidth = 2.0					//枠線太さ
+		self.howToUseBtn.layer.cornerRadius = 2.0					//枠線丸み
+		self.view.addSubview(self.howToUseBtn)
+		self.howToUseBtn.addTarget(self,
+								   action: #selector(self.howToUseBtnDidTap(_:)),
+								   for: .touchUpInside)
+		self.howToUseBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight+70)
+		}
+
 		// start button
 		self.startBtn.setTitle(" 合コンスタート ", for: .normal)
 		self.startBtn.setTitleColor(UIColor.black, for: .normal)
@@ -52,7 +70,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 		self.startBtn.layer.borderWidth = 2.0					//枠線太さ
 		self.startBtn.layer.cornerRadius = 2.0					//枠線丸み
 		self.view.addSubview(self.startBtn)
-		self.startBtn.addTarget(self, action: #selector(self.buttonDidTap(_:)), for: .touchUpInside)
+		self.startBtn.addTarget(self, action: #selector(self.startButtonDidTap(_:)), for: .touchUpInside)
 		self.startBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()		//X軸中心を親Viewに合わせる
 			make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(bottomHeight)
@@ -66,11 +84,19 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 		bannerView.load(GADRequest())
 		bannerView.delegate = self
 	}
-	
+
+	/// howToUseBtn action
+	/// - Parameter sender:
+	/// - Authors: Nozomi Koyama
+	@objc func howToUseBtnDidTap(_ sender: UIButton) {
+		let howToUseViewController = HowToUseViewController()
+		self.present(howToUseViewController, animated: true)
+	}
+
 	/// startBtn action
 	/// - Parameter sender:
 	/// - Authors: Nozomi Koyama
-	@objc func buttonDidTap(_ sender: UIButton) {
+	@objc func startButtonDidTap(_ sender: UIButton) {
 		let setting1ViewController = Setting1ViewController()
 		self.navigationController?.pushViewController(setting1ViewController, animated: true)
 	}
@@ -95,7 +121,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }
