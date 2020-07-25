@@ -71,8 +71,8 @@ public func matchingMainLogic() {
 	for male in maleList {
 		for female in femaleList {
 			if( favoriteArray[male].second>=0 && favoriteArray[female].second>=0 ) {
-				if( favoriteArray[male].second == female &&
-					favoriteArray[female].second == male ) {
+				if( femaleArray[favoriteArray[male].second].index == female &&
+					maleArray[favoriteArray[female].second].index == male ) {
 					if( matchingList[male]<0 && matchingList[female]<0 ) {
 						matchingList[male] = female
 						matchingList[female] = male
