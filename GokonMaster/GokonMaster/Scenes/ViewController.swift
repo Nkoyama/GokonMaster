@@ -121,7 +121,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 								toItem: view,
 								attribute: .centerX,
 								multiplier: 1,
-								constant: 0)
-		])
+								constant: 0)]
+		)
 	}
 }

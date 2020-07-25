@@ -11,7 +11,7 @@ import SnapKit
 import GoogleMobileAds
 
 /// 使い方画面
-class HowToUseViewController: UIViewController {
+class HowToUseViewController: UIViewController, GADBannerViewDelegate {
 
 	// MARK: Views
 	let closeBtn		= UIButton()	// close button
@@ -21,6 +21,8 @@ class HowToUseViewController: UIViewController {
 	let howToUse2Text	= UILabel()
 	let howToUse3Label	= UILabel()
 	let howToUse3Text	= UILabel()
+
+	var bannerView: GADBannerView!
 
 	override func viewDidLoad() {
 
@@ -106,6 +108,14 @@ class HowToUseViewController: UIViewController {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(30)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+280)
 		}
+
+		// banner ad
+		bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+		addBannerViewToView(bannerView)
+		bannerView.adUnitID = adUnitID
+		bannerView.rootViewController = self
+		bannerView.load(GADRequest())
+		bannerView.delegate = self
 	}
 
 	/// closeBtn action
@@ -113,5 +123,29 @@ class HowToUseViewController: UIViewController {
 	/// - Authors: Nozomi Koyama
 	@objc func closeBtnDidTap(_ sender: UIButton) {
 		self.dismiss(animated: true, completion: nil)
+	}
+
+	/// make GADBannerView
+	/// - Parameter bannerView: GADBannerView
+	/// - Authors: Nozomi Koyama
+	func addBannerViewToView(_ bannerView: GADBannerView) {
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(bannerView)
+		view.addConstraints(
+			[NSLayoutConstraint(item: bannerView,
+								attribute: .bottom,
+								relatedBy: .equal,
+								toItem: view.safeAreaLayoutGuide,
+								attribute: .bottom,
+								multiplier: 1,
+								constant: 0),
+			 NSLayoutConstraint(item: bannerView,
+								attribute: .centerX,
+								relatedBy: .equal,
+								toItem: view,
+								attribute: .centerX,
+								multiplier: 1,
+								constant: 0)]
+		)
 	}
 }
