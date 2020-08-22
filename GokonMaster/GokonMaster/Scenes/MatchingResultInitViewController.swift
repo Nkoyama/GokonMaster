@@ -88,6 +88,16 @@ class MatchingResultInitViewController: UIViewController, UITextFieldDelegate, U
 		bannerView.delegate = self
 	}
 
+	/// TextField以外の部分をタッチした時の処理
+	/// - Parameters:
+	///   - touches: Set<UITouch>
+	///   - event: UIEvent
+	/// - Authors: Nozomi Koyama
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		// close keyboard
+		self.pinCodeTF.resignFirstResponder()
+	}
+
 	/// okBtn action
 	/// - Parameter sender: UIButton
 	/// - Authors: Nozomi Koyama
