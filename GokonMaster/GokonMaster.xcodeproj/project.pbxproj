@@ -45,6 +45,7 @@
 		43C1D58C2403CB72005A48AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58B2403CB72005A48AB /* SceneDelegate.swift */; };
 		43C1D58E2403CB72005A48AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1D58D2403CB72005A48AB /* ViewController.swift */; };
 		43C1D5932403CB76005A48AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C1D5922403CB76005A48AB /* Assets.xcassets */; };
+		43CA99A624E95FCF000A87D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43CA99A524E95FCF000A87D2 /* LaunchScreen.storyboard */; };
 		F742904016CCC80CAA04FA63 /* Pods_GokonMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A75579CD3B052D4D8F49BC2 /* Pods_GokonMaster.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		43C1D58D2403CB72005A48AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43C1D5922403CB76005A48AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43C1D5972403CB76005A48AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43CA99A524E95FCF000A87D2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73617424919DA148D2A9340F /* Pods-GokonMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.release.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.release.xcconfig"; sourceTree = "<group>"; };
 		73B8E147808EF5531B1E4A34 /* Pods-GokonMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GokonMaster.debug.xcconfig"; path = "Target Support Files/Pods-GokonMaster/Pods-GokonMaster.debug.xcconfig"; sourceTree = "<group>"; };
 		7A75579CD3B052D4D8F49BC2 /* Pods_GokonMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GokonMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 				43C1D58B2403CB72005A48AB /* SceneDelegate.swift */,
 				43C1D5922403CB76005A48AB /* Assets.xcassets */,
 				43C1D5972403CB76005A48AB /* Info.plist */,
+				43CA99A524E95FCF000A87D2 /* LaunchScreen.storyboard */,
 			);
 			path = GokonMaster;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43CA99A624E95FCF000A87D2 /* LaunchScreen.storyboard in Resources */,
 				43C1D5932403CB76005A48AB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,16 +506,17 @@
 			baseConfigurationReference = 73B8E147808EF5531B1E4A34 /* Pods-GokonMaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEVELOPMENT_TEAM = S37V2Q22DK;
 				INFOPLIST_FILE = GokonMaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -525,16 +530,17 @@
 			baseConfigurationReference = 73617424919DA148D2A9340F /* Pods-GokonMaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEVELOPMENT_TEAM = S37V2Q22DK;
 				INFOPLIST_FILE = GokonMaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.n.koyama.GokonMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
