@@ -121,6 +121,18 @@ class Setting1ViewController: UIViewController, UITextFieldDelegate, GADBannerVi
 		self.view.addSubview(self.tableTypeSC)
 		self.tableTypeSC.selectedSegmentIndex = 0
 		self.tableTypeSC.addTarget(self, action: #selector(self.tableTypeChanged(_:)), for: .valueChanged)
+		self.tableTypeSC.backgroundColor = UIColor.white
+		if #available(iOS 13.0, *) {
+			self.tableTypeSC.selectedSegmentTintColor = UIColor.init(red: 142/255,
+																	 green: 209/255,
+																	 blue: 224/255,
+																	 alpha: 0.7)
+		} else {
+			self.tableTypeSC.tintColor = UIColor.init(red: 142/255,
+													  green: 209/255,
+													  blue: 224/255,
+													  alpha: 0.7)
+		}
 		self.tableTypeSC.snp.makeConstraints { (make) in
 			make.width.equalTo(250)
 			make.centerX.equalToSuperview()
