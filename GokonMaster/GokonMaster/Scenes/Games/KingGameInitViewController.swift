@@ -94,11 +94,19 @@ class KingGameInitViewController: UIViewController, UINavigationControllerDelega
 	/// - Authors: Nozomi Koyama
 	@objc func startBtnDidTap(_ sender: UIButton) {
 		// assign jobs ※男女各2人以上
-		kingGameJobAssignMainLogic()
+		if( maleNum >= 2 && femaleNum >= 2) {
+			kingGameJobAssignMainLogic()
 
-		let kingGameJobAssignInitViewController = KingGameJobAssignInitViewController()
-		self.navigationController?.pushViewController(kingGameJobAssignInitViewController,
-													  animated: true)
+			let kingGameJobAssignInitViewController = KingGameJobAssignInitViewController()
+			self.navigationController?.pushViewController(kingGameJobAssignInitViewController,
+														  animated: true)
+		} else {
+			let alert = UIAlertController(title: "",
+										  message: "王様ゲームは男女それぞれ2人以上の場合にご利用いただけます。",
+										  preferredStyle:  UIAlertController.Style.alert)
+			alert.addAction(defaultAction)
+			present(alert, animated: true, completion: nil)
+		}
 	}
 
 	/// make GADBannerView
