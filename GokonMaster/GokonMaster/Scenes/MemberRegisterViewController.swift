@@ -89,6 +89,18 @@ class MemberRegisterViewController: UIViewController, UITextFieldDelegate, UIScr
 		self.view.addSubview(self.sexSC)
 		self.sexSC.selectedSegmentIndex = 0
 		self.sexSC.addTarget(self, action: #selector(self.sexChanged(_:)), for: .valueChanged)
+		self.sexSC.backgroundColor = UIColor.white
+		if #available(iOS 13.0, *) {
+			self.sexSC.selectedSegmentTintColor = UIColor.init(red: 142/255,
+															   green: 209/255,
+															   blue: 224/255,
+															   alpha: 0.7)
+		} else {
+			self.sexSC.tintColor = UIColor.init(red: 142/255,
+												green: 209/255,
+												blue: 224/255,
+												alpha: 0.7)
+		}
 		self.sexSC.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(160)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(topHeight+145)

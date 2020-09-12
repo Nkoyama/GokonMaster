@@ -44,6 +44,7 @@ class KingGameJobAssignInitViewController: UIViewController, UINavigationControl
 		self.message.numberOfLines = 3
 		self.message.text = "最初に登録した暗証番号を\n入力してください。\n"
 						  + "※未登録の場合はそのままOKをタップ。"
+		self.message.textColor = UIColor.black
 		self.view.addSubview(self.message)
 		self.message.snp.makeConstraints { (make) in
 			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).inset(40)
